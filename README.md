@@ -7,4 +7,6 @@ A private record of what happens at school for parents: bullying, IEP and 504 pr
 - Letters, email summaries and a PDF case binder
 - Everything stays on the parent's phone. No account, no server.
 
-Test version: https://biehl11b.github.io/kidarmor/
+Test version for feedback: https://biehl11b.github.io/kidarmor/
+
+© 2026 Joshua Biehl. All rights reserved. See LICENSE. Not open source.
