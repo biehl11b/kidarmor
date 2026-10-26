@@ -1,4 +1,4 @@
-# KidArmor
+# Kidscribe
 
 A private record of what happens at school for parents: bullying, IEP and 504 problems, calls, meetings and school emails.
 
@@ -9,4 +9,4 @@ A private record of what happens at school for parents: bullying, IEP and 504 pr
 
 Test version for feedback: https://biehl11b.github.io/kidarmor/
 
-© 2026 Joshua Biehl. All rights reserved. See LICENSE. Not open source.
+© 2026 Coastline Code LLC. All rights reserved. See LICENSE. Not open source.
