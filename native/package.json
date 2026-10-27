@@ -1,0 +1,10 @@
+{
+  "name": "kidarmor-native",
+  "private": true,
+  "version": "1.0.0",
+  "description": "KidArmor phone app (App Store and Google Play). Copyright (c) 2026 Coastline Code LLC. All rights reserved.",
+  "scripts": {
+    "www": "node scripts/prepare-www.mjs",
+    "patch": "node scripts/patch-native.mjs"
+  }
+}

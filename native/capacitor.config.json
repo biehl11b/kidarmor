@@ -1,0 +1,12 @@
+{
+  "appId": "com.coastlinecode.kidarmor",
+  "appName": "KidArmor",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "ios": { "contentInset": "never", "limitsNavigationsToAppBoundDomains": false },
+  "android": { "allowMixedContent": false },
+  "plugins": {
+    "LocalNotifications": { "iconColor": "#1f5d70" },
+    "SplashScreen": { "launchShowDuration": 600, "backgroundColor": "#1f5d70", "showSpinner": false }
+  }
+}
