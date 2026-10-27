@@ -1,0 +1,125 @@
++ node -v
+v22.23.3
++ xcodebuild -version
+Xcode 26.6
+Build version 17F113
+++ cat plugins.txt
++ npm install --no-audit --no-fund --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/ios @capacitor/android @capacitor/app @capacitor/filesystem @capacitor/share @capacitor/local-notifications @capacitor/splash-screen @capacitor/status-bar @capacitor-community/speech-recognition @capgo/capacitor-native-biometric @ebarooni/capacitor-calendar @capacitor/assets
+npm warn deprecated uuid@7.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+npm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+added 231 packages in 11s
++ npm ls --depth=0
+kidarmor-native@1.0.0 /Users/runner/work/kidarmor/kidarmor/native
+├── @capacitor-community/speech-recognition@7.0.1
+├── @capacitor/android@8.5.3
+├── @capacitor/app@8.1.2
+├── @capacitor/assets@3.0.5
+├── @capacitor/cli@8.5.3
+├── @capacitor/core@8.5.3
+├── @capacitor/filesystem@8.1.5
+├── @capacitor/ios@8.5.3
+├── @capacitor/local-notifications@8.3.1
+├── @capacitor/share@8.0.3
+├── @capacitor/splash-screen@8.0.2
+├── @capacitor/status-bar@8.0.4
+├── @capgo/capacitor-native-biometric@8.9.1
+└── @ebarooni/capacitor-calendar@8.10.0
+
++ node scripts/prepare-www.mjs
+capacitor core bundle: /Users/runner/work/kidarmor/kidarmor/native/node_modules/@capacitor/core/dist/capacitor.js [
+  'capacitor.js',
+  'capacitor.js.map',
+  'index.cjs.js',
+  'index.cjs.js.map',
+  'index.js',
+  'index.js.map'
+]
+www ready: [ 'index.html', 'vendor' ] [ 'capacitor.js', 'pdf-lib.min.js', 'pdf.min.js', 'pdf.worker.min.js' ]
++ '[' -d ios ']'
++ npx cap add ios
+✔ Adding native Xcode project in ios in 16.78ms
+✔ add in 17.14ms
+✔ Copying web assets from www to ios/App/App/public in 4.82ms
+✔ Creating capacitor.config.json in ios/App/App in 303.50μs
+✔ copy ios in 21.31ms
+✔ Updating iOS plugins in 921.92μs
+[warn] @capacitor-community/speech-recognition does not have a Package.swift
+[warn] Some installed Capacitor plugins are not compatible with SPM
+[info] Writing Package.swift
+[info] Found 9 Capacitor plugins for ios:
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update ios in 15.36ms
+[success] ios platform added!
+Follow the Developer Workflow guide to get building:
+https://capacitorjs.com/docs/basics/workflow
++ node scripts/patch-native.mjs ios
+iOS Info.plist patched
++ npx capacitor-assets generate --ios --iconBackgroundColor '#1f5d70' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b'
+Generating assets for ios
+CREATE ios icon /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png (31.67 KB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@1x~universal~anyany.png (113.25 KB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@2x~universal~anyany.png (113.25 KB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@3x~universal~anyany.png (113.25 KB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@1x~universal~anyany-dark.png (113.27 KB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@2x~universal~anyany-dark.png (113.27 KB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@3x~universal~anyany-dark.png (113.27 KB)
+
+
+Totals:
+ios: 7 generated, 711.23 KB total
++ npx cap sync ios
+✔ Copying web assets from www to ios/App/App/public in 5.89ms
+✔ Creating capacitor.config.json in ios/App/App in 516.00μs
+✔ copy ios in 22.73ms
+✔ Updating iOS plugins in 943.71μs
+[warn] @capacitor-community/speech-recognition does not have a Package.swift
+[warn] Some installed Capacitor plugins are not compatible with SPM
+[info] Writing Package.swift
+[info] Found 9 Capacitor plugins for ios:
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update ios in 18.91ms
+[info] Sync finished in 0.059s
++ cd ios/App
++ '[' -d App.xcworkspace ']'
++ T=(-project App.xcodeproj)
++ xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO -quiet build
+2026-10-27 19:59:19.957 xcodebuild[1371:7437] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols.swift
+
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/Assets.car
+
++ echo 'IOS SIMULATOR BUILD OK'
+IOS SIMULATOR BUILD OK
