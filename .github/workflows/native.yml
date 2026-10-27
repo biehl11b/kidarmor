@@ -30,6 +30,23 @@ jobs:
       - name: Save log
         if: always()
         run: bash native/scripts/push-log.sh android native/build-android.log ${{ job.status }}
+      - name: Enable virtual phone support
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Try it on a virtual Android phone
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          working-directory: native
+          script: bash scripts/ci-emulator.sh
+      - name: Save phone test results
+        if: always()
+        run: bash native/scripts/push-dir.sh android-emu native/emu
   ios:
     runs-on: macos-latest
     env:

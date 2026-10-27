@@ -20,7 +20,7 @@
           self._on=true;self._last="";
           self._h1=await SRP.addListener("partialResults",function(d){var t=(d&&d.matches&&d.matches[0])||"";if(!t)return;self._last=t;self.onresult&&self.onresult(res(t,false))});
           self._h2=await SRP.addListener("listeningState",function(d){if(d&&d.status==="stopped")self._finish()});
-          SRP.start({language:self.lang,partialResults:true,popup:false,maxResults:1}).then(function(r){if(r&&r.matches&&r.matches[0])self._last=r.matches[0];self._finish()}).catch(function(){self._finish()});
+          SRP.start({language:self.lang,partialResults:true,popup:false,maxResults:1}).then(function(r){if(r&&r.matches&&r.matches[0]){self._last=r.matches[0];self._finish()}}).catch(function(){self._finish()});
         }catch(e){self.onerror&&self.onerror({error:(e&&e.error)||"service-not-allowed"});self.onend&&self.onend()}
       })()};
     NSR.prototype._finish=function(){if(!this._on)return;this._on=false;try{this._h1&&this._h1.remove();this._h2&&this._h2.remove()}catch(e){}

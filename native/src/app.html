@@ -697,7 +697,7 @@ let filter="all",query="",pendingDelete=null;
 function needsAttention(){const t=today(),out=[];
   state.entries.forEach(e=>{
     if(e.kind==="comm"&&e.followup&&!e.resolved&&e.followup<t)out.push([`You haven't heard back from ${e.withwho}. Follow-up was due ${fmt(e.followup)}.`,"var(--high)"]);
-    if((e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response))out.push([`No answer from the school about the ${KINDS[e.kind].short.toLowerCase()} issue on ${fmt(e.date)}.`,"var(--med)"]);
+    if((e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response))out.push([`No answer from the school about the ${e.kind==="missed"?"IEP / 504":KINDS[e.kind].short.toLowerCase()} issue on ${fmt(e.date)}.`,"var(--med)"]);
     if(e.kind==="meeting"&&!e.recapSent&&e.agreed)out.push([`Send a recap letter for the ${fmt(e.date)} meeting so promises are in writing.`,"var(--accent)"]);});
   upcomingList().forEach(m=>{const h=(meetStart(m)-Date.now())/36e5;if(h>-1&&h<=168)out.unshift([`${m.title||m.mtype} ${h<24&&h>0?"is coming up":"on"} ${fmtWhen(m)}. Tap Record this meeting when it starts.`,"var(--k-meeting)"])});
   const unrep=state.entries.filter(e=>(e.kind==="incident"||e.kind==="missed")&&isNone(e.reported)).length;

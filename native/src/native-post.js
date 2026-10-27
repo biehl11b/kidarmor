@@ -22,7 +22,7 @@
     var s=meetStart(m),e=new Date(s.getTime()+(m.minutes||60)*60000),title=(m.title||m.mtype)+(state.child.name?" ("+state.child.name.split(" ")[0]+")":"");
     var notes=[m.who?"Who: "+m.who:"",m.link?"Join: "+m.link:"","Open KidArmor when it starts and tap Record this meeting."].filter(Boolean).join("\n");
     try{var alerts=[m.rem1,m.rem2].filter(function(x){return x!=null}).map(function(x){return -x});
-      await CAL.createEventWithPrompt({title:title,location:m.place||"",startDate:s.getTime(),endDate:e.getTime(),notes:notes,url:/^https?:/.test(m.link||"")?m.link:undefined,alertOffsetInMinutes:alerts.length?alerts:undefined});
+      await CAL.createEventWithPrompt({title:title,location:m.place||"",startDate:s.getTime(),endDate:e.getTime(),description:notes,url:/^https?:/.test(m.link||"")?m.link:undefined,alerts:alerts.length?alerts:undefined});
       m.calAddedAt=new Date().toISOString();save();renderHome();toast("Meeting added to your calendar.");return true}
     catch(err){if(/cancel/i.test((err&&err.message)||""))return false;
       var name=(m.title||m.mtype).replace(/[^\w .-]/g,"")+" "+m.date+".ics";var ok=await window.saveFile(name,new Blob([makeIcs(m)],{type:"text/calendar"}));
