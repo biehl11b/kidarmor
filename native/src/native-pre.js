@@ -7,8 +7,8 @@
   window.KA_PDFJS="vendor/";
   window.KA_HOME_URL="https://biehl11b.github.io/kidarmor/";
   /* Live transcript: use the phone's own speech recognizer when the web one isn't there */
-  if(!window.SpeechRecognition&&!window.webkitSpeechRecognition&&C.registerPlugin){
-    var SRP=C.registerPlugin("SpeechRecognition");
+  if(!window.SpeechRecognition&&!window.webkitSpeechRecognition&&(C.registerPlugin||C.Plugins)){
+    var SRP=C.registerPlugin?C.registerPlugin("SpeechRecognition"):C.Plugins.SpeechRecognition;
     var res=function(t,fin){var r=[{transcript:t}];r.isFinal=fin;return{resultIndex:0,results:[r]}};
     function NSR(){this.lang="en-US";this.continuous=true;this.interimResults=true;this._on=false;this._last=""}
     NSR.prototype.start=function(){var self=this;

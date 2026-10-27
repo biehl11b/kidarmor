@@ -5,7 +5,10 @@ const read = f => fs.readFileSync(path.join(root, f), "utf8");
 const app = read("src/app.html"), pre = read("src/native-pre.js"), post = read("src/native-post.js");
 fs.rmSync(path.join(root, "www"), { recursive: true, force: true });
 fs.mkdirSync(path.join(root, "www/vendor"), { recursive: true });
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no"><style>[hidden]{display:none!important}html,body{margin:0}</style><script>${pre}</script></head><body>${app}<script>${post}</script></body></html>`;
+const coreSrc = ["dist/capacitor.js", "dist/capacitor.min.js"].map(f => path.join(root, "node_modules/@capacitor/core", f)).find(f => fs.existsSync(f));
+if (coreSrc) fs.copyFileSync(coreSrc, path.join(root, "www/vendor/capacitor.js"));
+console.log("capacitor core bundle:", coreSrc || "NOT FOUND", fs.existsSync(path.join(root, "node_modules/@capacitor/core/dist")) ? fs.readdirSync(path.join(root, "node_modules/@capacitor/core/dist")) : []);
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no"><style>[hidden]{display:none!important}html,body{margin:0}</style>${coreSrc ? '<script src="vendor/capacitor.js"></script>' : ""}<script>${pre}</script></head><body>${app}<script>${post}</script></body></html>`;
 fs.writeFileSync(path.join(root, "www/index.html"), html);
 const libs = [
   ["https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js", "pdf-lib.min.js"],
