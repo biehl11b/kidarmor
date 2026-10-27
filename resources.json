@@ -1,0 +1,769 @@
+{
+ "version": 202610271955,
+ "updated": "2026-10-27",
+ "states": {
+  "AL": {
+   "pa": {
+    "name": "Alabama Disabilities Advocacy Program",
+    "url": "https://adap.ua.edu/",
+    "phone": "(205) 348-4928"
+   },
+   "pti": {
+    "name": "Alabama Parent Education Center",
+    "url": "https://alabamaparentcenter.com",
+    "phone": "(866) 532-7660"
+   },
+   "doe": {
+    "url": "https://www.alabamaachieves.org/special-education/"
+   }
+  },
+  "AK": {
+   "pa": {
+    "name": "Disability Law Center of Alaska",
+    "url": "https://www.dlcak.org/",
+    "phone": "(907) 565-1002"
+   },
+   "pti": {
+    "name": "Stone Soup Group",
+    "url": "https://www.stonesoupgroup.org",
+    "phone": "(907) 561-3701"
+   },
+   "doe": {
+    "url": "https://education.alaska.gov/sped"
+   }
+  },
+  "AZ": {
+   "pa": {
+    "name": "Disability Rights Arizona",
+    "url": "https://www.disabilityrightsaz.org/",
+    "phone": "(520) 327-9547"
+   },
+   "pti": {
+    "name": "Raising Special Kids",
+    "url": "https://raisingspecialkids.org",
+    "phone": "(800) 237-3007"
+   },
+   "doe": {
+    "url": "https://www.azed.gov/specialeducation"
+   }
+  },
+  "AR": {
+   "pa": {
+    "name": "Disability Rights Arkansas",
+    "url": "https://disabilityrightsar.org/",
+    "phone": "(501) 296-1775"
+   },
+   "pti": {
+    "name": "The Center for Exceptional Families",
+    "url": "https://thecenterforexceptionalfamilies.org",
+    "phone": "(888) 360-9654"
+   },
+   "doe": {
+    "url": "https://dese.ade.arkansas.gov/Offices/special-education/"
+   }
+  },
+  "CA": {
+   "pa": {
+    "name": "Disability Rights California",
+    "url": "https://www.disabilityrightsca.org/",
+    "phone": "(916) 504-5800"
+   },
+   "pti": {
+    "name": "Team of Advocates for Special Kids",
+    "url": "https://taskca.org",
+    "phone": "(866) 828-8275"
+   },
+   "doe": {
+    "url": "https://www.cde.ca.gov/sp/se/"
+   }
+  },
+  "CO": {
+   "pa": {
+    "name": "Disability Justice",
+    "url": "https://disabilityjustice.co",
+    "phone": "(303) 722-0300"
+   },
+   "pti": {
+    "name": "PEAK Parent Center",
+    "url": "https://www.peakparent.org",
+    "phone": "(800) 284-0251"
+   },
+   "doe": {
+    "url": "https://ed.cde.state.co.us/cdesped"
+   }
+  },
+  "CT": {
+   "pa": {
+    "name": "Disability Rights Connecticut",
+    "url": "https://www.disrightsct.org",
+    "phone": "(860) 297-4300"
+   },
+   "pti": {
+    "name": "Connecticut Parent Advocacy Center",
+    "url": "https://cpacinc.org",
+    "phone": "(860) 739-3089"
+   },
+   "doe": {
+    "url": "https://portal.ct.gov/sde/services/special-education"
+   }
+  },
+  "DE": {
+   "pa": {
+    "name": "Disability Rights Delaware/CLASI",
+    "url": "https://www.declasi.org/",
+    "phone": "(302) 575-0660"
+   },
+   "pti": {
+    "name": "Parent Information Center of Delaware",
+    "url": "https://picofdel.org",
+    "phone": "(888) 547-4412"
+   },
+   "doe": {
+    "url": "https://education.delaware.gov/legacy/home/instruction-and-assessment/exceptional-children/special-education/"
+   }
+  },
+  "FL": {
+   "pa": {
+    "name": "Disability Rights Florida",
+    "url": "https://www.disabilityrightsflorida.org/",
+    "phone": "(850) 488-9071"
+   },
+   "pti": {
+    "name": "Family Network on Disabilities of Florida",
+    "url": "https://fndusa.org",
+    "phone": "(800) 825-5736"
+   },
+   "doe": {
+    "url": "https://www.fldoe.org/academics/exceptional-student-edu/"
+   }
+  },
+  "GA": {
+   "pa": {
+    "name": "Georgia Advocacy Office",
+    "url": "https://www.thegao.org",
+    "phone": "(404) 885-1234"
+   },
+   "pti": {
+    "name": "Parent to Parent of Georgia",
+    "url": "https://www.p2pga.org",
+    "phone": "(800) 229-2038"
+   },
+   "doe": {
+    "url": "https://gadoe.org/special-education/"
+   }
+  },
+  "HI": {
+   "pa": {
+    "name": "Hawaii Disability Rights Center",
+    "url": "https://www.hawaiidisabilityrights.org",
+    "phone": "(808) 949-2922"
+   },
+   "pti": {
+    "name": "Leadership in Disabilities and Achievement of Hawaii",
+    "url": "https://www.ldahawaii.org",
+    "phone": "(808) 536-9684"
+   },
+   "doe": {
+    "url": "https://hawaiipublicschools.org/school-services/what-is-special-education/"
+   }
+  },
+  "ID": {
+   "pa": {
+    "name": "DisAbility Rights Idaho",
+    "url": "https://disabilityrightsidaho.org/",
+    "phone": "(208) 336-5353"
+   },
+   "pti": {
+    "name": "Idaho Parents Unlimited",
+    "url": "https://ipulidaho.org",
+    "phone": "(800) 242-4785"
+   },
+   "doe": {
+    "url": "https://www.sde.idaho.gov/about-us/departments/special-education/"
+   }
+  },
+  "IL": {
+   "pa": {
+    "name": "Equip for Equality",
+    "url": "https://www.equipforequality.org",
+    "phone": "(312) 341-0022"
+   },
+   "pti": {
+    "name": "Family Matters Parent Training and Information Center",
+    "url": "https://fmptic.org",
+    "phone": "(866) 436-7842"
+   },
+   "doe": {
+    "url": "https://www.isbe.net/specialeducation"
+   }
+  },
+  "IN": {
+   "pa": {
+    "name": "Indiana Disability Rights",
+    "url": "https://www.in.gov/idr/",
+    "phone": "(317) 722-5555"
+   },
+   "pti": {
+    "name": "IN*SOURCE",
+    "url": "https://insource.org",
+    "phone": "(574) 234-7101"
+   },
+   "doe": {
+    "url": "https://www.in.gov/doe/students/special-education"
+   }
+  },
+  "IA": {
+   "pa": {
+    "name": "Disability Rights Iowa",
+    "url": "https://disabilityrightsiowa.org/",
+    "phone": "(515) 278-2502"
+   },
+   "pti": {
+    "name": "ASK Resource Center",
+    "url": "https://www.askresource.org",
+    "phone": "(800) 450-8667"
+   },
+   "doe": {
+    "url": "https://educate.iowa.gov/pk-12/special-education"
+   }
+  },
+  "KS": {
+   "pa": {
+    "name": "Disability Rights Center of Kansas",
+    "url": "https://drckansas.org/",
+    "phone": "(785) 273-9661"
+   },
+   "pti": {
+    "name": "Families Together",
+    "url": "https://www.familiestogetherinc.org",
+    "phone": "(888) 815-6364"
+   },
+   "doe": {
+    "url": "https://www.ksde.gov/policy-and-funding/special-education"
+   }
+  },
+  "KY": {
+   "pa": {
+    "name": "Kentucky Protection and Advocacy",
+    "url": "https://www.kypa.net/",
+    "phone": "(502) 564-2967"
+   },
+   "pti": {
+    "name": "Kentucky Special Parent Involvement Network",
+    "url": "https://www.kyspin.com",
+    "phone": "(800) 525-7746"
+   },
+   "doe": {
+    "url": "https://education.ky.gov/specialed/excep"
+   }
+  },
+  "LA": {
+   "pa": {
+    "name": "Disability Rights Louisiana",
+    "url": "https://disabilityrightsla.org/",
+    "phone": "(504) 522-2337"
+   },
+   "pti": {
+    "name": "Louisiana Parent Training and Information Center",
+    "url": "https://fhfofgno.org/laptic",
+    "phone": "(800) 766-7736"
+   },
+   "doe": {
+    "url": "https://doe.louisiana.gov/families-and-students/family-support-resources/family-special-education-resources"
+   }
+  },
+  "ME": {
+   "pa": {
+    "name": "Disability Rights Maine",
+    "url": "https://www.drme.org",
+    "phone": "(207) 626-2774"
+   },
+   "pti": {
+    "name": "Maine Parent Federation",
+    "url": "https://mpf.org",
+    "phone": "(800) 870-7746"
+   },
+   "doe": {
+    "url": "https://www.maine.gov/doe/learning/specialed"
+   }
+  },
+  "MD": {
+   "pa": {
+    "name": "Disability Rights Maryland",
+    "url": "https://disabilityrightsmd.org/",
+    "phone": "(410) 727-6352"
+   },
+   "pti": {
+    "name": "The Parents' Place of Maryland",
+    "url": "https://www.ppmd.org",
+    "phone": "(800) 394-5694"
+   },
+   "doe": {
+    "url": "https://www.marylandpublicschools.org/programs/Pages/Special-Education/index.aspx"
+   }
+  },
+  "MA": {
+   "pa": {
+    "name": "Disability Law Center",
+    "url": "https://www.dlc-ma.org/",
+    "phone": "(617) 723-8455"
+   },
+   "pti": {
+    "name": "Federation for Children with Special Needs",
+    "url": "https://fcsn.org",
+    "phone": "(800) 331-0688"
+   },
+   "doe": {
+    "url": "https://www.doe.mass.edu/specialeducation/"
+   }
+  },
+  "MI": {
+   "pa": {
+    "name": "Disability Rights Michigan",
+    "url": "https://drmich.org/",
+    "phone": "(517) 487-1755"
+   },
+   "pti": {
+    "name": "Michigan Alliance for Families",
+    "url": "https://www.michiganallianceforfamilies.org",
+    "phone": "(800) 552-4821"
+   },
+   "doe": {
+    "url": "https://www.michigan.gov/mde/services/special-education"
+   }
+  },
+  "MN": {
+   "pa": {
+    "name": "Minnesota Disability Law Center",
+    "url": "https://www.mndlc.org",
+    "phone": "(612) 334-5970"
+   },
+   "pti": {
+    "name": "PACER Center",
+    "url": "https://www.pacer.org",
+    "phone": "(800) 537-2237"
+   },
+   "doe": {
+    "url": "https://education.mn.gov/MDE/dse/sped/"
+   }
+  },
+  "MS": {
+   "pa": {
+    "name": "Disability Rights Mississippi",
+    "url": "https://www.drms.ms/",
+    "phone": "(601) 968-0600"
+   },
+   "pti": {
+    "name": "Mississippi Parent Training and Information Center",
+    "url": "https://www.mspti.org",
+    "phone": "(800) 721-7255"
+   },
+   "doe": {
+    "url": "https://mdek12.org/specialeducation/resources-7/"
+   }
+  },
+  "MO": {
+   "pa": {
+    "name": "Missouri Protection and Advocacy Services",
+    "url": "https://www.moadvocacy.org/",
+    "phone": "(573) 893-3333"
+   },
+   "pti": {
+    "name": "Missouri Parents Act",
+    "url": "https://www.missouriparentsact.org",
+    "phone": "(800) 743-7634"
+   },
+   "doe": {
+    "url": "https://dese.mo.gov/special-education"
+   }
+  },
+  "MT": {
+   "pa": {
+    "name": "Disability Rights Montana",
+    "url": "https://www.disabilityrightsmt.org/",
+    "phone": "(406) 449-2344"
+   },
+   "pti": {
+    "name": "Parents, Let's Unite for Kids",
+    "url": "https://www.pluk.org",
+    "phone": "(800) 222-7585"
+   },
+   "doe": {
+    "url": "https://opi.mt.gov/Educators/School-Climate-Student-Wellness/Special-Education/index"
+   }
+  },
+  "NE": {
+   "pa": {
+    "name": "Disability Rights Nebraska",
+    "url": "https://www.disabilityrightsnebraska.org/",
+    "phone": "(402) 413-2016"
+   },
+   "pti": {
+    "name": "PTI Nebraska",
+    "url": "https://www.pti-nebraska.org",
+    "phone": "(800) 284-8520"
+   },
+   "doe": {
+    "url": "https://www.education.ne.gov/sped/"
+   }
+  },
+  "NV": {
+   "pa": {
+    "name": "Nevada Disability Advocacy and Law Center",
+    "url": "https://www.ndalc.org/",
+    "phone": "(702) 257-8150"
+   },
+   "pti": {
+    "name": "Nevada PEP",
+    "url": "https://www.nvpep.org",
+    "phone": "(800) 216-5188"
+   },
+   "doe": {
+    "url": "https://doe.nv.gov/offices/inclusive-education"
+   }
+  },
+  "NH": {
+   "pa": {
+    "name": "Disability Rights Center – NH",
+    "url": "https://www.drcnh.org/",
+    "phone": "(603) 228-0432"
+   },
+   "pti": {
+    "name": "Parent Information Center of New Hampshire",
+    "url": "https://www.picnh.org",
+    "phone": "(800) 947-7005"
+   },
+   "doe": {
+    "url": "https://education.nh.gov/who-we-are/division-of-learner-support/bureau-of-student-support"
+   }
+  },
+  "NJ": {
+   "pa": {
+    "name": "Disability Rights New Jersey",
+    "url": "https://disabilityrightsnj.org/",
+    "phone": "(609) 292-9742"
+   },
+   "pti": {
+    "name": "Statewide Parent Advocacy Network",
+    "url": "https://www.spanadvocacy.org",
+    "phone": "(800) 654-7726"
+   },
+   "doe": {
+    "url": "https://www.nj.gov/education/specialed/"
+   }
+  },
+  "NM": {
+   "pa": {
+    "name": "Disability Rights New Mexico",
+    "url": "https://www.drnm.org/",
+    "phone": "(505) 256-3100"
+   },
+   "pti": {
+    "name": "Parents Reaching Out",
+    "url": "https://www.parentsreachingout.org",
+    "phone": "(800) 524-5176"
+   }
+  },
+  "NY": {
+   "pa": {
+    "name": "Disability Rights New York",
+    "url": "https://www.drny.org/",
+    "phone": "(518) 432-7861"
+   },
+   "pti": {
+    "name": "Starbridge",
+    "url": "https://www.starbridgeinc.org",
+    "phone": "(585) 546-1700"
+   },
+   "doe": {
+    "url": "https://www.nysed.gov/special-education"
+   }
+  },
+  "NC": {
+   "pa": {
+    "name": "Disability Rights North Carolina",
+    "url": "https://www.disabilityrightsnc.org/",
+    "phone": "(919) 856-2195"
+   },
+   "pti": {
+    "name": "Exceptional Children's Assistance Center",
+    "url": "https://www.ecac-parentcenter.org",
+    "phone": "(800) 962-6817"
+   },
+   "doe": {
+    "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/exceptional-children"
+   }
+  },
+  "ND": {
+   "pa": {
+    "name": "North Dakota Protection & Advocacy Project",
+    "url": "https://www.ndpanda.org/",
+    "phone": "(701) 328-2950"
+   },
+   "pti": {
+    "name": "Pathfinder Parent Center",
+    "url": "https://www.pathfinder-nd.org",
+    "phone": "(800) 245-5840"
+   },
+   "doe": {
+    "url": "https://www.nd.gov/dpi/education-programs/special-education"
+   }
+  },
+  "OH": {
+   "pa": {
+    "name": "Disability Rights Ohio",
+    "url": "https://www.disabilityrightsohio.org/",
+    "phone": "(614) 466-7264"
+   },
+   "pti": {
+    "name": "Ohio Coalition for the Education of Children with Disabilities",
+    "url": "https://www.ocecd.org",
+    "phone": "(844) 382-5452"
+   },
+   "doe": {
+    "url": "https://education.ohio.gov/Topics/Special-Education"
+   }
+  },
+  "OK": {
+   "pa": {
+    "name": "Oklahoma Disability Law Center",
+    "url": "https://okdlc.org/",
+    "phone": "(405) 525-7755"
+   },
+   "pti": {
+    "name": "Oklahoma Parents Center",
+    "url": "https://www.oklahomaparentscenter.org",
+    "phone": "(877) 553-4332"
+   },
+   "doe": {
+    "url": "https://oklahoma.gov/education/services/special-education.html"
+   }
+  },
+  "OR": {
+   "pa": {
+    "name": "Disability Rights Oregon",
+    "url": "https://droregon.org/",
+    "phone": "(503) 243-2081"
+   },
+   "pti": {
+    "name": "FACT Oregon",
+    "url": "https://factoregon.org",
+    "phone": "(888) 988-3228"
+   },
+   "doe": {
+    "url": "https://www.oregon.gov/ode/students-and-family/SpecialEducation/Pages/default.aspx"
+   }
+  },
+  "PA": {
+   "pa": {
+    "name": "Disability Rights Pennsylvania",
+    "url": "https://www.disabilityrightspa.org/",
+    "phone": "(717) 236-8110"
+   },
+   "pti": {
+    "name": "PEAL Center",
+    "url": "https://www.pealcenter.org",
+    "phone": "(866) 950-1040"
+   },
+   "doe": {
+    "url": "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/special-education"
+   }
+  },
+  "RI": {
+   "pa": {
+    "name": "Disability Rights Rhode Island",
+    "url": "https://www.drri.org/",
+    "phone": "(401) 831-3150"
+   },
+   "pti": {
+    "name": "Rhode Island Parent Information Network",
+    "url": "https://www.ripin.org",
+    "phone": "(800) 464-3399"
+   },
+   "doe": {
+    "url": "https://ride.ri.gov/Special-Education"
+   }
+  },
+  "SC": {
+   "pa": {
+    "name": "Disability Rights South Carolina",
+    "url": "https://www.disabilityrightssc.org/",
+    "phone": "(803) 782-0639"
+   },
+   "pti": {
+    "name": "Family Connection of South Carolina",
+    "url": "https://www.familyconnectionsc.org",
+    "phone": "(800) 578-8750"
+   },
+   "doe": {
+    "url": "https://oses.ed.sc.gov/"
+   }
+  },
+  "SD": {
+   "pa": {
+    "name": "Disability Rights South Dakota",
+    "url": "https://drsdlaw.org/",
+    "phone": "(605) 224-8294"
+   },
+   "pti": {
+    "name": "South Dakota Parent Connection",
+    "url": "https://www.sdparent.org",
+    "phone": "(800) 640-4553"
+   },
+   "doe": {
+    "url": "https://doe.sd.gov/sped/"
+   }
+  },
+  "TN": {
+   "pa": {
+    "name": "Disability Rights Tennessee",
+    "url": "https://www.disabilityrightstn.org/",
+    "phone": "(615) 298-1080"
+   },
+   "pti": {
+    "name": "Support and Training for Exceptional Parents",
+    "url": "https://tnstep.info",
+    "phone": "(800) 280-7837"
+   },
+   "doe": {
+    "url": "https://www.tn.gov/education/families/student-support/special-education.html"
+   }
+  },
+  "TX": {
+   "pa": {
+    "name": "Disability Rights Texas",
+    "url": "https://www.disabilityrightstx.org/",
+    "phone": "(512) 454-4816"
+   },
+   "pti": {
+    "name": "Partners Resource Network",
+    "url": "https://prntexas.org",
+    "phone": "(800) 866-4726"
+   },
+   "doe": {
+    "url": "https://tea.texas.gov/special-populations-and-support/special-education"
+   }
+  },
+  "UT": {
+   "pa": {
+    "name": "Disability Law Center",
+    "url": "https://disabilitylawcenter.org/",
+    "phone": "(800) 662-9080"
+   },
+   "pti": {
+    "name": "Utah Parent Center",
+    "url": "https://utahparentcenter.org",
+    "phone": "(800) 468-1160"
+   },
+   "doe": {
+    "url": "https://schools.utah.gov/specialeducation"
+   }
+  },
+  "VT": {
+   "pa": {
+    "name": "Disability Rights Vermont",
+    "url": "https://www.disabilityrightsvt.org/",
+    "phone": "(802) 229-1355"
+   },
+   "pti": {
+    "name": "Vermont Family Network",
+    "url": "https://www.vermontfamilynetwork.org",
+    "phone": "(800) 800-4005"
+   },
+   "doe": {
+    "url": "https://education.vermont.gov/student-support/vermont-special-education"
+   }
+  },
+  "VA": {
+   "pa": {
+    "name": "disAbility Law Center of Virginia",
+    "url": "https://www.dlcv.org/",
+    "phone": "(804) 225-2042"
+   },
+   "pti": {
+    "name": "Parent Educational Advocacy Training Center",
+    "url": "https://peatc.org",
+    "phone": "(800) 869-6782"
+   },
+   "doe": {
+    "url": "https://www.doe.virginia.gov/programs-services/special-education"
+   }
+  },
+  "WA": {
+   "pa": {
+    "name": "Disability Rights Washington",
+    "url": "https://www.disabilityrightswa.org/",
+    "phone": "(206) 324-1521"
+   },
+   "pti": {
+    "name": "PAVE",
+    "url": "https://wapave.org",
+    "phone": "(800) 572-7368"
+   },
+   "doe": {
+    "url": "https://ospi.k12.wa.us/student-success/special-education"
+   }
+  },
+  "WV": {
+   "pa": {
+    "name": "Disability Rights of West Virginia",
+    "url": "https://www.drofwv.org/",
+    "phone": "(304) 346-0847"
+   },
+   "pti": {
+    "name": "West Virginia Parent Training and Information",
+    "url": "",
+    "phone": "(800) 281-1436"
+   },
+   "doe": {
+    "url": "https://wvde.us/academics/special-education"
+   }
+  },
+  "WI": {
+   "pa": {
+    "name": "Disability Rights Wisconsin",
+    "url": "https://www.disabilityrightswi.org",
+    "phone": "(800) 928-8778"
+   },
+   "pti": {
+    "name": "Wisconsin FACETS",
+    "url": "https://wifacets.org",
+    "phone": "(877) 374-0511"
+   },
+   "doe": {
+    "url": "https://dpi.wi.gov/sped"
+   }
+  },
+  "WY": {
+   "pa": {
+    "name": "Wyoming Protection & Advocacy System",
+    "url": "https://www.wypanda.com/",
+    "phone": "(307) 632-3496"
+   },
+   "pti": {
+    "name": "Wyoming Parent Information Center",
+    "url": "https://www.wpic.org",
+    "phone": "(800) 660-9742"
+   },
+   "doe": {
+    "url": "https://edu.wyoming.gov/parents/special-education/"
+   }
+  },
+  "DC": {
+   "pa": {
+    "name": "University Legal Services",
+    "url": "https://www.uls-dc.org/",
+    "phone": "(202) 547-0198"
+   },
+   "pti": {
+    "name": "Advocates for Justice and Education",
+    "url": "https://www.aje-dc.org",
+    "phone": "(888) 327-8060"
+   },
+   "doe": {
+    "url": "https://osse.dc.gov/page/special-education-students-disabilities"
+   }
+  }
+ },
+ "attorneys": []
+}
