@@ -1,0 +1,11 @@
+name: ping
+on: [push]
+permissions:
+  contents: write
+jobs:
+  ping:
+    if: github.ref == 'refs/heads/build-test'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          node -v; npm -v; java -version 2>&1 | head -1; echo "$ANDROID_HOME"; ls "$ANDROID_HOME" | head
