@@ -1,0 +1,69 @@
+10-27 20:01:03.095  1769  2573 W chromium: [1027/200103.094922:WARNING:dns_config_service_android.cc(81)] Failed to read DnsConfig.
+10-27 20:01:03.259   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderSearch} won't be persisted.
+10-27 20:01:03.259   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderDino} won't be persisted.
+10-27 20:01:03.259   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.searchwidget.SearchWidgetProvider} won't be persisted.
+10-27 20:01:04.669   522   552 I ActivityManager: Start proc 2745:com.android.chrome/u0a150 for service {com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService}
+10-27 20:01:05.117   522   552 I ActivityManager: Start proc 2793:com.google.android.webview:webview_service/u0a134 for service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+10-27 20:01:05.253   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderSearch} won't be persisted.
+10-27 20:01:05.255   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderDino} won't be persisted.
+10-27 20:01:05.261   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.searchwidget.SearchWidgetProvider} won't be persisted.
+10-27 20:01:05.444   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderSearch} won't be persisted.
+10-27 20:01:05.444   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderDino} won't be persisted.
+10-27 20:01:05.444   522   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.searchwidget.SearchWidgetProvider} won't be persisted.
+10-27 20:01:06.041   522   552 I ActivityManager: Start proc 2856:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+10-27 20:01:06.106  2570  2883 W chromium: [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+10-27 20:01:06.838  2570  2570 D Capacitor: Starting BridgeActivity
+10-27 20:01:06.870  2570  2570 D Capacitor: Registering plugin instance: CapacitorCookies
+10-27 20:01:06.882  2570  2570 D Capacitor: Registering plugin instance: WebView
+10-27 20:01:06.884  2570  2570 D Capacitor: Registering plugin instance: CapacitorHttp
+10-27 20:01:06.885  2570  2570 D Capacitor: Registering plugin instance: SystemBars
+10-27 20:01:06.888  2570  2570 D Capacitor: Registering plugin instance: SpeechRecognition
+10-27 20:01:06.897  2570  2570 D Capacitor: Registering plugin instance: App
+10-27 20:01:06.900  2570  2570 D Capacitor: Registering plugin instance: Filesystem
+10-27 20:01:06.908  2570  2570 D Capacitor: Registering plugin instance: LocalNotifications
+10-27 20:01:06.920  2570  2570 D Capacitor: Registering plugin instance: Share
+10-27 20:01:06.926  2570  2570 D Capacitor: Registering plugin instance: SplashScreen
+10-27 20:01:06.936  2570  2570 D Capacitor: Registering plugin instance: StatusBar
+10-27 20:01:06.943  2570  2570 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+10-27 20:01:06.943  2570  2570 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+10-27 20:01:06.944  2570  2570 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+10-27 20:01:06.944  2570  2570 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+10-27 20:01:06.944  2570  2570 D Capacitor: Registering plugin instance: NativeBiometric
+10-27 20:01:06.946  2570  2570 D Capacitor: Registering plugin instance: CapacitorCalendar
+10-27 20:01:06.951  2856  2856 I cr_WebViewApkApp: Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+10-27 20:01:07.078  2570  2570 W Capacitor: Unable to read file at path public/plugins
+10-27 20:01:07.086  2570  2570 D Capacitor: Loading app at https://localhost
+10-27 20:01:07.153  2570  2570 D Capacitor: App started
+10-27 20:01:07.182  2570  2570 D Capacitor/AppPlugin: Firing change: true
+10-27 20:01:07.182  2570  2570 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+10-27 20:01:07.182  2570  2570 D Capacitor/AppPlugin: No listeners found for event appStateChange
+10-27 20:01:07.227  2570  2570 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+10-27 20:01:07.229  2570  2570 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+10-27 20:01:07.230  2570  2570 D Capacitor: App resumed
+10-27 20:01:07.233   522   552 I ActivityManager: Start proc 3105:com.google.android.webview:webview_apk/u0a134 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+10-27 20:01:07.285  2570  2904 D Capacitor: Handling local request: https://localhost/
+10-27 20:01:07.840  2570  2570 I Capacitor/SpeechRecognition: Instantiated SpeechRecognizer in load()
+10-27 20:01:08.045  2570  2883 D Capacitor: Handling local request: https://localhost/vendor/capacitor.js
+10-27 20:01:08.544  2570  2570 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-27 20:01:08.550  2570  2570 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-27 20:01:08.551  2570  2570 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-27 20:01:08.835  2570  2570 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+10-27 20:01:09.756  3105  3249 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:48)
+10-27 20:01:13.445  2570  2570 I Capacitor/Console: File: https://localhost/ - Line 2676 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+10-27 20:01:13.449  2570  2570 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-27 20:01:13.652  2570  2570 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 40805934, pluginId: LocalNotifications, methodName: checkPermissions
+10-27 20:01:13.655  2570  2570 V Capacitor: callback: 40805934, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+10-27 20:01:13.656  2570  2570 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-27 20:01:13.658  2570  2570 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 40805935, pluginId: App, methodName: addListener
+10-27 20:01:13.665  2570  2570 V Capacitor: callback: 40805935, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+10-27 20:01:13.665  2570  2570 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-27 20:01:13.666  2570  2570 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 40805936, pluginId: App, methodName: addListener
+10-27 20:01:13.666  2570  2570 V Capacitor: callback: 40805936, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+10-27 20:01:13.742  2570  2883 D Capacitor: Handling local request: https://localhost/favicon.ico
+10-27 20:01:16.064  2570  2570 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+10-27 20:01:16.066  2570  2570 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 40805937, pluginId: LocalNotifications, methodName: checkPermissions
+10-27 20:01:16.073  2570  2570 V Capacitor: callback: 40805937, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+10-27 20:01:16.105  2570  2570 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+10-27 20:01:16.107  2570  2570 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+10-27 20:01:16.596  2570  2904 W necode.kidarmor: Long monitor contention with owner ThreadPoolForeg (2883) at org.chromium.net.AndroidCertVerifyResult OB0.h(byte[][], java.lang.String, java.lang.String)(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:242) waiters=0 in org.chromium.net.AndroidCertVerifyResult OB0.h(byte[][], java.lang.String, java.lang.String) for 468ms
+10-27 20:01:29.505  2570  2570 D InputMethodManager: showSoftInput() view=com.getcapacitor.CapacitorWebView{da7cff4 VFEDHVC.. .F...... 0,0-1080,2209 #7f0901fd app:id/webview aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT

@@ -1,0 +1,1 @@
+KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
