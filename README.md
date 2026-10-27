@@ -1,4 +1,4 @@
-# Kidscribe
+# KidArmor
 
 A private record of what happens at school for parents: bullying, IEP and 504 problems, calls, meetings and school emails.
 
