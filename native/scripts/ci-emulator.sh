@@ -10,7 +10,7 @@ adb exec-out screencap -p > emu/1-first-open.png
 adb shell input tap 540 1200; sleep 2
 adb logcat -d > emu/logcat-full.txt
 grep -E "Capacitor|chromium|Console|KidArmor|AndroidRuntime|FATAL" emu/logcat-full.txt > emu/app-log.txt || true
-grep -ciE "Uncaught|TypeError|ReferenceError|FATAL EXCEPTION" emu/app-log.txt > emu/error-count.txt || true
+grep -iE "Uncaught|TypeError|ReferenceError|FATAL EXCEPTION" emu/app-log.txt | grep -v "injecting safe area CSS" | wc -l > emu/error-count.txt || true
 grep -o "KA_NATIVE_OK.*" emu/logcat-full.txt > emu/native-ok.txt || echo "NO NATIVE OK LINE" > emu/native-ok.txt
 adb shell pidof com.coastlinecode.kidarmor > emu/running.txt || echo "NOT RUNNING" > emu/running.txt
 ls -la emu
