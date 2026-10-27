@@ -13,6 +13,7 @@ Marketing URL (optional): https://biehl11b.github.io/kidarmor/
 
 ## Name and short text
 
+- **Support email:** info@coastlinecode.com
 - **App name (30 characters max):** KidArmor
 - **Subtitle (Apple, 30 max):** School records for parents
 - **Short description (Google, 80 max):** Log bullying, IEP & 504 problems, record school meetings, and keep it private.
