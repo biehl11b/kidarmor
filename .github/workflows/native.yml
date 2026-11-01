@@ -22,7 +22,18 @@ jobs:
         with: { distribution: temurin, java-version: 21 }
       - name: Build Android test app
         working-directory: native
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
         run: bash scripts/ci-android.sh 2>&1 | tee build-android.log
+      - name: Keep store bundle (private download from the run page)
+        if: hashFiles('native/out/KidArmor-store.aab') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: KidArmor-store-bundle
+          path: native/out/KidArmor-store.aab
+          retention-days: 30
       - name: Publish test APK
         run: |
           gh release delete android-test -y --cleanup-tag || true
