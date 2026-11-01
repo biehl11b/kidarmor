@@ -5,9 +5,9 @@ Bundle ID / package name: **com.coastlinecode.kidarmor**
 Copyright: **2026 Coastline Code LLC**
 Price: **Free** (no in-app purchases, no ads)
 
-Privacy policy URL: https://biehl11b.github.io/kidarmor/privacy.html
-Support URL: https://biehl11b.github.io/kidarmor/support.html
-Marketing URL (optional): https://biehl11b.github.io/kidarmor/
+Privacy policy URL: https://kidarmor.coastlinecode.com/privacy.html
+Support URL: https://kidarmor.coastlinecode.com/support.html
+Marketing URL (optional): https://kidarmor.coastlinecode.com/
 
 ---
 

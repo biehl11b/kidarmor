@@ -514,7 +514,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Emails that attach the photos and the PDF binder for you</li>
       </ul>
     </div>
-    <p class="note" style="text-align:center">KidArmor™ preview · © 2026 Coastline Code LLC. All rights reserved.<br>Shared for testing and feedback only. Please don't copy or redistribute.<br><a href="https://biehl11b.github.io/kidarmor/privacy.html" target="_blank" rel="noopener">Privacy policy</a> · <a href="https://biehl11b.github.io/kidarmor/support.html" target="_blank" rel="noopener">Help</a> · <a href="mailto:info@coastlinecode.com">info@coastlinecode.com</a></p>
+    <p class="note" style="text-align:center">KidArmor™ preview · © 2026 Coastline Code LLC. All rights reserved.<br>Shared for testing and feedback only. Please don't copy or redistribute.<br><a href="https://kidarmor.coastlinecode.com/privacy.html" target="_blank" rel="noopener">Privacy policy</a> · <a href="https://kidarmor.coastlinecode.com/support.html" target="_blank" rel="noopener">Help</a> · <a href="mailto:info@coastlinecode.com">info@coastlinecode.com</a></p>
   </section>
 </main>
 
@@ -1647,7 +1647,7 @@ return{parseEmailText,isFromParent,emailTitle,splitAddress};
 
 /* ---------- record a meeting (explains the phone feature; web attaches a recording) ---------- */
 const ANNOUNCE="Before we start, I want everyone to know I'm recording this meeting so I have an accurate record of what we discuss. Is everyone okay with that?";
-const HOME_URL=window.KA_HOME_URL||"https://biehl11b.github.io/kidarmor/";
+const HOME_URL=window.KA_HOME_URL||"https://kidarmor.coastlinecode.com/";
 function openRecordInfo(){
   if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}
   const framed=(()=>{try{return window.self!==window.top}catch(e){return true}})();

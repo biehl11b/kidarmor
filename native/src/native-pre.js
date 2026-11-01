@@ -5,7 +5,7 @@
   if(!window.KA_NATIVE)return;
   window.KA_PDFLIB="vendor/pdf-lib.min.js";
   window.KA_PDFJS="vendor/";
-  window.KA_HOME_URL="https://biehl11b.github.io/kidarmor/";
+  window.KA_HOME_URL="https://kidarmor.coastlinecode.com/";
   /* Live transcript: use the phone's own speech recognizer when the web one isn't there */
   if(!window.SpeechRecognition&&!window.webkitSpeechRecognition&&(C.registerPlugin||C.Plugins)){
     var SRP=C.registerPlugin?C.registerPlugin("SpeechRecognition"):C.Plugins.SpeechRecognition;
