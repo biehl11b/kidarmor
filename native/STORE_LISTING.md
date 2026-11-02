@@ -128,3 +128,7 @@ iPhone 6.7"/6.9" (1290 × 2796) and Android phone screenshots are in `native/sto
 4. Reports tab
 5. Resources
 6. Log something new
+
+---
+
+Security review: completed November 2, 2026 (input sanitizing, bundled libraries, content security policy, signed teacher updates, PIN lockout).
