@@ -59,7 +59,7 @@ jobs:
         if: always()
         run: bash native/scripts/push-dir.sh android-emu native/emu
   ios:
-    runs-on: macos-latest
+    runs-on: macos-15
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
