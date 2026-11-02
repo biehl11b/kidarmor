@@ -678,9 +678,14 @@ function scrub(o,depth){if(depth>12||o===null||typeof o!=="object")return o;
     if(k==="url"||k==="web"||k==="href"||k==="link"){if(typeof v==="string"&&v&&!/^(https?:|mailto:|tel:)/i.test(v.trim()))o[k]="";continue}
     if(v&&typeof v==="object")scrub(v,depth+1)}
   return o}
-function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
-  if(Array.isArray(s.entries))s.entries=s.entries.filter(e=>e&&typeof e==="object"&&KINDS[e.kind]);
+/* fields that must be text: anything else (numbers, objects) becomes text or empty, so bad data can't crash the app */
+const TEXT_KEYS=new Set(["name","school","grade","parent","myemail","contact","teacher","district","desc","title","place","involved","witnesses","injury","reported","response","classname","staff","impact","direction","emailFrom","emailTo","emailCc","subject","attendees","agreed","actions","withwho","method","transcript","parentNote","originalDesc","summaryDesc","what","note","grades","text","type","file","kind","accom","vtype","mtype","who","sharedBy","sharedAt","caseId","updateId"]);
+function coerce(o,depth){if(depth>12||!o||typeof o!=="object")return;if(Array.isArray(o)){o.forEach(x=>coerce(x,depth+1));return}
+  for(const k of Object.keys(o)){const v=o[k];if(TEXT_KEYS.has(k)&&v!=null&&typeof v!=="string"&&typeof v!=="object")o[k]=String(v);else if(TEXT_KEYS.has(k)&&v&&typeof v==="object"&&k!=="text")o[k]="";else if(v&&typeof v==="object")coerce(v,depth+1)}}
+function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);coerce(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
+  if(Array.isArray(s.entries))s.entries=s.entries.filter(e=>e&&typeof e==="object"&&typeof e.kind==="string"&&Object.prototype.hasOwnProperty.call(KINDS,e.kind));
   for(const k of ["reports","health","docs","entries"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
+  for(const list of [s.entries,s.docs,s.reports])(list||[]).forEach(x=>{if(x&&typeof x==="object"){for(const fk of ["files","recordings"]){if(x[fk]!=null&&!Array.isArray(x[fk]))x[fk]=[];(x[fk]||[]).forEach(f=>{if(f&&typeof f==="object"){f.name=String(f.name??"File");f.type=typeof f.type==="string"?f.type:"application/octet-stream"}});if(x[fk])x[fk]=x[fk].filter(f=>f&&typeof f==="object")}}});
   s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
   s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;return n});return s}
 function load(){
@@ -1891,7 +1896,7 @@ async function fromAppChild(c,files,parent){
 $("#v-res").addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const t=b.dataset.copy;
   navigator.clipboard.writeText(t).then(()=>toast("Copied "+t)).catch(()=>{const n=b.parentElement.querySelector(".num");if(n){const r=document.createRange();r.selectNodeContents(n);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("Selected. Use your phone's Copy button.")})});
 async function makeShareFile(){save();const copy=JSON.parse(JSON.stringify(state));copy.entries.forEach(e=>{delete e.parentNote;delete e.originalDesc});
-  copy.readOnly=true;copy.sharedBy=state.child.parent||"A parent";copy.sharedAt=new Date().toISOString();copy.example=false;
+  delete copy.updKey;delete copy.invites;copy.readOnly=true;copy.sharedBy=state.child.parent||"A parent";copy.sharedAt=new Date().toISOString();copy.example=false;
   const code=shareCode();const text=await sealJson({child:copy,files:await packFiles(caseFiles(state))},code,"share");
   const ok=await saveFile(`KidArmor-${(state.child.name||"case").replace(/[^\w ]+/g,"").trim()}-${today()}.json`,text);return ok?code:null}
 $("#pcLink").onclick=e=>startCaseLink("computer",e.currentTarget);
@@ -2209,7 +2214,7 @@ function caseForLink(c,purpose){const copy=JSON.parse(JSON.stringify(c));
     if(purpose==="advocate"){delete e.parentNote;delete e.originalDesc}});
   copy.docs.forEach(d=>{const n=(d.files||[]).length;if(n)d.onPhone=n;d.files=[]});
   (copy.reports||[]).forEach(r=>{const n=(r.files||[]).length;if(n)r.onPhone=n;r.files=[]});if(purpose==="advocate")delete copy.health;
-  delete copy.upcoming;delete copy.updKey;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
+  delete copy.upcoming;delete copy.updKey;delete copy.invites;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
   copy.sharedBy=purpose==="advocate"?(c.child.parent||"A parent"):"your phone";copy.fromPhone=purpose!=="advocate";copy.caseId=c.caseId;return copy}
 async function makeCaseLink(purpose){save();if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
   const code=linkCode(),raw=enc.encode(JSON.stringify(caseForLink(state,purpose)));
@@ -2285,9 +2290,9 @@ function promptMoveLink(){const m=(location.hash||"").match(/^#move=([A-Za-z0-9_
       <p class="note">Your entries, summaries, transcripts and plan come along. Photos and documents added in the preview need to be added again here.</p>
       <button class="btn primary wide" id="mvGo" type="button">Bring it here</button><button class="btn ghost" id="mvNo" type="button">Not now</button>`);
     sh.querySelector("#mvNo").onclick=()=>{clear();closeSheet()};
-    sh.querySelector("#mvGo").onclick=()=>{save();for(const c0 of v.cases){const c=migrate(c0);const i=root.cases.findIndex(x=>!x.readOnly&&x.caseId&&x.caseId===c.caseId);if(i>=0)root.cases[i]=c;else root.cases.push(c)}
+    sh.querySelector("#mvGo").onclick=()=>{save();for(const c0 of v.cases){const c=migrate(c0);if(root.cases.some(x=>x.caseId&&x.caseId===c.caseId)){c.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,8);c.child.name=(c.child.name||"Case")+" (moved copy)"}delete c.updKey;delete c.invites;root.cases.push(c)}
       root.cases=root.cases.filter(x=>x.readOnly||x.child.name||x.entries.length);if(!root.cases.length)root.cases=[blank()];
-      root.active=Math.max(0,root.cases.findIndex(x=>x.caseId===v.cases[0].caseId));state=root.cases[root.active];save();clear();closeSheet();filter="all";show("home");
+      root.active=root.cases.length-v.cases.length>=0?root.cases.length-v.cases.length:0;state=root.cases[root.active];save();clear();closeSheet();filter="all";show("home");
       toast("Your case is here. You can use Face ID, recording and reminders now.");setTimeout(()=>{if(needsWizard())openWizard();else if(!state.setupDone2){state.setupDone2=true;state.setupDone=true;save();openFirstSetup()}},900)}}).catch(()=>{clear();toast("That link couldn't be opened or has expired. Try Open KidArmor again from the preview.")});
   return true}
 function initFramed(){if(!isFramed())return;$("#framedBar").hidden=false;
@@ -2437,13 +2442,12 @@ async function unpackObj(s){const u8=unb64u(s.slice(1));return JSON.parse(dec.de
 const UPD_FIELDS=["id","from","role","org","child","date","kind","text","k","sent"];
 async function updSig(secret,u){const key=await crypto.subtle.importKey("raw",unb64u(secret),{name:"HMAC",hash:"SHA-256"},false,["sign"]);
   return b64u(new Uint8Array(await crypto.subtle.sign("HMAC",key,enc.encode(JSON.stringify(UPD_FIELDS.map(f=>String(u[f]??"")))))))}
-function caseUpdKey(c){if(!c.updKey){c.updKey=b64u(crypto.getRandomValues(new Uint8Array(18)))}return c.updKey}
-async function updVerified(u){try{if(!u||!u.sig||!u.k)return null;const c=root.cases.find(x=>!x.readOnly&&x.caseId===u.k&&x.updKey);if(!c)return null;
-  return (await updSig(c.updKey,u))===u.sig?c:null}catch(e){return null}}
+function newInvite(c){c.invites=Array.isArray(c.invites)?c.invites:[];const inv={id:"i"+b64u(crypto.getRandomValues(new Uint8Array(9))),key:b64u(crypto.getRandomValues(new Uint8Array(18))),at:new Date().toISOString()};c.invites.push(inv);if(c.invites.length>50)c.invites=c.invites.slice(-50);return inv}
+async function updVerified(u){try{if(!u||!u.sig||!u.k)return null;for(const c of root.cases){if(c.readOnly||!Array.isArray(c.invites))continue;const inv=c.invites.find(i=>i&&i.id===u.k&&!i.revoked);if(inv&&(await updSig(inv.key,u))===u.sig)return c}return null}catch(e){return null}}
 function hashMode(){const h=location.hash||"";if(/^#send(=|$)/.test(h))return"send";if(/^#upd=/.test(h))return"upd";return""}
 /* parent: invite a teacher */
 async function inviteLink(){const c=state.child;if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
-  const sk=caseUpdKey(state);save();return LINKBASE()+"#send="+await packObj({c:(c.name||"").split(" ")[0],p:(c.parent||"").split(" ")[0],k:state.caseId,s:sk})}
+  const inv=newInvite(state);save();return LINKBASE()+"#send="+await packObj({c:(c.name||"").split(" ")[0],p:(c.parent||"").split(" ")[0],k:inv.id,s:inv.key})}
 async function openInvite(){if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}
   if(!state.child.name){toast("Add your child's name first.");return}
   const url=await inviteLink(),first=state.child.name.split(" ")[0];
@@ -2451,7 +2455,7 @@ async function openInvite(){if(state.readOnly){toast("This case was shared with 
     <p class="note">Send this link to a teacher, counselor, nurse or doctor. They don't need the app or an account. They write an update and send it back to you as a link. When you tap it, KidArmor asks before adding it to ${esc(first)}'s case.</p>
     <button class="btn primary wide" id="ivShare" type="button">Send the link</button>
     <button class="btn light wide" id="ivCopy" type="button">Copy the link</button>
-    <p class="note">The link only includes ${esc(first)}'s first name. It can't see or change anything in your case, and updates sent with it are marked as confirmed.</p>
+    <p class="note">The link only includes ${esc(first)}'s first name. It can't see or change anything in your case, and updates sent with it are marked as coming from your link.</p>
     <button class="btn ghost" id="ivDone" type="button">Done</button>`);
   sh.querySelector("#ivDone").onclick=closeSheet;
   sh.querySelector("#ivCopy").onclick=async()=>{try{await navigator.clipboard.writeText(url);toast("Link copied")}catch(e){toast("Couldn't copy here. Use Send instead.")}};
@@ -2509,7 +2513,7 @@ async function promptUpdateLink(){const m=(location.hash||"").match(/^#upd=([A-Z
   const dup=kids.some(x=>x.c.entries.some(e=>e.updateId===u.id));
   const sh=openSheet(`<h3>Update from ${esc(u.from)}</h3>
     <p class="note">${esc(u.role)}${u.org?" · "+esc(u.org):""} · ${esc(fmt(u.date))}</p>
-    ${verified?`<div class="banner info">✓ Sent through the update link you shared from this phone.</div>`:`<div class="banner">Check who sent this. It didn't come through an update link from this phone, so KidArmor can't confirm it's from ${esc(u.from||"the person named")}. Only add it if you trust where it came from.</div>`}
+    ${verified?`<div class="banner info">✓ Sent with an update link you shared from this phone. Anyone you gave that link to can send updates, so check the name makes sense.</div>`:`<div class="banner">Check who sent this. It didn't come through an update link from this phone, so KidArmor can't confirm it's from ${esc(u.from||"the person named")}. Only add it if you trust where it came from.</div>`}
     <div class="tbox"><b>${esc(u.kind)} · about ${esc(u.child)}</b><p style="margin:6px 0 0;white-space:pre-wrap">${esc(u.text)}</p></div>
     ${dup?`<div class="banner">This update is already in your case.</div>`:""}
     ${kids.length>1?`<label for="upKid">Add it to<select id="upKid">${kids.map(x=>`<option value="${x.i}"${x===pick?" selected":""}>${esc(x.c.child.name)}</option>`).join("")}</select></label>`:`<p class="note">It will be saved in ${esc(pick.c.child.name)}'s case as a contact from the school.</p>`}
@@ -2682,5 +2686,5 @@ function showTerms(after){if(window.KA_NATIVE){after&&after();return}try{if(wind
   const w=document.querySelector(".sheetwrap");if(w)w.dataset.lock="1";
   sh.querySelector("#termsOk").onclick=()=>{try{localStorage.setItem(TERMSKEY,new Date().toISOString())}catch(e){}closeSheet();after&&after()}}
 /* ---------- start ---------- */
-if(hashMode()==="send"){openSenderPage()}else{renderWho();resetForm();show("home");initLock();recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(promptMoveLink())return;if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
+if(hashMode()==="send"){openSenderPage()}else{try{initLock()}catch(e){}try{renderWho();resetForm();show("home")}catch(e){console.error(e)}recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(promptMoveLink())return;if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
 </script>
