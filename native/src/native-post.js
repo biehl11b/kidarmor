@@ -15,9 +15,12 @@
   function b64(blob){return new Promise(function(ok,no){var r=new FileReader();r.onload=function(){ok(String(r.result).split(",")[1])};r.onerror=no;r.readAsDataURL(blob)})}
   window.saveFile=async function(filename,data){
     try{var blob=data instanceof Blob?data:new Blob([data]);var name=String(filename).replace(/[\\/:*?"<>|]+/g,"-");
-      var w=await FS.writeFile({path:name,data:await b64(blob),directory:"CACHE"});
+      var w=await FS.writeFile({path:"kidarmor-out/"+name,data:await b64(blob),directory:"CACHE",recursive:true});
       await SH.share({title:name,files:[w.uri]});return true}
     catch(e){if(/cancel/i.test((e&&e.message)||""))return false;toast("Couldn't save the file.");return false}};
+  /* "Erase everything": remove files this app saved for sharing, and pending reminders */
+  window.KA_NATIVE_WIPE=async function(){try{await FS.rmdir({path:"kidarmor-out",directory:"CACHE",recursive:true})}catch(e){}
+    try{var LN=P("LocalNotifications");var p=await LN.getPending();if(p&&p.notifications&&p.notifications.length)await LN.cancel({notifications:p.notifications.map(function(n){return{id:n.id}})})}catch(e){}};
   /* phone calendar: add the meeting with its two reminders */
   window.addToCalendar=async function(m){
     var s=meetStart(m),e=new Date(s.getTime()+(m.minutes||60)*60000),title=(m.title||m.mtype)+(state.child.name?" ("+state.child.name.split(" ")[0]+")":"");
@@ -50,7 +53,9 @@
   document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="http"]');if(!a||e.defaultPrevented)return;
     if(a.target==="_blank"){e.preventDefault();window.location.href=a.href}},true);
   /* links from teachers and the computer: kidarmor://open#upd=... */
-  APP.addListener("appUrlOpen",function(d){var u=(d&&d.url)||"";var i=u.indexOf("#");if(i>=0){location.hash=u.slice(i)}});
+  APP.addListener("appUrlOpen",function(d){var u=(d&&d.url)||"";var i=u.indexOf("#");if(i<0)return;var h=u.slice(i);
+    /* only teacher updates and shared-case links may arrive from outside the app; never move links */
+    if(/^#(upd|open)=[A-Za-z0-9_.-]{1,60000}$/.test(h)){location.hash=h}});
   /* Android back button */
   APP.addListener("backButton",function(){
     var v=document.querySelector(".viewer");if(v){try{closeViewer()}catch(e){}return}

@@ -532,7 +532,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 /* ---------- helpers ---------- */
 const KEY="papertrail.v3";
 const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const iso=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*6e4);return z.toISOString().slice(0,10)};
 const today=()=>iso(new Date());
 const daysAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return iso(d)};
@@ -567,7 +567,7 @@ async function storeUpload(file){
   return{id,name:file.name||"File",type:file.type||"",thumb,size:file.size}}
 function shrink(file,max){return new Promise((res,rej)=>{const u=URL.createObjectURL(file),img=new Image();img.onload=()=>{const s=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL("image/jpeg",.72))};img.onerror=()=>{URL.revokeObjectURL(u);rej()};img.src=u})}
 function fileTile(f,i,removable){const isImg=f.type.startsWith("image/")||f.inline;
-  return`<button type="button" class="file" data-view="${i}" aria-label="Open ${esc(f.name)}"><span class="pv">${isImg&&f.thumb?`<img src="${f.thumb}" alt="">`:f.type==="application/pdf"?PDF_ICON:(f.type||"").startsWith("audio/")?AUDIO_ICON:DOC_ICON}</span><span class="nm">${esc(f.name)}</span>${removable?`<span class="rm" data-rmfile="${i}" role="button" aria-label="Remove ${esc(f.name)}">×</span>`:""}</button>`}
+  return`<button type="button" class="file" data-view="${i}" aria-label="Open ${esc(f.name)}"><span class="pv">${isImg&&f.thumb?`<img src="${SAFE_IMG.test(f.thumb||"")?f.thumb:""}" alt="">`:f.type==="application/pdf"?PDF_ICON:(f.type||"").startsWith("audio/")?AUDIO_ICON:DOC_ICON}</span><span class="nm">${esc(f.name)}</span>${removable?`<span class="rm" data-rmfile="${i}" role="button" aria-label="Remove ${esc(f.name)}">×</span>`:""}</button>`}
 
 /* ---------- viewer ---------- */
 let viewerUrls=[];
@@ -579,7 +579,7 @@ async function openViewer(f){closeViewer();const v=document.createElement("div")
   try{
     if(f.download)$("#vdl").onclick=()=>saveFile(f.name,f.blob);
     if(f.blob){await renderPdf(f.blob,body);return}
-    if(f.inline){body.innerHTML=`<img src="${f.thumb}" alt="${esc(f.name)}">`;return}
+    if(f.inline){body.innerHTML=`<img src="${SAFE_IMG.test(f.thumb||"")?f.thumb:""}" alt="${esc(f.name)}">`;return}
     const rec=await getFile(f.id);if(!rec)throw new Error("missing");
     if(rec.type.startsWith("image/")){const u=URL.createObjectURL(rec.blob);viewerUrls.push(u);body.innerHTML=`<img src="${u}" alt="${esc(f.name)}">`;return}
     if((rec.type||"").startsWith("audio/")){const u=URL.createObjectURL(rec.blob);viewerUrls.push(u);body.innerHTML=`<audio controls preload="metadata" src="${u}"></audio><button type="button" class="btn primary" id="vsave" style="margin:0 auto">Save to my phone</button>`;body.querySelector("#vsave").onclick=()=>saveRecordingToPhone(f);return}
@@ -588,11 +588,14 @@ async function openViewer(f){closeViewer();const v=document.createElement("div")
   }catch(e){body.innerHTML=`<p class="vmsg">${e.message==="missing"?"This file isn't on this phone anymore.":"Couldn't open this file."}</p>`}}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeViewer()});
 const loadScript=src=>new Promise((res,rej)=>{if(document.querySelector(`script[src="${src}"]`))return res();const s=document.createElement("script");s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)});
-const PDFJS=window.KA_PDFJS||"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/";
+/* PDF libraries are bundled with the app (no outside CDN) */
+const VENDOR=()=>window.KA_VENDOR||(/^https?:/.test(location.protocol)&&!isFramedSafe()?new URL("vendor/",location.href).href:"https://kidarmor.coastlinecode.com/vendor/");
+function isFramedSafe(){try{return window.self!==window.top}catch(e){return true}}
+let PDFJSLIB=null;
+async function getPdfjs(){if(PDFJSLIB)return PDFJSLIB;const base=window.KA_PDFJS||VENDOR();const abs=f=>new URL(base+f,location.href).href;const m=await import(abs("pdf.min.mjs"));m.GlobalWorkerOptions.workerSrc=abs("pdf.worker.min.mjs");return PDFJSLIB=m}
 async function renderPdf(blob,body){
-  await loadScript(PDFJS+"pdf.min.js");await loadScript(PDFJS+"pdf.worker.min.js");
-  pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS+"pdf.worker.min.js";
-  const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await blob.arrayBuffer())}).promise;
+  const pdfjsLib=await getPdfjs();
+  const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await blob.arrayBuffer()),isEvalSupported:false,enableXfa:false}).promise;
   body.innerHTML="";const w=Math.min(body.clientWidth-8,900),n=Math.min(pdf.numPages,30);
   for(let p=1;p<=n;p++){if(!document.body.contains(body))return;const page=await pdf.getPage(p),vp0=page.getViewport({scale:1}),scale=w/vp0.width*Math.min(2,window.devicePixelRatio||1),vp=page.getViewport({scale});
     const c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;c.style.width=w+"px";body.appendChild(c);await page.render({canvasContext:c.getContext("2d"),viewport:vp}).promise}
@@ -659,7 +662,26 @@ const SAMPLE={example:true,
     {id:"e9",kind:"comm",date:daysAgo(5),method:"Email",withwho:"Asst. Principal Lee",direction:"I contacted the school",desc:"Asked what discipline was taken after the cafeteria incident and for a copy of the incident report.",followup:daysAhead(3),resolved:false,files:[]}
   ]};
 const blank=()=>({example:false,child:{},plan:{accoms:[]},docs:[],entries:[]});
-function migrate(s){s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
+/* ---------- input sanitizer: every case (saved, restored, shared, moved) passes through here ---------- */
+const SAFE_IMG=/^data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+\/=]+$/;
+function safeId(v){return String(v??"").replace(/[^A-Za-z0-9_.:-]/g,"").slice(0,80)}
+function scrub(o,depth){if(depth>12||o===null||typeof o!=="object")return o;
+  if(Array.isArray(o)){for(let i=0;i<o.length;i++)o[i]=scrub(o[i],depth+1);return o}
+  for(const k of Object.keys(o)){const v=o[k];
+    if(k==="__proto__"||k==="constructor"||k==="prototype"){delete o[k];continue}
+    if(k==="id"||k==="caseId"||k==="inviteId"){o[k]=safeId(v);continue}
+    if(k==="thumb"){if(typeof v!=="string"||!SAFE_IMG.test(v))delete o[k];continue}
+    if(k==="time"){if(typeof v!=="string"||!/^\d{1,2}:\d{2}$/.test(v))o[k]="";continue}
+    if(k==="date"||k==="repdate"||k==="due"||k==="followup"){if(v&&(typeof v!=="string"||!/^\d{4}-\d{2}-\d{2}/.test(v)))o[k]="";continue}
+    if(k==="type"&&typeof v==="string"&&v.includes("/")){if(!/^[\w.+-]+\/[\w.+-]+$/.test(v))o[k]="application/octet-stream";continue}
+    if(k==="sev"){if(!(v in SEV))o[k]="med";continue}
+    if(k==="url"||k==="web"||k==="href"||k==="link"){if(typeof v==="string"&&v&&!/^(https?:|mailto:|tel:)/i.test(v.trim()))o[k]="";continue}
+    if(v&&typeof v==="object")scrub(v,depth+1)}
+  return o}
+function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
+  if(Array.isArray(s.entries))s.entries=s.entries.filter(e=>e&&typeof e==="object"&&KINDS[e.kind]);
+  for(const k of ["reports","health","docs","entries"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
+  s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
   s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;return n});return s}
 function load(){
   try{const s=localStorage.getItem(KEY);if(s)return migrate(JSON.parse(s))}catch(e){}
@@ -736,7 +758,7 @@ function card(e){const K=KINDS[e.kind],m=[],mi=(l,v)=>v&&m.push(`<span><b>${l}:<
   if(e.kind==="meeting"){mi("Who was there",e.attendees);if(!useSum&&lines(e.agreed).length)m.push(`<span><b>School agreed to:</b></span>`+lines(e.agreed).map(x=>`<span>• ${esc(x)}</span>`).join(""));if(!useSum&&lines(e.actions).length)m.push(`<span><b>Next steps:</b></span>`+lines(e.actions).map(x=>`<span>• ${esc(x)}</span>`).join(""))}
   const nf=(e.files||[]).length;
   return`<details class="inc" style="--kc:${K.color}"><summary>
-    <div class="top"><span class="date">${fmt(e.date)}${e.time?" · "+e.time:""}</span><span class="tag">${K.short}</span></div>
+    <div class="top"><span class="date">${fmt(e.date)}${e.time?" · "+esc(e.time):""}</span><span class="tag">${K.short}</span></div>
     <h3>${esc(titleOf(e))}</h3><p class="clamp">${esc(useSum?e.summary.overview:e.desc)}</p>
     <div class="sub">${statusOf(e)}${nf?`<span class="status plain">${nf} attachment${nf>1?"s":""}</span>`:""}</div></summary>
   <div class="body">${useSum?summaryBlock(e):`<p>${esc(e.desc)}</p>`}${m.length?`<div class="meta">${m.join("")}</div>`:""}
@@ -831,7 +853,7 @@ function renderPlan(){const p=state.plan;$("#p-type").value=p.type||"";$("#p-sta
   const miss=id=>state.entries.filter(e=>e.kind==="missed"&&e.accom===id).length;
   $("#accomList").innerHTML=p.accoms.length?p.accoms.map(a=>{const n=miss(a.id);return`<div class="it"><span>${esc(a.text)}</span><span class="actions" style="gap:4px;flex-wrap:nowrap"><span class="count${n?" hot":""}">${n} missed</span><button class="x" data-ra="${a.id}" type="button" aria-label="Remove ${esc(a.text)}">×</button></span></div>`}).join(""):`<p class="note">None added yet.</p>`;
   const D=[...state.docs].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
-  $("#docList").innerHTML=D.length?D.map(d=>{const f=(d.files||[])[0];const pv=f?(f.thumb?`<img src="${f.thumb}" alt="">`:f.type==="application/pdf"?PDF_ICON:DOC_ICON):DOC_ICON;
+  $("#docList").innerHTML=D.length?D.map(d=>{const f=(d.files||[])[0];const pv=f?(f.thumb?`<img src="${SAFE_IMG.test(f.thumb||"")?f.thumb:""}" alt="">`:f.type==="application/pdf"?PDF_ICON:DOC_ICON):DOC_ICON;
     return`<div class="it"><button class="doc" type="button" data-doc="${d.id}"${f?"":" disabled"}><span class="pv">${pv}</span><span><b>${esc(d.name)}</b><br><span class="date">${fmt(d.date)||"No date"}${f?" · tap to open":" · no file attached"}</span></span></button><button class="x" data-rd="${d.id}" type="button" aria-label="Remove ${esc(d.name)}">×</button></div>`}).join(""):`<p class="note">No documents yet. Start with the plan itself, then evaluations, report cards and doctor's notes.</p>`}
 $("#planForm").onsubmit=e=>{e.preventDefault();if(guardExample())return;Object.assign(state.plan,{type:$("#p-type").value,start:$("#p-start").value,review:$("#p-review").value,reeval:$("#p-reeval").value,cm:$("#p-cm").value.trim(),cmemail:$("#p-cmemail").value.trim()});save();toast("Plan saved")};
 $("#accomAdd").onclick=()=>{const t=$("#accomNew").value.trim();if(!t){$("#accomNew").focus();return}if(guardExample())return;state.plan.accoms.push({id:"a"+Date.now(),text:t});$("#accomNew").value="";save();renderPlan();toast("Added")};
@@ -1084,7 +1106,7 @@ $("#setupForm").onsubmit=e=>{e.preventDefault();if(state.readOnly){toast("This c
   const st=$("#s-state").value;if(st||root.profile){root.profile={...(root.profile||{}),state:st,name:state.child.parent||(root.profile||{}).name||"",email:state.child.myemail||(root.profile||{}).email||"",phone:state.child.contact||(root.profile||{}).phone||""};renderStateResources()}
   save();renderWho();toast("Saved");if(firstTime&&state.child.name&&!state.setupDone){state.setupDone=true;save();setTimeout(()=>needsWizard()?openWizard():openFirstSetup(),350)}};
 let wipeArm=false;$("#wipe").onclick=async()=>{const b=$("#wipe");if(!wipeArm){wipeArm=true;b.textContent="Tap again to erase everything";setTimeout(()=>{wipeArm=false;b.textContent="Erase everything on this phone"},3000);return}
-  wipeArm=false;b.textContent="Erase everything on this phone";await clearFiles();try{["papertrail.v1","papertrail.v2","papertrail.v3",ROOTKEY,PINKEY,BIOKEY,DRAFTKEY].forEach(k=>localStorage.removeItem(k))}catch(e){}root={cases:[blank()],active:0};state=root.cases[0];save();renderWho();renderMe();toast("Everything was erased from this phone")};
+  wipeArm=false;b.textContent="Erase everything on this phone";await clearFiles();try{["papertrail.v1","papertrail.v2","papertrail.v3",ROOTKEY,PINKEY,BIOKEY,DRAFTKEY,LOCKKEY,"kidarmor.sender","kidarmor.res"].forEach(k=>localStorage.removeItem(k));Object.keys(localStorage).filter(k=>/^(kidarmor|papertrail)\./.test(k)&&k!==TERMSKEY).forEach(k=>localStorage.removeItem(k));if(window.KA_NATIVE_WIPE)await window.KA_NATIVE_WIPE()}catch(e){}root={cases:[blank()],active:0};state=root.cases[0];save();renderWho();renderMe();toast("Everything was erased from this phone. Meetings you added to your phone's calendar stay there; delete them in your calendar app.")};
 
 /* ---------- bytes ---------- */
 function u8ToB64(u8){let s="";const CH=0x8000;for(let i=0;i<u8.length;i+=CH)s+=String.fromCharCode.apply(null,u8.subarray(i,i+CH));return btoa(s)}
@@ -1163,9 +1185,9 @@ $("#addKid").onclick=()=>{if(realKids().length>=MAXKIDS){toast(`KidArmor holds u
 
 /* ---------- PIN lock ---------- */
 const PINKEY="kidarmor.pin";
-async function pinHash(pin,saltB64){const salt=saltB64?b64ToU8(saltB64):crypto.getRandomValues(new Uint8Array(16));
+async function pinHash(pin,saltB64,iter){iter=iter||(saltB64?100000:600000);const salt=saltB64?b64ToU8(saltB64):crypto.getRandomValues(new Uint8Array(16));
   const k=await crypto.subtle.importKey("raw",enc.encode(pin),"PBKDF2",false,["deriveBits"]);
-  const bits=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",salt,iterations:100000,hash:"SHA-256"},k,256));return{s:u8ToB64(salt),h:u8ToB64(bits)}}
+  const bits=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",salt,iterations:iter,hash:"SHA-256"},k,256));return{s:u8ToB64(salt),h:u8ToB64(bits),i:iter}}
 function pinRec(){try{return JSON.parse(localStorage.getItem(PINKEY)||"null")}catch(e){return null}}
 /* Face ID / fingerprint through the browser's passkey sign-in. The PIN stays as the backup. */
 const BIOKEY="kidarmor.bio";
@@ -1195,7 +1217,10 @@ $("#pinSave").onclick=async()=>{const a=$("#pin1").value.trim(),b=$("#pin2").val
   if(!/^\d{4,8}$/.test(a)){toast("Use 4 to 8 digits.");return}if(a!==b){toast("The two PINs don't match.");return}
   try{localStorage.setItem(PINKEY,JSON.stringify(await pinHash(a)));$("#pin1").value=$("#pin2").value="";renderLock();toast("PIN set")}catch(e){toast("Couldn't set a PIN in this browser.")}};
 $("#pinClear").onclick=()=>{try{localStorage.removeItem(PINKEY);localStorage.removeItem(BIOKEY)}catch(e){}renderLock();toast("Lock turned off")};
-let lockWrong=0,lockWait=0;
+/* wrong-PIN count and wait are saved, so reloading the app doesn't reset them; waits grow 30s, 1m, 2m, 4m... up to 1 hour */
+const LOCKKEY="kidarmor.lockstate";function lockState(){try{return JSON.parse(localStorage.getItem(LOCKKEY)||"null")||{n:0,rounds:0,until:0}}catch(e){return{n:0,rounds:0,until:0}}}
+function saveLockState(o){try{localStorage.setItem(LOCKKEY,JSON.stringify(o))}catch(e){}}
+let lockWrong=lockState().n,lockWait=lockState().until;
 const BIONAME=()=>isIOS?"Face ID":"your fingerprint";
 function showLock(){if($(".lockscreen"))return;const rec=pinRec();if(!rec)return;const bio=!!bioRec();const l=document.createElement("div");l.className="lockscreen";
   l.innerHTML=`<div class="shield"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
@@ -1208,12 +1233,13 @@ function showLock(){if($(".lockscreen"))return;const rec=pinRec();if(!rec)return
     <button class="btn ${bio?"ghost":"primary"}" id="lockGo" type="button" style="min-width:200px">Unlock with PIN</button><p class="note" id="lockErr" role="alert"></p>`;
   document.body.appendChild(l);
   const go=async()=>{if(Date.now()<lockWait){$("#lockErr").textContent=`Too many tries. Wait ${Math.ceil((lockWait-Date.now())/1000)} seconds.`;return}
-    const p=$("#lockPin").value.trim();const h=await pinHash(p,rec.s);
-    if(h.h===rec.h){lockWrong=0;l.remove();return}
+    const p=$("#lockPin").value.trim();const h=await pinHash(p,rec.s,rec.i||100000);
+    if(h.h===rec.h){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});l.remove();return}
     lockWrong++;$("#lockPin").value="";
-    if(lockWrong>=5){lockWrong=0;lockWait=Date.now()+30000;$("#lockErr").textContent="Too many tries. Wait 30 seconds."}else $("#lockErr").textContent="That PIN isn't right."};
+    const ls=lockState();if(lockWrong>=5){const rounds=(ls.rounds||0)+1,secs=Math.min(3600,30*2**(rounds-1));lockWrong=0;lockWait=Date.now()+secs*1000;saveLockState({n:0,rounds,until:lockWait});
+      $("#lockErr").textContent=`Too many tries. Wait ${secs>=120?Math.round(secs/60)+" minutes":secs+" seconds"}.`}else{saveLockState({n:lockWrong,rounds:ls.rounds||0,until:lockWait});$("#lockErr").textContent="That PIN isn't right."}};
   $("#lockGo").onclick=go;$("#lockPin").onkeydown=e=>{if(e.key==="Enter")go()};
-  const lb=$("#lockBio");const tryBio=async(auto)=>{if(!lb||lb.disabled)return;lb.disabled=true;$("#lockBioMsg").textContent=`Signing you in with ${BIONAME()}…`;const ok=await bioUnlock();lb.disabled=false;if(ok){lockWrong=0;l.remove();toast("Signed in with "+BIONAME());return}
+  const lb=$("#lockBio");const tryBio=async(auto)=>{if(!lb||lb.disabled)return;lb.disabled=true;$("#lockBioMsg").textContent=`Signing you in with ${BIONAME()}…`;const ok=await bioUnlock();lb.disabled=false;if(ok){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});l.remove();toast("Signed in with "+BIONAME());return}
     $("#lockBioMsg").textContent=auto?`Tap Use ${BIONAME()} to sign in.`:`${BIONAME()} didn't sign you in. Try again, or enter your PIN.`;if(!auto)try{$("#lockPin").focus()}catch(e){}};
   if(lb){lb.onclick=()=>tryBio(false);setTimeout(()=>tryBio(true),350)}
   setTimeout(()=>{try{if(!bio)$("#lockPin").focus()}catch(e){}},50)}
@@ -1270,7 +1296,7 @@ $("#imGo").onclick=async()=>{if(!imText)return;const btn=$("#imGo");btn.disabled
   catch(e){toast(e.message||"Couldn't open that file.")}finally{btn.disabled=false;btn.textContent="Open case"}};
 
 /* ---------- PDF case binder ---------- */
-const PDFLIB=window.KA_PDFLIB||"https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js";
+const PDFLIBSRC=()=>window.KA_PDFLIB||VENDOR()+"pdf-lib.min.js";
 const pdfClean=t=>String(t??"").replace(/[‘’ʼ]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,"-").replace(/…/g,"...").replace(/→/g,"->").replace(/≥/g,">=").replace(/≤/g,"<=").replace(/\t/g,"  ").replace(/[^\x20-\x7E\xA0-\xFF•\n]/g,"");
 const hex=h=>{const n=parseInt(h.slice(1),16);return[(n>>16&255)/255,(n>>8&255)/255,(n&255)/255]};
 const KCOL={incident:"#b8412f",missed:"#8a4fb0",comm:"#2f6fb8",meeting:"#3f8a55"};
@@ -1284,7 +1310,7 @@ async function toJpeg(blob){const u=URL.createObjectURL(blob);try{const img=awai
   const s=Math.min(1,2000/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
   const b=await new Promise(r=>c.toBlob(r,"image/jpeg",.85));return new Uint8Array(await b.arrayBuffer())}finally{URL.revokeObjectURL(u)}}
 async function buildBinder(onStep){
-  await loadScript(PDFLIB);const{PDFDocument,StandardFonts,rgb}=window.PDFLib;
+  await loadScript(PDFLIBSRC());const{PDFDocument,StandardFonts,rgb}=window.PDFLib;
   const doc=await PDFDocument.create();doc.setTitle(`Case binder - ${state.child.name||"Student"}`);doc.setCreator("KidArmor");
   const F=await doc.embedFont(StandardFonts.Helvetica),FB=await doc.embedFont(StandardFonts.HelveticaBold);
   const W=612,H=792,M=54,INK=rgb(.09,.13,.17),MUT=rgb(.36,.41,.46),ACC=rgb(.12,.37,.45),LINE=rgb(.85,.87,.9);
@@ -2183,7 +2209,7 @@ function caseForLink(c,purpose){const copy=JSON.parse(JSON.stringify(c));
     if(purpose==="advocate"){delete e.parentNote;delete e.originalDesc}});
   copy.docs.forEach(d=>{const n=(d.files||[]).length;if(n)d.onPhone=n;d.files=[]});
   (copy.reports||[]).forEach(r=>{const n=(r.files||[]).length;if(n)r.onPhone=n;r.files=[]});if(purpose==="advocate")delete copy.health;
-  delete copy.upcoming;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
+  delete copy.upcoming;delete copy.updKey;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
   copy.sharedBy=purpose==="advocate"?(c.child.parent||"A parent"):"your phone";copy.fromPhone=purpose!=="advocate";copy.caseId=c.caseId;return copy}
 async function makeCaseLink(purpose){save();if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
   const code=linkCode(),raw=enc.encode(JSON.stringify(caseForLink(state,purpose)));
@@ -2247,23 +2273,22 @@ const isFramed=()=>{try{return window.self!==window.top}catch(e){return true}};
 async function makeMoveLink(){save();const cases=root.cases.filter(c=>!c.readOnly&&!c.example&&(c.child.name||c.entries.length)).map(c=>{if(!c.caseId)c.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
     const x=JSON.parse(JSON.stringify(c));x.entries.forEach(e=>{const nf=(e.files||[]).length,nr=(e.recordings||[]).length;if(nf||nr)e.onPhone={files:nf,recs:nr,where:"preview"};e.files=[];delete e.recordings});x.docs.forEach(d=>{if((d.files||[]).length)d.onPhone=d.files.length;d.files=[]});(x.reports||[]).forEach(r=>{if((r.files||[]).length)r.onPhone=r.files.length;r.files=[]});return x});
   save();if(!cases.length)return HOME_URL;
-  const raw=enc.encode(JSON.stringify({cases,pin:pinRec()})),z=await squeeze(raw,true),body=z||raw,k=crypto.getRandomValues(new Uint8Array(32)),nonce=crypto.getRandomValues(new Uint8Array(12));
+  const raw=enc.encode(JSON.stringify({cases,exp:Date.now()+86400000})),z=await squeeze(raw,true),body=z||raw,k=crypto.getRandomValues(new Uint8Array(32)),nonce=crypto.getRandomValues(new Uint8Array(12));
   const key=await crypto.subtle.importKey("raw",k,"AES-GCM",false,["encrypt"]);const ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv:nonce},key,body));
   const out=new Uint8Array(1+12+ct.length);out[0]=z?2:1;out.set(nonce,1);out.set(ct,13);return HOME_URL+"#move="+b64u(k)+"."+b64u(out)}
 async function readMoveLink(s){const[kp,dp]=s.split(".");const k=unb64u(kp),u8=unb64u(dp);const key=await crypto.subtle.importKey("raw",k,"AES-GCM",false,["decrypt"]);
   let pt=new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:u8.slice(1,13)},key,u8.slice(13)));if(u8[0]===2)pt=await squeeze(pt,false);return JSON.parse(dec.decode(pt))}
 function promptMoveLink(){const m=(location.hash||"").match(/^#move=([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/);if(!m)return false;
   const clear=()=>{try{history.replaceState(null,"",location.pathname+location.search)}catch(e){location.hash=""}};
-  readMoveLink(m[1]).then(v=>{const n=v.cases.length,name=v.cases[0]&&v.cases[0].child.name;
+  readMoveLink(m[1]).then(v=>{if(!v||!Array.isArray(v.cases)||!v.cases.length||!(v.exp>Date.now()))throw new Error("expired");const n=v.cases.length,name=v.cases[0]&&v.cases[0].child.name;
     const sh=openSheet(`<h3>Bring your case here?</h3><p class="note">You started ${esc(name||"a case")}${n>1?` and ${n-1} more`:""} in the KidArmor preview inside Claude. Bring ${n>1?"them":"it"} here so you can use Face ID, recording and reminders.</p>
       <p class="note">Your entries, summaries, transcripts and plan come along. Photos and documents added in the preview need to be added again here.</p>
       <button class="btn primary wide" id="mvGo" type="button">Bring it here</button><button class="btn ghost" id="mvNo" type="button">Not now</button>`);
     sh.querySelector("#mvNo").onclick=()=>{clear();closeSheet()};
     sh.querySelector("#mvGo").onclick=()=>{save();for(const c0 of v.cases){const c=migrate(c0);const i=root.cases.findIndex(x=>!x.readOnly&&x.caseId&&x.caseId===c.caseId);if(i>=0)root.cases[i]=c;else root.cases.push(c)}
       root.cases=root.cases.filter(x=>x.readOnly||x.child.name||x.entries.length);if(!root.cases.length)root.cases=[blank()];
-      if(v.pin&&!pinRec()){try{localStorage.setItem(PINKEY,JSON.stringify(v.pin))}catch(e){}}
       root.active=Math.max(0,root.cases.findIndex(x=>x.caseId===v.cases[0].caseId));state=root.cases[root.active];save();clear();closeSheet();filter="all";show("home");
-      toast("Your case is here. You can use Face ID, recording and reminders now.");setTimeout(()=>{if(needsWizard())openWizard();else if(!state.setupDone2){state.setupDone2=true;state.setupDone=true;save();openFirstSetup()}},900)}}).catch(()=>{clear();toast("That link couldn't be opened. Try Open KidArmor again from the preview.")});
+      toast("Your case is here. You can use Face ID, recording and reminders now.");setTimeout(()=>{if(needsWizard())openWizard();else if(!state.setupDone2){state.setupDone2=true;state.setupDone=true;save();openFirstSetup()}},900)}}).catch(()=>{clear();toast("That link couldn't be opened or has expired. Try Open KidArmor again from the preview.")});
   return true}
 function initFramed(){if(!isFramed())return;$("#framedBar").hidden=false;
   $("#framedGo").onclick=async()=>{const b=$("#framedGo");b.disabled=true;b.textContent="Opening…";
@@ -2285,9 +2310,21 @@ function consentText(){const c=myState(),n=stateName(c)||"Your state";
   return"Some states require everyone's permission to record. Telling everyone at the start and getting their OK is the safest practice."}
 /* state resource lists: built in, and kept up to date from KidArmor's website (a public list; nothing about you is sent) */
 const RES_BUILTIN=/*RES_JSON*/{"version":202610271955,"updated":"2026-10-27","states":{"AL":{"pa":{"name":"Alabama Disabilities Advocacy Program","url":"https://adap.ua.edu/","phone":"(205) 348-4928"},"pti":{"name":"Alabama Parent Education Center","url":"https://alabamaparentcenter.com","phone":"(866) 532-7660"},"doe":{"url":"https://www.alabamaachieves.org/special-education/"}},"AK":{"pa":{"name":"Disability Law Center of Alaska","url":"https://www.dlcak.org/","phone":"(907) 565-1002"},"pti":{"name":"Stone Soup Group","url":"https://www.stonesoupgroup.org","phone":"(907) 561-3701"},"doe":{"url":"https://education.alaska.gov/sped"}},"AZ":{"pa":{"name":"Disability Rights Arizona","url":"https://www.disabilityrightsaz.org/","phone":"(520) 327-9547"},"pti":{"name":"Raising Special Kids","url":"https://raisingspecialkids.org","phone":"(800) 237-3007"},"doe":{"url":"https://www.azed.gov/specialeducation"}},"AR":{"pa":{"name":"Disability Rights Arkansas","url":"https://disabilityrightsar.org/","phone":"(501) 296-1775"},"pti":{"name":"The Center for Exceptional Families","url":"https://thecenterforexceptionalfamilies.org","phone":"(888) 360-9654"},"doe":{"url":"https://dese.ade.arkansas.gov/Offices/special-education/"}},"CA":{"pa":{"name":"Disability Rights California","url":"https://www.disabilityrightsca.org/","phone":"(916) 504-5800"},"pti":{"name":"Team of Advocates for Special Kids","url":"https://taskca.org","phone":"(866) 828-8275"},"doe":{"url":"https://www.cde.ca.gov/sp/se/"}},"CO":{"pa":{"name":"Disability Justice","url":"https://disabilityjustice.co","phone":"(303) 722-0300"},"pti":{"name":"PEAK Parent Center","url":"https://www.peakparent.org","phone":"(800) 284-0251"},"doe":{"url":"https://ed.cde.state.co.us/cdesped"}},"CT":{"pa":{"name":"Disability Rights Connecticut","url":"https://www.disrightsct.org","phone":"(860) 297-4300"},"pti":{"name":"Connecticut Parent Advocacy Center","url":"https://cpacinc.org","phone":"(860) 739-3089"},"doe":{"url":"https://portal.ct.gov/sde/services/special-education"}},"DE":{"pa":{"name":"Disability Rights Delaware/CLASI","url":"https://www.declasi.org/","phone":"(302) 575-0660"},"pti":{"name":"Parent Information Center of Delaware","url":"https://picofdel.org","phone":"(888) 547-4412"},"doe":{"url":"https://education.delaware.gov/legacy/home/instruction-and-assessment/exceptional-children/special-education/"}},"FL":{"pa":{"name":"Disability Rights Florida","url":"https://www.disabilityrightsflorida.org/","phone":"(850) 488-9071"},"pti":{"name":"Family Network on Disabilities of Florida","url":"https://fndusa.org","phone":"(800) 825-5736"},"doe":{"url":"https://www.fldoe.org/academics/exceptional-student-edu/"}},"GA":{"pa":{"name":"Georgia Advocacy Office","url":"https://www.thegao.org","phone":"(404) 885-1234"},"pti":{"name":"Parent to Parent of Georgia","url":"https://www.p2pga.org","phone":"(800) 229-2038"},"doe":{"url":"https://gadoe.org/special-education/"}},"HI":{"pa":{"name":"Hawaii Disability Rights Center","url":"https://www.hawaiidisabilityrights.org","phone":"(808) 949-2922"},"pti":{"name":"Leadership in Disabilities and Achievement of Hawaii","url":"https://www.ldahawaii.org","phone":"(808) 536-9684"},"doe":{"url":"https://hawaiipublicschools.org/school-services/what-is-special-education/"}},"ID":{"pa":{"name":"DisAbility Rights Idaho","url":"https://disabilityrightsidaho.org/","phone":"(208) 336-5353"},"pti":{"name":"Idaho Parents Unlimited","url":"https://ipulidaho.org","phone":"(800) 242-4785"},"doe":{"url":"https://www.sde.idaho.gov/about-us/departments/special-education/"}},"IL":{"pa":{"name":"Equip for Equality","url":"https://www.equipforequality.org","phone":"(312) 341-0022"},"pti":{"name":"Family Matters Parent Training and Information Center","url":"https://fmptic.org","phone":"(866) 436-7842"},"doe":{"url":"https://www.isbe.net/specialeducation"}},"IN":{"pa":{"name":"Indiana Disability Rights","url":"https://www.in.gov/idr/","phone":"(317) 722-5555"},"pti":{"name":"IN*SOURCE","url":"https://insource.org","phone":"(574) 234-7101"},"doe":{"url":"https://www.in.gov/doe/students/special-education"}},"IA":{"pa":{"name":"Disability Rights Iowa","url":"https://disabilityrightsiowa.org/","phone":"(515) 278-2502"},"pti":{"name":"ASK Resource Center","url":"https://www.askresource.org","phone":"(800) 450-8667"},"doe":{"url":"https://educate.iowa.gov/pk-12/special-education"}},"KS":{"pa":{"name":"Disability Rights Center of Kansas","url":"https://drckansas.org/","phone":"(785) 273-9661"},"pti":{"name":"Families Together","url":"https://www.familiestogetherinc.org","phone":"(888) 815-6364"},"doe":{"url":"https://www.ksde.gov/policy-and-funding/special-education"}},"KY":{"pa":{"name":"Kentucky Protection and Advocacy","url":"https://www.kypa.net/","phone":"(502) 564-2967"},"pti":{"name":"Kentucky Special Parent Involvement Network","url":"https://www.kyspin.com","phone":"(800) 525-7746"},"doe":{"url":"https://education.ky.gov/specialed/excep"}},"LA":{"pa":{"name":"Disability Rights Louisiana","url":"https://disabilityrightsla.org/","phone":"(504) 522-2337"},"pti":{"name":"Louisiana Parent Training and Information Center","url":"https://fhfofgno.org/laptic","phone":"(800) 766-7736"},"doe":{"url":"https://doe.louisiana.gov/families-and-students/family-support-resources/family-special-education-resources"}},"ME":{"pa":{"name":"Disability Rights Maine","url":"https://www.drme.org","phone":"(207) 626-2774"},"pti":{"name":"Maine Parent Federation","url":"https://mpf.org","phone":"(800) 870-7746"},"doe":{"url":"https://www.maine.gov/doe/learning/specialed"}},"MD":{"pa":{"name":"Disability Rights Maryland","url":"https://disabilityrightsmd.org/","phone":"(410) 727-6352"},"pti":{"name":"The Parents' Place of Maryland","url":"https://www.ppmd.org","phone":"(800) 394-5694"},"doe":{"url":"https://www.marylandpublicschools.org/programs/Pages/Special-Education/index.aspx"}},"MA":{"pa":{"name":"Disability Law Center","url":"https://www.dlc-ma.org/","phone":"(617) 723-8455"},"pti":{"name":"Federation for Children with Special Needs","url":"https://fcsn.org","phone":"(800) 331-0688"},"doe":{"url":"https://www.doe.mass.edu/specialeducation/"}},"MI":{"pa":{"name":"Disability Rights Michigan","url":"https://drmich.org/","phone":"(517) 487-1755"},"pti":{"name":"Michigan Alliance for Families","url":"https://www.michiganallianceforfamilies.org","phone":"(800) 552-4821"},"doe":{"url":"https://www.michigan.gov/mde/services/special-education"}},"MN":{"pa":{"name":"Minnesota Disability Law Center","url":"https://www.mndlc.org","phone":"(612) 334-5970"},"pti":{"name":"PACER Center","url":"https://www.pacer.org","phone":"(800) 537-2237"},"doe":{"url":"https://education.mn.gov/MDE/dse/sped/"}},"MS":{"pa":{"name":"Disability Rights Mississippi","url":"https://www.drms.ms/","phone":"(601) 968-0600"},"pti":{"name":"Mississippi Parent Training and Information Center","url":"https://www.mspti.org","phone":"(800) 721-7255"},"doe":{"url":"https://mdek12.org/specialeducation/resources-7/"}},"MO":{"pa":{"name":"Missouri Protection and Advocacy Services","url":"https://www.moadvocacy.org/","phone":"(573) 893-3333"},"pti":{"name":"Missouri Parents Act","url":"https://www.missouriparentsact.org","phone":"(800) 743-7634"},"doe":{"url":"https://dese.mo.gov/special-education"}},"MT":{"pa":{"name":"Disability Rights Montana","url":"https://www.disabilityrightsmt.org/","phone":"(406) 449-2344"},"pti":{"name":"Parents, Let's Unite for Kids","url":"https://www.pluk.org","phone":"(800) 222-7585"},"doe":{"url":"https://opi.mt.gov/Educators/School-Climate-Student-Wellness/Special-Education/index"}},"NE":{"pa":{"name":"Disability Rights Nebraska","url":"https://www.disabilityrightsnebraska.org/","phone":"(402) 413-2016"},"pti":{"name":"PTI Nebraska","url":"https://www.pti-nebraska.org","phone":"(800) 284-8520"},"doe":{"url":"https://www.education.ne.gov/sped/"}},"NV":{"pa":{"name":"Nevada Disability Advocacy and Law Center","url":"https://www.ndalc.org/","phone":"(702) 257-8150"},"pti":{"name":"Nevada PEP","url":"https://www.nvpep.org","phone":"(800) 216-5188"},"doe":{"url":"https://doe.nv.gov/offices/inclusive-education"}},"NH":{"pa":{"name":"Disability Rights Center – NH","url":"https://www.drcnh.org/","phone":"(603) 228-0432"},"pti":{"name":"Parent Information Center of New Hampshire","url":"https://www.picnh.org","phone":"(800) 947-7005"},"doe":{"url":"https://education.nh.gov/who-we-are/division-of-learner-support/bureau-of-student-support"}},"NJ":{"pa":{"name":"Disability Rights New Jersey","url":"https://disabilityrightsnj.org/","phone":"(609) 292-9742"},"pti":{"name":"Statewide Parent Advocacy Network","url":"https://www.spanadvocacy.org","phone":"(800) 654-7726"},"doe":{"url":"https://www.nj.gov/education/specialed/"}},"NM":{"pa":{"name":"Disability Rights New Mexico","url":"https://www.drnm.org/","phone":"(505) 256-3100"},"pti":{"name":"Parents Reaching Out","url":"https://www.parentsreachingout.org","phone":"(800) 524-5176"}},"NY":{"pa":{"name":"Disability Rights New York","url":"https://www.drny.org/","phone":"(518) 432-7861"},"pti":{"name":"Starbridge","url":"https://www.starbridgeinc.org","phone":"(585) 546-1700"},"doe":{"url":"https://www.nysed.gov/special-education"}},"NC":{"pa":{"name":"Disability Rights North Carolina","url":"https://www.disabilityrightsnc.org/","phone":"(919) 856-2195"},"pti":{"name":"Exceptional Children's Assistance Center","url":"https://www.ecac-parentcenter.org","phone":"(800) 962-6817"},"doe":{"url":"https://www.dpi.nc.gov/districts-schools/classroom-resources/exceptional-children"}},"ND":{"pa":{"name":"North Dakota Protection & Advocacy Project","url":"https://www.ndpanda.org/","phone":"(701) 328-2950"},"pti":{"name":"Pathfinder Parent Center","url":"https://www.pathfinder-nd.org","phone":"(800) 245-5840"},"doe":{"url":"https://www.nd.gov/dpi/education-programs/special-education"}},"OH":{"pa":{"name":"Disability Rights Ohio","url":"https://www.disabilityrightsohio.org/","phone":"(614) 466-7264"},"pti":{"name":"Ohio Coalition for the Education of Children with Disabilities","url":"https://www.ocecd.org","phone":"(844) 382-5452"},"doe":{"url":"https://education.ohio.gov/Topics/Special-Education"}},"OK":{"pa":{"name":"Oklahoma Disability Law Center","url":"https://okdlc.org/","phone":"(405) 525-7755"},"pti":{"name":"Oklahoma Parents Center","url":"https://www.oklahomaparentscenter.org","phone":"(877) 553-4332"},"doe":{"url":"https://oklahoma.gov/education/services/special-education.html"}},"OR":{"pa":{"name":"Disability Rights Oregon","url":"https://droregon.org/","phone":"(503) 243-2081"},"pti":{"name":"FACT Oregon","url":"https://factoregon.org","phone":"(888) 988-3228"},"doe":{"url":"https://www.oregon.gov/ode/students-and-family/SpecialEducation/Pages/default.aspx"}},"PA":{"pa":{"name":"Disability Rights Pennsylvania","url":"https://www.disabilityrightspa.org/","phone":"(717) 236-8110"},"pti":{"name":"PEAL Center","url":"https://www.pealcenter.org","phone":"(866) 950-1040"},"doe":{"url":"https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/special-education"}},"RI":{"pa":{"name":"Disability Rights Rhode Island","url":"https://www.drri.org/","phone":"(401) 831-3150"},"pti":{"name":"Rhode Island Parent Information Network","url":"https://www.ripin.org","phone":"(800) 464-3399"},"doe":{"url":"https://ride.ri.gov/Special-Education"}},"SC":{"pa":{"name":"Disability Rights South Carolina","url":"https://www.disabilityrightssc.org/","phone":"(803) 782-0639"},"pti":{"name":"Family Connection of South Carolina","url":"https://www.familyconnectionsc.org","phone":"(800) 578-8750"},"doe":{"url":"https://oses.ed.sc.gov/"}},"SD":{"pa":{"name":"Disability Rights South Dakota","url":"https://drsdlaw.org/","phone":"(605) 224-8294"},"pti":{"name":"South Dakota Parent Connection","url":"https://www.sdparent.org","phone":"(800) 640-4553"},"doe":{"url":"https://doe.sd.gov/sped/"}},"TN":{"pa":{"name":"Disability Rights Tennessee","url":"https://www.disabilityrightstn.org/","phone":"(615) 298-1080"},"pti":{"name":"Support and Training for Exceptional Parents","url":"https://tnstep.info","phone":"(800) 280-7837"},"doe":{"url":"https://www.tn.gov/education/families/student-support/special-education.html"}},"TX":{"pa":{"name":"Disability Rights Texas","url":"https://www.disabilityrightstx.org/","phone":"(512) 454-4816"},"pti":{"name":"Partners Resource Network","url":"https://prntexas.org","phone":"(800) 866-4726"},"doe":{"url":"https://tea.texas.gov/special-populations-and-support/special-education"}},"UT":{"pa":{"name":"Disability Law Center","url":"https://disabilitylawcenter.org/","phone":"(800) 662-9080"},"pti":{"name":"Utah Parent Center","url":"https://utahparentcenter.org","phone":"(800) 468-1160"},"doe":{"url":"https://schools.utah.gov/specialeducation"}},"VT":{"pa":{"name":"Disability Rights Vermont","url":"https://www.disabilityrightsvt.org/","phone":"(802) 229-1355"},"pti":{"name":"Vermont Family Network","url":"https://www.vermontfamilynetwork.org","phone":"(800) 800-4005"},"doe":{"url":"https://education.vermont.gov/student-support/vermont-special-education"}},"VA":{"pa":{"name":"disAbility Law Center of Virginia","url":"https://www.dlcv.org/","phone":"(804) 225-2042"},"pti":{"name":"Parent Educational Advocacy Training Center","url":"https://peatc.org","phone":"(800) 869-6782"},"doe":{"url":"https://www.doe.virginia.gov/programs-services/special-education"}},"WA":{"pa":{"name":"Disability Rights Washington","url":"https://www.disabilityrightswa.org/","phone":"(206) 324-1521"},"pti":{"name":"PAVE","url":"https://wapave.org","phone":"(800) 572-7368"},"doe":{"url":"https://ospi.k12.wa.us/student-success/special-education"}},"WV":{"pa":{"name":"Disability Rights of West Virginia","url":"https://www.drofwv.org/","phone":"(304) 346-0847"},"pti":{"name":"West Virginia Parent Training and Information","url":"","phone":"(800) 281-1436"},"doe":{"url":"https://wvde.us/academics/special-education"}},"WI":{"pa":{"name":"Disability Rights Wisconsin","url":"https://www.disabilityrightswi.org","phone":"(800) 928-8778"},"pti":{"name":"Wisconsin FACETS","url":"https://wifacets.org","phone":"(877) 374-0511"},"doe":{"url":"https://dpi.wi.gov/sped"}},"WY":{"pa":{"name":"Wyoming Protection & Advocacy System","url":"https://www.wypanda.com/","phone":"(307) 632-3496"},"pti":{"name":"Wyoming Parent Information Center","url":"https://www.wpic.org","phone":"(800) 660-9742"},"doe":{"url":"https://edu.wyoming.gov/parents/special-education/"}},"DC":{"pa":{"name":"University Legal Services","url":"https://www.uls-dc.org/","phone":"(202) 547-0198"},"pti":{"name":"Advocates for Justice and Education","url":"https://www.aje-dc.org","phone":"(888) 327-8060"},"doe":{"url":"https://osse.dc.gov/page/special-education-students-disabilities"}}},"attorneys":[]}/*END_RES_JSON*/;
-let RESDATA=(()=>{try{const c=JSON.parse(localStorage.getItem("kidarmor.res")||"null");if(c&&c.version>RES_BUILTIN.version)return c}catch(e){}return RES_BUILTIN})();
+/* the online resources list is checked field by field; anything unexpected is dropped */
+function cleanRes(j){if(!j||typeof j!=="object"||!j.states||typeof j.states!=="object"||typeof j.version!=="number")return null;
+  const maxV=+new Date(Date.now()+864e5).toISOString().slice(0,16).replace(/[-T:]/g,"");if(!(j.version>0&&j.version<=maxV))return null;
+  const str=(v,n)=>typeof v==="string"?v.slice(0,n||200):"";const url=v=>{v=str(v,300).trim();return /^https:\/\/[^\s"'<>]+$/i.test(v)?v:""};
+  const org=o=>o&&typeof o==="object"?{name:str(o.name),url:url(o.url),phone:str(o.phone,40)}:undefined;
+  const states={};for(const [k,v] of Object.entries(j.states)){if(!/^[A-Z]{2}$/.test(k)||!v||typeof v!=="object")continue;states[k]={pa:org(v.pa),pti:org(v.pti),doe:v.doe&&typeof v.doe==="object"?{url:url(v.doe.url)}:undefined}}
+  const attorneys=(Array.isArray(j.attorneys)?j.attorneys:[]).filter(a=>a&&typeof a==="object").slice(0,1000).map(a=>({
+    states:(Array.isArray(a.states)?a.states:[a.state]).filter(x=>typeof x==="string"&&/^[A-Z]{2}$/.test(x)),
+    name:str(a.name),firm:str(a.firm),areas:(Array.isArray(a.areas)?a.areas:[]).filter(x=>typeof x==="string").slice(0,8).map(x=>x.slice(0,80)),
+    serves:str(a.serves),phone:str(a.phone,40),email:/^[^\s@<>"']+@[^\s@<>"']+$/.test(str(a.email,120))?str(a.email,120):"",web:url(a.web),consult:str(a.consult,120)})).filter(a=>a.name&&a.states.length);
+  return{version:j.version,updated:str(j.updated,20),states,attorneys}}
+let RESDATA=(()=>{try{const c=cleanRes(JSON.parse(localStorage.getItem("kidarmor.res")||"null"));if(c&&c.version>RES_BUILTIN.version)return c}catch(e){}return RES_BUILTIN})();
 async function refreshResources(){try{if(isFramed())return;const r=await fetch(HOME_URL+"resources.json",{cache:"no-cache"});if(!r.ok)return;const j=await r.json();
-  if(j&&j.states&&j.version>RESDATA.version){RESDATA=j;try{localStorage.setItem("kidarmor.res",JSON.stringify(j))}catch(e){}if(current==="res"){renderStateResources();renderLawyers()}}}catch(e){}}
+  /* the website's copy is the source of truth: any valid version replaces the saved one (so a bad update can be fixed by publishing again) */
+  const c=cleanRes(j);if(c&&c.version>=RES_BUILTIN.version&&c.version!==RESDATA.version){RESDATA=c;try{localStorage.setItem("kidarmor.res",JSON.stringify(c))}catch(e){}if(current==="res"){renderStateResources();renderLawyers()}}}catch(e){}}
 function resCard(o,tag,blurb){if(!o||!o.name)return"";const tel=(o.phone||"").replace(/[^\d+]/g,"");
   return`<div class="res"><div class="rtop"><h3>${esc(o.name)}</h3>${tag?`<span class="rtag">${esc(tag)}</span>`:""}</div>${blurb?`<p class="note">${blurb}</p>`:""}
     ${o.url?`<a class="rlink" href="${esc(o.url)}" target="_blank" rel="noopener"><span>Visit website</span><small>${esc(o.url.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"").slice(0,40))}</small></a>`:""}
@@ -2396,10 +2433,17 @@ const UPD_KINDS=["General update","Good news","Concern","Behavior","Accommodatio
 const UPD_ROLES=["Teacher","Special education teacher","Counselor","Principal or assistant principal","Case manager / 504 coordinator","Nurse","Therapist","Doctor","Other"];
 async function packObj(o){const raw=enc.encode(JSON.stringify(o)),z=await squeeze(raw,true);return(z?"z":"r")+b64u(z||raw)}
 async function unpackObj(s){const u8=unb64u(s.slice(1));return JSON.parse(dec.decode(s[0]==="z"?await squeeze(u8,false):u8))}
+/* teacher updates are signed with a secret that only travels in the parent's invite link */
+const UPD_FIELDS=["id","from","role","org","child","date","kind","text","k","sent"];
+async function updSig(secret,u){const key=await crypto.subtle.importKey("raw",unb64u(secret),{name:"HMAC",hash:"SHA-256"},false,["sign"]);
+  return b64u(new Uint8Array(await crypto.subtle.sign("HMAC",key,enc.encode(JSON.stringify(UPD_FIELDS.map(f=>String(u[f]??"")))))))}
+function caseUpdKey(c){if(!c.updKey){c.updKey=b64u(crypto.getRandomValues(new Uint8Array(18)))}return c.updKey}
+async function updVerified(u){try{if(!u||!u.sig||!u.k)return null;const c=root.cases.find(x=>!x.readOnly&&x.caseId===u.k&&x.updKey);if(!c)return null;
+  return (await updSig(c.updKey,u))===u.sig?c:null}catch(e){return null}}
 function hashMode(){const h=location.hash||"";if(/^#send(=|$)/.test(h))return"send";if(/^#upd=/.test(h))return"upd";return""}
 /* parent: invite a teacher */
 async function inviteLink(){const c=state.child;if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
-  return LINKBASE()+"#send="+await packObj({c:(c.name||"").split(" ")[0],cl:c.name||"",p:(c.parent||"").split(" ")[0],k:state.caseId})}
+  const sk=caseUpdKey(state);save();return LINKBASE()+"#send="+await packObj({c:(c.name||"").split(" ")[0],p:(c.parent||"").split(" ")[0],k:state.caseId,s:sk})}
 async function openInvite(){if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}
   if(!state.child.name){toast("Add your child's name first.");return}
   const url=await inviteLink(),first=state.child.name.split(" ")[0];
@@ -2407,7 +2451,7 @@ async function openInvite(){if(state.readOnly){toast("This case was shared with 
     <p class="note">Send this link to a teacher, counselor, nurse or doctor. They don't need the app or an account. They write an update and send it back to you as a link. When you tap it, KidArmor asks before adding it to ${esc(first)}'s case.</p>
     <button class="btn primary wide" id="ivShare" type="button">Send the link</button>
     <button class="btn light wide" id="ivCopy" type="button">Copy the link</button>
-    <p class="note">The link only shows ${esc(first)}'s first name. It can't see or change anything in your case.</p>
+    <p class="note">The link only includes ${esc(first)}'s first name. It can't see or change anything in your case, and updates sent with it are marked as confirmed.</p>
     <button class="btn ghost" id="ivDone" type="button">Done</button>`);
   sh.querySelector("#ivDone").onclick=closeSheet;
   sh.querySelector("#ivCopy").onclick=async()=>{try{await navigator.clipboard.writeText(url);toast("Link copied")}catch(e){toast("Couldn't copy here. Use Send instead.")}};
@@ -2424,7 +2468,7 @@ async function openSenderPage(){const m=(location.hash||"").match(/^#send=([A-Za
     <div class="row"><label for="sdName">Your name *<input id="sdName" value="${esc(me.name||"")}" autocomplete="name" placeholder="Ms. Smith"></label>
       <label for="sdRole">Your role<select id="sdRole">${UPD_ROLES.map(r=>`<option${r===me.role?" selected":""}>${r}</option>`).join("")}</select></label></div>
     <label for="sdOrg">School or office<input id="sdOrg" value="${esc(me.org||"")}" placeholder="Pass Christian Middle School"></label>
-    <div class="row"><label for="sdChild">Student's name *<input id="sdChild" value="${esc(inv.cl||inv.c||"")}"></label><label for="sdDate">Date<input id="sdDate" type="date" value="${today()}"></label></div>
+    <div class="row"><label for="sdChild">Student's name *<input id="sdChild" value="${esc(inv.c||"")}"></label><label for="sdDate">Date<input id="sdDate" type="date" value="${today()}"></label></div>
     <label for="sdKind">What is it about?<select id="sdKind">${UPD_KINDS.map(k=>`<option>${k}</option>`).join("")}</select></label>
     <label for="sdText">Your update *<textarea id="sdText" rows="6" placeholder="Ava used her extra time on today's math test and finished every question."></textarea></label>
     <p class="note err" id="sdErr" role="alert"></p>
@@ -2440,6 +2484,7 @@ async function openSenderPage(){const m=(location.hash||"").match(/^#send=([A-Za
     q("#sdMake").onclick=async()=>{const u={id:"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),from:v("#sdName"),role:q("#sdRole").value,org:v("#sdOrg"),child:v("#sdChild"),date:q("#sdDate").value||today(),kind:q("#sdKind").value,text:v("#sdText"),k:inv.k||"",sent:new Date().toISOString()};
       if(!u.from){q("#sdErr").textContent="Please add your name.";return}if(!u.child){q("#sdErr").textContent="Please add the student's name.";return}if(u.text.length<3){q("#sdErr").textContent="Please write your update.";return}
       q("#sdErr").textContent="";try{localStorage.setItem("kidarmor.sender",JSON.stringify({name:u.from,role:u.role,org:u.org}))}catch(e){}
+      if(inv.s&&typeof inv.s==="string"){try{u.sig=await updSig(inv.s,u)}catch(e){}}
       url=(LINKBASE()||location.origin+location.pathname)+"#upd="+await packObj(u);q("#sdOut").hidden=false;q("#sdMake").hidden=true;
       q("#sdShare").onclick=async()=>{const text=`Update about ${u.child.split(" ")[0]} from ${u.from}${u.org?" ("+u.org+")":""}. Tap to add it to your KidArmor app:`;
         try{if(navigator.share){await navigator.share({title:"School update",text,url});return}}catch(e){if(e&&e.name==="AbortError")return}
@@ -2458,9 +2503,13 @@ async function promptUpdateLink(){const m=(location.hash||"").match(/^#upd=([A-Z
   if(!kids.length){toast("Add your child first, then open the update link again.");return true}
   const first=s=>(s||"").toLowerCase().split(" ")[0];
   let pick=kids.find(x=>u.k&&x.c.caseId===u.k)||kids.find(x=>first(x.c.child.name)===first(u.child))||kids[0];
+  if(!u||typeof u!=="object"){toast("That update link isn't complete.");return true}
+  for(const f of UPD_FIELDS)u[f]=String(u[f]??"").slice(0,f==="text"?20000:300);if(!/^\d{4}-\d{2}-\d{2}$/.test(u.date))u.date=today();
+  const vc=await updVerified(u);if(vc)pick=kids.find(x=>x.c===vc)||pick;const verified=!!vc;
   const dup=kids.some(x=>x.c.entries.some(e=>e.updateId===u.id));
   const sh=openSheet(`<h3>Update from ${esc(u.from)}</h3>
     <p class="note">${esc(u.role)}${u.org?" · "+esc(u.org):""} · ${esc(fmt(u.date))}</p>
+    ${verified?`<div class="banner info">✓ Sent through the update link you shared from this phone.</div>`:`<div class="banner">Check who sent this. It didn't come through an update link from this phone, so KidArmor can't confirm it's from ${esc(u.from||"the person named")}. Only add it if you trust where it came from.</div>`}
     <div class="tbox"><b>${esc(u.kind)} · about ${esc(u.child)}</b><p style="margin:6px 0 0;white-space:pre-wrap">${esc(u.text)}</p></div>
     ${dup?`<div class="banner">This update is already in your case.</div>`:""}
     ${kids.length>1?`<label for="upKid">Add it to<select id="upKid">${kids.map(x=>`<option value="${x.i}"${x===pick?" selected":""}>${esc(x.c.child.name)}</option>`).join("")}</select></label>`:`<p class="note">It will be saved in ${esc(pick.c.child.name)}'s case as a contact from the school.</p>`}
@@ -2468,7 +2517,7 @@ async function promptUpdateLink(){const m=(location.hash||"").match(/^#upd=([A-Z
     <button class="btn ghost" id="upNo" type="button">Not now</button>`);
   sh.querySelector("#upNo").onclick=closeSheet;
   sh.querySelector("#upAdd").onclick=()=>{const idx=kids.length>1?+sh.querySelector("#upKid").value:pick.i;save();root.active=idx;state=root.cases[idx];
-    state.entries.push({id:String(Date.now()),kind:"comm",date:u.date||today(),method:"KidArmor update",withwho:`${u.from} (${u.role}${u.org?", "+u.org:""})`,direction:"The school contacted me",subject:u.kind,desc:u.text,updateId:u.id,files:[]});
+    state.entries.push({id:String(Date.now()),kind:"comm",date:u.date||today(),method:verified?"KidArmor update":"KidArmor update (sender not confirmed)",withwho:`${u.from} (${u.role}${u.org?", "+u.org:""})`,direction:"The school contacted me",subject:u.kind,desc:u.text,updateId:u.id,updVerified:verified,files:[]});
     save();closeSheet();filter="all";show("home");toast(`Saved to ${state.child.name.split(" ")[0]}'s case`)};
   return true}
 
@@ -2480,7 +2529,7 @@ function renderReports(){const R=[...(state.reports||[])].sort((a,b)=>(b.date||"
   const ro=!!state.readOnly;$("#rpAdd").hidden=ro;$("#hlAdd").hidden=ro;
   let html="",yr="";
   for(const r of R){const y=schoolYear(r.date);if(y!==yr){yr=y;html+=`<div class="eyebrow" style="margin-top:6px">${esc(y)}</div>`}
-    const f=(r.files||[])[0],pv=f?(f.thumb?`<img src="${f.thumb}" alt="">`:f.type==="application/pdf"?PDF_ICON:DOC_ICON):DOC_ICON;
+    const f=(r.files||[])[0],pv=f?(f.thumb?`<img src="${SAFE_IMG.test(f.thumb||"")?f.thumb:""}" alt="">`:f.type==="application/pdf"?PDF_ICON:DOC_ICON):DOC_ICON;
     html+=`<div class="it"><button class="doc" type="button" data-rpv="${r.id}"${f?"":" disabled"}><span class="pv">${pv}</span><span><b>${esc(r.type)}${r.period?" · "+esc(r.period):""}</b><br><span class="date">${esc(fmt(r.date)||"No date")}${(r.files||[]).length>1?` · ${r.files.length} pages`:""}${r.onPhone?" · file is on your phone":f?" · tap to open":""}</span>${r.grades?`<br><span class="date">${esc(r.grades.split("\n").filter(Boolean).slice(0,4).join(" · "))}</span>`:""}</span></button>${ro?"":`<button class="x" data-rpe="${r.id}" type="button" aria-label="Edit">✎</button>`}</div>`}
   $("#rpList").innerHTML=R.length?html:`<p class="note">No report cards yet. Add each one when it comes home, with the date on it. Over time this shows how ${esc(first())} is doing.</p>`;
   $("#hlList").innerHTML=H.length?H.map(h=>`<div class="it"><span><b>${esc(h.type)}</b>${h.what?" · "+esc(h.what):""}<br><span class="date">${esc(fmt(h.date))}${h.note?" · "+esc(h.note):""}</span></span>${ro?"":`<button class="x" data-hle="${h.id}" type="button" aria-label="Edit">✎</button>`}</div>`).join(""):`<p class="note">Optional. Note medication or treatment changes with the date, so a doctor can compare grades and behavior before and after.</p>`;
@@ -2540,7 +2589,7 @@ function openDoctorShare(){const sh=openSheet(`<h3>Report for a doctor or counse
       if(r.failed.length)toast(`${r.failed.length} page${r.failed.length>1?"s":""} couldn't be added. Bring ${r.failed.length>1?"them":"it"} separately.`);
       openViewer({name:nm,blob:new Blob([r.bytes],{type:"application/pdf"}),type:"application/pdf",download:true})}
     catch(e){b.disabled=false;b.textContent="Make the PDF";toast("Couldn't make the PDF. Check your connection and try again.")}}}
-async function buildDoctorReport(o){await loadScript(PDFLIB);const{PDFDocument,StandardFonts,rgb}=window.PDFLib;
+async function buildDoctorReport(o){await loadScript(PDFLIBSRC());const{PDFDocument,StandardFonts,rgb}=window.PDFLib;
   const doc=await PDFDocument.create();doc.setTitle(`School and treatment report - ${state.child.name||"Student"}`);doc.setCreator("KidArmor");
   const F=await doc.embedFont(StandardFonts.Helvetica),FB=await doc.embedFont(StandardFonts.HelveticaBold);
   const W=612,H=792,M=54,INK=rgb(.09,.13,.17),MUT=rgb(.36,.41,.46),ACC=rgb(.12,.37,.45),RED=rgb(.48,.16,.12),GRN=rgb(.15,.42,.25);
