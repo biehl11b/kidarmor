@@ -2324,7 +2324,7 @@ function cleanRes(j){if(!j||typeof j!=="object"||!j.states||typeof j.states!=="o
   const attorneys=(Array.isArray(j.attorneys)?j.attorneys:[]).filter(a=>a&&typeof a==="object").slice(0,1000).map(a=>({
     states:(Array.isArray(a.states)?a.states:[a.state]).filter(x=>typeof x==="string"&&/^[A-Z]{2}$/.test(x)),
     name:str(a.name),firm:str(a.firm),areas:(Array.isArray(a.areas)?a.areas:[]).filter(x=>typeof x==="string").slice(0,8).map(x=>x.slice(0,80)),
-    serves:str(a.serves),phone:str(a.phone,40),email:/^[^\s@<>"']+@[^\s@<>"']+$/.test(str(a.email,120))?str(a.email,120):"",web:url(a.web),consult:str(a.consult,120)})).filter(a=>a.name&&a.states.length);
+    serves:str(a.serves),phone:str(a.phone,40),email:/^[^\s@<>"']+@[^\s@<>"']+$/.test(str(a.email,120))?str(a.email,120):"",web:url(a.web),consult:str(a.consult,120),kind:["attorney","advocate","evaluator","tutor"].includes(a.kind)?a.kind:"attorney"})).filter(a=>a.name&&a.states.length);
   return{version:j.version,updated:str(j.updated,20),states,attorneys}}
 let RESDATA=(()=>{try{const c=cleanRes(JSON.parse(localStorage.getItem("kidarmor.res")||"null"));if(c&&c.version>RES_BUILTIN.version)return c}catch(e){}return RES_BUILTIN})();
 async function refreshResources(){try{if(isFramed())return;const r=await fetch(HOME_URL+"resources.json",{cache:"no-cache"});if(!r.ok)return;const j=await r.json();
@@ -2658,22 +2658,17 @@ function renderBackupNudge(){const el=$("#bkNudge"),bl=$("#bkLast");const st=bac
 /* add real listings here: {state:"MS", name, firm, areas:[], serves, phone, email, web, consult} */
 const ATTORNEYS=[];
 const DEMO_ATTORNEY={state:"MS",name:"Your Name, Attorney at Law",firm:"Your Firm, PLLC",areas:["Special education (IEP)","Section 504","Bullying and school discipline","Disability rights"],serves:"Gulf Coast and South Mississippi",phone:"(228) 555-0100",email:"office@example.com",web:"https://www.example.com",consult:"Free 15-minute phone consultation"};
-const isAttorneyDemo=()=>/^#attorney-demo$/.test(location.hash||"");
+const isAttorneyDemo=()=>/^#(attorney|provider)-demo$/.test(location.hash||""),isProviderDemo=()=>/^#provider-demo$/.test(location.hash||"");
+const DEMO_PROVIDERS=[{kind:"advocate",state:"MS",name:"Your Name, Special Education Advocate",firm:"Your Advocacy Practice",areas:["IEP and 504 meetings","Records review","Discipline meetings"],serves:"Statewide, in person or online",phone:"(228) 555-0101",email:"office@example.com",web:"https://www.example.com",consult:"Free 15-minute phone call"},{kind:"evaluator",state:"MS",name:"Your Name, PhD, Licensed Psychologist",firm:"Your Evaluation Practice",areas:["Independent educational evaluations","Dyslexia and learning disabilities","ADHD and autism"],serves:"Gulf Coast and South Mississippi",phone:"(228) 555-0102",email:"office@example.com",web:"https://www.example.com",consult:"Evaluations usually scheduled within 4 weeks"},{kind:"tutor",state:"MS",name:"Your Name, M.Ed., Dyslexia Therapist",firm:"Your Tutoring Practice",areas:["Orton-Gillingham reading","Dyslexia therapy","Writing and math support"],serves:"In person and online",phone:"(228) 555-0103",email:"office@example.com",web:"https://www.example.com",consult:"Free first session"}];
 function lawCard(a,demo){const tel=(a.phone||"").replace(/[^\d+]/g,"");
-  return`<div class="res${demo?" demo":""}"><div class="rtop"><h3>${esc(a.name)}</h3>${a.consult&&/free/i.test(a.consult)?`<span class="rtag">Free consult</span>`:demo?`<span class="rtag">Example</span>`:""}</div>
+  return`<div class="res${demo?" demo":""}"><div class="rtop"><h3>${esc(a.name)}</h3>${demo?`<span class="rtag">Example</span>`:`<span class="rtag">Paid listing</span>`}</div>
     ${a.firm?`<p class="note" style="margin:0"><b>${esc(a.firm)}</b>${a.serves?" · "+esc(a.serves):""}</p>`:""}
     ${(a.areas||[]).length?`<p class="note" style="margin:0">${esc(a.areas.join(" · "))}</p>`:""}
     ${a.consult?`<p class="note" style="margin:0">${esc(a.consult)}</p>`:""}
     ${a.web?`<a class="rlink" href="${esc(a.web)}" target="_blank" rel="noopener"><span>Visit website</span><small>${esc(a.web.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,""))}</small></a>`:""}
     ${a.phone?`<div class="rphone"><a href="tel:${esc(tel)}" class="num">${esc(a.phone)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.phone)}">Copy</button></div>`:""}
     ${a.email?`<div class="rphone"><a href="mailto:${esc(a.email)}" class="num">${esc(a.email)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.email)}">Copy</button></div>`:""}</div>`}
-function renderLawyers(){const el=$("#resLaw");if(!el)return;const st=myState()||"MS",demo=isAttorneyDemo();
-  const L=[...ATTORNEYS,...(RESDATA.attorneys||[])].filter(a=>(a.states||[a.state]).includes(st));if(!L.length&&!demo){el.hidden=true;el.innerHTML="";return}
-  el.hidden=false;
-  el.innerHTML=`<div class="eyebrow">Special education attorneys & advocates</div>
-    ${demo?`<div class="banner info"><span><b>Preview for attorneys.</b> This is how your listing would look to parents in your state. Your name, firm, practice areas, area served, phone, email and website, all one tap away.</span></div>`:""}
-    ${(demo?[DEMO_ATTORNEY]:L).map(a=>lawCard(a,demo)).join("")}
-    <p class="note" style="margin:0">Paid listings. KidArmor doesn't recommend, refer or screen attorneys and doesn't receive any part of their fees. Contact them directly to see if they can help.</p>`}
+function renderLawyers(){const el=$("#resLaw");if(!el)return;const st=myState()||"MS",demo=isAttorneyDemo(),pdemo=isProviderDemo();const all=demo?(pdemo?DEMO_PROVIDERS:[DEMO_ATTORNEY]):[...ATTORNEYS,...(RESDATA.attorneys||[])].filter(a=>(a.states||[a.state]).includes(st));if(!all.length){el.hidden=true;el.innerHTML="";return}el.hidden=false;const groups=[["Special education attorneys & advocates",a=>!a.kind||a.kind==="attorney"||a.kind==="advocate","attorneys or advocates"],["Educational evaluators",a=>a.kind==="evaluator","evaluators"],["Tutors & learning specialists",a=>a.kind==="tutor","tutors"]];el.innerHTML=(demo?`<div class="banner info"><span><b>Preview for ${pdemo?"providers":"attorneys"}.</b> This is how your listing would look to parents in your state. Your name, ${pdemo?"practice, services":"firm, practice areas"}, area served, phone, email and website, all one tap away.</span></div>`:"")+groups.map(([title,f,who])=>{const L=all.filter(f);return L.length?`<div class="eyebrow">${title}</div>${L.map(a=>lawCard(a,demo)).join("")}<p class="note" style="margin:0 0 14px">Paid listings. KidArmor doesn't recommend, refer or screen ${who} and doesn't receive any part of their fees. Contact them directly to see if they can help.</p>`:""}).join("")}
 /* ---------- preview terms (shown once) ---------- */
 const TERMSKEY="kidarmor.terms.v1";
 function showTerms(after){if(window.KA_NATIVE){after&&after();return}try{if(window.__kaSkipTerms||localStorage.getItem(TERMSKEY)){after&&after();return}}catch(e){after&&after();return}
