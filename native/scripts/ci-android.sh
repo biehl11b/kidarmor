@@ -6,7 +6,7 @@ npm ls --depth=0 || true
 node scripts/prepare-www.mjs
 [ -d android ] || npx cap add android
 node scripts/patch-native.mjs android
-npx capacitor-assets generate --android --iconBackgroundColor '#1f5d70' --iconBackgroundColorDark '#1f5d70' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b' || echo "ICON STEP FAILED (using defaults)"
+npx capacitor-assets generate --android --iconBackgroundColor '#e19a12' --iconBackgroundColorDark '#e19a12' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b' || echo "ICON STEP FAILED (using defaults)"
 npx cap sync android
 cd android && chmod +x gradlew
 # Each build gets a higher version number (Google Play requires this)

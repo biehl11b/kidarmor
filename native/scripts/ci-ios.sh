@@ -6,7 +6,7 @@ npm ls --depth=0 || true
 node scripts/prepare-www.mjs
 [ -d ios ] || npx cap add ios
 node scripts/patch-native.mjs ios
-npx capacitor-assets generate --ios --iconBackgroundColor '#1f5d70' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b' || echo "ICON STEP FAILED (using defaults)"
+npx capacitor-assets generate --ios --iconBackgroundColor '#e19a12' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b' || echo "ICON STEP FAILED (using defaults)"
 npx cap sync ios
 cd ios/App
 if [ -d App.xcworkspace ]; then T=(-workspace App.xcworkspace); else T=(-project App.xcodeproj); fi
