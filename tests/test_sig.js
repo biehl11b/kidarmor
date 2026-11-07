@@ -1,0 +1,16 @@
+const { chromium } = require("playwright"); const fs=require("fs");
+const html=fs.readFileSync(__dirname+"/../native/src/app.html","utf8");
+const page_=`<!doctype html><html><head><meta charset=utf8></head><body>${html}</body></html>`;
+(async()=>{const b=await chromium.launch();const p=await (await b.newContext()).newPage();const errs=[];p.on("pageerror",e=>errs.push(e.message));
+await p.addInitScript(()=>{window.__kaNoMic=true;window.__kaSkipTerms=true;window.__kaSkipWizard=true});
+await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));
+await p.route("https://kidarmor.coastlinecode.com/**",r=>r.fulfill({status:404,body:""}));
+await p.route("https://demo.local/**",r=>r.fulfill({body:page_,contentType:"text/html"}));
+await p.goto("https://demo.local/");
+const r=await p.evaluate(async()=>{state=JSON.parse(JSON.stringify(SAMPLE));state.example=false;state.child.name="Ava Test";root.cases=[state];root.active=0;save();
+ const link=await inviteLink();const inv=await unpackObj(link.split("#send=")[1]);
+ const u={id:"u1",from:"Ms Lee",role:"Teacher",org:"PCMS",child:"Ava",date:"2026-11-02",kind:"Progress",text:"Doing better",k:inv.k,sent:"x"};u.sig=await updSig(inv.s,u);
+ const good=!!(await updVerified(u));const forged={...u,text:"changed"};const bad=!!(await updVerified(forged));const nosig=!!(await updVerified({...u,sig:undefined}));
+ const share=caseForLink(state,"advocate");return{hasFull:"cl" in inv, good,bad,nosig,shareHasKey:("updKey" in share)||("invites" in share)}});
+console.log(JSON.stringify(r), errs);
+const ok=r.good&&!r.bad&&!r.nosig&&!r.shareHasKey&&!r.hasFull&&!errs.length;console.log(ok?"PASS":"FAIL");await b.close();process.exit(ok?0:1)})();

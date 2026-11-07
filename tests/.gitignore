@@ -1,0 +1,6 @@
+# test output
+*.png
+*.pdf
+*.ics
+vshots/
+!fixtures/*.png

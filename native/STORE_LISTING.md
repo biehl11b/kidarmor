@@ -100,7 +100,7 @@ Answer **None** to every content question, including medical or treatment inform
 ## Apple: Notes for the reviewer (App Review Information)
 
 KidArmor needs no login. On first open, tick "I have read and agree" and tap Continue. Then enter any parent name, email and state, add a child, and set any 4-digit PIN.
-To try the main features: tap Record a meeting, then Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. Tap Schedule a meeting to add a meeting with two reminders. All data is stored only on the device; there is no account or server.
+To try the main features: tap Record a meeting. The first time, KidArmor asks how to make transcripts (on this phone only, or Apple's speech service); either choice works. Tap Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. On the Child tab, "Share with my professional" makes a locked link and code that a parent sends to their own attorney or counselor; nothing is uploaded to us. Tap Schedule a meeting to add a meeting with two reminders. All data is stored only on the device; there is no account or server.
 Demo account: not needed.
 
 ## Apple: Export compliance
@@ -114,6 +114,14 @@ The app uses only standard encryption (AES, built into the system) to protect th
 - Do you provide a way for users to request that their data be deleted? **Yes**. Users delete everything in the app (Child tab → Erase everything) or by uninstalling.
 - Data deletion URL (if asked): https://coastlinecode.com/kidarmor-privacy-policy/ (section 7)
 - Speech-to-text uses the phone's own Android speech service; the app doesn't receive or send the audio, so it isn't "collected".
+
+## Google Play: Health apps declaration
+
+KidArmor isn't a medical app. If Play Console asks, declare it isn't a health app; the optional medication and treatment notes are the parent's own private notes and never leave the phone unless the parent shares them.
+
+## Google Play: Permissions
+
+Microphone (record meetings, talk instead of type), camera (photos of documents), notifications (meeting reminders), biometrics (Face ID / fingerprint lock). No calendar, location, contacts or storage permissions; meetings are added through the phone's own "new event" screen.
 
 ## Google Play: Content rating questionnaire
 

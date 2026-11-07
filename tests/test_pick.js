@@ -1,0 +1,18 @@
+const { chromium } = require("playwright");const fs=require("fs");
+const html=fs.readFileSync(__dirname+"/../native/src/app.html","utf8");
+(async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:400,height:860}})).newPage(); await (typeof page!=="undefined"?page:p).addInitScript(()=>{window.__kaNoMic=true;window.__kaSkipTerms=true;window.__kaSkipWizard=true});const errs=[];p.on("pageerror",e=>errs.push(e.message));
+await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));
+await p.route("https://demo.local/",r=>r.fulfill({body:'<!doctype html><html><head><meta charset="utf-8"></head><body>'+html+"</body></html>",contentType:"text/html"}));
+await p.goto("https://demo.local/");await p.click("#startOwn");await p.click('nav.tabs button[data-v="home"]');
+await p.click("#homeRecord");
+await p.setInputFiles("#rcPick",{name:"New Recording 3.m4a",mimeType:"",buffer:Buffer.from("fake audio")});
+await p.waitForFunction(()=>(vals.recordings||[]).length===1);
+const t=await p.evaluate(()=>vals.recordings[0].type);
+await p.click("#saveBtn");
+await p.click("#timeline details summary");
+await p.click("[data-recs] [data-view]");
+await p.waitForSelector(".viewer audio");
+console.log((t==="audio/mp4"?"  ok   ":"  FAIL ")+"untyped .m4a saved as audio ("+t+")");
+console.log("  ok   recording plays in the app's player");
+console.log(errs.length?"  FAIL errors "+errs.join("|"):"  ok   no script errors");
+await p.screenshot({path:__dirname+"/pick.png"});await b.close()})().catch(e=>{console.log("  FAIL",e.message);process.exit(1)});

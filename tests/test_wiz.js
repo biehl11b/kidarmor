@@ -1,0 +1,36 @@
+const { chromium } = require("playwright");const fs=require("fs");
+const html=fs.readFileSync(process.env.KA_FILE||__dirname+"/../native/src/app.html","utf8");
+const page_=html.startsWith("<!doctype")?html:'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>[hidden]{display:none!important}</style></head><body>'+html+"</body></html>";
+const ok=(n,c,x="")=>{console.log((c?"  ok   ":"  FAIL ")+n+(x?"  → "+x:""));if(!c)process.exitCode=1};
+(async()=>{const b=await chromium.launch({args:["--use-fake-ui-for-media-stream","--use-fake-device-for-media-stream"]});const ctx=await b.newContext({viewport:{width:390,height:844},permissions:["microphone"]});
+const p=await ctx.newPage();const errs=[];p.on("pageerror",e=>errs.push(e.message));await p.addInitScript(()=>{window.__kaSkipTerms=true;try{localStorage.getItem('kidarmor.stt')||localStorage.setItem('kidarmor.stt','service')}catch(e){}});
+await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));await p.route("https://kidarmor.example/**",r=>r.fulfill({body:page_,contentType:"text/html"}));
+await p.goto("https://kidarmor.example/");await p.waitForSelector(".wizard #wzName");ok("first open goes straight to setup",true);
+await p.click("#wzNext");ok("name/email/state required",/name/.test(await p.textContent("#wzErr")));
+await p.fill("#wzName","Joshua Biehl");await p.fill("#wzEmail","josh@example.com");await p.fill("#wzPhone","228-555-0100");
+await p.click("#wzNext");ok("state is required",/state/.test(await p.textContent("#wzErr")));
+await p.selectOption("#wzState","TX");ok("state note shown",/Resources tab will show help for families in Texas/.test(await p.textContent("#wzStNote")));
+await p.selectOption("#wzState","MS");await p.screenshot({path:__dirname+"/v12-wiz1.png"});await p.click("#wzNext");
+await p.waitForSelector("#wzKid");await p.click("#wzSaveKid");ok("child name required",/name/.test(await p.textContent("#wzErr")));
+const kids=[["Ava","5","Pass Christian Middle"],["Sam","2","DeLisle Elementary"],["Lee","8","PCMS"],["Kai","K","DeLisle"],["Rae","10","PCHS"]];
+for(let i=0;i<kids.length;i++){if(i){await p.click("#wzAdd")}await p.fill("#wzKid",kids[i][0]);await p.fill("#wzGrade",kids[i][1]);await p.fill("#wzSchool",kids[i][2]);if(!i){await p.selectOption("#wzPlan","504 plan");await p.fill("#wzToEmail","pruitt@x.org")}await p.click("#wzSaveKid")}
+ok("can add up to 5 children, then no more",!(await p.$("#wzAdd"))&&/most KidArmor holds/.test(await p.textContent(".wizard")));
+await p.screenshot({path:__dirname+"/v12-wiz2.png"});await p.click("#wzNext");
+await p.waitForSelector("#wzPin1");await p.click("#wzNext");ok("PIN required",/PIN/.test(await p.textContent("#wzErr")));
+await p.fill("#wzPin1","1357");await p.fill("#wzPin2","1357");await p.click("#wzMic");await p.waitForTimeout(300);ok("microphone allowed in setup",/Microphone is on/.test(await p.textContent(".wizard")));
+await p.click("#wzNext");await p.waitForSelector("#wzDone");await p.screenshot({path:__dirname+"/v12-wiz4.png"});
+ok("summary shows parent, state, 5 children, PIN",/Joshua Biehl · Mississippi/.test(await p.textContent(".wizard"))&&/5 children/.test(await p.textContent(".wizard")));
+await p.click("#wzDone");
+const st=await p.evaluate(()=>({n:root.cases.length,pr:root.profile.state,c:state.child,plan:state.plan.type,pin:!!pinRec()}));
+ok("5 case files made with parent info filled in",st.n===5&&st.pr==="MS"&&st.c.name==="Ava"&&st.c.parent==="Joshua Biehl"&&st.c.myemail==="josh@example.com"&&st.c.toemail==="pruitt@x.org"&&st.plan==="504 plan"&&st.pin,JSON.stringify(st).slice(0,160));
+await p.click('nav.tabs button[data-v="me"]');ok("Child tab: add-child disabled at 5",await p.isDisabled("#addKid"));
+ok("state shown in Child tab",await p.inputValue("#s-state")==="MS");
+await p.click('nav.tabs button[data-v="res"]');ok("Mississippi resources shown",await p.isVisible("#resMS"));
+// switch to Texas
+await p.click('nav.tabs button[data-v="me"]');await p.selectOption("#s-state","TX");await p.click("#setupForm button[type=submit]");
+await p.click('nav.tabs button[data-v="res"]');ok("Texas: Texas section, Mississippi hidden",!(await p.isVisible("#resMS"))&&/Disability Rights Texas/.test(await p.textContent("#resState")));
+await p.evaluate(()=>{root.profile.state="CA";save()});await p.click('nav.tabs button[data-v="home"]');await p.click("#homeRecord");
+ok("California: recorder says everyone must agree",/California requires everyone's permission/.test(await p.textContent(".sheet")));
+await p.click("#recCancel");
+await p.reload();await p.waitForSelector(".lockscreen");ok("no setup again after it's done (PIN lock instead)",!(await p.$(".wizard")));
+ok("no script errors",errs.length===0,errs.join("|"));await b.close()})().catch(e=>{console.log("  FAIL",e.message);process.exit(1)});

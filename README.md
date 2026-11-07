@@ -9,4 +9,11 @@ A private record of what happens at school for parents: bullying, IEP and 504 pr
 
 Test version for feedback: https://kidarmor.coastlinecode.com/
 
+## Where things are
+
+- `native/src/app.html`: the app (one file). The website and the phone apps are both built from it.
+- `web/build.sh`: rebuilds the website (`index.html`) from the app.
+- `native/`: the iPhone and Android apps (Capacitor). GitHub Actions builds them; see `native/SUBMIT.md` for store submission and `native/STORE_LISTING.md` for listing text.
+- `tests/`: browser tests. Run `bash tests/run-all.sh`.
+
 © 2026 Coastline Code LLC. All rights reserved. See LICENSE. Not open source.

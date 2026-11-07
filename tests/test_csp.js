@@ -1,0 +1,11 @@
+const { chromium } = require("playwright"); const fs=require("fs");
+(async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:390,height:844}})).newPage();const errs=[],csp=[];
+p.on("pageerror",e=>errs.push(e.message));p.on("console",m=>{if(/Content Security Policy|Refused/i.test(m.text()))csp.push(m.text().slice(0,200))});
+await p.addInitScript(()=>{window.__kaNoMic=true;window.__kaSkipTerms=true;window.__kaSkipWizard=true});
+await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));
+await p.route("https://kidarmor.coastlinecode.com/**",r=>{const u=new URL(r.request().url());const f=__dirname+"/.."+(u.pathname==="/"?"/index.html":u.pathname);if(!fs.existsSync(f))return r.fulfill({status:404,body:""});r.fulfill({path:f,contentType:f.endsWith(".html")?"text/html":f.endsWith(".json")?"application/json":/\.m?js$/.test(f)?"application/javascript":undefined})});
+await p.goto("https://kidarmor.coastlinecode.com/");await p.waitForTimeout(2500);
+const r=await p.evaluate(async()=>{const out={};try{state=JSON.parse(JSON.stringify(SAMPLE));root.cases=[state];root.active=0;save();
+ const bd=await buildBinder();out.binder=bd.pages;const d=document.createElement("div");document.body.appendChild(d);await renderPdf(new Blob([bd.bytes],{type:"application/pdf"}),d);out.canv=d.querySelectorAll("canvas").length;
+ out.res=RESDATA.version;out.link=(await makeCaseLink("advocate")).url.length;}catch(e){out.err=e.message}return out});
+console.log(JSON.stringify(r),"errors:",errs,"csp:",csp);await b.close()})();

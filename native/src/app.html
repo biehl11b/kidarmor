@@ -162,6 +162,8 @@ nav.tabs .addtab span.fab svg{width:26px;height:26px}
 .rtag{flex:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:3px 9px}
 .rlink{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;text-decoration:none;font-size:15px;min-width:0}
 .rlink span{overflow-wrap:anywhere}
+.rlink>*{min-width:0}.rlink small{overflow-wrap:anywhere;word-break:break-word}
+#permList .it>span:first-child{min-width:0;flex:1 1 auto}#permList .it .actions{flex-shrink:0}#permList .btn.small{padding-left:10px;padding-right:10px}
 .rlink svg,.rphone svg{width:18px;height:18px;flex:none;color:var(--muted)}
 .rphone{display:flex;align-items:center;gap:8px;font-size:15px;flex-wrap:wrap}
 .rphone .num{font-family:var(--mono);color:var(--ink);text-decoration:none;font-size:14px;user-select:all;overflow-wrap:anywhere}
@@ -241,7 +243,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 </div></header>
 
 <main class="wrap">
-  <div class="banner info" id="framedBar" hidden><span><b>This is a preview inside Claude.</b> Face ID, recording and reminders only work at KidArmor's own address.</span><button class="btn small primary" id="framedGo" type="button">Open KidArmor</button></div>
+  <div class="banner info" id="framedBar" hidden><span><b>This is a preview.</b> Face ID, recording and reminders only work in the KidArmor app or at KidArmor's own address.</span><button class="btn small primary" id="framedGo" type="button">Open KidArmor</button></div>
   <!-- HOME -->
   <section class="view" id="v-home">
     <div class="welcome" id="welcome" hidden>
@@ -713,7 +715,8 @@ function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);coerce(s,0);s.chi
   for(const k of ["reports","health","docs","entries"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
   for(const list of [s.entries,s.docs,s.reports])(list||[]).forEach(x=>{if(x&&typeof x==="object"){for(const fk of ["files","recordings"]){if(x[fk]!=null&&!Array.isArray(x[fk]))x[fk]=[];(x[fk]||[]).forEach(f=>{if(f&&typeof f==="object"){f.name=String(f.name??"File");f.type=typeof f.type==="string"?f.type:"application/octet-stream"}});if(x[fk])x[fk]=x[fk].filter(f=>f&&typeof f==="object")}}});
   s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
-  s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;return n});return s}
+  s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;if(n.onPhone!=null)n.onPhone=(typeof n.onPhone==="object")?{files:Math.max(0,+n.onPhone.files|0),recs:Math.max(0,+n.onPhone.recs|0),...(n.onPhone.where==="preview"?{where:"preview"}:{})}:undefined;return n});
+  for(const list of [s.docs,s.reports])list.forEach(x=>{if(x&&x.onPhone!=null)x.onPhone=Math.max(0,+x.onPhone|0)});return s}
 function load(){
   try{const s=localStorage.getItem(KEY);if(s)return migrate(JSON.parse(s))}catch(e){}
   try{const o=localStorage.getItem("papertrail.v2");if(o){const v=JSON.parse(o);if(!v.example)return migrate(v)}}catch(e){}
@@ -794,7 +797,7 @@ function card(e){const K=KINDS[e.kind],m=[],mi=(l,v)=>v&&m.push(`<span><b>${l}:<
     <div class="sub">${statusOf(e)}${nf?`<span class="status plain">${nf} attachment${nf>1?"s":""}</span>`:""}</div></summary>
   <div class="body">${useSum?summaryBlock(e):`<p>${esc(e.desc)}</p>`}${m.length?`<div class="meta">${m.join("")}</div>`:""}
     ${(e.recordings||[]).length?`<div class="files" data-recs="${e.id}">${e.recordings.map((f,i)=>fileTile(f,i,false)).join("")}</div>${e.announcedAt?`<p class="note" style="margin:0">Recording was announced to everyone at the start.</p>`:""}`:""}
-    ${e.onPhone&&(e.onPhone.recs||e.onPhone.files)?`<p class="note" style="margin:0">📱 ${[e.onPhone.recs?`${e.onPhone.recs===1?"The recording is":e.onPhone.recs+" recordings are"}`:"",e.onPhone.files?`${e.onPhone.files} photo${e.onPhone.files>1?"s or documents are":" or document is"}`:""].filter(Boolean).join(" and ")} on your phone.</p>`:""}
+    ${e.onPhone&&((e.onPhone.recs|0)||(e.onPhone.files|0))?`<p class="note" style="margin:0">📱 ${[(e.onPhone.recs|0)?`${(e.onPhone.recs|0)===1?"The recording is":(e.onPhone.recs|0)+" recordings are"}`:"",(e.onPhone.files|0)?`${e.onPhone.files|0} photo${(e.onPhone.files|0)>1?"s or documents are":" or document is"}`:""].filter(Boolean).join(" and ")} on your phone.</p>`:""}
     ${e.transcript?`<details class="txtab"><summary>See full transcript</summary><div class="tbox"><pre style="white-space:pre-wrap">${esc(e.transcript)}</pre></div></details>`:""}
     ${nf?`<div class="files" data-files="${e.id}">${e.files.map((f,i)=>fileTile(f,i,false)).join("")}</div>`:""}
     ${e.originalDesc&&!state.readOnly?`<details class="more"><summary>Your original words (private)</summary><div class="inner"><p class="note" style="margin:0">${esc(e.originalDesc)}</p></div></details>`:""}
@@ -895,7 +898,7 @@ $("#d-file").onchange=async e=>{const f=e.target.files[0];if(!f)return;if(guardE
   try{const meta=await storeUpload(f);state.docs.push({id:"d"+Date.now(),name,date:$("#d-date").value,files:[meta]});save();$("#d-name").value="";$("#d-date").value="";renderPlan();toast("Document saved to this phone")}
   catch(err){toast("Couldn't save that file. Files must be under 40 MB.")}e.target.value=""};
 $("#docList").onclick=e=>{const o=e.target.closest("[data-doc]");if(o){const d=state.docs.find(x=>x.id===o.dataset.doc);if(d&&d.files[0])openViewer(d.files[0]);return}
-  const b=e.target.closest("[data-rd]");if(!b||guardExample())return;const d=state.docs.find(x=>x.id===b.dataset.rd);(d.files||[]).forEach(f=>delFile(f.id));state.docs=state.docs.filter(x=>x.id!==d.id);save();renderPlan();toast("Document removed")};
+  const b=e.target.closest("[data-rd]");if(!b||guardExample())return;const d=state.docs.find(x=>x.id===b.dataset.rd);if(!d)return;(d.files||[]).forEach(f=>delFile(f.id));state.docs=state.docs.filter(x=>x.id!==d.id);save();renderPlan();toast("Document removed")};
 
 /* ---------- LETTERS ---------- */
 let letterMeeting=null;
@@ -1262,15 +1265,15 @@ function showLock(){if($(".lockscreen"))return;const rec=pinRec();if(!rec)return
     <p class="note">or enter your PIN</p>`:`<p class="lede">Enter your PIN to open your records.</p>`}
     <label for="lockPin" style="align-items:center">PIN<input id="lockPin" type="password" inputmode="numeric" autocomplete="current-password"></label>
     <button class="btn ${bio?"ghost":"primary"}" id="lockGo" type="button" style="min-width:200px">Unlock with PIN</button><p class="note" id="lockErr" role="alert"></p>`;
-  document.body.appendChild(l);
+  document.body.appendChild(l);const behind=[...document.body.children].filter(x=>x!==l&&!x.inert);behind.forEach(x=>x.inert=true);const done=()=>{l.remove();behind.forEach(x=>x.inert=false)};
   const go=async()=>{if(Date.now()<lockWait){$("#lockErr").textContent=`Too many tries. Wait ${Math.ceil((lockWait-Date.now())/1000)} seconds.`;return}
     const p=$("#lockPin").value.trim();const h=await pinHash(p,rec.s,rec.i||100000);
-    if(h.h===rec.h){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});l.remove();return}
+    if(h.h===rec.h){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});done();return}
     lockWrong++;$("#lockPin").value="";
     const ls=lockState();if(lockWrong>=5){const rounds=(ls.rounds||0)+1,secs=Math.min(3600,30*2**(rounds-1));lockWrong=0;lockWait=Date.now()+secs*1000;saveLockState({n:0,rounds,until:lockWait});
       $("#lockErr").textContent=`Too many tries. Wait ${secs>=120?Math.round(secs/60)+" minutes":secs+" seconds"}.`}else{saveLockState({n:lockWrong,rounds:ls.rounds||0,until:lockWait});$("#lockErr").textContent="That PIN isn't right."}};
   $("#lockGo").onclick=go;$("#lockPin").onkeydown=e=>{if(e.key==="Enter")go()};
-  const lb=$("#lockBio");const tryBio=async(auto)=>{if(!lb||lb.disabled)return;lb.disabled=true;$("#lockBioMsg").textContent=`Signing you in with ${BIONAME()}…`;const ok=await bioUnlock();lb.disabled=false;if(ok){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});l.remove();toast("Signed in with "+BIONAME());return}
+  const lb=$("#lockBio");const tryBio=async(auto)=>{if(!lb||lb.disabled)return;lb.disabled=true;$("#lockBioMsg").textContent=`Signing you in with ${BIONAME()}…`;const ok=await bioUnlock();lb.disabled=false;if(ok){lockWrong=0;lockWait=0;saveLockState({n:0,rounds:0,until:0});done();toast("Signed in with "+BIONAME());return}
     $("#lockBioMsg").textContent=auto?`Tap Use ${BIONAME()} to sign in.`:`${BIONAME()} didn't sign you in. Try again, or enter your PIN.`;if(!auto)try{$("#lockPin").focus()}catch(e){}};
   if(lb){lb.onclick=()=>tryBio(false);setTimeout(()=>tryBio(true),350)}
   setTimeout(()=>{try{if(!bio)$("#lockPin").focus()}catch(e){}},50)}
@@ -1286,9 +1289,11 @@ async function sealJson(obj,secret,type,iter=150000){const salt=crypto.getRandom
   return JSON.stringify({format:"kidarmor",type,v:1,kdf:{alg:"PBKDF2-SHA256",iter,salt:u8ToB64(salt)},cipher:{alg:"AES-256-GCM",nonce:u8ToB64(nonce)},data:u8ToB64(ct)})}
 async function openJson(text,secret){let env;try{env=JSON.parse(text)}catch(e){throw new Error("This isn't a KidArmor backup or share file.")}
   if(!env||env.format!=="kidarmor"||!env.data||!env.kdf||!env.cipher)throw new Error("This isn't a KidArmor backup or share file.");
-  const key=await aesKey(normSecret(secret,env.type),b64ToU8(env.kdf.salt),env.kdf.iter);
+  const it=env.kdf.iter;if(!Number.isInteger(it)||it<1||it>2000000)throw new Error("This isn't a KidArmor backup or share file.");
+  const key=await aesKey(normSecret(secret,env.type),b64ToU8(env.kdf.salt),it);
   let pt;try{pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64ToU8(env.cipher.nonce)},key,b64ToU8(env.data))}catch(e){throw new Error("That passphrase or code doesn't match this file.")}
   return{type:env.type,value:JSON.parse(dec.decode(new Uint8Array(pt)))}}
+function asImported(c){c.readOnly=true;c.example=false;delete c.updKey;delete c.invites;delete c.shares;delete c.upcoming;delete c.setupDone2;return c}
 const caseFiles=c=>[...c.entries.flatMap(e=>[...(e.files||[]),...(e.recordings||[])]),...c.docs.flatMap(d=>d.files||[]),...(c.reports||[]).flatMap(r=>r.files||[])].filter(f=>f.id&&!f.inline);
 async function packFiles(list){const out={};for(const f of list){try{const r=await getFile(f.id);if(r)out[f.id]={name:r.name,type:r.type,b64:u8ToB64(new Uint8Array(await r.blob.arrayBuffer()))}}catch(e){}}return out}
 async function unpackFiles(files,rename){const map={};for(const[id,f]of Object.entries(files||{})){const nid=rename?"f"+Date.now()+Math.random().toString(36).slice(2,8):id;map[id]=nid;await putFile({id:nid,name:f.name,type:f.type,blob:new Blob([b64ToU8(f.b64)],{type:f.type})})}return map}
@@ -1303,7 +1308,9 @@ $("#bkMake").onclick=async()=>{const a=$("#bk1").value,b=$("#bk2").value;const r
   catch(e){toast("Backup didn't finish. Please try again.")}finally{btn.disabled=false;btn.textContent="Save encrypted backup"}};
 let rsText=null;
 $("#rsFile").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;rsText=await f.text();$("#rsStep").hidden=false;$("#rsPass").focus()};
-$("#rsGo").onclick=async()=>{if(!rsText)return;const btn=$("#rsGo");btn.disabled=true;btn.textContent="Unlocking…";
+let rsArm=false;
+$("#rsGo").onclick=async()=>{if(!rsText)return;const btn=$("#rsGo");const mine=root.cases.filter(c=>!c.example&&!c.readOnly&&(c.child.name||c.entries.length)).length;
+  if(mine&&!rsArm){rsArm=true;btn.textContent=`Tap again to replace the ${mine} case file${mine>1?"s":""} on this phone`;setTimeout(()=>{rsArm=false;if(!btn.disabled)btn.textContent="Unlock and restore"},6000);return}rsArm=false;btn.disabled=true;btn.textContent="Unlocking…";
   try{const{value}=await openJson(rsText,$("#rsPass").value);if(!value.data)throw new Error("This is a shared case, not a backup. Use “Open a case shared with me.”");
     let cases;if(value.data.children){cases=[];for(const ch of value.data.children.filter(x=>!x.example))cases.push(await fromAppChild(ch,value.files||{},value.data.parent||{}))}
     else{await unpackFiles(value.files,false);cases=value.data.cases.map(migrate)}
@@ -1319,9 +1326,9 @@ let imText=null;
 $("#imFile").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;imText=await f.text();$("#imStep").hidden=false;$("#imCode").focus()};
 $("#imGo").onclick=async()=>{if(!imText)return;const btn=$("#imGo");btn.disabled=true;btn.textContent="Opening…";
   try{const{value}=await openJson(imText,$("#imCode").value);if(!value.child)throw new Error("This is a full backup, not a shared case. Use “Restore from a backup.”");
-    if(isAppPayload(value)){const c=await fromAppChild(value.child,value.files||{},null);c.readOnly=true;save();root.cases.push(c);root.active=root.cases.length-1;state=c;save();imText=null;$("#imStep").hidden=true;$("#imCode").value="";renderWho();show("home");toast(`${c.child.name||"The case"} was opened, read-only`);return}
+    if(isAppPayload(value)){const c=asImported(await fromAppChild(value.child,value.files||{},null));save();root.cases.push(c);root.active=root.cases.length-1;state=c;save();imText=null;$("#imStep").hidden=true;$("#imCode").value="";renderWho();show("home");toast(`${c.child.name||"The case"} was opened, read-only`);return}
     const map=await unpackFiles(value.files,true);const c=migrate(value.child);const fix=f=>f.id&&map[f.id]?{...f,id:map[f.id]}:f;
-    c.entries.forEach(e=>{e.files=(e.files||[]).map(fix);if(e.recordings)e.recordings=e.recordings.map(fix)});c.docs.forEach(d=>d.files=(d.files||[]).map(fix));c.readOnly=true;
+    c.entries.forEach(e=>{e.files=(e.files||[]).map(fix);if(e.recordings)e.recordings=e.recordings.map(fix)});c.docs.forEach(d=>d.files=(d.files||[]).map(fix));asImported(c);
     save();root.cases.push(c);root.active=root.cases.length-1;state=c;save();imText=null;$("#imStep").hidden=true;$("#imCode").value="";
     renderWho();show("home");toast(`${c.child.name||"The case"} was added, read-only`)}
   catch(e){toast(e.message||"Couldn't open that file.")}finally{btn.disabled=false;btn.textContent="Open case"}};
@@ -1921,10 +1928,6 @@ async function fromAppChild(c,files,parent){
 
 $("#v-res").addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const t=b.dataset.copy;
   navigator.clipboard.writeText(t).then(()=>toast("Copied "+t)).catch(()=>{const n=b.parentElement.querySelector(".num");if(n){const r=document.createRange();r.selectNodeContents(n);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("Selected. Use your phone's Copy button.")})});
-async function makeShareFile(){save();const copy=JSON.parse(JSON.stringify(state));copy.entries.forEach(e=>{delete e.parentNote;delete e.originalDesc});
-  delete copy.updKey;delete copy.invites;delete copy.shares;copy.readOnly=true;copy.sharedBy=state.child.parent||"A parent";copy.sharedAt=new Date().toISOString();copy.example=false;
-  const code=shareCode();const text=await sealJson({child:copy,files:await packFiles(caseFiles(state))},code,"share");
-  const ok=await saveFile(`KidArmor-${(state.child.name||"case").replace(/[^\w ]+/g,"").trim()}-${today()}.json`,text);return ok?code:null}
 $("#pcLink").onclick=e=>startCaseLink("computer",e.currentTarget);
 /* ---------- write or say a note: keeps the parent's words, makes a factual version to send ---------- */
 let QN={orig:"",res:null};
@@ -2011,19 +2014,6 @@ function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 const STOP=new Set("a an the and or but so if then than that this these those to of in on at for from with by about as is are was were be been being it its it's i me my we our us you your he him his she her they them their there here what which who whom when where why how do does did done have has had having can could will would should may might must just really very also not no yes okay ok um uh like yeah right well know think going get got go say said says let lets let's one thing things kind sort lot little bit gonna wanna mean".split(" "));
 const FILLER=/^(thank you|thanks|okay|ok|alright|all right|yes|no|yeah|sure|hello|hi|bye|good morning|good afternoon)\b[^a-z]*$/i;
 /* picks the sentences that carry the most of the meeting's main words, kept in the order they were said */
-function meetingSynopsis(U){
-  const cand=U.map((u,i)=>({...u,i,w:u.s.toLowerCase().match(/[a-z0-9']+/g)||[]})).filter(u=>u.w.length>=5&&!FILLER.test(u.s)&&!/recording this meeting|being recorded|okay with that/i.test(u.s));
-  if(!cand.length)return[];
-  const freq={};cand.forEach(u=>new Set(u.w.filter(w=>!STOP.has(w)&&w.length>2)).forEach(w=>freq[w]=(freq[w]||0)+1));
-  const top=Math.max(1,...Object.values(freq));
-  cand.forEach(u=>{const ws=u.w.filter(w=>!STOP.has(w)&&w.length>2);
-    u.score=ws.reduce((a,w)=>a+freq[w]/top,0)/Math.sqrt(ws.length+1)
-      +(NOTE_AGREE.test(u.s)?1.2:0)+(NOTE_CONCERN.test(u.s)?1:0)+(NOTE_ACTION.test(u.s)?0.6:0)+(NOTE_DATE.test(u.s)?0.4:0)
-      +(NOTE_TOPICS.some(([,re])=>re.test(u.s))?0.8:0)});
-  const n=Math.min(8,Math.max(3,Math.round(cand.length/3)));
-  const picked=[...cand].sort((a,b)=>b.score-a.score);const out=[];
-  for(const u of picked){if(out.length>=n)break;const set=new Set(u.w);if(out.some(o=>{const ov=o.w.filter(w=>set.has(w)&&!STOP.has(w)).length;return ov/Math.max(4,o.w.length)>0.6}))continue;out.push(u)}
-  return out.sort((a,b)=>a.i-b.i).map(u=>`${cap(u.s)} [${u.t}]`)}
 const NOTE_NEXTMEET=/\b(meet again|next meeting|another meeting|follow[- ]up meeting|reconvene|come back together|get back together|check back in|review (this|it|things) again)\b/i;
 /* tidies a spoken sentence into a short note line */
 function tidy(s){s=s.replace(/^(and|so|but|um+|uh+|well|okay|ok|alright|yeah|yes|also|now|like)[,\s]+/i,"").replace(/^(and|so|but|um+|uh+|well|okay|ok|yeah)[,\s]+/i,"")
@@ -2233,7 +2223,7 @@ function openFirstSetup(){const framed=(()=>{try{return window.self!==window.top
 const LINKBASE=()=>{if(window.KA_NATIVE)return HOME_URL;try{if(window.self===window.top&&/^https?:/.test(location.protocol))return location.origin+location.pathname}catch(e){}return HOME_URL};
 const b64u=u8=>u8ToB64(u8).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
 const unb64u=s=>b64ToU8(s.replace(/-/g,"+").replace(/_/g,"/")+"===".slice((s.length+3)%4));
-function linkCode(){const A="ABCDEFGHJKMNPQRSTUVWXYZ23456789",b=crypto.getRandomValues(new Uint8Array(10));let s="";for(const x of b)s+=A[x%A.length];return s.slice(0,5)+"-"+s.slice(5)}
+function linkCode(){const A="ABCDEFGHJKMNPQRSTUVWXYZ23456789";let s="";while(s.length<12){for(const x of crypto.getRandomValues(new Uint8Array(16))){if(x<248&&s.length<12)s+=A[x%31]}}return s.slice(0,4)+"-"+s.slice(4,8)+"-"+s.slice(8)}
 async function squeeze(u8,way){try{if(!window.CompressionStream)throw 0;const st=new Blob([u8]).stream().pipeThrough(way?new CompressionStream("deflate-raw"):new DecompressionStream("deflate-raw"));return new Uint8Array(await new Response(st).arrayBuffer())}catch(e){if(way)return null;throw e}}
 function caseForLink(c,purpose){const copy=JSON.parse(JSON.stringify(c));
   copy.entries.forEach(e=>{const nf=(e.files||[]).length,nr=(e.recordings||[]).length;if(nf||nr)e.onPhone={files:nf,recs:nr};e.files=[];delete e.recordings;
@@ -2252,7 +2242,7 @@ async function makeCaseLink(purpose){save();if(!state.caseId){state.caseId="c"+D
 async function openCaseLink(data,code){const u8=unb64u(data);if(u8.length<45||(u8[0]!==1&&u8[0]!==2))throw new Error("This link isn't complete. Ask for it to be sent again.");
   const key=await aesKey(code.toUpperCase().replace(/[^A-Z0-9]/g,""),u8.slice(1,17),150000);
   let pt;try{pt=new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:u8.slice(17,29)},key,u8.slice(29)))}catch(e){throw new Error("That code doesn't match this link. Check it and try again.")}
-  if(u8[0]===2)pt=await squeeze(pt,false);return migrate(JSON.parse(dec.decode(pt)))}
+  if(u8[0]===2)pt=await squeeze(pt,false);return asImported(migrate(JSON.parse(dec.decode(pt))))}
 function linkSheet(link,purpose){const kb=Math.round(link.url.length/1024),who=purpose==="advocate"?"your advocate":"yourself";
   const sh=openSheet(`<h3>${purpose==="advocate"?"Share with your advocate":"Open on your computer"}</h3>
     <ol class="steps">
@@ -2281,7 +2271,7 @@ function pendingLink(){const m=(location.hash||"").match(/^#open=([A-Za-z0-9_-]+
 function promptOpenLink(){const data=pendingLink();if(!data)return;
   const sh=openSheet(`<h3>Open a KidArmor case</h3>
     <p class="note">Type the code that came with this link.</p>
-    <label for="olCode">Code<input id="olCode" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="XXXXX-XXXXX" style="font-size:22px;letter-spacing:.08em;text-transform:uppercase"></label>
+    <label for="olCode">Code<input id="olCode" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX" style="font-size:22px;letter-spacing:.08em;text-transform:uppercase"></label>
     <p class="note" id="olErr" role="alert" style="color:var(--high)"></p>
     <button class="btn primary wide" id="olGo" type="button">Open the case</button>
     <button class="btn ghost" id="olCancel" type="button">Cancel</button>`);
@@ -2297,35 +2287,14 @@ function promptOpenLink(){const data=pendingLink();if(!data)return;
     catch(e){sh.querySelector("#olErr").textContent=e.message||"Couldn't open it.";b.disabled=false;b.textContent="Open the case"}};
   sh.querySelector("#olGo").onclick=go;sh.querySelector("#olCode").onkeydown=e=>{if(e.key==="Enter")go()};
   setTimeout(()=>{try{sh.querySelector("#olCode").focus()}catch(e){}},80)}
-window.addEventListener("hashchange",()=>{if(pendingLink())promptOpenLink();else if(hashMode()==="upd")promptUpdateLink();else if(hashMode()==="send")location.reload();else if(/^#move=/.test(location.hash))promptMoveLink()});
+window.addEventListener("hashchange",()=>{if(pendingLink())promptOpenLink();else if(hashMode()==="upd")promptUpdateLink();else if(hashMode()==="send")location.reload();});
 
 /* ---------- from the Claude preview to KidArmor's own address, bringing the case along ---------- */
 const isFramed=()=>{try{return window.self!==window.top}catch(e){return true}};
-async function makeMoveLink(){save();const cases=root.cases.filter(c=>!c.readOnly&&!c.example&&(c.child.name||c.entries.length)).map(c=>{if(!c.caseId)c.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-    const x=JSON.parse(JSON.stringify(c));x.entries.forEach(e=>{const nf=(e.files||[]).length,nr=(e.recordings||[]).length;if(nf||nr)e.onPhone={files:nf,recs:nr,where:"preview"};e.files=[];delete e.recordings});x.docs.forEach(d=>{if((d.files||[]).length)d.onPhone=d.files.length;d.files=[]});(x.reports||[]).forEach(r=>{if((r.files||[]).length)r.onPhone=r.files.length;r.files=[]});return x});
-  save();if(!cases.length)return HOME_URL;
-  const raw=enc.encode(JSON.stringify({cases,exp:Date.now()+86400000})),z=await squeeze(raw,true),body=z||raw,k=crypto.getRandomValues(new Uint8Array(32)),nonce=crypto.getRandomValues(new Uint8Array(12));
-  const key=await crypto.subtle.importKey("raw",k,"AES-GCM",false,["encrypt"]);const ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv:nonce},key,body));
-  const out=new Uint8Array(1+12+ct.length);out[0]=z?2:1;out.set(nonce,1);out.set(ct,13);return HOME_URL+"#move="+b64u(k)+"."+b64u(out)}
-async function readMoveLink(s){const[kp,dp]=s.split(".");const k=unb64u(kp),u8=unb64u(dp);const key=await crypto.subtle.importKey("raw",k,"AES-GCM",false,["decrypt"]);
-  let pt=new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:u8.slice(1,13)},key,u8.slice(13)));if(u8[0]===2)pt=await squeeze(pt,false);return JSON.parse(dec.decode(pt))}
-function promptMoveLink(){const m=(location.hash||"").match(/^#move=([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/);if(!m)return false;
-  const clear=()=>{try{history.replaceState(null,"",location.pathname+location.search)}catch(e){location.hash=""}};
-  readMoveLink(m[1]).then(v=>{if(!v||!Array.isArray(v.cases)||!v.cases.length||!(v.exp>Date.now()))throw new Error("expired");const n=v.cases.length,name=v.cases[0]&&v.cases[0].child.name;
-    const sh=openSheet(`<h3>Bring your case here?</h3><p class="note">You started ${esc(name||"a case")}${n>1?` and ${n-1} more`:""} in the KidArmor preview inside Claude. Bring ${n>1?"them":"it"} here so you can use Face ID, recording and reminders.</p>
-      <p class="note">Your entries, summaries, transcripts and plan come along. Photos and documents added in the preview need to be added again here.</p>
-      <button class="btn primary wide" id="mvGo" type="button">Bring it here</button><button class="btn ghost" id="mvNo" type="button">Not now</button>`);
-    sh.querySelector("#mvNo").onclick=()=>{clear();closeSheet()};
-    sh.querySelector("#mvGo").onclick=()=>{save();for(const c0 of v.cases){const c=migrate(c0);if(root.cases.some(x=>x.caseId&&x.caseId===c.caseId)){c.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,8);c.child.name=(c.child.name||"Case")+" (moved copy)"}delete c.updKey;delete c.invites;root.cases.push(c)}
-      root.cases=root.cases.filter(x=>x.readOnly||x.child.name||x.entries.length);if(!root.cases.length)root.cases=[blank()];
-      root.active=root.cases.length-v.cases.length>=0?root.cases.length-v.cases.length:0;state=root.cases[root.active];save();clear();closeSheet();filter="all";show("home");
-      toast("Your case is here. You can use Face ID, recording and reminders now.");setTimeout(()=>{if(needsWizard())openWizard();else if(!state.setupDone2){state.setupDone2=true;state.setupDone=true;save();openFirstSetup()}},900)}}).catch(()=>{clear();toast("That link couldn't be opened or has expired. Try Open KidArmor again from the preview.")});
-  return true}
 function initFramed(){if(!isFramed())return;$("#framedBar").hidden=false;
   $("#framedGo").onclick=async()=>{const b=$("#framedGo");b.disabled=true;b.textContent="Opening…";
     let w=null;try{w=window.open("","_blank")}catch(e){}
-    try{const url=await makeMoveLink();if(w){try{w.opener=null}catch(e){}w.location.href=url}else{try{await navigator.clipboard.writeText(url)}catch(e){}toast("Open Safari or Chrome and paste the link. It was copied.")}}
-    catch(e){if(w)w.location.href=HOME_URL;else window.open(HOME_URL,"_blank")}finally{b.disabled=false;b.textContent="Open KidArmor"}}}
+    try{if(w){try{w.opener=null}catch(e){}w.location.href=HOME_URL}else window.open(HOME_URL,"_blank")}catch(e){}finally{b.disabled=false;b.textContent="Open KidArmor"}}}
 /* ---------- states: resources and recording rules ---------- */
 const STATES=[["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],["CA","California"],["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["DC","District of Columbia"],["FL","Florida"],["GA","Georgia"],["HI","Hawaii"],["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],["MS","Mississippi"],["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],["OK","Oklahoma"],["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],["SC","South Carolina"],["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UT","Utah"],["VT","Vermont"],["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"]];
 const FULL_STATES=["MS"]; // states with their own resource list built in
@@ -2931,5 +2900,5 @@ $("#sttChange").onclick=()=>sttSheet();renderStt();
 {const _openRecorder=openRecorder;openRecorder=function(m){if(!REC.active&&SR&&micAllowedHere()&&!sttMode()){sttSheet(()=>_openRecorder(m));return}return _openRecorder(m)};
  const _dict=dictateInto;dictateInto=function(ta,btn){if(!DICT&&!sttMode()){sttSheet(()=>_dict(ta,btn));return}return _dict(ta,btn)}}
 /* ---------- start ---------- */
-if(hashMode()==="send"){openSenderPage()}else{try{initLock()}catch(e){}try{renderWho();resetForm();show("home")}catch(e){console.error(e)}recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(promptMoveLink())return;if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
+if(hashMode()==="send"){openSenderPage()}else{try{initLock()}catch(e){}try{renderWho();resetForm();show("home")}catch(e){console.error(e)}recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
 </script>

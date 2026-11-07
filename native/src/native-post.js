@@ -15,6 +15,7 @@
   function b64(blob){return new Promise(function(ok,no){var r=new FileReader();r.onload=function(){ok(String(r.result).split(",")[1])};r.onerror=no;r.readAsDataURL(blob)})}
   window.saveFile=async function(filename,data){
     try{var blob=data instanceof Blob?data:new Blob([data]);var name=String(filename).replace(/[\\/:*?"<>|]+/g,"-");
+      try{await FS.rmdir({path:"kidarmor-out",directory:"CACHE",recursive:true})}catch(e){} /* only the file being shared now is kept */
       var w=await FS.writeFile({path:"kidarmor-out/"+name,data:await b64(blob),directory:"CACHE",recursive:true});
       await SH.share({title:name,files:[w.uri]});return true}
     catch(e){if(/cancel/i.test((e&&e.message)||""))return false;toast("Couldn't save the file.");return false}};
@@ -43,12 +44,12 @@
     var pend=await LN.getPending();var mine=(pend.notifications||[]).filter(function(n){return n.id>=1000&&n.id<200000});
     if(mine.length)await LN.cancel({notifications:mine.map(function(n){return{id:n.id}})});
     var list=[],id=1000,now=Date.now();
-    root.cases.forEach(function(c){(c.upcoming||[]).forEach(function(m){if(m.doneEntry)return;[m.rem1,m.rem2].forEach(function(r){if(r==null)return;
+    root.cases.forEach(function(c){if(c.readOnly||c.example)return;(c.upcoming||[]).forEach(function(m){if(m.doneEntry)return;[m.rem1,m.rem2].forEach(function(r){if(r==null)return;
       var at=new Date(meetStart(m).getTime()-r*60000);if(at.getTime()>now+5000&&id<199000)list.push({id:id++,title:(m.title||m.mtype)+(r?" in "+remLabel(r).replace(" before",""):" is starting"),body:fmtWhen(m)+(m.place?" · "+m.place:""),schedule:{at:at,allowWhileIdle:true}})})})});
     if(list.length)await LN.schedule({notifications:list})}catch(e){}}
   var _save=window.save;window.save=function(){var r=_save.apply(this,arguments);clearTimeout(syncT);syncT=setTimeout(syncReminders,1500);return r};
   window.askNotify=function(){if(N.permission==="default")N.requestPermission().then(function(){try{renderPerms()}catch(e){}})};
-  setTimeout(syncReminders,3000);
+  setTimeout(syncReminders,3000);setTimeout(function(){FS.rmdir({path:"kidarmor-out",directory:"CACHE",recursive:true}).catch(function(){})},5000);
   /* app version for the feedback email, and the store's own rating prompt */
   window.KA_APPINFO=async function(){var i=await APP.getInfo();return{version:i.version,build:i.build}};
   window.KA_RATE=async function(){var R=P("InAppReview");if(!R)throw new Error("no review plugin");await R.requestReview()};
