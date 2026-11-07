@@ -70,7 +70,7 @@ LETTERS AND SHARING
 
 RESOURCES
 • Your state's parent center and protection and advocacy agency, with tap-to-call and website buttons, in every state
-• Attorneys, advocates, evaluators and tutors in your state, clearly labeled as paid listings (KidArmor doesn't recommend or refer anyone)
+• Attorneys, advocates, evaluators, counselors, therapists, doctors and tutors in your state, clearly labeled as paid listings (KidArmor doesn't recommend or refer anyone)
 
 PRIVATE BY DESIGN
 • Lock with a PIN and Face ID or fingerprint
