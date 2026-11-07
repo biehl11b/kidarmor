@@ -3,6 +3,7 @@ set -euxo pipefail
 node -v; xcodebuild -version
 npm install --no-audit --no-fund --legacy-peer-deps $(cat plugins.txt)
 npm ls --depth=0 || true
+node scripts/patch-speech.mjs
 node scripts/prepare-www.mjs
 [ -d ios ] || npx cap add ios
 node scripts/patch-native.mjs ios

@@ -3,6 +3,7 @@ set -euxo pipefail
 node -v; java -version
 npm install --no-audit --no-fund --legacy-peer-deps $(cat plugins.txt)
 npm ls --depth=0 || true
+node scripts/patch-speech.mjs
 node scripts/prepare-www.mjs
 [ -d android ] || npx cap add android
 node scripts/patch-native.mjs android

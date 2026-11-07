@@ -226,6 +226,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 .agreescreen .wzin{padding-top:max(28px,env(safe-area-inset-top,0px))}.agshield{width:72px;height:72px;border-radius:20px;background:var(--accent);display:flex;align-items:center;justify-content:center}
 #agGo:disabled{opacity:.45;cursor:not-allowed}.check.agree{align-items:flex-start;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}.check.agree a{color:var(--accent)}
 .lvhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:env(safe-area-inset-top,0px)}.lvhead b{font-family:var(--display);font-size:20px}
+.sttopt{gap:10px}.sttopt h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pc{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}.pc li{padding-left:24px;position:relative}.pc li.pro:before{content:"+";position:absolute;left:4px;font-weight:800;color:var(--low)}.pc li.con:before{content:"−";position:absolute;left:4px;font-weight:800;color:var(--high)}
 .legaltext{font-size:15px;line-height:1.55}.legaltext p{margin:0 0 12px}.legaltext ul{margin:0 0 12px;padding-left:20px}.legaltext li{margin-bottom:6px}
 .lockscreen{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .lockscreen .shield{width:84px;height:84px;border-radius:24px;background:var(--accent);display:flex;align-items:center;justify-content:center}
@@ -479,6 +480,11 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
       <div><div class="eyebrow" id="storageLabel">Space used on this phone</div><div class="meter"><i id="storageBar" style="width:0%"></i></div></div>
       <p class="note">Because nothing is stored online, clearing this browser's data erases the record. Make an encrypted backup below.</p>
       <button class="btn danger" id="wipe" type="button">Erase everything on this phone</button>
+    </div>
+    <div class="panel" id="sttPanel"><h3>Transcripts</h3>
+      <p class="note" id="sttNow" style="margin:0"></p>
+      <button class="btn light" id="sttChange" type="button">Choose how transcripts are made</button>
+      <p class="note" style="margin:0">Recordings and transcripts are always saved only on this phone.</p>
     </div>
     <div class="panel" id="permPanel"><h3>Permissions</h3>
       <div class="list" id="permList"></div>
@@ -1757,11 +1763,11 @@ async function startRecording(){
   if(SR)startSR();
   renderRecording();REC.timer=setInterval(renderRecTick,1000);
 }
-function startSR(){try{const r=new SR();r.lang="en-US";r.continuous=true;r.interimResults=true;
+function startSR(){try{const r=makeSR();r.lang="en-US";r.continuous=true;r.interimResults=true;
   r.onresult=e=>{REC.lastSound=Date.now();let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript.trim();if(!t)continue;if(e.results[i].isFinal)REC.lines.push(`[${mmss((Date.now()-REC.t0)/1000)}] ${t}`);else interim+=(interim?" ":"")+t}REC.interim=interim;renderRecText()};
-  r.onerror=e=>{if(e.error==="no-speech"||e.error==="aborted")return;REC.srError=e.error;if(["not-allowed","service-not-allowed","audio-capture"].includes(e.error)){REC.srOn=false;renderRecText()}};
-  r.onend=()=>{if(!REC.stopping&&REC.srError!=="not-allowed"&&REC.srError!=="service-not-allowed"&&REC.srError!=="audio-capture"){try{r.start()}catch(e){}}};
-  r.start();REC.sr=r;REC.srOn=true}catch(e){REC.srOn=false}}
+  r.onerror=e=>{if(e.error==="no-speech"||e.error==="aborted")return;REC.srError=e.error;if(["not-allowed","service-not-allowed","audio-capture","on-device-unavailable","language-not-supported"].includes(e.error)){REC.srOn=false;renderRecText()}};
+  r.onend=()=>{if(!REC.stopping&&!["not-allowed","service-not-allowed","audio-capture","on-device-unavailable","language-not-supported"].includes(REC.srError)){try{r.start()}catch(e){}}};
+  r.start();REC.sr=r;REC.srOn=true}catch(e){REC.srOn=false;if(e&&e.code)REC.srError=e.code}}
 function startMediaRecorder(stream){const mime=recMime();REC.stream=stream;REC.chunks=[];REC.rec=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);
   REC.rec.ondataavailable=e=>{if(e.data&&e.data.size)REC.chunks.push(e.data)};REC.rec.start(1000);startQuietWatch(stream)}
 /* ---------- quiet for 5 minutes? ask if the meeting is over ---------- */
@@ -1825,7 +1831,7 @@ function renderRecording(){const sh=document.querySelector(".sheet");if(!sh)retu
 function renderRecTick(){const t=mmss((Date.now()-REC.t0)/1000),el=$("#recTime");if(el)el.textContent=t;const b=$("#recBarTime");if(b)b.textContent=t}
 function renderRecText(){const el=$("#recText");if(!el)return;const shown=REC.lines.slice(-14).join("\n")+(REC.interim?"\n"+REC.interim:"");
   el.textContent=shown||(SR&&REC.srOn!==false?"Words will appear here as people talk.":"Recording audio. A transcript isn't available in this browser.");el.scrollTop=el.scrollHeight;
-  const n=$("#recNote");if(n&&SR&&!REC.srOn&&REC.srError)n.textContent="The transcript stopped ("+REC.srError+"), but the recording is still going. You can type notes after.";}
+  const n=$("#recNote");if(n&&SR&&!REC.srOn&&REC.srError)n.textContent=/on-device-unavailable|language-not-supported/.test(REC.srError)&&sttMode()==="phone"?STT_NOPHONE:"The transcript stopped ("+REC.srError+"), but the recording is still going. You can type notes after.";}
 async function stopRecording(){REC.stopping=true;clearInterval(REC.timer);clearInterval(REC.draftT);clearInterval(REC.quietT);const qa=$(".quietask");if(qa)qa.remove();REC.active=false;updateRecBar();if(!document.querySelector(".sheetwrap"))openSheet("");
   const sh=document.querySelector(".sheet");if(sh)sh.innerHTML=`<p class="note" style="text-align:center;padding:30px 0">Saving the recording, transcript and meeting notes…</p>`;
   try{REC.sr&&REC.sr.stop()}catch(e){}
@@ -1940,10 +1946,10 @@ function openNote(prefill){
 let DICT=null;
 function dictateInto(ta,btn){
   if(DICT){try{DICT.stop()}catch(e){}return}
-  const r=new SR();r.lang="en-US";r.continuous=true;r.interimResults=true;const base=ta.value.trim();let fin="";
+  let r;try{r=makeSR()}catch(e){toast("This phone can't turn speech into text on the phone itself. Use the microphone on your keyboard, or change Transcripts in the Child tab.");return}r.lang="en-US";r.continuous=true;r.interimResults=true;const base=ta.value.trim();let fin="";
   r.onresult=e=>{let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)fin+=(fin?" ":"")+t.trim();else interim+=t}ta.value=[base,fin,interim.trim()].filter(Boolean).join(" ")};
   r.onend=()=>{DICT=null;btn.textContent="🎤 Talk";btn.classList.remove("danger")};
-  r.onerror=e=>{if(e.error!=="no-speech"&&e.error!=="aborted")toast("Talking isn't available right now. Use the microphone on your keyboard instead.")};
+  r.onerror=e=>{if(e.error==="on-device-unavailable"||e.error==="language-not-supported"&&sttMode()==="phone")toast("This phone can't turn speech into text on the phone itself. Use the microphone on your keyboard, or change Transcripts in the Child tab.");else if(e.error!=="no-speech"&&e.error!=="aborted")toast("Talking isn't available right now. Use the microphone on your keyboard instead.")};
   try{r.start();DICT=r;btn.textContent="■ Stop talking";btn.classList.add("danger")}catch(e){toast("Talking isn't available right now. Use the microphone on your keyboard instead.")}}
 function noteResult(orig){
   if(DICT){try{DICT.stop()}catch(e){}}
@@ -2816,7 +2822,7 @@ privacy:{title:"KidArmor Privacy Policy",html:`
 <p>This policy explains what happens to your information when you use KidArmor, the app made by Coastline Code LLC ("we," "us"). The short version: <b>what you put in KidArmor stays on your phone. We don't collect it, see it, sell it or share it.</b></p>
 <p><b>1. What we don't collect.</b> KidArmor doesn't require an account. We don't collect or receive your name, email, phone number or address; anything you type into KidArmor, including notes, logs, contacts and your child's information; your photos, documents or meeting recordings; or your location, contacts list or browsing history. KidArmor has no ads, no ad tracking and no tracking across other apps or websites.</p>
 <p><b>2. Where your information is stored.</b> Everything you save in KidArmor is stored on your device. Meeting summaries are made on your device. Your recordings aren't sent to us or to an outside AI service. If your phone backs up to iCloud or Google, your phone's own backup settings control whether KidArmor's data is included. Those backups are handled by Apple or Google under their own privacy policies, and we can't see them. Because we never receive your information, we can't recover it if you lose your phone or delete the app. Use the PDF feature to keep your own copy.</p>
-<p><b>The one exception: live transcripts.</b> While you record a meeting, KidArmor turns what's said into text using your phone's built-in speech recognition from Apple (on iPhone) or Google (on Android). On some phones, Apple or Google may process that audio on their own servers to make the text, under their own privacy policies. The recording and the transcript are saved only on your phone, and we never receive them. Everything else you save stays on your phone unless you choose to share it.</p>
+<p><b>The one exception: live transcripts.</b> While you record a meeting, KidArmor turns what's said into text using your phone's built-in speech recognition from Apple (on iPhone) or Google (on Android). On some phones, Apple or Google may process that audio on their own servers to make the text, under their own privacy policies. You can choose instead to have transcripts made on your phone only (Child tab → Transcripts); some phones can't do that, and then KidArmor records without a live transcript. The recording and the transcript are saved only on your phone, and we never receive them. Everything else you save stays on your phone unless you choose to share it.</p>
 <p><b>3. Information you choose to share.</b></p>
 <ul><li><i>PDFs and exports:</i> when you share a PDF of your record, you decide who gets it and how it's sent. After that, it's handled by the app you used to send it, such as email or text messages.</li>
 <li><i>Opening your case on a computer:</i> when you use the locked link and short code, your written record goes from your phone to your own computer. It isn't stored by us.</li>
@@ -2880,6 +2886,32 @@ $("#legalPanel").addEventListener("click",e=>{const b=e.target.closest("[data-le
 $("#hfRate").onclick=async()=>{try{await window.KA_RATE()}catch(e){toast("Couldn't open the rating screen. You can rate KidArmor in the App Store or Google Play.")}};
 $("#hfEmail").onclick=()=>toast("Opening your email app…");
 renderLegal();
+/* ---------- transcripts: the parent chooses "on this phone only" or the phone's Apple/Google speech service ---------- */
+const STTKEY="kidarmor.stt";
+function sttMode(){try{const v=localStorage.getItem(STTKEY);return v==="phone"||v==="service"?v:""}catch(e){return""}}
+window.KA_STT_LOCAL=()=>sttMode()==="phone";
+const STT_NOPHONE="This phone can't make transcripts on the phone itself, so there's no live transcript. The recording is still going. To change this, go to the Child tab, then Transcripts.";
+function makeSR(){const r=new SR();if(sttMode()==="phone"&&!window.KA_NATIVE){if("processLocally" in r)r.processLocally=true;else{const e=new Error("on-device-unavailable");e.code="on-device-unavailable";throw e}}return r}
+function sttSheet(after){const old=$(".legalview");if(old)old.remove();const cur=sttMode();
+  const w=document.createElement("div");w.className="legalview";w.setAttribute("role","dialog");w.setAttribute("aria-modal","true");w.setAttribute("aria-label","Transcripts");
+  w.innerHTML=`<div class="wzin"><div class="lvhead"><b>How should KidArmor make transcripts?</b></div>
+    <p class="note">When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them.</p>
+    <div class="panel sttopt"><h3>On this phone only <span class="rtag">Most private</span></h3>
+      <ul class="pc"><li class="pro">The sound never leaves your phone.</li><li class="pro">Works without internet.</li>
+      <li class="con">Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript.</li><li class="con">Can be a little less accurate.</li></ul>
+      <button class="btn ${cur==="phone"?"primary":"light"} wide" type="button" data-stt="phone">${cur==="phone"?"✓ Using on this phone only":"Use on this phone only"}</button></div>
+    <div class="panel sttopt"><h3>Apple or Google speech service</h3>
+      <ul class="pc"><li class="pro">Works on every phone and is usually the most accurate.</li>
+      <li class="con">On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us.</li><li class="con">Needs an internet connection on those phones.</li></ul>
+      <button class="btn ${cur==="service"?"primary":"light"} wide" type="button" data-stt="service">${cur==="service"?"✓ Using Apple or Google speech":"Use Apple or Google speech"}</button></div>
+    <p class="note">You can change this anytime in the Child tab, under Transcripts.</p>
+    ${cur?`<button class="btn ghost" type="button" data-sttclose>Close</button>`:""}</div>`;
+  w.querySelectorAll("[data-stt]").forEach(b=>b.onclick=()=>{try{localStorage.setItem(STTKEY,b.dataset.stt)}catch(e){}w.remove();renderStt();toast(b.dataset.stt==="phone"?"Transcripts will be made on this phone only.":"Transcripts will use Apple's or Google's speech service.");after&&after()});
+  const c=w.querySelector("[data-sttclose]");if(c)c.onclick=()=>w.remove();document.body.appendChild(w)}
+function renderStt(){const el=$("#sttNow");if(!el)return;const m=sttMode();el.textContent=m==="phone"?"Now: on this phone only. The sound never leaves your phone.":m==="service"?"Now: Apple or Google speech service. On some phones, the sound goes to Apple or Google to make the text.":"Not chosen yet. KidArmor will ask the first time you record or talk."}
+$("#sttChange").onclick=()=>sttSheet();renderStt();
+{const _openRecorder=openRecorder;openRecorder=function(m){if(!REC.active&&SR&&micAllowedHere()&&!sttMode()){sttSheet(()=>_openRecorder(m));return}return _openRecorder(m)};
+ const _dict=dictateInto;dictateInto=function(ta,btn){if(!DICT&&!sttMode()){sttSheet(()=>_dict(ta,btn));return}return _dict(ta,btn)}}
 /* ---------- start ---------- */
 if(hashMode()==="send"){openSenderPage()}else{try{initLock()}catch(e){}try{renderWho();resetForm();show("home")}catch(e){console.error(e)}recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(promptMoveLink())return;if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
 </script>
