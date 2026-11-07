@@ -2693,7 +2693,8 @@ function lawCard(a,demo){const tel=(a.phone||"").replace(/[^\d+]/g,"");
     ${a.consult?`<p class="note" style="margin:0">${esc(a.consult)}</p>`:""}
     ${a.web?`<a class="rlink" href="${esc(a.web)}" target="_blank" rel="noopener"><span>Visit website</span><small>${esc(a.web.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,""))}</small></a>`:""}
     ${a.phone?`<div class="rphone"><a href="tel:${esc(tel)}" class="num">${esc(a.phone)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.phone)}">Copy</button></div>`:""}
-    ${a.email?`<div class="rphone"><a href="mailto:${esc(a.email)}" class="num">${esc(a.email)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.email)}">Copy</button></div>`:""}</div>`}
+    ${a.email?`<div class="rphone"><a href="mailto:${esc(a.email)}" class="num">${esc(a.email)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.email)}">Copy</button></div>`:""}
+    <button type="button" class="btn small light" data-sharepro="${esc(a.kind||"attorney")}" data-shname="${esc(a.name||"")}" data-shemail="${esc(a.email||"")}">Share my case with ${a.kind==="tutor"?"this tutor":a.kind==="evaluator"?"this evaluator":a.kind==="advocate"?"this advocate":"this attorney"}</button></div>`}
 function renderLawyers(){const el=$("#resLaw");if(!el)return;const st=myState()||"MS",demo=isAttorneyDemo(),pdemo=isProviderDemo();const all=demo?(pdemo?DEMO_PROVIDERS:[DEMO_ATTORNEY]):[...ATTORNEYS,...(RESDATA.attorneys||[])].filter(a=>(a.states||[a.state]).includes(st));if(!all.length){el.hidden=true;el.innerHTML="";return}el.hidden=false;const groups=[["Special education attorneys & advocates",a=>!a.kind||a.kind==="attorney"||a.kind==="advocate","attorneys or advocates"],["Educational evaluators",a=>a.kind==="evaluator","evaluators"],["Tutors & learning specialists",a=>a.kind==="tutor","tutors"]];el.innerHTML=(demo?`<div class="banner info"><span><b>Preview for ${pdemo?"providers":"attorneys"}.</b> This is how your listing would look to parents in your state. Your name, ${pdemo?"practice, services":"firm, practice areas"}, area served, phone, email and website, all one tap away.</span></div>`:"")+groups.map(([title,f,who])=>{const L=all.filter(f);return L.length?`<div class="eyebrow">${title}</div>${L.map(a=>lawCard(a,demo)).join("")}<p class="note" style="margin:0 0 14px">Paid listings. KidArmor doesn't recommend, refer or screen ${who} and doesn't receive any part of their fees. Contact them directly to see if they can help.</p>`:""}).join("")}
 /* ---------- share with my professional: the parent picks who and which parts; locked link + code, or a PDF ---------- */
 const PRO_SECTIONS=[
@@ -2750,9 +2751,9 @@ function proLinkSheet(link,sh,isUpdate){const W=PRO_WHO[sh.who]||PRO_WHO.other,k
     const text=isUpdate?"Here's an updated copy of my child's KidArmor case. Use the same code as before.":"Here is a read-only copy of my child's KidArmor case. I'll send you the code separately.";
     try{if(navigator.share){await navigator.share({title,text,url:link.url});return}}catch(e){if(e&&e.name==="AbortError")return}
     location.href=`mailto:${encodeURIComponent(sh.email||"")}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text+"\n\n"+link.url)}`}}
-function openProShare(existing){if(state.readOnly){toast("A shared case can't be shared again.");return}if(guardExample())return;
+function openProShare(existing,preset){if(state.readOnly){toast("A shared case can't be shared again.");return}if(guardExample())return;
   if(!state.child.name&&!state.entries.length){toast("Add your child and some entries first.");return}
-  const sh=existing?{...existing,sections:cleanSecs(existing.sections)}:{id:Math.random().toString(36).slice(2,8),who:"attorney",name:"",email:"",sections:[...PRO_WHO.attorney.sec],code:linkCode()};
+  const pw=preset&&PRO_WHO[preset.who]?preset.who:"attorney";const sh=existing?{...existing,sections:cleanSecs(existing.sections)}:preset?{id:Math.random().toString(36).slice(2,8),who:pw,name:String(preset.name||"").slice(0,80),email:String(preset.email||"").slice(0,120),sections:[...PRO_WHO[pw].sec],code:linkCode()}:{id:Math.random().toString(36).slice(2,8),who:"attorney",name:"",email:"",sections:[...PRO_WHO.attorney.sec],code:linkCode()};
   const s=openSheet(`<h3>Share with my professional</h3>
     <p class="note">They get a read-only copy of only the parts you choose.</p>
     <label for="prWho">Who is it for?<select id="prWho">${Object.entries(PRO_WHO).map(([k,v])=>`<option value="${k}"${k===sh.who?" selected":""}>${esc(v.label)}</option>`).join("")}</select></label>
@@ -2788,6 +2789,23 @@ $("#shList").addEventListener("click",async e=>{const u=e.target.closest("[data-
   if(u){const x=(state.shares||[]).find(s=>s.id===u.dataset.shupd);if(!x)return;u.disabled=true;
     try{const sh={...x,sections:cleanSecs(x.sections)};const link=await makeProLink(sh);x.updatedAt=new Date().toISOString();save();renderShares();proLinkSheet(link,sh,true)}catch(err){toast("Couldn't make the update. Try again.")}finally{u.disabled=false}}
   if(f){state.shares=(state.shares||[]).filter(s=>s.id!==f.dataset.shforget);save();renderShares()}});
+/* "Share my case" on a listing: opens Share with my professional, filled in for that person */
+const KIND_WHO={attorney:"attorney",advocate:"advocate",evaluator:"doctor",tutor:"tutor"};
+function demoShareSheet(who){const W=PRO_WHO[who]||PRO_WHO.attorney;
+  openSheet(`<h3>How a parent shares their case with you</h3>
+    <p class="note">This button is on your listing. Here's what happens when a parent taps it.</p>
+    <ol class="steps">
+      <li><span>After hiring you, the parent taps <b>Share my case</b>. Your name and email are already filled in.</span></li>
+      <li><span>They choose what to send. KidArmor starts with: <b>${esc(W.sec.map(secLabel).join(", "))}</b>. Their private notes are never included.</span></li>
+      <li><span>They send you a <b>locked link</b>, and the <b>code</b> separately, by phone or a different message.</span></li>
+      <li><span>You open the link on your computer, type the code, and see the organized, read-only case. You can print it or save a PDF case binder.</span></li>
+      <li><span>When something new happens, the parent sends an <b>update</b>. You open it with the same code, and your copy is replaced with the latest.</span></li>
+    </ol>
+    <p class="note">Nothing is stored on our servers. The case travels inside the locked link, and the parent decides what's in it.</p>
+    <button class="btn primary wide" type="button" id="dsDone">Got it</button>`).querySelector("#dsDone").onclick=closeSheet}
+$("#resLaw").addEventListener("click",e=>{const b=e.target.closest("[data-sharepro]");if(!b)return;const who=KIND_WHO[b.dataset.sharepro]||"attorney";
+  if(isAttorneyDemo()){demoShareSheet(who);return}
+  openProShare(null,{who,name:b.dataset.shname,email:b.dataset.shemail})});
 /* ---------- Terms of Use and Privacy Policy: the parent agrees before using KidArmor ---------- */
 const TERMS_VERSION="2026-11";const AGREEKEY="kidarmor.agree";const TERMSKEY=AGREEKEY;
 const LEGAL_EFFECTIVE="";/* fill in the launch date when KidArmor is submitted to the stores */
