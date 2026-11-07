@@ -1,0 +1,23 @@
+name: Bundle fonts
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fonts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download fonts (SIL Open Font License) into vendor/fonts
+        run: |
+          mkdir -p /tmp/f && cd /tmp/f && npm init -y >/dev/null
+          npm i @fontsource/bricolage-grotesque @fontsource/source-sans-3 @fontsource/ibm-plex-mono
+          D=$GITHUB_WORKSPACE/vendor/fonts; mkdir -p $D
+          for w in 600 800; do cp node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-$w-normal.woff2 $D/; done
+          for w in 400 600 700; do cp node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-$w-normal.woff2 $D/; done
+          cp node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2 $D/
+          for p in bricolage-grotesque source-sans-3 ibm-plex-mono; do cp node_modules/@fontsource/$p/LICENSE $D/LICENSE-$p.txt 2>/dev/null || true; done
+          ls -la $D
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendor/fonts; git commit -m "Bundle app fonts locally (no Google Fonts requests)" || echo nothing; git push
