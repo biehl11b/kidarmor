@@ -5,9 +5,11 @@ Bundle ID / package name: **com.coastlinecode.kidarmor**
 Copyright: **2026 Coastline Code LLC**
 Price: **Free** (no in-app purchases, no ads)
 
-Privacy policy URL: https://kidarmor.coastlinecode.com/privacy.html
-Support URL: https://kidarmor.coastlinecode.com/support.html
-Marketing URL (optional): https://kidarmor.coastlinecode.com/
+Privacy policy URL: https://coastlinecode.com/kidarmor-privacy-policy/
+Support URL: https://coastlinecode.com/kidarmor/
+Terms of Use (Apple "License Agreement" → custom EULA, optional): https://coastlinecode.com/kidarmor-terms/
+Marketing URL (optional): https://coastlinecode.com/kidarmor/
+(Publish the three coastlinecode.com pages, with the launch date filled in, before submitting.)
 
 ---
 
@@ -63,16 +65,20 @@ LETTERS AND SHARING
 • Letters and email summaries filled in from your record
 • A PDF case binder with entries, photos, documents and transcripts
 • Open your case on a computer with a locked link and code
-• Share a read-only copy with an advocate (your private notes stay private)
+• Share with your attorney, advocate, counselor, doctor or tutor: you choose which parts they see, and send updates later (your private notes stay private)
 • Teachers can send you updates with a link, no app needed
 
 RESOURCES
-• Mississippi parent centers and advocacy groups with tap-to-call and website buttons, and help for parents in every state
+• Your state's parent center and protection and advocacy agency, with tap-to-call and website buttons, in every state
+• Attorneys, advocates, evaluators and tutors in your state, clearly labeled as paid listings (KidArmor doesn't recommend or refer anyone)
 
 PRIVATE BY DESIGN
 • Lock with a PIN and Face ID or fingerprint
 • Encrypted backups you control, to move to a new phone
 • Up to 5 children
+
+HELP WHEN YOU NEED IT
+• Email, call or text us from the app. We never see your records.
 
 KidArmor helps you organize facts. It isn't legal advice. Recording laws vary by state; always tell everyone when you're recording.
 
@@ -80,16 +86,20 @@ KidArmor helps you organize facts. It isn't legal advice. Recording laws vary by
 
 ## Apple: App Privacy ("nutrition label")
 
-Choose **Data Not Collected**. KidArmor has no server, no analytics and no ads; everything stays on the device.
+Choose **Data Not Collected**. KidArmor has no account, no analytics, no ads and no tracking; everything the parent enters stays on the device.
+- The app downloads the same public list of parent resources and paid listings for everyone; nothing about the user is sent.
+- Live transcripts use Apple's built-in speech recognition (processed by Apple, not by us), which doesn't count as collection by the developer.
+- If a parent emails us from the app, that's the parent choosing to contact us, not data the app collects.
+- Tracking: **No**.
 
 ## Apple: Age rating questionnaire
 
-Answer **None** to every content question. Unrestricted web access: **No**. Result: **4+**.
+Answer **None** to every content question, including medical or treatment information (the medication notes are the parent's own private notes). User-generated content shared with other users: **No**. Messaging or chat: **No**. Advertising: **No**. Unrestricted web access: **No**. Parental controls / age assurance: **No**. Expected result: **4+**.
 (The app mentions bullying only as something parents record; it has no violent or mature content.)
 
 ## Apple: Notes for the reviewer (App Review Information)
 
-KidArmor needs no login. On first open, enter any parent name, email and state, add a child, and set any 4-digit PIN.
+KidArmor needs no login. On first open, tick "I have read and agree" and tap Continue. Then enter any parent name, email and state, add a child, and set any 4-digit PIN.
 To try the main features: tap Record a meeting, then Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. Tap Schedule a meeting to add a meeting with two reminders. All data is stored only on the device; there is no account or server.
 Demo account: not needed.
 
@@ -102,6 +112,8 @@ The app uses only standard encryption (AES, built into the system) to protect th
 - Does your app collect or share any of the required user data types? **No**
 - Is all user data encrypted in transit? **Not applicable, no data is transmitted** (answer Yes if the form requires an answer)
 - Do you provide a way for users to request that their data be deleted? **Yes**. Users delete everything in the app (Child tab → Erase everything) or by uninstalling.
+- Data deletion URL (if asked): https://coastlinecode.com/kidarmor-privacy-policy/ (section 7)
+- Speech-to-text uses the phone's own Android speech service; the app doesn't receive or send the audio, so it isn't "collected".
 
 ## Google Play: Content rating questionnaire
 
@@ -117,7 +129,7 @@ Category: **Utility, Productivity, Communication or Other**. Answer **No** to vi
 - App access: **All functionality is available without special access**
 - Government app: **No**
 - Financial features: **None**
-- Health: **No** (treatment notes are the parent's own notes, kept only on the device)
+- Health apps declaration: **My app does not have any health features** (the medication and treatment notes are the parent's own records, kept only on the device). If Google pushes back, the closest category is "Medical: medication and treatment management", answered as personal record-keeping with no data collected.
 
 ## Screenshots
 
