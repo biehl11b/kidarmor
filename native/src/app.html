@@ -1,7 +1,6 @@
 <title>KidArmor</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="vendor/fonts/fonts.css">
 <style>
 /* Layout: phone-first case file. Sticky header with a privacy pill, one view at a time, bottom tab bar with a raised Add button. Entries are compact cards that expand. */
 :root{
@@ -223,6 +222,11 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 .upm .actions{display:flex;flex-wrap:wrap}
 .kid .meta2{font-size:13px;color:var(--muted)}
 .codebox{font-family:var(--mono);font-size:26px;letter-spacing:.12em;text-align:center;background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:14px;user-select:all;overflow-wrap:anywhere}
+.agreescreen,.legalview{position:fixed;inset:0;z-index:57;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}.legalview{z-index:58}
+.agreescreen .wzin{padding-top:max(28px,env(safe-area-inset-top,0px))}.agshield{width:72px;height:72px;border-radius:20px;background:var(--accent);display:flex;align-items:center;justify-content:center}
+#agGo:disabled{opacity:.45;cursor:not-allowed}.check.agree{align-items:flex-start;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}.check.agree a{color:var(--accent)}
+.lvhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:env(safe-area-inset-top,0px)}.lvhead b{font-family:var(--display);font-size:20px}
+.legaltext{font-size:15px;line-height:1.55}.legaltext p{margin:0 0 12px}.legaltext ul{margin:0 0 12px;padding-left:20px}.legaltext li{margin-bottom:6px}
 .lockscreen{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .lockscreen .shield{width:84px;height:84px;border-radius:24px;background:var(--accent);display:flex;align-items:center;justify-content:center}
 .lockscreen input{max-width:220px;text-align:center;font-size:24px;letter-spacing:.3em}
@@ -446,6 +450,25 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
       </div>
       <button class="btn primary" type="submit">Save</button>
     </form>
+    <div class="panel" id="helpPanel">
+      <h3>Help & feedback</h3>
+      <p class="note">Questions, problems or ideas? We'd love to hear from you.</p>
+      <a class="btn primary" id="hfEmail" href="mailto:info@coastlinecode.com?subject=KidArmor%20feedback">Email us</a>
+      <div class="pair"><a class="btn light" href="tel:+12283045333">Call</a><a class="btn light" href="sms:+12283045333">Text</a></div>
+      <p class="note" style="margin:0">(228) 304-5333 · weekdays 9 a.m. to 5 p.m. Central</p>
+      <button class="btn light" id="hfRate" type="button" hidden>Rate KidArmor</button>
+      <a class="btn ghost" href="https://coastlinecode.com/kidarmor/" target="_blank" rel="noopener">Help & Support page</a>
+      <p class="note"><b>Please don't send private details about your child or your case.</b></p>
+      <p class="note" id="hfVer" style="margin:0"></p>
+    </div>
+    <div class="panel" id="legalPanel">
+      <h3>Legal</h3>
+      <button class="btn light" type="button" data-legal="terms">Terms of Use</button>
+      <button class="btn light" type="button" data-legal="privacy">Privacy Policy</button>
+      <a class="btn ghost" href="https://coastlinecode.com/kidarmor/" target="_blank" rel="noopener">Help & Support</a>
+      <p class="note" id="legalAgreed" style="margin:0"></p>
+      <p class="note" style="margin:0">KidArmor is not legal advice. © Coastline Code LLC, a veteran-owned company in Pass Christian, Mississippi.</p>
+    </div>
     <div class="panel" id="privacyPanel">
       <h3>Where your information lives</h3>
       <ul class="privacy">
@@ -492,14 +515,11 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
       </div>
     </div>
     <div class="panel" id="sharePanel">
-      <h3>Share with an advocate</h3>
-      <p class="note">Your advocate or lawyer gets a read-only copy of this child's case by a locked link. Send the code separately, by phone or a different text. Private notes are never shared. Recordings, photos and documents stay on your phone.</p>
-      <button class="btn primary" id="shMake" type="button">Make a link for my advocate</button>
-      <div id="shDone" hidden style="display:flex;flex-direction:column;gap:10px">
-        <p class="note">Send the file, then send this code separately:</p>
-        <div class="codebox" id="shCode"></div>
-        <button class="btn ghost" id="shCopy" type="button">Copy code</button>
-      </div>
+      <h3>Share with my professional</h3>
+      <p class="note">Send your attorney, advocate, counselor, doctor or tutor a read-only copy of the parts of this case you choose. It goes as a locked link, and you send the code separately. Private notes are never shared, and nothing is stored on our servers.</p>
+      <button class="btn primary" id="shMake" type="button">Share with my professional</button>
+      <div id="shList" hidden style="display:flex;flex-direction:column;gap:10px"></div>
+      <div id="shDone" hidden><div class="codebox" id="shCode"></div><button class="btn ghost" id="shCopy" type="button">Copy code</button></div>
       <label class="upload" for="imFile"><b>Open an older share file</b>If someone sent you a KidArmor file instead of a link<input type="file" id="imFile"></label>
       <div id="imStep" hidden style="display:flex;flex-direction:column;gap:10px">
         <label for="imCode">Share code<input id="imCode" autocapitalize="characters" autocomplete="off" placeholder="XXXX-XXXX-XXXX"></label>
@@ -733,7 +753,7 @@ function needsAttention(){const t=today(),out=[];
   return out}
 function renderHome(){renderWho();$("#welcome").hidden=!!(state.readOnly||state.child.name||state.entries.length);renderUpcoming();renderBackupNudge();const E=state.entries;
   $("#kidSwitchWrap").hidden=root.cases.length<2;$("#kidSwitch").innerHTML=root.cases.map((c,i)=>`<option value="${i}">${esc(c.child.name||"Unnamed child")}${c.readOnly?" (shared, read-only)":c.example?" (sample)":""}</option>`).join("");$("#kidSwitch").value=String(root.active);
-  $("#roBanner").hidden=!state.readOnly;if(state.readOnly)$("#roBanner").textContent=state.fromPhone?`Copy from your phone, made ${state.sharedAt?fmt(state.sharedAt.slice(0,10)):""}. Read it, write letters, send emails and make the binder here. To add or change entries, use your phone, then send a new link.`:`Shared with you by ${state.sharedBy||"a parent"}${state.sharedAt?" on "+fmt(state.sharedAt.slice(0,10)):""}. You can read it, make a binder and write summaries, but not change it.`;
+  $("#roBanner").hidden=!state.readOnly;if(state.readOnly)$("#roBanner").textContent=state.fromPhone?`Copy from your phone, made ${state.sharedAt?fmt(state.sharedAt.slice(0,10)):""}. Read it, write letters, send emails and make the binder here. To add or change entries, use your phone, then send a new link.`:`Shared with you by ${state.sharedBy||"a parent"}${state.sharedAt?" on "+fmt(state.sharedAt.slice(0,10)):""}.${Array.isArray(state.shareSections)&&state.shareSections.length?" Includes: "+cleanSecs(state.shareSections).map(secLabel).join(", ")+".":""} You can read it, make a binder and write summaries, but not change it.`;
   $("#homeAdd").hidden=!!state.readOnly;$("#quickRow").hidden=!!state.readOnly;$("#quickRow2").hidden=!!state.readOnly;$("#homeNote").hidden=!!state.readOnly;$("#homeInvite").hidden=!!state.readOnly;
   $("#stats").innerHTML=ORDER.map(k=>`<button type="button" class="stat" data-stat="${k}" style="--kc:${KINDS[k].color}" aria-pressed="${filter===k}"><b>${E.filter(e=>e.kind===k).length}</b><span>${KINDS[k].short}</span></button>`).join("");
   $("#showing").hidden=filter==="all";if(filter!=="all")$("#showing").innerHTML=`<span>Showing <b>${KINDS[filter].label}</b> only</span><button class="btn small ghost" id="showAll" type="button">Show all</button>`;
@@ -1104,7 +1124,7 @@ $("#copyLetter").onclick=()=>{const t=$("#letter").textContent,k=$("#l-kind").va
 const S={child:"name",grade:"grade",school:"school",district:"district",to:"to",totitle:"totitle",toemail:"toemail",parent:"parent",contact:"contact",myemail:"myemail",adv:"adv",advemail:"advemail"};
 async function renderMe(){renderBackupNudge();for(const k in S)$("#s-"+k).value=state.child[S[k]]||"";
   const ss=$("#s-state");if(ss.options.length<3)ss.innerHTML=`<option value="">Choose your state</option>`+STATES.map(([c,n])=>`<option value="${c}">${n}</option>`).join("");ss.value=myState();
-  const ak=$("#addKid");if(ak){const n=realKids().length;ak.disabled=n>=MAXKIDS;ak.textContent=n>=MAXKIDS?`You have ${MAXKIDS} children (the most KidArmor holds)`:"+ Add another child"}renderKids();renderLock();renderPerms();$("#shDone").hidden=true;$("#sharePanel").querySelector("#shMake").disabled=!!(state.example||state.readOnly);
+  const ak=$("#addKid");if(ak){const n=realKids().length;ak.disabled=n>=MAXKIDS;ak.textContent=n>=MAXKIDS?`You have ${MAXKIDS} children (the most KidArmor holds)`:"+ Add another child"}renderKids();renderLock();renderPerms();$("#shDone").hidden=true;$("#sharePanel").querySelector("#shMake").disabled=!!(state.example||state.readOnly);renderShares();try{renderLegal()}catch(e){}
   try{const est=await navigator.storage.estimate();const mb=(est.usage||0)/1048576;$("#storageLabel").textContent=`Space used on this phone: ${mb<1?mb.toFixed(2):mb.toFixed(1)} MB`;$("#storageBar").style.width=Math.max(2,Math.min(100,mb/200*100))+"%"}
   catch(e){$("#storageLabel").textContent="Space used on this phone"}}
 $("#setupForm").onsubmit=e=>{e.preventDefault();if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}if(state.example)startFresh();const firstTime=!state.child.name;for(const k in S)state.child[S[k]]=$("#s-"+k).value.trim();
@@ -1287,7 +1307,7 @@ $("#rsGo").onclick=async()=>{if(!rsText)return;const btn=$("#rsGo");btn.disabled
   catch(e){toast(e.message||"Couldn't restore that backup.")}finally{btn.disabled=false;btn.textContent="Unlock and restore"}};
 
 function shareCode(){const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",b=crypto.getRandomValues(new Uint8Array(12));let s="";for(const x of b)s+=A[x%A.length];return`${s.slice(0,4)}-${s.slice(4,8)}-${s.slice(8)}`}
-$("#shMake").onclick=e=>startCaseLink("advocate",e.currentTarget);
+$("#shMake").onclick=()=>openProShare();
 $("#shCopy").onclick=()=>{const t=$("#shCode").textContent;navigator.clipboard.writeText(t).then(()=>toast("Code copied")).catch(()=>{const r=document.createRange();r.selectNodeContents($("#shCode"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Code selected. Use your phone's Copy button.")})};
 let imText=null;
 $("#imFile").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;imText=await f.text();$("#imStep").hidden=false;$("#imCode").focus()};
@@ -1896,7 +1916,7 @@ async function fromAppChild(c,files,parent){
 $("#v-res").addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const t=b.dataset.copy;
   navigator.clipboard.writeText(t).then(()=>toast("Copied "+t)).catch(()=>{const n=b.parentElement.querySelector(".num");if(n){const r=document.createRange();r.selectNodeContents(n);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("Selected. Use your phone's Copy button.")})});
 async function makeShareFile(){save();const copy=JSON.parse(JSON.stringify(state));copy.entries.forEach(e=>{delete e.parentNote;delete e.originalDesc});
-  delete copy.updKey;delete copy.invites;copy.readOnly=true;copy.sharedBy=state.child.parent||"A parent";copy.sharedAt=new Date().toISOString();copy.example=false;
+  delete copy.updKey;delete copy.invites;delete copy.shares;copy.readOnly=true;copy.sharedBy=state.child.parent||"A parent";copy.sharedAt=new Date().toISOString();copy.example=false;
   const code=shareCode();const text=await sealJson({child:copy,files:await packFiles(caseFiles(state))},code,"share");
   const ok=await saveFile(`KidArmor-${(state.child.name||"case").replace(/[^\w ]+/g,"").trim()}-${today()}.json`,text);return ok?code:null}
 $("#pcLink").onclick=e=>startCaseLink("computer",e.currentTarget);
@@ -2214,7 +2234,7 @@ function caseForLink(c,purpose){const copy=JSON.parse(JSON.stringify(c));
     if(purpose==="advocate"){delete e.parentNote;delete e.originalDesc}});
   copy.docs.forEach(d=>{const n=(d.files||[]).length;if(n)d.onPhone=n;d.files=[]});
   (copy.reports||[]).forEach(r=>{const n=(r.files||[]).length;if(n)r.onPhone=n;r.files=[]});if(purpose==="advocate")delete copy.health;
-  delete copy.upcoming;delete copy.updKey;delete copy.invites;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
+  delete copy.upcoming;delete copy.updKey;delete copy.invites;delete copy.shares;copy.readOnly=true;copy.example=false;copy.sharedAt=new Date().toISOString();
   copy.sharedBy=purpose==="advocate"?(c.child.parent||"A parent"):"your phone";copy.fromPhone=purpose!=="advocate";copy.caseId=c.caseId;return copy}
 async function makeCaseLink(purpose){save();if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
   const code=linkCode(),raw=enc.encode(JSON.stringify(caseForLink(state,purpose)));
@@ -2669,17 +2689,196 @@ function lawCard(a,demo){const tel=(a.phone||"").replace(/[^\d+]/g,"");
     ${a.phone?`<div class="rphone"><a href="tel:${esc(tel)}" class="num">${esc(a.phone)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.phone)}">Copy</button></div>`:""}
     ${a.email?`<div class="rphone"><a href="mailto:${esc(a.email)}" class="num">${esc(a.email)}</a><button type="button" class="btn small ghost" data-copy="${esc(a.email)}">Copy</button></div>`:""}</div>`}
 function renderLawyers(){const el=$("#resLaw");if(!el)return;const st=myState()||"MS",demo=isAttorneyDemo(),pdemo=isProviderDemo();const all=demo?(pdemo?DEMO_PROVIDERS:[DEMO_ATTORNEY]):[...ATTORNEYS,...(RESDATA.attorneys||[])].filter(a=>(a.states||[a.state]).includes(st));if(!all.length){el.hidden=true;el.innerHTML="";return}el.hidden=false;const groups=[["Special education attorneys & advocates",a=>!a.kind||a.kind==="attorney"||a.kind==="advocate","attorneys or advocates"],["Educational evaluators",a=>a.kind==="evaluator","evaluators"],["Tutors & learning specialists",a=>a.kind==="tutor","tutors"]];el.innerHTML=(demo?`<div class="banner info"><span><b>Preview for ${pdemo?"providers":"attorneys"}.</b> This is how your listing would look to parents in your state. Your name, ${pdemo?"practice, services":"firm, practice areas"}, area served, phone, email and website, all one tap away.</span></div>`:"")+groups.map(([title,f,who])=>{const L=all.filter(f);return L.length?`<div class="eyebrow">${title}</div>${L.map(a=>lawCard(a,demo)).join("")}<p class="note" style="margin:0 0 14px">Paid listings. KidArmor doesn't recommend, refer or screen ${who} and doesn't receive any part of their fees. Contact them directly to see if they can help.</p>`:""}).join("")}
-/* ---------- preview terms (shown once) ---------- */
-const TERMSKEY="kidarmor.terms.v1";
-function showTerms(after){if(window.KA_NATIVE){after&&after();return}try{if(window.__kaSkipTerms||localStorage.getItem(TERMSKEY)){after&&after();return}}catch(e){after&&after();return}
-  const sh=openSheet(`<h3>KidArmor preview</h3>
-    <p class="note">This is an early test version of KidArmor, shared so you can try it and give feedback.</p>
-    <p class="note">KidArmor, including its name, design, text and code, is © ${new Date().getFullYear()} Coastline Code LLC. All rights reserved.</p>
-    <p class="note">You're welcome to use it to try it out and to share feedback. Please don't copy it, pass along its code or files, or use it to build a similar app or tool.</p>
-    <p class="note">Anything you enter stays on this device.</p>
-    <button class="btn primary wide" id="termsOk" type="button">I agree</button>`);
-  const w=document.querySelector(".sheetwrap");if(w)w.dataset.lock="1";
-  sh.querySelector("#termsOk").onclick=()=>{try{localStorage.setItem(TERMSKEY,new Date().toISOString())}catch(e){}closeSheet();after&&after()}}
+/* ---------- share with my professional: the parent picks who and which parts; locked link + code, or a PDF ---------- */
+const PRO_SECTIONS=[
+  ["incident","Bullying log",c=>c.entries.filter(e=>e.kind==="incident").length],
+  ["missed","IEP / 504 problems",c=>c.entries.filter(e=>e.kind==="missed").length],
+  ["comm","Contacts and emails with the school",c=>c.entries.filter(e=>e.kind==="comm").length],
+  ["meeting","Meetings, summaries and transcripts",c=>c.entries.filter(e=>e.kind==="meeting").length],
+  ["plan","IEP / 504 plan and accommodations",c=>c.plan&&(c.plan.type||(c.plan.accoms||[]).length)?1:0],
+  ["reports","Report cards and progress reports",c=>(c.reports||[]).length],
+  ["health","Health, medication and therapy notes",c=>(c.health||[]).length],
+  ["docs","Documents list",c=>(c.docs||[]).length]];
+const PRO_WHO={
+  attorney:{label:"Attorney",their:"your attorney",sec:["incident","missed","comm","meeting","plan","reports","health","docs"]},
+  advocate:{label:"Advocate",their:"your advocate",sec:["incident","missed","comm","meeting","plan","reports","docs"]},
+  counselor:{label:"Counselor or therapist",their:"your counselor",sec:["incident","meeting","health"]},
+  doctor:{label:"Doctor, psychiatrist or psychologist",their:"your doctor",sec:["incident","meeting","plan","reports","health"]},
+  tutor:{label:"Tutor",their:"your tutor",sec:["plan","reports","meeting"]},
+  other:{label:"Someone else",their:"them",sec:["incident","missed","comm","meeting","plan"]}};
+const secLabel=k=>(PRO_SECTIONS.find(s=>s[0]===k)||[k,k])[1];
+const cleanSecs=a=>Array.isArray(a)?PRO_SECTIONS.map(s=>s[0]).filter(k=>a.includes(k)):[];
+function caseForPro(c,secs,keepFiles){const copy=JSON.parse(JSON.stringify(c)),S=new Set(secs);
+  copy.entries=copy.entries.filter(e=>S.has(e.kind));copy.entries.forEach(e=>{delete e.parentNote;delete e.originalDesc});
+  if(!S.has("plan"))copy.plan={accoms:[]};if(!S.has("reports"))copy.reports=[];if(!S.has("health"))copy.health=[];if(!S.has("docs"))copy.docs=[];
+  if(!keepFiles){copy.entries.forEach(e=>{const nf=(e.files||[]).length,nr=(e.recordings||[]).length;if(nf||nr)e.onPhone={files:nf,recs:nr};e.files=[];delete e.recordings});
+    copy.docs.forEach(d=>{const n=(d.files||[]).length;if(n)d.onPhone=n;d.files=[]});copy.reports.forEach(r=>{const n=(r.files||[]).length;if(n)r.onPhone=n;r.files=[]})}
+  delete copy.upcoming;delete copy.updKey;delete copy.invites;delete copy.shares;copy.readOnly=true;copy.example=false;copy.fromPhone=false;
+  copy.sharedAt=new Date().toISOString();copy.sharedBy=c.child.parent||"A parent";copy.shareSections=[...S];return copy}
+async function sealCaseLink(copy,code){const raw=enc.encode(JSON.stringify(copy));
+  const z=await squeeze(raw,true),body=z||raw,salt=crypto.getRandomValues(new Uint8Array(16)),nonce=crypto.getRandomValues(new Uint8Array(12));
+  const key=await aesKey(code.replace(/[^A-Z0-9]/g,""),salt,150000);
+  const ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv:nonce},key,body));
+  const out=new Uint8Array(1+16+12+ct.length);out[0]=z?2:1;out.set(salt,1);out.set(nonce,17);out.set(ct,29);return LINKBASE()+"#open="+b64u(out)}
+async function makeProLink(sh){save();if(!state.caseId){state.caseId="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save()}
+  const copy=caseForPro(state,sh.sections,false);copy.caseId=state.caseId+"-"+sh.id;copy.sharedFor=PRO_WHO[sh.who]?PRO_WHO[sh.who].label:"";
+  return{url:await sealCaseLink(copy,sh.code),code:sh.code}}
+async function makeProPdf(secs){const keep=state;const copy=migrate(caseForPro(keep,secs,true));copy.readOnly=false;
+  try{state=copy;const r=await buildBinder(m=>toast(m));const name=`Case Binder - ${(keep.child.name||"Student").replace(/[^\w ]+/g,"").trim()} - ${today()}.pdf`;
+    if(r.failed.length)toast(`Exhibit${r.failed.length>1?"s":""} ${r.failed.join(", ")} couldn't be added. Send ${r.failed.length>1?"them":"it"} separately.`);
+    return{name,blob:new Blob([r.bytes],{type:"application/pdf"})}}finally{state=keep}}
+function proLinkSheet(link,sh,isUpdate){const W=PRO_WHO[sh.who]||PRO_WHO.other,kb=Math.round(link.url.length/1024),nm=sh.name?esc(sh.name):W.their;
+  const s=openSheet(`<h3>${isUpdate?`Update for ${nm}`:`Share with ${nm}`}</h3>
+    <ol class="steps">
+      <li><span>Send this link to ${nm}.</span></li>
+      <li><span>${isUpdate?"They open it and type the same code as before. Their copy is replaced with this one.":"Send this code separately, by phone call or a different text, so only they can open it:"}</span></li>
+    </ol>
+    <div class="codebox">${esc(link.code)}</div>
+    <p class="note">Shared: ${esc(sh.sections.map(secLabel).join(", "))}. Private notes are never shared. Recordings, photos and documents stay on this phone; use the PDF to send those. Nothing is stored on our servers.${kb>400?` This link is long (${kb} KB). If a text won't send it, use email or Copy.`:""}</p>
+    <button class="btn primary wide" id="plShare" type="button">Send the link</button>
+    <button class="btn light wide" id="plCopy" type="button">Copy the link</button>
+    <button class="btn ghost" id="plDone" type="button">Done</button>`);
+  s.querySelector("#plDone").onclick=closeSheet;
+  s.querySelector("#plCopy").onclick=async()=>{try{await navigator.clipboard.writeText(link.url);toast("Link copied")}catch(e){toast("Couldn't copy here. Use Send instead.")}};
+  s.querySelector("#plShare").onclick=async()=>{const title=`${state.child.name||"Case"} — KidArmor case (read-only)`;
+    const text=isUpdate?"Here's an updated copy of my child's KidArmor case. Use the same code as before.":"Here is a read-only copy of my child's KidArmor case. I'll send you the code separately.";
+    try{if(navigator.share){await navigator.share({title,text,url:link.url});return}}catch(e){if(e&&e.name==="AbortError")return}
+    location.href=`mailto:${encodeURIComponent(sh.email||"")}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text+"\n\n"+link.url)}`}}
+function openProShare(existing){if(state.readOnly){toast("A shared case can't be shared again.");return}if(guardExample())return;
+  if(!state.child.name&&!state.entries.length){toast("Add your child and some entries first.");return}
+  const sh=existing?{...existing,sections:cleanSecs(existing.sections)}:{id:Math.random().toString(36).slice(2,8),who:"attorney",name:"",email:"",sections:[...PRO_WHO.attorney.sec],code:linkCode()};
+  const s=openSheet(`<h3>Share with my professional</h3>
+    <p class="note">They get a read-only copy of only the parts you choose.</p>
+    <label for="prWho">Who is it for?<select id="prWho">${Object.entries(PRO_WHO).map(([k,v])=>`<option value="${k}"${k===sh.who?" selected":""}>${esc(v.label)}</option>`).join("")}</select></label>
+    <div class="pair"><label for="prName">Their name <small>(optional)</small><input id="prName" autocomplete="off" value="${esc(sh.name||"")}"></label>
+      <label for="prEmail">Their email <small>(optional)</small><input id="prEmail" type="email" inputmode="email" autocomplete="off" value="${esc(sh.email||"")}"></label></div>
+    <div class="flabel">What to share</div>
+    <div id="prSecs" style="display:flex;flex-direction:column;gap:8px"></div>
+    <p class="note">Your private notes and your original words are never shared.</p>
+    <p class="note" id="prErr" role="alert" style="color:var(--high)"></p>
+    <button class="btn primary wide" id="prLink" type="button">Make a locked link</button>
+    <button class="btn light wide" id="prPdf" type="button">Make a PDF instead</button>
+    <p class="note">The link carries your written record. The PDF also includes photos and documents, for professionals who don't use KidArmor.</p>
+    <button class="btn ghost" id="prCancel" type="button">Cancel</button>`);
+  const drawSecs=()=>{s.querySelector("#prSecs").innerHTML=PRO_SECTIONS.map(([k,l,n])=>{const c=n(state);return`<label class="check" for="prs-${k}"><input type="checkbox" id="prs-${k}" data-sec="${k}"${sh.sections.includes(k)?" checked":""}><span>${esc(l)}${c?` <small>(${k==="plan"?"filled in":c})</small>`:` <small>(none yet)</small>`}</span></label>`}).join("")};
+  drawSecs();
+  const read=()=>{sh.who=s.querySelector("#prWho").value;sh.name=s.querySelector("#prName").value.trim().slice(0,80);sh.email=s.querySelector("#prEmail").value.trim().slice(0,120);
+    sh.sections=cleanSecs([...s.querySelectorAll("[data-sec]")].filter(x=>x.checked).map(x=>x.dataset.sec));return sh.sections.length>0};
+  s.querySelector("#prWho").onchange=e=>{sh.sections=[...(PRO_WHO[e.target.value]||PRO_WHO.other).sec];drawSecs()};
+  s.querySelector("#prCancel").onclick=closeSheet;
+  s.querySelector("#prLink").onclick=async e=>{if(!read()){s.querySelector("#prErr").textContent="Choose at least one part to share.";return}const b=e.currentTarget;b.disabled=true;b.textContent="Locking the link…";
+    try{const link=await makeProLink(sh);sh.at=sh.at||new Date().toISOString();sh.updatedAt=new Date().toISOString();
+      state.shares=(state.shares||[]).filter(x=>x.id!==sh.id);state.shares.unshift({id:sh.id,who:sh.who,name:sh.name,email:sh.email,sections:sh.sections,code:sh.code,at:sh.at,updatedAt:sh.updatedAt});state.shares=state.shares.slice(0,20);save();renderShares();
+      proLinkSheet(link,sh,!!existing)}catch(err){b.disabled=false;b.textContent="Make a locked link";toast("Couldn't make the link. Try again.")}};
+  s.querySelector("#prPdf").onclick=async e=>{if(!read()){s.querySelector("#prErr").textContent="Choose at least one part to share.";return}const b=e.currentTarget;b.disabled=true;b.textContent="Making the PDF…";
+    try{const f=await makeProPdf(sh.sections);closeSheet();openViewer({name:f.name,blob:f.blob,type:"application/pdf",download:true})}
+    catch(err){b.disabled=false;b.textContent="Make a PDF instead";toast("Couldn't make the PDF. Try again.")}}}
+function renderShares(){const el=$("#shList");if(!el)return;const L=(!state.readOnly&&!state.example&&Array.isArray(state.shares))?state.shares:[];
+  el.hidden=!L.length;el.innerHTML=L.length?`<div class="eyebrow">Shared so far</div>`+L.map(x=>{const W=PRO_WHO[x.who]||PRO_WHO.other;
+    return`<div class="kid"><div><b>${esc(x.name||W.label)}</b><span class="meta2">${esc([x.name?W.label:"",`last sent ${fmt(String(x.updatedAt||x.at||"").slice(0,10))}`,cleanSecs(x.sections).map(secLabel).join(", ")].filter(Boolean).join(" · "))}</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn small primary" type="button" data-shupd="${esc(x.id)}">Send an update</button><button class="btn small ghost" type="button" data-shforget="${esc(x.id)}">Remove</button></div></div>`}).join("")+
+    `<p class="note">An update sends everything as it is now. They open the new link with the same code, and it replaces their copy. Removing someone here doesn't take back a link you already sent.</p>`:""}
+$("#shList").addEventListener("click",async e=>{const u=e.target.closest("[data-shupd]"),f=e.target.closest("[data-shforget]");
+  if(u){const x=(state.shares||[]).find(s=>s.id===u.dataset.shupd);if(!x)return;u.disabled=true;
+    try{const sh={...x,sections:cleanSecs(x.sections)};const link=await makeProLink(sh);x.updatedAt=new Date().toISOString();save();renderShares();proLinkSheet(link,sh,true)}catch(err){toast("Couldn't make the update. Try again.")}finally{u.disabled=false}}
+  if(f){state.shares=(state.shares||[]).filter(s=>s.id!==f.dataset.shforget);save();renderShares()}});
+/* ---------- Terms of Use and Privacy Policy: the parent agrees before using KidArmor ---------- */
+const TERMS_VERSION="2026-11";const AGREEKEY="kidarmor.agree";const TERMSKEY=AGREEKEY;
+const LEGAL_EFFECTIVE="";/* fill in the launch date when KidArmor is submitted to the stores */
+const APP_VERSION="1.0";
+const LEGAL_URL={terms:"https://coastlinecode.com/kidarmor-terms/",privacy:"https://coastlinecode.com/kidarmor-privacy-policy/",help:"https://coastlinecode.com/kidarmor/"};
+const SUPPORT={email:"info@coastlinecode.com",phone:"(228) 304-5333",tel:"+12283045333",hours:"weekdays 9 a.m. to 5 p.m. Central"};
+function agreement(){try{const a=JSON.parse(localStorage.getItem(AGREEKEY)||"null");return a&&typeof a==="object"&&typeof a.v==="string"?a:null}catch(e){return null}}
+function agreed(){const a=agreement();return !!(a&&a.v===TERMS_VERSION)}
+const LEGAL_ADDR=`Coastline Code LLC, 23480 Arcadia Farm Rd, Pass Christian, MS 39571 · info@coastlinecode.com · (228) 304-5333`;
+const LEGAL={
+terms:{title:"KidArmor Terms of Use",html:`
+<p>These Terms of Use are an agreement between you and Coastline Code LLC ("we," "us"), the maker of KidArmor. By tapping "I agree" or using KidArmor, you accept these terms. If you don't agree, please don't use the app.</p>
+<p><b>1. Who can use KidArmor.</b> KidArmor is for parents, legal guardians and other adults caring for a child. You must be at least 18 years old to use it.</p>
+<p><b>2. KidArmor is not legal advice.</b> KidArmor is a tool for keeping your own records organized. It is not a law firm, doesn't give legal, medical or educational advice, and doesn't create an attorney-client relationship. Information in the app, including state resources, may be incomplete or out of date. For advice about your child's situation, talk with a qualified attorney, advocate or professional.</p>
+<p><b>3. Your responsibilities.</b></p>
+<ul><li><i>Recording meetings:</i> recording laws are different in each state, and schools may have their own rules. You are responsible for following those laws and rules and for telling others when you record.</li>
+<li><i>Accurate records:</i> you are responsible for what you enter and share. Meeting summaries are made automatically and can contain mistakes. Check them against the full recording before you rely on them or share them.</li>
+<li><i>Other people's information:</i> only record or save information about others that you have a right to keep, and share it responsibly.</li>
+<li><i>Lawful use:</i> don't use KidArmor to harass anyone or to break any law.</li></ul>
+<p><b>4. Your information and backups.</b> Your information is stored only on your device, as described in our Privacy Policy. We can't access or recover it. You are responsible for keeping your own copies, for example by saving PDFs of your record.</p>
+<p><b>5. Teacher updates and outside content.</b> Updates sent to you by teachers or others come from them, not from us. We don't check or verify them.</p>
+<p><b>6. Paid listings.</b> Some attorneys, advocates, evaluators and tutors pay to be listed in KidArmor, and their listings are labeled as paid. A listing is advertising. It is not a referral, recommendation or endorsement. We don't check anyone's qualifications or results, and we aren't responsible for services they provide. Any agreement you make with a listed business is between you and that business.</p>
+<p><b>7. The app is provided "as is."</b> We work hard to make KidArmor reliable, but we provide it "as is" and "as available," without warranties of any kind, to the fullest extent the law allows. We don't promise that it will be error-free or always available, that it will keep your information from being lost, or that using it will lead to any particular result with a school or in any legal matter.</p>
+<p><b>8. Limit on our responsibility.</b> To the fullest extent the law allows, Coastline Code LLC and its owners, managers and employees are not liable for any indirect, incidental, special or consequential damages, or for any loss of data, related to KidArmor. This includes the outcome of any school, legal or other matter. Our total responsibility for any claim related to KidArmor is limited to the greater of the amount you paid us for the app or $50. Some states don't allow certain limits on liability, so some of these limits may not apply to you.</p>
+<p><b>9. Apple and Google.</b> These terms are between you and Coastline Code LLC, not Apple or Google. We, not Apple or Google, are responsible for KidArmor and its support. Apple and Google aren't responsible for any claims about the app. If you downloaded KidArmor from the Apple App Store, Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them, and you also agree to Apple's Usage Rules. You confirm that you aren't located in a country under a U.S. government embargo and aren't on any U.S. government list of prohibited or restricted parties.</p>
+<p><b>10. Ownership.</b> KidArmor, including its design, code and name, belongs to Coastline Code LLC. You may use the app for your own personal, non-commercial use. Please don't copy, resell or reverse-engineer it. Your records belong to you.</p>
+<p><b>11. Feedback.</b> If you send us ideas or suggestions, we may use them to improve KidArmor without owing you anything for them.</p>
+<p><b>12. Changes and ending use.</b> We may update these terms. If a change is important, we'll show it in the app, and continuing to use KidArmor means you accept the new terms. You can stop using KidArmor at any time by deleting it.</p>
+<p><b>13. Governing law.</b> These terms are governed by the laws of the State of Mississippi. Any dispute will be handled in the state or federal courts serving Harrison County, Mississippi, unless the law where you live requires otherwise.</p>
+<p><b>14. Contact us.</b> ${LEGAL_ADDR}</p>`},
+privacy:{title:"KidArmor Privacy Policy",html:`
+<p>This policy explains what happens to your information when you use KidArmor, the app made by Coastline Code LLC ("we," "us"). The short version: <b>what you put in KidArmor stays on your phone. We don't collect it, see it, sell it or share it.</b></p>
+<p><b>1. What we don't collect.</b> KidArmor doesn't require an account. We don't collect or receive your name, email, phone number or address; anything you type into KidArmor, including notes, logs, contacts and your child's information; your photos, documents or meeting recordings; or your location, contacts list or browsing history. KidArmor has no ads, no ad tracking and no tracking across other apps or websites.</p>
+<p><b>2. Where your information is stored.</b> Everything you save in KidArmor is stored on your device. Meeting summaries are made on your device. Your recordings aren't sent to us or to an outside AI service. Live transcripts use your phone's built-in speech recognition from Apple or Google, which may process the audio on Apple's or Google's own servers under their privacy policies; we never receive it. If your phone backs up to iCloud or Google, your phone's own backup settings control whether KidArmor's data is included. Those backups are handled by Apple or Google under their own privacy policies, and we can't see them. Because we never receive your information, we can't recover it if you lose your phone or delete the app. Use the PDF feature to keep your own copy.</p>
+<p><b>3. Information you choose to share.</b></p>
+<ul><li><i>PDFs and exports:</i> when you share a PDF of your record, you decide who gets it and how it's sent. After that, it's handled by the app you used to send it, such as email or text messages.</li>
+<li><i>Opening your case on a computer:</i> when you use the locked link and short code, your written record goes from your phone to your own computer. It isn't stored by us.</li>
+<li><i>Sharing with a professional:</i> when you share with an attorney, advocate, counselor, doctor or tutor, you choose which parts of your record to send. They go in a locked link that only opens with the code you give them, and they aren't stored on our servers. Private notes are never included. Once the professional opens the copy, it's on their device and handled under their own rules.</li>
+<li><i>Teacher updates:</i> when a teacher sends you an update, the message travels inside the link. It isn't stored online by us. You choose whether to add it to your record.</li>
+<li><i>Emailing or calling us:</i> if you contact us, we receive what you send, such as your email address and message. We use it only to answer you and to improve KidArmor. Please don't send us private details about your child or your case.</li></ul>
+<p><b>4. Parent resources and paid listings.</b> KidArmor shows parent help organizations and paid listings from attorneys, advocates, evaluators and tutors for your state. Paid listings are clearly labeled. To keep these lists current, the app may download the latest version from our server. That download doesn't include any of your information, and it's the same list for everyone. We don't track which listings you look at or tap. If you tap a listing's website, phone number or email, that business's own privacy policy applies to anything you share with them.</p>
+<p><b>5. App stores.</b> Apple and Google may collect information when you download or use apps from their stores, such as crash reports or download counts, under their own privacy policies. Any reports they share with us are summaries that don't identify you.</p>
+<p><b>6. Children.</b> KidArmor is made for parents and guardians, not for children to use. Parents may enter information about their own children. That information stays on the parent's device and is never sent to us.</p>
+<p><b>7. Deleting your information.</b> You can delete any entry in the app, or delete everything by deleting the app. Since we don't have your information, there's nothing for us to delete on our end. If you emailed us and want that email deleted, ask us at the address below.</p>
+<p><b>8. Security.</b> Your information is protected by your phone's own security, such as your passcode, Face ID or fingerprint, and by KidArmor's own lock if you turn it on. Keep your phone locked and your software up to date.</p>
+<p><b>9. Changes to this policy.</b> If we change this policy, we'll update the effective date above. If a change affects how your information is handled, we'll tell you in the app before it takes effect.</p>
+<p><b>10. Contact us.</b> ${LEGAL_ADDR}</p>`}};
+function openLegal(which){const L=LEGAL[which];if(!L)return;const old=$(".legalview");if(old)old.remove();
+  const w=document.createElement("div");w.className="legalview";w.setAttribute("role","dialog");w.setAttribute("aria-modal","true");w.setAttribute("aria-label",L.title);
+  w.innerHTML=`<div class="wzin"><div class="lvhead"><b>${esc(L.title)}</b><button class="btn ghost small" type="button" data-lvclose>Close</button></div>
+    <p class="note">${LEGAL_EFFECTIVE?`Effective date: ${esc(LEGAL_EFFECTIVE)}`:`Version ${esc(TERMS_VERSION)}`}</p>
+    <div class="legaltext">${L.html}</div>
+    <a class="btn light wide" href="${LEGAL_URL[which]}" target="_blank" rel="noopener">Read it on our website</a>
+    <button class="btn primary wide" type="button" data-lvclose>Close</button></div>`;
+  w.querySelectorAll("[data-lvclose]").forEach(b=>b.onclick=()=>w.remove());document.body.appendChild(w);try{w.querySelector("[data-lvclose]").focus()}catch(e){}}
+function showTerms(after){
+  if(window.__kaSkipTerms||isAttorneyDemo()||agreed()){after&&after();return}
+  const prev=agreement(),again=!!prev;
+  const w=document.createElement("div");w.className="agreescreen";w.setAttribute("role","dialog");w.setAttribute("aria-modal","true");w.setAttribute("aria-labelledby","agTitle");
+  const tick=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>`;
+  w.innerHTML=`<div class="wzin">
+    <div class="agshield" aria-hidden="true"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/></svg></div>
+    <h2 id="agTitle">${again?"We've updated our terms":"Welcome to KidArmor"}</h2>
+    <p class="lede"><b>KidArmor helps you keep your own records organized. It is not legal advice.</b></p>
+    ${again?`<p class="note">Please read the updated Terms of Use and Privacy Policy and agree to keep using KidArmor.</p>`:""}
+    <ul class="privacy">
+      <li>${tick}What you save stays on this phone. There's no account.</li>
+      <li>${tick}No ads, and we never sell or share your information.</li>
+      <li>${tick}You decide what to share, and with whom.</li>
+    </ul>
+    ${!window.KA_NATIVE?`<p class="note">This is an early version of KidArmor. KidArmor, including its name, design, text and code, is © ${new Date().getFullYear()} Coastline Code LLC. Please don't copy it or use it to build a similar app.</p>`:""}
+    <label class="check agree" for="agBox"><input type="checkbox" id="agBox"><span>I have read and agree to the <a href="${LEGAL_URL.terms}" data-legal="terms">Terms of Use</a> and <a href="${LEGAL_URL.privacy}" data-legal="privacy">Privacy Policy</a>.</span></label>
+    <button class="btn primary wide" id="agGo" type="button" disabled>Continue</button>
+    <p class="note" style="text-align:center">KidArmor is made by Coastline Code LLC, a veteran-owned company in Pass Christian, Mississippi.</p></div>`;
+  document.body.appendChild(w);document.body.style.overflow="hidden";
+  const box=w.querySelector("#agBox"),go=w.querySelector("#agGo");
+  w.querySelectorAll("[data-legal]").forEach(a=>a.onclick=e=>{e.preventDefault();e.stopPropagation();openLegal(a.dataset.legal)});
+  box.onchange=()=>{go.disabled=!box.checked};
+  go.onclick=()=>{if(!box.checked)return;try{localStorage.setItem(AGREEKEY,JSON.stringify({v:TERMS_VERSION,at:new Date().toISOString()}))}catch(e){}
+    w.remove();document.body.style.overflow="";try{renderLegal()}catch(e){}after&&after()}}
+/* Help & feedback, and Legal, in Settings */
+function phoneType(){const u=navigator.userAgent||"";let m;
+  if((m=u.match(/(iPhone|iPad|iPod).*? OS (\d+)[_.](\d+)/)))return`${m[1]}, iOS ${m[2]}.${m[3]}`;
+  if(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1)return"iPad";
+  if((m=u.match(/Android (\d+(?:\.\d+)?)(?:;[^;)]*)?;\s*([^;)]+?)(?:\sBuild|\))/)))return`Android ${m[1]}${m[2]&&!/^(wv|K|Mobile)$/.test(m[2].trim())?", "+m[2].trim():""}`;
+  if(/Android/.test(u))return"Android";if(/Mac OS X/.test(u))return"Mac";if(/Windows/.test(u))return"Windows computer";return"Other"}
+let APPINFO=null;
+async function appVersion(){if(APPINFO)return APPINFO;try{if(window.KA_APPINFO){const i=await window.KA_APPINFO();if(i&&i.version){APPINFO=`${i.version}${i.build?" ("+i.build+")":""}`;return APPINFO}}}catch(e){}const v=`${APP_VERSION}${window.KA_NATIVE?"":" (web)"}`;if(!window.KA_NATIVE)APPINFO=v;return v}
+function feedbackHref(ver){const body=`\n\n\n---\nKidArmor version: ${ver}\nPhone: ${phoneType()}\n(Please don't include private details about your child or your case.)`;
+  return`mailto:${SUPPORT.email}?subject=${encodeURIComponent("KidArmor feedback")}&body=${encodeURIComponent(body)}`}
+function renderLegal(){const a=agreement(),el=$("#legalAgreed");if(el)el.textContent=a?`You agreed to the Terms of Use and Privacy Policy on ${fmt(String(a.at||"").slice(0,10))} (version ${a.v}).`:"";
+  const r=$("#hfRate");if(r)r.hidden=!window.KA_RATE;
+  appVersion().then(v=>{const e=$("#hfEmail");if(e)e.href=feedbackHref(v);const vv=$("#hfVer");if(vv)vv.textContent=`KidArmor version ${v}`})}
+$("#legalPanel").addEventListener("click",e=>{const b=e.target.closest("[data-legal]");if(!b)return;e.preventDefault();openLegal(b.dataset.legal)});
+$("#hfRate").onclick=async()=>{try{await window.KA_RATE()}catch(e){toast("Couldn't open the rating screen. You can rate KidArmor in the App Store or Google Play.")}};
+$("#hfEmail").onclick=()=>toast("Opening your email app…");
+renderLegal();
 /* ---------- start ---------- */
 if(hashMode()==="send"){openSenderPage()}else{try{initLock()}catch(e){}try{renderWho();resetForm();show("home")}catch(e){console.error(e)}recoverRecDraft();checkReminders();initFramed();setTimeout(refreshResources,1500);showTerms(()=>{if(isAttorneyDemo()){show("res");setTimeout(()=>{const e=$("#resLaw");if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},200);return}if(promptMoveLink())return;if(hashMode()==="upd"){promptUpdateLink();return}if(pendingLink()){promptOpenLink();return}if(needsWizard())openWizard()});renderStateResources();}
 </script>

@@ -49,6 +49,9 @@
   var _save=window.save;window.save=function(){var r=_save.apply(this,arguments);clearTimeout(syncT);syncT=setTimeout(syncReminders,1500);return r};
   window.askNotify=function(){if(N.permission==="default")N.requestPermission().then(function(){try{renderPerms()}catch(e){}})};
   setTimeout(syncReminders,3000);
+  /* app version for the feedback email, and the store's own rating prompt */
+  window.KA_APPINFO=async function(){var i=await APP.getInfo();return{version:i.version,build:i.build}};
+  window.KA_RATE=async function(){var R=P("InAppReview");if(!R)throw new Error("no review plugin");await R.requestReview()};
   /* links: outside websites open in the phone's browser */
   document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="http"]');if(!a||e.defaultPrevented)return;
     if(a.target==="_blank"){e.preventDefault();window.location.href=a.href}},true);

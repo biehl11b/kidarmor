@@ -12,3 +12,4 @@
 @capgo/capacitor-native-biometric
 @ebarooni/capacitor-calendar
 @capacitor/assets
+@capacitor-community/in-app-review
