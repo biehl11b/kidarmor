@@ -3,7 +3,7 @@
 Seller / developer: **Coastline Code LLC**
 Bundle ID / package name: **com.coastlinecode.kidarmor**
 Copyright: **2026 Coastline Code LLC**
-Price: **Free** (no in-app purchases, no ads)
+Price: **Not decided yet** (Josh may keep it free or charge a small amount for upkeep; no ads either way)
 
 Privacy policy URL: https://coastlinecode.com/kidarmor-privacy-policy/
 Support URL: https://coastlinecode.com/kidarmor/
@@ -19,7 +19,7 @@ Marketing URL (optional): https://coastlinecode.com/kidarmor/
 - **App name (30 characters max):** KidArmor
 - **Subtitle (Apple, 30 max):** School records for parents
 - **Short description (Google, 80 max):** Log bullying, IEP & 504 problems, record school meetings, and keep it private.
-- **Promotional text (Apple, 170 max):** Record school meetings with an automatic summary, log bullying and IEP/504 problems, and keep everything private on your phone. Free for parents.
+- **Promotional text (Apple, 170 max):** Record school meetings with an automatic summary, log bullying and IEP/504 problems, and keep everything private on your phone.
 
 ## Keywords (Apple, 100 characters, comma separated, no spaces)
 
