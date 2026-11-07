@@ -1,0 +1,112 @@
+11-07 03:08:04.800   520   551 I ActivityManager: Start proc 3094:com.google.android.webview:webview_service/u0a135 for service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+11-07 03:08:06.188   520   822 I ActivityManager: Start proc 3201:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+11-07 03:08:06.476  3201  3201 I cr_WebViewApkApp: Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-07 03:08:06.795  2956  3220 W chromium: [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+11-07 03:08:08.797  2956  2956 D Capacitor: Starting BridgeActivity
+11-07 03:08:08.941  2956  2956 D Capacitor: Registering plugin instance: CapacitorCookies
+11-07 03:08:08.956  2956  2956 D Capacitor: Registering plugin instance: WebView
+11-07 03:08:09.023  2956  2956 D Capacitor: Registering plugin instance: CapacitorHttp
+11-07 03:08:09.039  2956  2956 D Capacitor: Registering plugin instance: SystemBars
+11-07 03:08:09.055  2956  2956 D Capacitor: Registering plugin instance: InAppReview
+11-07 03:08:09.066  2956  2956 D Capacitor: Registering plugin instance: SpeechRecognition
+11-07 03:08:09.081  2956  2956 D Capacitor: Registering plugin instance: App
+11-07 03:08:09.085  2956  2956 D Capacitor: Registering plugin instance: Filesystem
+11-07 03:08:09.101  2956  2956 D Capacitor: Registering plugin instance: LocalNotifications
+11-07 03:08:09.135  2956  2956 D Capacitor: Registering plugin instance: Share
+11-07 03:08:09.245   520   551 I ActivityManager: Start proc 3444:com.google.android.webview:webview_apk/u0a135 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+11-07 03:08:09.261  2956  2956 D Capacitor: Registering plugin instance: SplashScreen
+11-07 03:08:09.278  2956  2956 D Capacitor: Registering plugin instance: StatusBar
+11-07 03:08:09.301  2956  2956 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-07 03:08:09.302  2956  2956 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-07 03:08:09.304  2956  2956 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-07 03:08:09.305  2956  2956 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-07 03:08:09.308  2956  2956 D Capacitor: Registering plugin instance: NativeBiometric
+11-07 03:08:09.318  2956  2956 D Capacitor: Registering plugin instance: CapacitorCalendar
+11-07 03:08:09.497  2956  2956 W Capacitor: Unable to read file at path public/plugins
+11-07 03:08:09.500  2956  2956 D Capacitor: Loading app at https://localhost
+11-07 03:08:09.558  2956  2956 D Capacitor: App started
+11-07 03:08:09.578  2956  2956 D Capacitor/AppPlugin: Firing change: true
+11-07 03:08:09.579  2956  2956 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-07 03:08:09.580  2956  2956 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-07 03:08:09.633  2956  2956 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-07 03:08:09.633  2956  2956 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-07 03:08:09.635  2956  2956 D Capacitor: App resumed
+11-07 03:08:09.970  2956  3243 D Capacitor: Handling local request: https://localhost/
+11-07 03:08:10.298  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/capacitor.js
+11-07 03:08:10.507  2956  2956 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-07 03:08:10.520  2956  2956 D Capacitor/AppPlugin: No listeners found for event pause
+11-07 03:08:10.521  2956  2956 D Capacitor: App paused
+11-07 03:08:10.678  2956  2956 D Capacitor/AppPlugin: Firing change: false
+11-07 03:08:10.681  2956  2956 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-07 03:08:10.681  2956  2956 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-07 03:08:10.682  2956  2956 D Capacitor: App stopped
+11-07 03:08:10.686  2956  2956 D Capacitor: Saving instance state!
+11-07 03:08:10.785  2956  2956 D Capacitor: App destroyed
+11-07 03:08:10.976  2956  2956 D Capacitor: Starting BridgeActivity
+11-07 03:08:10.996  2956  2956 D Capacitor: Registering plugin instance: CapacitorCookies
+11-07 03:08:10.999  2956  2956 D Capacitor: Registering plugin instance: WebView
+11-07 03:08:11.001  2956  2956 D Capacitor: Registering plugin instance: CapacitorHttp
+11-07 03:08:11.005  2956  2956 D Capacitor: Registering plugin instance: SystemBars
+11-07 03:08:11.006  2956  2956 D Capacitor: Registering plugin instance: InAppReview
+11-07 03:08:11.011  2956  2956 D Capacitor: Registering plugin instance: SpeechRecognition
+11-07 03:08:11.013  3444  3560 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:48)
+11-07 03:08:11.018  2956  2956 D Capacitor: Registering plugin instance: App
+11-07 03:08:11.023  2956  2956 D Capacitor: Registering plugin instance: Filesystem
+11-07 03:08:11.029  2956  2956 D Capacitor: Registering plugin instance: LocalNotifications
+11-07 03:08:11.035  2956  2956 D Capacitor: Registering plugin instance: Share
+11-07 03:08:11.039  2956  2956 D Capacitor: Registering plugin instance: SplashScreen
+11-07 03:08:11.040  2956  2956 D Capacitor: Registering plugin instance: StatusBar
+11-07 03:08:11.054  2956  2956 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-07 03:08:11.054  2956  2956 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-07 03:08:11.063  2956  2956 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-07 03:08:11.063  2956  2956 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-07 03:08:11.064  2956  2956 D Capacitor: Registering plugin instance: NativeBiometric
+11-07 03:08:11.070  2956  2956 D Capacitor: Registering plugin instance: CapacitorCalendar
+11-07 03:08:11.278  2956  2956 W Capacitor: Unable to read file at path public/plugins
+11-07 03:08:11.281  2956  2956 D Capacitor: Loading app at https://localhost
+11-07 03:08:11.461  2956  3220 D Capacitor: Handling local request: https://localhost/
+11-07 03:08:11.469  2956  2956 D Capacitor: App started
+11-07 03:08:11.474  2956  2956 D Capacitor/AppPlugin: Firing change: true
+11-07 03:08:11.474  2956  2956 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-07 03:08:11.474  2956  2956 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-07 03:08:11.516  2956  2956 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-07 03:08:11.517  2956  2956 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-07 03:08:11.517  2956  2956 D Capacitor: App resumed
+11-07 03:08:11.717  2956  2956 I Capacitor/SpeechRecognition: Instantiated SpeechRecognizer in load()
+11-07 03:08:11.736  2956  2956 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+11-07 03:08:11.736  2956  2956 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+11-07 03:08:11.736  2956  2956 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+11-07 03:08:11.743  2956  2956 W cr_AwContents: 	at org.chromium.android_webview.AwContents.m(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:10)
+11-07 03:08:11.743  2956  2956 W cr_AwContents: 	at org.chromium.android_webview.AwContents.h(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:2)
+11-07 03:08:11.743  2956  2956 W cr_AwContents: 	at com.android.webview.chromium.WebViewChromium.evaluateJavaScript(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:37)
+11-07 03:08:11.864  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/capacitor.js
+11-07 03:08:11.910  2956  2956 I Capacitor/SpeechRecognition: Instantiated SpeechRecognizer in load()
+11-07 03:08:12.100  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/fonts.css
+11-07 03:08:12.141  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-400-normal.woff2
+11-07 03:08:12.153  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-800-normal.woff2
+11-07 03:08:12.172  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-700-normal.woff2
+11-07 03:08:12.186  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-600-normal.woff2
+11-07 03:08:12.276  3201  3510 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-07 03:08:12.277  3201  3510 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-07 03:08:12.376  2956  3220 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-600-normal.woff2
+11-07 03:08:12.429  3201  3510 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-07 03:08:12.435  3201  3510 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-07 03:08:12.710  3358  3389 W id.gms.unstable: Verification of void org.chromium.net.impl.CronetUrlRequestContext.<init>(hr) took 166.663ms (6060.13 bytecodes/s) (27720B approximate peak alloc)
+11-07 03:08:13.251  2956  2956 I Capacitor/Console: File: https://localhost/ - Line 2974 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-07 03:08:13.251  2956  2956 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-07 03:08:13.278  2956  2956 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 120861824, pluginId: LocalNotifications, methodName: checkPermissions
+11-07 03:08:13.284  2956  2956 V Capacitor: callback: 120861824, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-07 03:08:13.285  2956  2956 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-07 03:08:13.287  2956  2956 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 120861825, pluginId: App, methodName: addListener
+11-07 03:08:13.289  2956  2956 V Capacitor: callback: 120861825, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-07 03:08:13.290  2956  2956 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-07 03:08:13.291  2956  2956 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 120861826, pluginId: App, methodName: addListener
+11-07 03:08:13.293  2956  2956 V Capacitor: callback: 120861826, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-07 03:08:13.386  2956  3243 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-07 03:08:13.567  2956  2956 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-07 03:08:15.658  2956  2956 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-07 03:08:15.664  2956  2956 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 120861827, pluginId: LocalNotifications, methodName: checkPermissions
+11-07 03:08:15.668  2956  2956 V Capacitor: callback: 120861827, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-07 03:08:15.943  2956  2956 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-07 03:08:17.409  1411  1501 W .gms.persistent: Verification of void org.chromium.net.impl.CronetUploadDataStream.<init>(org.chromium.net.UploadDataProvider, java.util.concurrent.Executor, org.chromium.net.impl.CronetUrlRequest) took 102.042ms (313.59 bytecodes/s) (2088B approximate peak alloc)
+11-07 03:08:23.209  1697  4309 W earchbox:search: Long monitor contention with owner ThreadPoolForeg (4321) at org.chromium.net.AndroidCertVerifyResult org.chromium.net.X509Util.verifyServerCertificates(byte[][], java.lang.String, java.lang.String)(PG:22) waiters=0 in void org.chromium.net.X509Util.ensureInitialized() for 109ms
