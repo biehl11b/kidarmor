@@ -3,7 +3,11 @@
 Seller / developer: **Coastline Code LLC**
 Bundle ID / package name: **com.coastlinecode.kidarmor**
 Copyright: **2026 Coastline Code LLC**
-Price: **Not decided yet** (Josh may keep it free or charge a small amount for upkeep; no ads either way)
+Price: **$1.99 one-time download** (US). No ads, no subscription, no in-app purchases at launch.
+
+- Apple: price tier USD 1.99; enroll in the App Store Small Business Program (15% commission instead of 30%). Needs the Paid Apps agreement, tax forms and bank info in App Store Connect → Business.
+- Google: set the app as **Paid** at USD 1.99 *before* first publishing (a free app can never be changed to paid on Google Play). Needs a merchant account linked to the payments profile. Google charges 15% on the first $1M a year automatically.
+- Availability: United States first (the resources and listings are by U.S. state).
 
 Privacy policy URL: https://coastlinecode.com/kidarmor-privacy-policy/
 Support URL: https://coastlinecode.com/kidarmor/

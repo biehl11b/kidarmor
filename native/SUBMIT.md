@@ -6,7 +6,7 @@ Everything the app needs is built by GitHub Actions ("Build phone apps") on ever
 
 1. ~~Publish the Privacy Policy and Terms pages~~ **Done Nov 7, 2026.** Both are live with the effective date, and linked from the KidArmor page (177).
 2. ~~Effective date in the app~~ **Done** (`LEGAL_EFFECTIVE = "November 7, 2026"`).
-3. Decide the price. (Free is easiest for the first release; a paid app needs the Paid Apps agreement and tax/banking forms in both stores.)
+3. ~~Decide the price~~ **$1.99 one-time download.** Paid apps need extra setup in both stores (below): Apple's Paid Apps agreement with tax and bank info, and a Google merchant account. On Google, choose **Paid** before the first release, because a free app can't be switched to paid later.
 
 ## Apple App Store
 
@@ -18,7 +18,7 @@ Everything the app needs is built by GitHub Actions ("Build phone apps") on ever
    - `ASC_KEY_P8`: open the .p8 file in a text editor and paste all of it, including the BEGIN and END lines.
 5. Re-run "Build phone apps" (Actions tab → Run workflow). The iOS job now builds the App Store version with Xcode 26 and uploads it. It shows up in **TestFlight** 10–30 minutes later. No Mac needed.
 6. In TestFlight, install it on your iPhone and try the main features (record a meeting, schedule, Face ID, share with a professional).
-7. On the app's App Store page in App Store Connect, fill in the text, screenshots (`native/store/screenshots/iphone`), App Privacy (**Data Not Collected**), age rating, review notes and export compliance answers from `STORE_LISTING.md`. Pick the TestFlight build and **Submit for Review**.
+7. In **Business** (App Store Connect), accept the **Paid Apps agreement** and add tax forms (W-9) and the business bank account; apply for the **App Store Small Business Program** (15% instead of 30%). Then, on the app's App Store page, fill in the text, screenshots (`native/store/screenshots/iphone`), App Privacy (**Data Not Collected**), age rating, review notes and export compliance answers from `STORE_LISTING.md`. Pick the TestFlight build and **Submit for Review**.
 
 ## Google Play
 
@@ -28,7 +28,7 @@ Everything the app needs is built by GitHub Actions ("Build phone apps") on ever
    Keep `upload.jks` and its password somewhere safe (a password manager); Google can reset a lost upload key, but it takes days.
 3. In GitHub secrets add `ANDROID_KEYSTORE_B64` (the file as base64: `base64 -i upload.jks` on a Mac, or `certutil -encode` on Windows, removing the header lines), `ANDROID_KEYSTORE_PASSWORD` and `ANDROID_KEY_ALIAS` (`kidarmor`).
 4. Re-run "Build phone apps". Download **KidArmor-store-bundle** (the `.aab`) from the run's page.
-5. In Play Console create the app, turn on **Play App Signing** (default), and upload the `.aab` to **Internal testing** first. Install it from the testing link and try it.
+5. In Play Console, set up the **merchant account** (Setup → Payments profile) with the business bank account. Create the app as **Paid**, set the price to **$1.99** in Monetize → Products → App pricing, turn on **Play App Signing** (default), and upload the `.aab` to **Internal testing** first. Install it from the testing link and try it.
 6. Fill in the store listing, Data safety, content rating, health declaration and target audience (adults; parents) from `STORE_LISTING.md`, upload `native/store/screenshots/android`, the 512 icon and the 1024×500 feature graphic, then promote the build to **Production**.
 
 ## What's already done in the code
