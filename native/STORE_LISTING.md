@@ -9,7 +9,7 @@ Privacy policy URL: https://coastlinecode.com/kidarmor-privacy-policy/
 Support URL: https://coastlinecode.com/kidarmor/
 Terms of Use (Apple "License Agreement" → custom EULA, optional): https://coastlinecode.com/kidarmor-terms/
 Marketing URL (optional): https://coastlinecode.com/kidarmor/
-(Publish the three coastlinecode.com pages, with the launch date filled in, before submitting.)
+(All three coastlinecode.com pages are published; effective date November 7, 2026.)
 
 ---
 

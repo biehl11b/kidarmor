@@ -4,8 +4,8 @@ Everything the app needs is built by GitHub Actions ("Build phone apps") on ever
 
 ## Before either store
 
-1. **Publish the three web pages** on coastlinecode.com: KidArmor (page 177, already live), **Privacy Policy (page 178)** and **Terms of Use (page 179)**, with the effective date filled in. Both stores check that the privacy policy link works when you submit. Then put the Terms and Privacy links back on page 177.
-2. Fill in the same effective date in the app (`LEGAL_EFFECTIVE` in `native/src/app.html`) and push.
+1. ~~Publish the Privacy Policy and Terms pages~~ **Done Nov 7, 2026.** Both are live with the effective date, and linked from the KidArmor page (177).
+2. ~~Effective date in the app~~ **Done** (`LEGAL_EFFECTIVE = "November 7, 2026"`).
 3. Decide the price. (Free is easiest for the first release; a paid app needs the Paid Apps agreement and tax/banking forms in both stores.)
 
 ## Apple App Store
