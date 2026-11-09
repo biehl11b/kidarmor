@@ -9,11 +9,11 @@ Price: **$1.99 one-time download** (US). No ads, no subscription, no in-app purc
 - Google: set the app as **Paid** at USD 1.99 *before* first publishing (a free app can never be changed to paid on Google Play). Needs a merchant account linked to the payments profile. Google charges 15% on the first $1M a year automatically.
 - Availability: United States first (the resources and listings are by U.S. state).
 
-Privacy policy URL: https://coastlinecode.com/kidarmor-privacy-policy/
+Privacy policy URL: https://kidarmor.coastlinecode.com/privacy.html
 Support URL: https://coastlinecode.com/kidarmor/
-Terms of Use (Apple "License Agreement" → custom EULA, optional): https://coastlinecode.com/kidarmor-terms/
+Terms of Use (Apple "License Agreement" → custom EULA, optional): https://kidarmor.coastlinecode.com/terms.html
 Marketing URL (optional): https://coastlinecode.com/kidarmor/
-(All three coastlinecode.com pages are published; effective date November 7, 2026.)
+(Use the kidarmor.coastlinecode.com copies in the stores: Google Play's link checker gets a 403 from coastlinecode.com. The WordPress copies at /kidarmor-privacy-policy/ and /kidarmor-terms/ have the same text, effective November 7, 2026.)
 
 ---
 
