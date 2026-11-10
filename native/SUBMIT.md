@@ -10,7 +10,7 @@ Everything the app needs is built by GitHub Actions ("Build phone apps") on ever
 
 ## Apple App Store
 
-1. **Finish Apple Developer enrollment** as Coastline Code LLC (needs the D-U-N-S number; make sure D&B lists it as an LLC).
+1. ~~Apple Developer enrollment~~ **Submitted Nov 10, 2026** in the Apple Developer app: Organization, Coastline Code LLC, D-U-N-S 149653843, account holder Josh's personal Apple ID, work email info@coastlinecode.com. Enrollment ID D78QBJSV5F. Waiting on Apple's review (they may call 228-304-5333), then accept terms and pay $99. (info@ is a Managed Apple Account under Apple Business, verification sent Nov 10; add it to the team later.)
 2. In **App Store Connect → Apps → +**, create the app: name *KidArmor*, bundle ID `com.coastlinecode.kidarmor` (register it under Certificates, Identifiers & Profiles first), SKU `kidarmor`, primary language English (U.S.).
 3. In **Users and Access → Integrations → App Store Connect API**, make a **Team key with the Admin role**. Download the `.p8` file (you can only download it once) and note the Key ID and Issuer ID. Your Team ID is under Membership.
 4. In GitHub → kidarmor repo → **Settings → Secrets and variables → Actions**, add:
