@@ -2,7 +2,7 @@ name: Build phone apps
 on:
   push:
     branches: [main]
-    paths: ["native/**", ".github/workflows/native.yml"]
+    paths: ["native/**", "!native/**/*.md", ".github/workflows/native.yml"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -71,6 +71,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: bash native/scripts/push-dir.sh android-emu native/emu
   ios:
+    # Runs only when started by hand until the Apple account is approved (macOS runners queue a long time).
+    if: github.event_name == 'workflow_dispatch'
     runs-on: macos-26
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
