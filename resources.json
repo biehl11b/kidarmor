@@ -1,6 +1,6 @@
 {
- "version": 202610271955,
- "updated": "2026-10-27",
+ "version": 202611102118,
+ "updated": "2026-11-10",
  "states": {
   "AL": {
    "pa": {
@@ -39,9 +39,9 @@
     "phone": "(520) 327-9547"
    },
    "pti": {
-    "name": "Raising Special Kids",
-    "url": "https://raisingspecialkids.org",
-    "phone": "(800) 237-3007"
+    "name": "Encircle Families",
+    "url": "https://encirclefamilies.org/",
+    "phone": "(602) 242-4366"
    },
    "doe": {
     "url": "https://www.azed.gov/specialeducation"
@@ -335,8 +335,8 @@
   "MN": {
    "pa": {
     "name": "Minnesota Disability Law Center",
-    "url": "https://www.mndlc.org",
-    "phone": "(612) 334-5970"
+    "url": "https://mylegalaid.org/disability-law-center/",
+    "phone": "(800) 292-4150"
    },
    "pti": {
     "name": "PACER Center",
@@ -359,7 +359,7 @@
     "phone": "(800) 721-7255"
    },
    "doe": {
-    "url": "https://mdek12.org/specialeducation/resources-7/"
+    "url": "https://mdek12.org/specialeducation/"
    }
   },
   "MO": {
@@ -462,6 +462,9 @@
     "name": "Parents Reaching Out",
     "url": "https://www.parentsreachingout.org",
     "phone": "(800) 524-5176"
+   },
+   "doe": {
+    "url": "https://webnew.ped.state.nm.us/bureaus/special-education"
    }
   },
   "NY": {
@@ -712,7 +715,7 @@
    },
    "pti": {
     "name": "West Virginia Parent Training and Information",
-    "url": "",
+    "url": "https://wvpti-inc.org/",
     "phone": "(800) 281-1436"
    },
    "doe": {
@@ -751,7 +754,7 @@
   },
   "DC": {
    "pa": {
-    "name": "University Legal Services",
+    "name": "Disability Rights DC at University Legal Services",
     "url": "https://www.uls-dc.org/",
     "phone": "(202) 547-0198"
    },

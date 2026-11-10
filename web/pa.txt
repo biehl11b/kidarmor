@@ -20,7 +20,7 @@ Maine | Disability Rights Maine | https://www.drme.org | 207-626-2774
 Maryland | Disability Rights Maryland | https://disabilityrightsmd.org/ | 410-727-6352
 Massachusetts | Disability Law Center | https://www.dlc-ma.org/ | 617-723-8455
 Michigan | Disability Rights Michigan | https://drmich.org/ | 517-487-1755
-Minnesota | Minnesota Disability Law Center | https://www.mndlc.org | 612-334-5970
+Minnesota | Minnesota Disability Law Center | https://mylegalaid.org/disability-law-center/ | 800-292-4150
 Mississippi | Disability Rights Mississippi | https://www.drms.ms/ | 601-968-0600
 Missouri | Missouri Protection and Advocacy Services | https://www.moadvocacy.org/ | 573-893-3333
 Montana | Disability Rights Montana | https://www.disabilityrightsmt.org/ | 406-449-2344
@@ -48,4 +48,4 @@ Washington | Disability Rights Washington | https://www.disabilityrightswa.org/ 
 West Virginia | Disability Rights of West Virginia | https://www.drofwv.org/ | 304-346-0847
 Wisconsin | Disability Rights Wisconsin | https://www.disabilityrightswi.org | 800-928-8778
 Wyoming | Wyoming Protection & Advocacy System | https://www.wypanda.com/ | 307-632-3496
-District of Columbia | University Legal Services | https://www.uls-dc.org/ | 202-547-0198
+District of Columbia | Disability Rights DC at University Legal Services | https://www.uls-dc.org/ | 202-547-0198

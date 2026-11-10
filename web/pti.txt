@@ -1,6 +1,6 @@
 Alabama | Alabama Parent Education Center | https://alabamaparentcenter.com | (866) 532-7660 | https://www.alabamaachieves.org/special-education/
 Alaska | Stone Soup Group | https://www.stonesoupgroup.org | (907) 561-3701 | https://education.alaska.gov/sped
-Arizona | Raising Special Kids | https://raisingspecialkids.org | (800) 237-3007 | https://www.azed.gov/specialeducation
+Arizona | Encircle Families | https://encirclefamilies.org/ | (602) 242-4366 | https://www.azed.gov/specialeducation
 Arkansas | The Center for Exceptional Families | https://thecenterforexceptionalfamilies.org | (888) 360-9654 | https://dese.ade.arkansas.gov/Offices/special-education/
 California | Team of Advocates for Special Kids (TASK) | https://taskca.org | (866) 828-8275 | https://www.cde.ca.gov/sp/se/
 Colorado | PEAK Parent Center | https://www.peakparent.org | (800) 284-0251 | https://ed.cde.state.co.us/cdesped
@@ -15,7 +15,7 @@ Nebraska | PTI Nebraska | https://www.pti-nebraska.org | (800) 284-8520 | https:
 Nevada | Nevada PEP | https://www.nvpep.org | (800) 216-5188 | https://doe.nv.gov/offices/inclusive-education
 New Hampshire | Parent Information Center of New Hampshire | https://www.picnh.org | (800) 947-7005 | https://education.nh.gov/who-we-are/division-of-learner-support/bureau-of-student-support
 New Jersey | Statewide Parent Advocacy Network (SPAN) | https://www.spanadvocacy.org | (800) 654-7726 | https://www.nj.gov/education/specialed/
-New Mexico | Parents Reaching Out | https://www.parentsreachingout.org | (800) 524-5176 | UNVERIFIED
+New Mexico | Parents Reaching Out | https://www.parentsreachingout.org | (800) 524-5176 | https://webnew.ped.state.nm.us/bureaus/special-education
 New York | Starbridge | https://www.starbridgeinc.org | (585) 546-1700 | https://www.nysed.gov/special-education
 North Carolina | Exceptional Children's Assistance Center (ECAC) | https://www.ecac-parentcenter.org | (800) 962-6817 | https://www.dpi.nc.gov/districts-schools/classroom-resources/exceptional-children
 North Dakota | Pathfinder Parent Center | https://www.pathfinder-nd.org | (800) 245-5840 | https://www.nd.gov/dpi/education-programs/special-education
@@ -45,7 +45,7 @@ Utah | Utah Parent Center | https://utahparentcenter.org | (800) 468-1160 | http
 Vermont | Vermont Family Network | https://www.vermontfamilynetwork.org | (800) 800-4005 | https://education.vermont.gov/student-support/vermont-special-education
 Virginia | Parent Educational Advocacy Training Center (PEATC) | https://peatc.org | (800) 869-6782 | https://www.doe.virginia.gov/programs-services/special-education
 Washington | PAVE | https://wapave.org | (800) 572-7368 | https://ospi.k12.wa.us/student-success/special-education
-West Virginia | West Virginia Parent Training and Information | UNVERIFIED | (800) 281-1436 | https://wvde.us/academics/special-education
+West Virginia | West Virginia Parent Training and Information | https://wvpti-inc.org/ | (800) 281-1436 | https://wvde.us/academics/special-education
 Wisconsin | Wisconsin FACETS | https://wifacets.org | (877) 374-0511 | https://dpi.wi.gov/sped
 Wyoming | Wyoming Parent Information Center | https://www.wpic.org | (800) 660-9742 | https://edu.wyoming.gov/parents/special-education/
-Mississippi | Mississippi Parent Training and Information Center | https://www.mspti.org | (800) 721-7255 | https://mdek12.org/specialeducation/resources-7/
+Mississippi | Mississippi Parent Training and Information Center | https://www.mspti.org | (800) 721-7255 | https://mdek12.org/specialeducation/
