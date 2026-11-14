@@ -28,12 +28,12 @@ async function connect() {
   return false }
 function openWs(url) { return new Promise((res, rej) => { ws = new WebSocket(url); ws.onopen = async () => { await cdp("Runtime.enable"); await cdp("Page.enable"); res() }; ws.onerror = rej;
   ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id) } if (m.method === "Runtime.exceptionThrown") jsErrors.push(m.params.exceptionDetails.exception?.description || m.params.exceptionDetails.text) } }) }
-function cdp(method, params = {}) { return new Promise(res => { const id = ++msgId; pending.set(id, res); ws.send(JSON.stringify({ id, method, params })); setTimeout(() => { if (pending.has(id)) { pending.delete(id); res({ error: { message: "timeout " + method } }) } }, 60000) }) }
+function cdp(method, params = {}) { return new Promise(res => { const id = ++msgId; pending.set(id, res); ws.send(JSON.stringify({ id, method, params })); setTimeout(() => { if (pending.has(id)) { pending.delete(id); res({ error: { message: "timeout " + method } }) } }, 25000) }) }
 async function js(expr) { const r = await cdp("Runtime.evaluate", { expression: `(async()=>{${expr}})()`, awaitPromise: true, returnByValue: true, userGesture: true }); if (r.error) return { __err: r.error.message }; if (r.result.exceptionDetails) return { __err: r.result.exceptionDetails.exception?.description || r.result.exceptionDetails.text }; return r.result.result.value }
 async function waitFor(expr, ms = 15000) { const t = Date.now(); while (Date.now() - t < ms) { const v = await js(`return !!(${expr})`); if (v === true) return true; await sleep(500) } return false }
 const click = sel => js(`const e=document.querySelector(${JSON.stringify(sel)});if(!e)return "missing";e.scrollIntoView({block:"center"});e.click();return "ok"`);
 async function launch(fresh) { if (fresh) sh(`pm clear ${PKG}`); sh(`am force-stop ${PKG}`); await sleep(800); sh(`am start -n ${PKG}/.MainActivity`); await sleep(6000); if (ws) try { ws.close() } catch (e) { } return connect() }
-const step = (name) => !ONLY.length || ONLY.includes(name);
+const step = (name) => { if (ONLY.length && !ONLY.includes(name)) return false; if (topPkg() !== PKG) { sh("input keyevent 4"); sh(`am start -n ${PKG}/.MainActivity`) } return true };
 // ---------- the walkthrough ----------
 async function main() {
   sh("settings put global window_animation_scale 0; settings put global transition_animation_scale 0; settings put global animator_duration_scale 0");
@@ -54,7 +54,10 @@ async function main() {
   ok("child added", await js(`return state&&state.child&&state.child.name==="Ava Test"`)); snap("home");
 
   if (step("record")) { // ---- record a meeting (microphone permission + MediaRecorder on Android)
-    await click("#homeRecord"); await sleep(1000); await click("#recStart"); await sleep(2500);
+    await click("#homeRecord"); await sleep(1000); await click("#recStart"); await sleep(1500);
+    // first recording asks how to make transcripts; pick the private option like a cautious parent would
+    const choice = await js(`const b=[...document.querySelectorAll("button")].find(b=>/Use on this phone only/i.test(b.textContent));if(b){b.click();return "chose on-phone"}return "no choice screen"`); console.log("   ", choice); await sleep(1500);
+    if (await js(`return !document.querySelector("#recStop")||document.querySelector("#recStop").offsetParent===null`)) { await click("#recStart"); await sleep(1500) }
     const allow = await tapText(/^(While using the app|Allow|Only this time|ALLOW)$/i, 6); snap("mic-permission");
     ok("microphone permission prompt appears", !!allow, allow ? allow.text : topPkg());
     await sleep(1500); await tapText(/^(While using the app|Allow|ALLOW)$/i, 2); // speech recognizer may ask too
@@ -71,10 +74,14 @@ async function main() {
     await click('nav.tabs button[data-v="plan"]'); await js(`show("plan");return 1`); await sleep(800);
     const before = await js(`return state.docs.length`);
     await js(`document.querySelector("#d-name").value="Report card";document.querySelector("#d-file").click();return 1`); await sleep(3000); snap("picker-1");
-    // Capacitor may first ask camera vs files; pick files/documents
-    await tapText(/^(Files|Documents|Choose file|Photos & videos|Browse)$/i, 2);
-    let picked = await tapText(/report-card/i, 4);
-    if (!picked) { await tapText(/Show roots|Open navigation drawer|More options/i, 2); await tapText(/^Downloads?$/i, 3); picked = await tapText(/report-card/i, 5) }
+    fs.writeFileSync(`${OUT}/picker-ui.xml`, ui());
+    // Android's file picker: open the side menu, choose Downloads, then the photo
+    let picked = null;
+    for (let i = 0; i < 3 && !picked; i++) {
+      if (topPkg() === "com.google.android.apps.photos") { sh("input keyevent 4"); await sleep(1500) }
+      picked = await tapText(/^report-card\.png$/i, 2);
+      if (!picked) { await tapText(/^Show roots$|^Open navigation drawer$/i, 2); await sleep(800); await tapText(/^Downloads$/i, 3); await sleep(1500) }
+    }
     snap("picker-2"); ok("Android file picker opens and shows the photo", !!picked, topPkg());
     const saved = await waitFor(`state.docs.length>${before}`, 15000);
     const d = await js(`const d=state.docs[state.docs.length-1];if(!d)return null;const f=await getFile(d.files[0].id);return{name:d.name,type:f&&f.type,size:f&&f.blob.size}`);
