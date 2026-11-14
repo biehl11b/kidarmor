@@ -109,9 +109,10 @@ async function main() {
             if (typeof st === "string" && st !== lastMsg && !/%$/.test(st)) { console.log("    app says:", st.slice(0, 160)); lastMsg = st }
             if (topPkg() !== PKG) {
               const n = nodes(ui()), dl = n.find(x => /^Download$/i.test(x.text));
-              console.log("    left the app during transcript:", topPkg(), n.map(x => x.text).filter(Boolean).slice(0, 8).join(" | "));
-              if (dl) { sh(`input tap ${dl.x} ${dl.y}`); tapped = true; console.log("    tapped Download, like a parent would"); await sleep(3000); if (topPkg() !== PKG) sh("input keyevent 4") }
-              else { clearSystemDialog(); sh("input keyevent 4") }
+              if (!/launcher/.test(topPkg())) console.log("    left the app during transcript:", topPkg(), n.map(x => x.text).filter(Boolean).slice(0, 8).join(" | "));
+              if (dl) { sh(`input tap ${dl.x} ${dl.y}`); tapped = true; console.log("    tapped Download, like a parent would"); await sleep(3000) }
+              else if (!clearSystemDialog()) { if (/launcher/.test(topPkg())) console.log("    back to KidArmor (like a parent reopening it)"); else sh("input keyevent 4") }
+              await sleep(1000); if (topPkg() !== PKG && !nodes(ui()).some(x => /^Download$/i.test(x.text))) sh(`am start -n ${PKG}/.MainActivity`)
             }
             await sleep(3000)
           }
