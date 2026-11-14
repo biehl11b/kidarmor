@@ -1,0 +1,140 @@
+{
+ "api": 29,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "microphone permission prompt appears",
+   "pass": false,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "recording timer runs",
+   "pass": false,
+   "detail": ""
+  },
+  {
+   "name": "recording saved on the phone",
+   "pass": false,
+   "detail": "{\"__err\":\"Uncaught (in promise) ReferenceError: state is not defined\"}"
+  },
+  {
+   "name": "Android file picker opens and shows the photo",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": false,
+   "detail": "{\"__err\":\"Uncaught (in promise) ReferenceError: state is not defined\"}"
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": false,
+   "detail": "no viewer"
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": false,
+   "detail": "ls: cache/kidarmor-out: No such file or directory\n"
+  },
+  {
+   "name": "Android share sheet opens",
+   "pass": false,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "notification permission not needed on this Android",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "notifications allowed",
+   "pass": true,
+   "detail": "granted"
+  },
+  {
+   "name": "meeting reminders scheduled with Android",
+   "pass": false,
+   "detail": "pending: 0"
+  },
+  {
+   "name": "a reminder notification shows on the phone",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": true,
+   "detail": "{\"__err\":\"Uncaught (in promise) ReferenceError: state is not defined\"} → {\"__err\":\"Uncaught (in promise) ReferenceError: state is not defined\"}"
+  },
+  {
+   "name": "recording still plays-ready after reopening",
+   "pass": false,
+   "detail": "[object Object] bytes"
+  },
+  {
+   "name": "back button returns to Home from another screen",
+   "pass": false,
+   "detail": "[object Object] → [object Object]"
+  },
+  {
+   "name": "back button closes an open file",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "back button on Home puts the app away without crashing",
+   "pass": false,
+   "detail": "pid 7219, on screen: com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": false,
+   "detail": "SyntaxError: Unexpected token ? | SyntaxError: Unexpected token ? | ReferenceError: state is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:70"
+  }
+ ],
+ "jsErrors": [
+  "SyntaxError: Unexpected token ?",
+  "SyntaxError: Unexpected token ?",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:70",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:20\n    at <anonymous>:1:213",
+  "ReferenceError: show is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:35",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:38",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:20\n    at <anonymous>:1:163",
+  "ReferenceError: show is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:35",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:90\n    at <anonymous>:1:273",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:27\n    at <anonymous>:1:95",
+  "SyntaxError: Unexpected token ?",
+  "ReferenceError: state is not defined\n    at <anonymous>:1:27\n    at <anonymous>:1:95",
+  "ReferenceError: getFile is not defined\n    at <anonymous>:1:20\n    at <anonymous>:1:70",
+  "ReferenceError: show is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:35",
+  "ReferenceError: current is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:28",
+  "ReferenceError: current is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:28",
+  "ReferenceError: current is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:28",
+  "ReferenceError: openViewer is not defined\n    at <anonymous>:1:12\n    at <anonymous>:1:70"
+ ]
+}
