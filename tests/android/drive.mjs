@@ -116,6 +116,7 @@ async function main() {
     await sleep(1500); const perm = await js(`return Notification.permission`); ok("notifications allowed", perm === "granted", perm);
     await js(`const d=new Date(Date.now()+3*86400000);const iso=d.toISOString().slice(0,10);state.upcoming=state.upcoming||[];state.upcoming.push({id:"u"+Date.now(),mtype:"IEP meeting",title:"IEP meeting",date:iso,time:"10:00",minutes:60,rem1:1440,rem2:60});save();return 1`);
     await sleep(5000);
+    { const tp = topPkg(); const txt = nodes(ui()).map(n => n.text).filter(Boolean).slice(0, 12).join(" | "); snap("after-scheduling"); console.log("    on screen after scheduling:", tp, "::", txt); ok("app stays on screen while scheduling reminders", tp === PKG, tp + " :: " + txt); if (tp !== PKG) { sh("input keyevent 4"); await sleep(2000); console.log("    after back:", topPkg()) } }
     const pend = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const p=await L.getPending();return (p.notifications||[]).filter(n=>n.id>=1000&&n.id<200000).length`);
     ok("meeting reminders scheduled with Android", pend >= 2, "pending: " + JSON.stringify(pend));
     const diag = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const o={};const T=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error("no answer in "+ms+"ms")),ms))]);
