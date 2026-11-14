@@ -147,6 +147,7 @@ public class KaTranscribePlugin extends Plugin {
             @Override public void onBufferReceived(byte[] b) { }
             @Override public void onEndOfSpeech() { }
             @Override public void onEvent(int t, Bundle b) { }
+            @Override public void onPartialResults(Bundle b) { }
         });
 
         Intent it = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
