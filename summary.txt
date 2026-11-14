@@ -1,0 +1,34 @@
+Android API 34: 28 passed, 5 failed
+ok   app opens and connects
+ok   web view version  → Chrome/113.0.5672.136
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:21
+ok   recording saved on the phone  → {"type":"audio/webm","size":94790,"secs":22,"id":"f1794685160240jqbvt"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"supported":true,"api":34,"service":true,"onDevice":true}
+ok   meeting saved from the recording  → "1794685262970"
+ok   Write the transcript button shows for it
+FAIL transcript written from the recording (speech service)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes. 
+FAIL transcript written from the recording (on this phone only)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes.
+FAIL meeting notes made from it  → {"overview":"Meeting on Nov 14, 2026 at 7:40 PM, about 1 minute. Everyone was told it was being recorded.","problems":[],"agreed":[],"steps":[],"nextMeeting":null,"empty":true}
+ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+ok   PDF preview library loads  → pdf viewer loaded
+ok   PDF binder is made and shows  → no viewer
+ok   PDF file written for sharing  → -rw------- 1 u0_a192 u0_a192_cache 9001 2026-11-14 19:51 Case Binder - Ava Test - 2026-11-14.pdf
+ok   Android share sheet opens  → android
+ok   notification permission prompt appears
+ok   notifications allowed  → granted
+FAIL app stays on screen while scheduling reminders  → android :: Pixel Launcher isn't responding | Close app | Wait
+ok   meeting reminders scheduled with Android  → pending: 2
+ok   a reminder notification shows on the phone
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":2,"docs":1,"name":"Ava Test"} → {"entries":2,"docs":1,"name":"Ava Test"}
+ok   recording still plays-ready after reopening  → 94790 bytes
+ok   back button returns to Home from another screen  → add → home
+FAIL back button closes an open file
+ok   back button on Home puts the app away without crashing  → pid 12294, on screen: android
+ok   no app crashes
+ok   no script errors in the app

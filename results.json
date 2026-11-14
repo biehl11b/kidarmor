@@ -1,0 +1,171 @@
+{
+ "api": 34,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/113.0.5672.136"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "microphone permission prompt appears",
+   "pass": true,
+   "detail": "While using the app"
+  },
+  {
+   "name": "recording timer runs",
+   "pass": true,
+   "detail": "00:21"
+  },
+  {
+   "name": "recording saved on the phone",
+   "pass": true,
+   "detail": "{\"type\":\"audio/webm\",\"size\":94790,\"secs\":22,\"id\":\"f1794685160240jqbvt\"}"
+  },
+  {
+   "name": "spoken test recording ready",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript writer available on this Android",
+   "pass": true,
+   "detail": "{\"supported\":true,\"api\":34,\"service\":true,\"onDevice\":true}"
+  },
+  {
+   "name": "meeting saved from the recording",
+   "pass": true,
+   "detail": "\"1794685262970\""
+  },
+  {
+   "name": "Write the transcript button shows for it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript written from the recording (speech service)",
+   "pass": false,
+   "detail": "no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes. "
+  },
+  {
+   "name": "transcript written from the recording (on this phone only)",
+   "pass": false,
+   "detail": "no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes."
+  },
+  {
+   "name": "meeting notes made from it",
+   "pass": false,
+   "detail": "{\"overview\":\"Meeting on Nov 14, 2026 at 7:40 PM, about 1 minute. Everyone was told it was being recorded.\",\"problems\":[],\"agreed\":[],\"steps\":[],\"nextMeeting\":null,\"empty\":true}"
+  },
+  {
+   "name": "Android file picker opens and shows the photo",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": true,
+   "detail": "{\"name\":\"Report card\",\"type\":\"image/png\",\"size\":7965,\"pickedSize\":7965,\"readBytes\":7965,\"err\":\"\"}"
+  },
+  {
+   "name": "PDF preview library loads",
+   "pass": true,
+   "detail": "pdf viewer loaded"
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": true,
+   "detail": "no viewer"
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": true,
+   "detail": "-rw------- 1 u0_a192 u0_a192_cache 9001 2026-11-14 19:51 Case Binder - Ava Test - 2026-11-14.pdf"
+  },
+  {
+   "name": "Android share sheet opens",
+   "pass": true,
+   "detail": "android"
+  },
+  {
+   "name": "notification permission prompt appears",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "notifications allowed",
+   "pass": true,
+   "detail": "granted"
+  },
+  {
+   "name": "app stays on screen while scheduling reminders",
+   "pass": false,
+   "detail": "android :: Pixel Launcher isn't responding | Close app | Wait"
+  },
+  {
+   "name": "meeting reminders scheduled with Android",
+   "pass": true,
+   "detail": "pending: 2"
+  },
+  {
+   "name": "a reminder notification shows on the phone",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": true,
+   "detail": "{\"entries\":2,\"docs\":1,\"name\":\"Ava Test\"} → {\"entries\":2,\"docs\":1,\"name\":\"Ava Test\"}"
+  },
+  {
+   "name": "recording still plays-ready after reopening",
+   "pass": true,
+   "detail": "94790 bytes"
+  },
+  {
+   "name": "back button returns to Home from another screen",
+   "pass": true,
+   "detail": "add → home"
+  },
+  {
+   "name": "back button closes an open file",
+   "pass": false,
+   "detail": ""
+  },
+  {
+   "name": "back button on Home puts the app away without crashing",
+   "pass": true,
+   "detail": "pid 12294, on screen: android"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

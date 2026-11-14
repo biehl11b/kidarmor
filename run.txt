@@ -1,0 +1,302 @@
+Android API 34
+/tmp/report-card.png: 1 file pushed, 0 skipped. 68.2 MB/s (7965 bytes in 0.000s)
+/tmp/report-card.png: 1 file pushed, 0 skipped. 75.3 MB/s (7965 bytes in 0.000s)
+  ok   app opens and connects
+  ok   web view version  → Chrome/113.0.5672.136
+  ok   phone features load (native mode)
+  ok   child added
+    dismissed an Android 'not responding' dialog
+    chose on-phone
+    dismissed an Android 'not responding' dialog
+  ok   microphone permission prompt appears  → While using the app
+    dismissed an Android 'not responding' dialog
+    dismissed an Android 'not responding' dialog
+  ok   recording timer runs  → 00:21
+    after Stop, on screen: android :: Pixel Launcher isn't responding | Close app | Wait
+11-14 19:39:36.672  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131639, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:39:36.672  4835  4835 V Capacitor: callback: 110131639, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:39:36.682  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:39:44.683  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:39:44.684  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131640, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:39:44.684  4835  4835 V Capacitor: callback: 110131640, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:39:44.696  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:39:52.697  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:39:52.698  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131641, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:39:52.698  4835  4835 V Capacitor: callback: 110131641, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:39:52.710  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:00.712  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:00.714  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131642, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:00.714  4835  4835 V Capacitor: callback: 110131642, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:00.725  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:08.726  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:08.727  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131643, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:08.727  4835  4835 V Capacitor: callback: 110131643, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:08.735  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:16.736  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:16.737  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131644, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:16.737  4835  4835 V Capacitor: callback: 110131644, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:16.745  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:24.746  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:24.747  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131645, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:24.747  4835  4835 V Capacitor: callback: 110131645, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:24.755  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:32.756  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:32.756  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131646, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:32.757  4835  4835 V Capacitor: callback: 110131646, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:32.771  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:40.772  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:40.773  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131647, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:40.773  4835  4835 V Capacitor: callback: 110131647, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:40.781  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:40:48.782  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:40:48.783  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131648, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:40:48.783  4835  4835 V Capacitor: callback: 110131648, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:40:48.794  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+
+    dismissed an Android 'not responding' dialog
+  ok   recording saved on the phone  → {"type":"audio/webm","size":94790,"secs":22,"id":"f1794685160240jqbvt"}
+Warning: Activity not started, its current task has been brought to the front
+  ok   spoken test recording ready
+speech.webm: 1 file pushed, 0 skipped. 338.9 MB/s (63855 bytes in 0.000s)
+  ok   transcript writer available on this Android  → {"supported":true,"api":34,"service":true,"onDevice":true}
+  ok   meeting saved from the recording  → "1794685262970"
+  ok   Write the transcript button shows for it
+    app says: The phone is listening to the recording. A long meeting can take a few minutes. Keep KidArmor open.
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    app says: Recording saved. This phone needs its English speech files first (one time, about 60 MB). If your phone asks, tap Download. KidArmor will write the transcript a
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    app says: This phone needs its English speech files first (one time, about 60 MB). If your phone asks, tap Download. KidArmor will write the transcript as soon as they're
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    service: 271s, Download tapped: false, The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes. (speech service error 13)
+  FAIL transcript written from the recording (speech service)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes. (speech service error 13)
+    app says: The phone is listening to the recording. A long meeting can take a few minutes. Keep KidArmor open.
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    app says: Recording saved. This phone needs its English speech files first (one time, about 60 MB). If your phone asks, tap Download. KidArmor will write the transcript a
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    app says: This phone needs its English speech files first (one time, about 60 MB). If your phone asks, tap Download. KidArmor will write the transcript as soon as they're
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    left the app during transcript: android Pixel Launcher isn't responding | Close app | Wait
+    dismissed an Android 'not responding' dialog
+    phone: 350s, Download tapped: false, The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes.
+  FAIL transcript written from the recording (on this phone only)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes.
+  FAIL meeting notes made from it  → {"overview":"Meeting on Nov 14, 2026 at 7:40 PM, about 1 minute. Everyone was told it was being recorded.","problems":[],"agreed":[],"steps":[],"nextMeeting":null,"empty":true}
+    dismissed an Android 'not responding' dialog
+    picker: android
+    dismissed an Android 'not responding' dialog
+  ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+  ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+    dismissed an Android 'not responding' dialog
+  ok   PDF preview library loads  → pdf viewer loaded
+  ok   PDF binder is made and shows  → no viewer
+  ok   PDF file written for sharing  → -rw------- 1 u0_a192 u0_a192_cache 9001 2026-11-14 19:51 Case Binder - Ava Test - 2026-11-14.pdf
+  ok   Android share sheet opens  → android
+    dismissed an Android 'not responding' dialog
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+    dismissed an Android 'not responding' dialog
+  ok   notification permission prompt appears
+  ok   notifications allowed  → granted
+    on screen after scheduling: android :: Pixel Launcher isn't responding | Close app | Wait
+  FAIL app stays on screen while scheduling reminders  → android :: Pixel Launcher isn't responding | Close app | Wait
+    after back: android
+  ok   meeting reminders scheduled with Android  → pending: 2
+---- phone log around reminders ----
+11-14 19:52:02.530  4835  4835 V Capacitor: callback: 110131830, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:02.536  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:02.621  4835  4855 D EGL_emulation: app_time_stats: avg=5702.03ms min=5702.03ms max=5702.03ms count=1
+11-14 19:52:07.114  4835  4835 D Capacitor: Unable to find a Capacitor plugin to handle requestCode, trying Cordova plugins 477650734
+11-14 19:52:07.114  4835  4835 D Capacitor: Sending plugin error: {"save":false,"callbackId":"110131829","pluginId":"Share","methodName":"share","success":false,"error":{"message":"Share canceled"}}
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:07.116  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:07.116  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:07.136  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:07.136  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:07.137  4835  4835 D Capacitor: App resumed
+11-14 19:52:07.152  4835  4835 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-14 19:52:07.189  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 19:52:07.189  4835  4835 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 19:52:07.189  4835  4835 D Capacitor: App paused
+11-14 19:52:07.189  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:07.189  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:07.190  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:07.190  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:07.190  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:07.254  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:07.254  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:07.264  4835  4835 D Capacitor: App resumed
+11-14 19:52:07.309  4835  4855 D EGL_emulation: app_time_stats: avg=4686.24ms min=4686.24ms max=4686.24ms count=1
+11-14 19:52:07.318  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:07.319  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131831, pluginId: LocalNotifications, methodName: requestPermissions
+11-14 19:52:07.319  4835  4835 V Capacitor: callback: 110131831, pluginId: LocalNotifications, methodName: requestPermissions, methodData: {}
+11-14 19:52:07.379  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 19:52:07.379  4835  4835 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 19:52:07.379  4835  4835 D Capacitor: App paused
+11-14 19:52:10.538  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:10.538  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131832, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:10.538  4835  4835 V Capacitor: callback: 110131832, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:10.545  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:14.117  4835  4835 D Capacitor: Unable to find a Capacitor plugin to handle permission requestCode, trying Cordova plugins 743607346
+11-14 19:52:14.167  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:14.167  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:14.168  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:14.168  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:14.168  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:14.222  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:14.222  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:14.223  4835  4835 D Capacitor: App resumed
+11-14 19:52:14.227  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:14.227  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:14.228  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131833, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:52:14.228  4835  4835 V Capacitor: callback: 110131833, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:52:14.283  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:14.285  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:14.287  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131834, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:14.287  4835  4835 V Capacitor: callback: 110131834, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:14.294  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-14 19:52:18.482  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.482  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131835, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:52:18.482  4835  4835 V Capacitor: callback: 110131835, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:52:18.484  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:18.485  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.486  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131836, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:18.486  4835  4835 V Capacitor: callback: 110131836, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:18.487  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-14 19:52:18.490  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.492  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131837, pluginId: LocalNotifications, methodName: schedule
+11-14 19:52:18.492  4835  4835 V Capacitor: callback: 110131837, pluginId: LocalNotifications, methodName: schedule, methodData: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"2026-11-16T10:00:00.000Z","allowWhileIdle":true},"isExactNotification":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"2026-11-17T09:00:00.000Z","allowWhileIdle":true},"isExactNotification":false}]}
+11-14 19:52:18.505  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000},{"id":1001}]}
+11-14 19:52:18.546  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.547  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131838, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:18.547  4835  4835 V Capacitor: callback: 110131838, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:18.554  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:26.555  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:26.556  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131839, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:26.557  4835  4835 V Capacitor: callback: 110131839, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:26.563  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:30.047  4835  4835 W Capacitor/Console: File: https://localhost/vendor/capacitor.js - Line 2 - Msg: Capacitor plugin "LocalNotifications" already registered. Cannot register plugins twice.
+11-14 19:52:30.047  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:30.048  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131840, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:30.048  4835  4835 V Capacitor: callback: 110131840, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:30.055  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"Mon Nov 16 10:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"Tue Nov 17 09:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false}]}
+
+---- end ----
+  ok   a reminder notification shows on the phone
+    dismissed an Android 'not responding' dialog
+  ok   app reopens after being closed
+  ok   records still there after reopening  → {"entries":2,"docs":1,"name":"Ava Test"} → {"entries":2,"docs":1,"name":"Ava Test"}
+  ok   recording still plays-ready after reopening  → 94790 bytes
+    dismissed an Android 'not responding' dialog
+  ok   back button returns to Home from another screen  → add → home
+  FAIL back button closes an open file
+  ok   back button on Home puts the app away without crashing  → pid 12294, on screen: android
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+---- reminder lines from the phone log ----
+11-14 19:38:05.069  1662  2250 W AiAiAutofill: java.lang.SecurityException: caller is not user's Augmented Autofill Service
+  ok   no app crashes
+  ok   no script errors in the app
+Android API 34: 28 passed, 5 failed
+ok   app opens and connects
+ok   web view version  → Chrome/113.0.5672.136
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:21
+ok   recording saved on the phone  → {"type":"audio/webm","size":94790,"secs":22,"id":"f1794685160240jqbvt"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"supported":true,"api":34,"service":true,"onDevice":true}
+ok   meeting saved from the recording  → "1794685262970"
+ok   Write the transcript button shows for it
+FAIL transcript written from the recording (speech service)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes. 
+FAIL transcript written from the recording (on this phone only)  → no transcript. The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download. | last error: language-downloading The phone is downloading its English speech files. Try again in a few minutes.
+FAIL meeting notes made from it  → {"overview":"Meeting on Nov 14, 2026 at 7:40 PM, about 1 minute. Everyone was told it was being recorded.","problems":[],"agreed":[],"steps":[],"nextMeeting":null,"empty":true}
+ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+ok   PDF preview library loads  → pdf viewer loaded
+ok   PDF binder is made and shows  → no viewer
+ok   PDF file written for sharing  → -rw------- 1 u0_a192 u0_a192_cache 9001 2026-11-14 19:51 Case Binder - Ava Test - 2026-11-14.pdf
+ok   Android share sheet opens  → android
+ok   notification permission prompt appears
+ok   notifications allowed  → granted
+FAIL app stays on screen while scheduling reminders  → android :: Pixel Launcher isn't responding | Close app | Wait
+ok   meeting reminders scheduled with Android  → pending: 2
+ok   a reminder notification shows on the phone
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":2,"docs":1,"name":"Ava Test"} → {"entries":2,"docs":1,"name":"Ava Test"}
+ok   recording still plays-ready after reopening  → 94790 bytes
+ok   back button returns to Home from another screen  → add → home
+FAIL back button closes an open file
+ok   back button on Home puts the app away without crashing  → pid 12294, on screen: android
+ok   no app crashes
+ok   no script errors in the app
+

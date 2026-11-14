@@ -1,0 +1,79 @@
+11-14 19:52:02.530  4835  4835 V Capacitor: callback: 110131830, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:02.536  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:02.621  4835  4855 D EGL_emulation: app_time_stats: avg=5702.03ms min=5702.03ms max=5702.03ms count=1
+11-14 19:52:07.114  4835  4835 D Capacitor: Unable to find a Capacitor plugin to handle requestCode, trying Cordova plugins 477650734
+11-14 19:52:07.114  4835  4835 D Capacitor: Sending plugin error: {"save":false,"callbackId":"110131829","pluginId":"Share","methodName":"share","success":false,"error":{"message":"Share canceled"}}
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:07.116  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:07.116  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:07.116  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:07.136  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:07.136  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:07.137  4835  4835 D Capacitor: App resumed
+11-14 19:52:07.152  4835  4835 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-14 19:52:07.189  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 19:52:07.189  4835  4835 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 19:52:07.189  4835  4835 D Capacitor: App paused
+11-14 19:52:07.189  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:07.189  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:07.190  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:07.190  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:07.190  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:07.254  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:07.254  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:07.264  4835  4835 D Capacitor: App resumed
+11-14 19:52:07.309  4835  4855 D EGL_emulation: app_time_stats: avg=4686.24ms min=4686.24ms max=4686.24ms count=1
+11-14 19:52:07.318  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:07.319  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131831, pluginId: LocalNotifications, methodName: requestPermissions
+11-14 19:52:07.319  4835  4835 V Capacitor: callback: 110131831, pluginId: LocalNotifications, methodName: requestPermissions, methodData: {}
+11-14 19:52:07.379  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 19:52:07.379  4835  4835 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 19:52:07.379  4835  4835 D Capacitor: App paused
+11-14 19:52:10.538  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:10.538  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131832, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:10.538  4835  4835 V Capacitor: callback: 110131832, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:10.545  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:14.117  4835  4835 D Capacitor: Unable to find a Capacitor plugin to handle permission requestCode, trying Cordova plugins 743607346
+11-14 19:52:14.167  4835  4835 D Capacitor/AppPlugin: Firing change: true
+11-14 19:52:14.167  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:52:14.168  4835  4835 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:52:14.168  4835  4835 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 19:52:14.168  4835  4835 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 19:52:14.222  4835  4835 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:52:14.222  4835  4835 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:52:14.223  4835  4835 D Capacitor: App resumed
+11-14 19:52:14.227  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:14.227  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:14.228  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131833, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:52:14.228  4835  4835 V Capacitor: callback: 110131833, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:52:14.283  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:14.285  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:14.287  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131834, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:14.287  4835  4835 V Capacitor: callback: 110131834, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:14.294  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-14 19:52:18.482  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.482  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131835, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:52:18.482  4835  4835 V Capacitor: callback: 110131835, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:52:18.484  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-14 19:52:18.485  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.486  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131836, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:18.486  4835  4835 V Capacitor: callback: 110131836, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:18.487  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-14 19:52:18.490  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.492  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131837, pluginId: LocalNotifications, methodName: schedule
+11-14 19:52:18.492  4835  4835 V Capacitor: callback: 110131837, pluginId: LocalNotifications, methodName: schedule, methodData: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"2026-11-16T10:00:00.000Z","allowWhileIdle":true},"isExactNotification":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"2026-11-17T09:00:00.000Z","allowWhileIdle":true},"isExactNotification":false}]}
+11-14 19:52:18.505  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000},{"id":1001}]}
+11-14 19:52:18.546  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:18.547  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131838, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:18.547  4835  4835 V Capacitor: callback: 110131838, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:18.554  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:26.555  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:26.556  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131839, pluginId: KaTranscribe, methodName: speechFiles
+11-14 19:52:26.557  4835  4835 V Capacitor: callback: 110131839, pluginId: KaTranscribe, methodName: speechFiles, methodData: {"language":"en-US","download":false}
+11-14 19:52:26.563  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"state":"missing"}
+11-14 19:52:30.047  4835  4835 W Capacitor/Console: File: https://localhost/vendor/capacitor.js - Line 2 - Msg: Capacitor plugin "LocalNotifications" already registered. Cannot register plugins twice.
+11-14 19:52:30.047  4835  4835 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:52:30.048  4835  4835 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 110131840, pluginId: LocalNotifications, methodName: getPending
+11-14 19:52:30.048  4835  4835 V Capacitor: callback: 110131840, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-14 19:52:30.055  4835  4835 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"Mon Nov 16 10:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Tue, Nov 17 at 10:00 AM","schedule":{"at":"Tue Nov 17 09:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false}]}
