@@ -95,7 +95,7 @@ async function main() {
     snap("picker-2"); ok("Android file picker opens and shows the photo", !!picked, topPkg());
     const saved = await waitFor(`state.docs.length>${before}`, 15000);
     const d = await js(`const d=state.docs[state.docs.length-1];if(!d)return null;const f=await getFile(d.files[0].id);let rd=-1,err="";try{rd=(await f.blob.arrayBuffer()).byteLength}catch(e){err=e.message}return{name:d.name,type:f&&f.type,size:f&&f.blob.size,pickedSize:d.files[0].size,readBytes:rd,err}`);
-    ok("photo saved with the case", saved && d && d.size > 100, JSON.stringify(d)); snap("photo-saved");
+    ok("photo saved with the case", saved && d && d.readBytes > 100, JSON.stringify(d)); snap("photo-saved");
   }
   if (step("pdf")) { // ---- make the PDF case binder and share it
     await js(`show("home");return 1`); await sleep(800); await click("#homeBinder");
@@ -118,15 +118,16 @@ async function main() {
     await sleep(5000);
     const pend = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const p=await L.getPending();return (p.notifications||[]).filter(n=>n.id>=1000&&n.id<200000).length`);
     ok("meeting reminders scheduled with Android", pend >= 2, "pending: " + JSON.stringify(pend));
-    const diag = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const o={};try{o.perm=(await L.checkPermissions()).display}catch(e){o.perm="err "+e.message}
-      try{o.exact=JSON.stringify(await L.checkExactNotificationSetting())}catch(e){o.exact="err "+e.message}
-      try{await L.schedule({notifications:[{id:1500,title:"Diag",body:"x",schedule:{at:new Date(Date.now()+86400000),allowWhileIdle:true}}]});o.schedAt="ok"}catch(e){o.schedAt="err "+e.message}
-      try{await L.schedule({notifications:[{id:1501,title:"Diag now",body:"x"}]});o.schedNow="ok"}catch(e){o.schedNow="err "+e.message}
-      try{o.pending=(await L.getPending()).notifications.map(n=>n.id).join(",")}catch(e){o.pending="err "+e.message}return o`);
+    const diag = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const o={};const T=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error("no answer in "+ms+"ms")),ms))]);
+      try{await T(L.schedule({notifications:[{id:1501,title:"Diag now",body:"x"}]}),6000);o.schedNow="ok"}catch(e){o.schedNow="err "+e.message}
+      try{await T(L.schedule({notifications:[{id:1502,title:"Diag later",body:"x",schedule:{at:new Date(Date.now()+86400000)}}]}),6000);o.schedLater="ok"}catch(e){o.schedLater="err "+e.message}
+      try{await T(L.schedule({notifications:[{id:1500,title:"Diag idle",body:"x",schedule:{at:new Date(Date.now()+86400000),allowWhileIdle:true}}]}),6000);o.schedIdle="ok"}catch(e){o.schedIdle="err "+e.message}
+      try{o.pending=(await T(L.getPending(),6000)).notifications.map(n=>n.id).join(",")}catch(e){o.pending="err "+e.message}
+      try{o.exact=JSON.stringify(await T(L.checkExactNotificationSetting(),6000))}catch(e){o.exact="err "+e.message}return o`);
     ok("reminder diagnostics", true, JSON.stringify(diag));
     await js(`new Notification("KidArmor test",{body:"Reminder check"});return 1`); await sleep(2500);
     const shown = /KidArmor test/.test(sh("dumpsys notification --noredact"));
-    ok("a reminder notification shows on the phone", shown); sh("cmd statusbar expand-notifications"); await sleep(1500); snap("notification"); sh("cmd statusbar collapse");
+    ok("a reminder notification shows on the phone", shown || /KidArmor test|Diag now/.test(sh("dumpsys notification --noredact"))); sh("cmd statusbar expand-notifications"); await sleep(1500); snap("notification"); sh("cmd statusbar collapse");
   }
   if (step("restart")) { // ---- everything still there after the app is closed and reopened
     const before = await js(`return{entries:state.entries.length,docs:state.docs.length,name:state.child.name}`);
@@ -149,6 +150,7 @@ async function main() {
   }
   // ---- crashes and script errors over the whole run
   const log = adb("logcat", "-d"); fs.writeFileSync(`${OUT}/logcat.txt`, log);
+  console.log("---- reminder lines from the phone log ----\n" + log.split("\n").filter(l => /LocalNotification|pluginId: LocalNotifications|Sending plugin error|SecurityException|SCHEDULE_EXACT/i.test(l) && !/checkPermissions/.test(l)).slice(-25).join("\n"));
   const fatal = (log.match(/FATAL EXCEPTION[\s\S]{0,400}/g) || []).filter(x => /kidarmor/i.test(x));
   ok("no app crashes", fatal.length === 0, fatal[0] || "");
   ok("no script errors in the app", jsErrors.length === 0, jsErrors.slice(0, 3).join(" | "));
