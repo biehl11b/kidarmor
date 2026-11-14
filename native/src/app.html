@@ -588,6 +588,8 @@ function fileType(file){if(file.type&&file.type!=="application/octet-stream")ret
 async function storeUpload(file){
   if(file.size>400*1024*1024)throw new Error("too big");
   const ft=fileType(file);if(ft!==file.type)file=new File([file],file.name||"file",{type:ft});
+  /* phone app: keep our own copy of what was picked (some Android pickers hand over a link that reads back as 0 bytes later) */
+  if(window.KA_NATIVE&&file.size<=60*1024*1024){try{file=new File([await file.arrayBuffer()],file.name||"file",{type:file.type})}catch(e){}}
   const id="f"+Date.now()+Math.random().toString(36).slice(2,7);
   await putFile({id,name:file.name,type:file.type,blob:file});
   if(!askedPersist&&navigator.storage&&navigator.storage.persist){askedPersist=true;navigator.storage.persist().catch(()=>{})}
@@ -613,7 +615,7 @@ async function openViewer(f){closeViewer();const v=document.createElement("div")
     if((rec.type||"").startsWith("audio/")){const u=URL.createObjectURL(rec.blob);viewerUrls.push(u);body.innerHTML=`<audio controls preload="metadata" src="${u}"></audio><button type="button" class="btn primary" id="vsave" style="margin:0 auto">Save to my phone</button>`;body.querySelector("#vsave").onclick=()=>saveRecordingToPhone(f);return}
     if(rec.type==="application/pdf"){await renderPdf(rec.blob,body);return}
     body.innerHTML=`<p class="vmsg">This file is saved on your phone, but it can't be previewed here.</p>`;
-  }catch(e){body.innerHTML=`<p class="vmsg">${e.message==="missing"?"This file isn't on this phone anymore.":"Couldn't open this file."}</p>`}}
+  }catch(e){body.innerHTML=`<p class="vmsg">${e.message==="missing"?"This file isn't on this phone anymore.":f.download?"This phone can't show a preview of the PDF. Tap Download to save or share it.":"Couldn't open this file."}</p>`}}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeViewer()});
 const loadScript=src=>new Promise((res,rej)=>{if(document.querySelector(`script[src="${src}"]`))return res();const s=document.createElement("script");s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)});
 /* PDF libraries are bundled with the app (no outside CDN) */

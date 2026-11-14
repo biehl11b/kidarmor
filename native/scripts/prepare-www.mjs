@@ -22,4 +22,10 @@ for (const file of ["pdf-lib.min.js", "pdf.min.mjs", "pdf.worker.min.mjs"]) {
 }
 // Fonts are bundled with the app (no requests to Google Fonts)
 fs.cpSync(path.join(root, "../vendor/fonts"), path.join(root, "www/vendor/fonts"), { recursive: true });
+// Shown instead of the app when the phone's Android System WebView is too old to run KidArmor
+fs.writeFileSync(path.join(root, "www/webview-update.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KidArmor</title>
+<style>body{margin:0;font-family:system-ui,sans-serif;background:#f6f4ef;color:#13232b}main{max-width:520px;margin:0 auto;padding:48px 24px}h1{font-size:24px;color:#1f5d70}p,li{font-size:17px;line-height:1.5}</style></head>
+<body><main><h1>One quick update first</h1><p>KidArmor needs a newer version of <b>Android System WebView</b>, the part of Android that shows app screens. It's free and takes about a minute.</p>
+<ol><li>Open the <b>Google Play Store</b>.</li><li>Search for <b>Android System WebView</b>.</li><li>Tap <b>Update</b>.</li><li>Open KidArmor again.</li></ol>
+<p>Your KidArmor records are safe on this phone. Questions? info@coastlinecode.com · (228) 304-5333</p></main></body></html>`);
 console.log("www ready:", fs.readdirSync(path.join(root, "www")), fs.readdirSync(path.join(root, "www/vendor")));
