@@ -1,0 +1,166 @@
+11-14 19:35:04.567   523   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderSearch} won't be persisted.
+11-14 19:35:04.567   523   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.quickactionsearchwidget.QuickActionSearchWidgetProvider$QuickActionSearchWidgetProviderDino} won't be persisted.
+11-14 19:35:04.569   523   550 D AppWidgetServiceImpl: Provider info from ComponentInfo{com.android.chrome/org.chromium.chrome.browser.searchwidget.SearchWidgetProvider} won't be persisted.
+11-14 19:35:06.954   523   552 I ActivityManager: Start proc 2727:com.google.android.webview:webview_service/u0a135 for service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+11-14 19:35:07.632  2517  2782 W chromium: [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+11-14 19:35:07.638   523   552 I ActivityManager: Start proc 2763:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+11-14 19:35:08.414  2763  2763 I cr_WebViewApkApp: Launched version=113.0.5672.136 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-14 19:35:08.485   523   552 I ActivityManager: Start proc 2848:com.android.chrome/u0a149 for service {com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService}
+11-14 19:35:08.775   523   552 I ActivityManager: Start proc 2944:com.google.android.webview:webview_apk/u0a135 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+11-14 19:35:09.062  2517  2517 D Capacitor: Starting BridgeActivity
+11-14 19:35:09.092  2517  2517 D Capacitor: Registering plugin instance: CapacitorCookies
+11-14 19:35:09.105  2517  2517 D Capacitor: Registering plugin instance: WebView
+11-14 19:35:09.106  2517  2517 D Capacitor: Registering plugin instance: CapacitorHttp
+11-14 19:35:09.108  2517  2517 D Capacitor: Registering plugin instance: SystemBars
+11-14 19:35:09.114  2517  2517 D Capacitor: Registering plugin instance: KaTranscribe
+11-14 19:35:09.118  2517  2517 D Capacitor: Registering plugin instance: InAppReview
+11-14 19:35:09.119  2517  2517 D Capacitor: Registering plugin instance: SpeechRecognition
+11-14 19:35:09.121  2517  2517 D Capacitor: Registering plugin instance: App
+11-14 19:35:09.126  2517  2517 D Capacitor: Registering plugin instance: Filesystem
+11-14 19:35:09.128  2517  2517 D Capacitor: Registering plugin instance: LocalNotifications
+11-14 19:35:09.140  2517  2517 D Capacitor: Registering plugin instance: Share
+11-14 19:35:09.171  2517  2517 D Capacitor: Registering plugin instance: SplashScreen
+11-14 19:35:09.174  2517  2517 D Capacitor: Registering plugin instance: StatusBar
+11-14 19:35:09.181  2517  2517 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-14 19:35:09.181  2517  2517 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-14 19:35:09.182  2517  2517 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-14 19:35:09.182  2517  2517 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-14 19:35:09.182  2517  2517 D Capacitor: Registering plugin instance: NativeBiometric
+11-14 19:35:09.183  2517  2517 D Capacitor: Registering plugin instance: CapacitorCalendar
+11-14 19:35:09.319  2517  2517 W Capacitor: Unable to read file at path public/plugins
+11-14 19:35:09.333  2517  2517 D Capacitor: Loading app at https://localhost
+11-14 19:35:09.440  2517  2517 D Capacitor: App started
+11-14 19:35:09.455  2517  2517 D Capacitor/AppPlugin: Firing change: true
+11-14 19:35:09.455  2517  2517 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:35:09.455  2517  2517 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:35:09.506  2517  2517 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:35:09.506  2517  2517 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:35:09.506  2517  2517 D Capacitor: App resumed
+11-14 19:35:09.545  2517  2782 D Capacitor: Handling local request: https://localhost/
+11-14 19:35:09.555  2517  2517 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 19:35:09.556  2517  2517 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 19:35:09.556  2517  2517 D Capacitor: App paused
+11-14 19:35:09.557  2517  2517 D Capacitor/AppPlugin: Firing change: false
+11-14 19:35:09.557  2517  2517 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:35:09.557  2517  2517 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:35:09.557  2517  2517 D Capacitor: App stopped
+11-14 19:35:09.561  2517  2517 D Capacitor: Saving instance state!
+11-14 19:35:09.576  2517  2517 D Capacitor: App destroyed
+11-14 19:35:09.706  2517  2517 D Capacitor: Starting BridgeActivity
+11-14 19:35:09.718  2517  2517 D Capacitor: Registering plugin instance: CapacitorCookies
+11-14 19:35:09.726  2517  2517 D Capacitor: Registering plugin instance: WebView
+11-14 19:35:09.727  2517  2517 D Capacitor: Registering plugin instance: CapacitorHttp
+11-14 19:35:09.740  2517  2517 D Capacitor: Registering plugin instance: SystemBars
+11-14 19:35:09.741  2517  2517 D Capacitor: Registering plugin instance: KaTranscribe
+11-14 19:35:09.745  2517  2517 D Capacitor: Registering plugin instance: InAppReview
+11-14 19:35:09.745  2517  2517 D Capacitor: Registering plugin instance: SpeechRecognition
+11-14 19:35:09.746  2517  2517 D Capacitor: Registering plugin instance: App
+11-14 19:35:09.747  2517  2517 D Capacitor: Registering plugin instance: Filesystem
+11-14 19:35:09.748  2517  2517 D Capacitor: Registering plugin instance: LocalNotifications
+11-14 19:35:09.774  2517  2517 D Capacitor: Registering plugin instance: Share
+11-14 19:35:09.943  2517  2517 D Capacitor: Registering plugin instance: SplashScreen
+11-14 19:35:09.944  2517  2517 D Capacitor: Registering plugin instance: StatusBar
+11-14 19:35:09.947  2517  2517 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-14 19:35:09.947  2517  2517 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-14 19:35:09.947  2517  2517 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-14 19:35:09.947  2517  2517 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-14 19:35:09.947  2517  2517 D Capacitor: Registering plugin instance: NativeBiometric
+11-14 19:35:09.949  2517  2517 D Capacitor: Registering plugin instance: CapacitorCalendar
+11-14 19:35:10.020  2517  2517 W Capacitor: Unable to read file at path public/plugins
+11-14 19:35:10.023  2517  2517 D Capacitor: Loading app at https://localhost
+11-14 19:35:10.032  2517  2782 D Capacitor: Handling local request: https://localhost/
+11-14 19:35:10.038  2517  2517 D Capacitor: App started
+11-14 19:35:10.041  2517  2517 D Capacitor/AppPlugin: Firing change: true
+11-14 19:35:10.041  2517  2517 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 19:35:10.041  2517  2517 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 19:35:10.047  2517  2517 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 19:35:10.047  2517  2517 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 19:35:10.047  2517  2517 D Capacitor: App resumed
+11-14 19:35:10.274  2517  2517 I Capacitor/SpeechRecognition: Instantiated SpeechRecognizer in load()
+11-14 19:35:10.390  2944  3136 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:48)
+11-14 19:35:10.459  2517  2517 E Capacitor/Console: File: https://localhost/ - Line 1 - Msg: Uncaught TypeError: Cannot read properties of undefined (reading 'triggerEvent')
+11-14 19:35:10.497  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/capacitor.js
+11-14 19:35:10.523  2517  2517 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-14 19:35:10.523  2517  2517 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-14 19:35:10.558  2517  2791 D Capacitor: Handling local request: https://localhost/vendor/capacitor.js
+11-14 19:35:10.640  2517  2791 D Capacitor: Handling local request: https://localhost/vendor/fonts/fonts.css
+11-14 19:35:10.670  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/fonts.css
+11-14 19:35:10.683  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-400-normal.woff2
+11-14 19:35:10.686  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-600-normal.woff2
+11-14 19:35:10.694  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-800-normal.woff2
+11-14 19:35:10.697  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-700-normal.woff2
+11-14 19:35:10.717  2763  3088 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-14 19:35:10.717  2763  3088 E chromium: [ERROR:tile_manager.cc(835)] WARNING: tile memory limits exceeded, some content may not draw
+11-14 19:35:10.794  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-600-normal.woff2
+11-14 19:35:11.012  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-400-normal.woff2
+11-14 19:35:11.013  2517  2791 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-800-normal.woff2
+11-14 19:35:11.016  2517  2790 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-700-normal.woff2
+11-14 19:35:11.020  2517  2790 D Capacitor: Handling local request: https://localhost/vendor/fonts/source-sans-3-latin-600-normal.woff2
+11-14 19:35:11.023  2517  2782 D Capacitor: Handling local request: https://localhost/vendor/fonts/bricolage-grotesque-latin-600-normal.woff2
+11-14 19:35:11.030  2517  2517 I Capacitor/Console: File: https://localhost/ - Line 2977 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-14 19:35:11.041  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.179  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926096, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:35:11.179  2517  2517 V Capacitor: callback: 101926096, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:35:11.180  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.191  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926097, pluginId: KaTranscribe, methodName: available
+11-14 19:35:11.191  2517  2517 V Capacitor: callback: 101926097, pluginId: KaTranscribe, methodName: available, methodData: {}
+11-14 19:35:11.191  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.204  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926098, pluginId: App, methodName: addListener
+11-14 19:35:11.204  2517  2517 V Capacitor: callback: 101926098, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-14 19:35:11.205  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.205  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926099, pluginId: App, methodName: addListener
+11-14 19:35:11.205  2517  2517 V Capacitor: callback: 101926099, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-14 19:35:11.328  2517  2517 I Capacitor/Console: File: https://localhost/ - Line 2977 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-14 19:35:11.329  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.329  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300383, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:35:11.329  2517  2517 V Capacitor: callback: 128300383, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:35:11.331  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:11.331  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:11.331  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.331  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300384, pluginId: KaTranscribe, methodName: available
+11-14 19:35:11.331  2517  2517 V Capacitor: callback: 128300384, pluginId: KaTranscribe, methodName: available, methodData: {}
+11-14 19:35:11.332  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:11.332  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:11.333  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.333  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300385, pluginId: App, methodName: addListener
+11-14 19:35:11.333  2517  2517 V Capacitor: callback: 128300385, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-14 19:35:11.334  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:11.334  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:11.334  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:11.335  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300386, pluginId: App, methodName: addListener
+11-14 19:35:11.335  2517  2517 V Capacitor: callback: 128300386, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-14 19:35:11.336  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:11.336  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:11.606  2517  2791 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-14 19:35:11.752  2517  2782 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-14 19:35:11.753  2517  2517 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-14 19:35:11.757  2517  2517 I Capacitor/Console: File:  - Line 333 - Msg: {"supported":true,"api":34,"service":true,"onDevice":true}
+11-14 19:35:13.962  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:13.964  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926100, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:35:13.964  2517  2517 V Capacitor: callback: 101926100, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:35:13.968  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:13.968  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300387, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:35:13.975  2517  2517 V Capacitor: callback: 128300387, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:35:13.976  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:13.976  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:14.000  2517  2517 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-14 19:35:15.872  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:15.873  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926101, pluginId: Filesystem, methodName: rmdir
+11-14 19:35:15.873  2517  2517 V Capacitor: callback: 101926101, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-out","directory":"CACHE","recursive":true}
+11-14 19:35:15.873  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:15.873  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 101926102, pluginId: Filesystem, methodName: rmdir
+11-14 19:35:15.873  2517  2517 V Capacitor: callback: 101926102, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-tx","directory":"CACHE","recursive":true}
+11-14 19:35:15.938  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:15.941  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300388, pluginId: Filesystem, methodName: rmdir
+11-14 19:35:15.942  2517  2517 V Capacitor: callback: 128300388, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-out","directory":"CACHE","recursive":true}
+11-14 19:35:15.943  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:15.943  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:15.955  2517  2517 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:35:15.956  2517  2517 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 128300389, pluginId: Filesystem, methodName: rmdir
+11-14 19:35:15.958  2517  2517 V Capacitor: callback: 128300389, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-tx","directory":"CACHE","recursive":true}
+11-14 19:35:15.959  2517  2517 W MessageQueue: 	at org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil$InvocationHandlerWithDelegateGetter.invoke(BoundaryInterfaceReflectionUtil.java:159)
+11-14 19:35:15.959  2517  2517 W MessageQueue: 	at org.chromium.android_webview.WebMessageListenerHolder.onPostMessage(chromium-TrichromeWebViewGoogle6432.apk-stable-567263637:53)
+11-14 19:35:15.961  2517  2517 D Capacitor: Sending plugin error: {"save":false,"callbackId":"101926101","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-14 19:35:15.962  2517  2517 D Capacitor: Sending plugin error: {"save":false,"callbackId":"101926102","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-tx\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-14 19:35:15.970  2517  2517 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-14 19:35:15.970  2517  2517 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]

@@ -1,0 +1,2 @@
+KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
