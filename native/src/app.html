@@ -2916,10 +2916,10 @@ function makeSR(){const r=new SR();if(sttMode()==="phone"&&!window.KA_NATIVE){if
 function sttSheet(after){const old=$(".legalview");if(old)old.remove();const cur=sttMode();
   const w=document.createElement("div");w.className="legalview";w.setAttribute("role","dialog");w.setAttribute("aria-modal","true");w.setAttribute("aria-label","Transcripts");
   w.innerHTML=`<div class="wzin"><div class="lvhead"><b>How should KidArmor make transcripts?</b></div>
-    <p class="note">When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them.</p>
+    <p class="note">When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them.</p>${window.KA_STT_AFTER?`<p class="note"><b>On this phone, KidArmor writes the transcript right after you tap Stop</b>, not while you're recording. That keeps the recording clear.</p>`:""}
     <div class="panel sttopt"><h3>On this phone only <span class="rtag">Most private</span></h3>
       <ul class="pc"><li class="pro">The sound never leaves your phone.</li><li class="pro">Works without internet.</li>
-      <li class="con">Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript.</li><li class="con">Can be a little less accurate.</li></ul>
+      <li class="con">Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a ${window.KA_STT_AFTER?"":"live "}transcript.</li><li class="con">Can be a little less accurate.</li></ul>
       <button class="btn ${cur==="phone"?"primary":"light"} wide" type="button" data-stt="phone">${cur==="phone"?"✓ Using on this phone only":"Use on this phone only"}</button></div>
     <div class="panel sttopt"><h3>Apple or Google speech service</h3>
       <ul class="pc"><li class="pro">Works on every phone and is usually the most accurate.</li>
