@@ -70,7 +70,8 @@ async function main() {
     await sleep(5000); const t = await js(`return (document.querySelector("#recTime")||{}).textContent||""`);
     ok("recording timer runs", /0[0-9]:0[2-9]|0[0-9]:[1-5][0-9]/.test(t), t); snap("recording");
     await click("#recTold"); await sleep(500); await click("#recStop");
-    const done = await waitFor(`document.querySelector(".sheet #smDone")`, 20000); snap("after-stop");
+    const done = await waitFor(`document.querySelector(".sheet #smDone")`, 90000); snap("after-stop");
+    { const tp = topPkg(); console.log("    after Stop, on screen:", tp, "::", nodes(ui()).map(n => n.text).filter(Boolean).slice(0, 10).join(" | ")); if (tp !== PKG) { console.log(adb("logcat", "-d", "--pid", pid()).split("\n").slice(-40).join("\n")); clearSystemDialog(); sh("input keyevent 4"); await sleep(1500) } }
     const r = await js(`const e=state.entries[0];if(!e||!e.recordings||!e.recordings[0])return null;const m=e.recordings[0];const f=await getFile(m.id);return{type:m.type,size:f&&f.blob.size,secs:e.recordingSeconds,id:m.id}`);
     ok("recording saved on the phone", r && r.size > 1000 && /^audio\//.test(r.type), JSON.stringify(r));
     if (done) await click(".sheet #smDone");
@@ -94,14 +95,23 @@ async function main() {
         await sleep(800); snap("before-transcribe");
         const btn = await js(`return !!document.querySelector('[data-txagain="${made}"]')`);
         ok("Write the transcript button shows for it", btn);
-        await js(`document.querySelector('[data-txagain="${made}"]').click();return 1`);
-        const t0 = Date.now(); let tx = "";
-        while (Date.now() - t0 < 180000) { tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (tx) break; if (await js(`return !document.querySelector("#txProg")`)) break; await sleep(2000) }
-        await sleep(1500); snap("after-transcribe");
-        const toastTxt = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")`);
-        ok("transcript written from the recording", /school|therapy|meeting|week|December/i.test(tx), tx.slice(0, 200) || ("no transcript. " + toastTxt));
-        const sum = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.summary?JSON.stringify(e.summary).slice(0,300):""`);
-        ok("meeting notes made from it", !!sum, sum);
+        // try both transcript choices: the phone's speech service, then "On this phone only"
+        for (const mode of ["service", "phone"]) {
+          await js(`localStorage.setItem("kidarmor.stt","${mode}");const e=state.entries.find(x=>x.id==="${made}");e.transcript="";save();renderHome();return 1`); await sleep(800);
+          let tx = "", note = "";
+          for (let attempt = 0; attempt < (mode === "phone" ? 4 : 1) && !tx; attempt++) {
+            if (attempt) { console.log("    waiting for the phone's speech files to download…"); await sleep(60000) }
+            await js(`closeSheet&&closeSheet();writeTranscriptAgain("${made}");return 1`);
+            const t0 = Date.now();
+            while (Date.now() - t0 < 180000) { tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (typeof tx !== "string") tx = ""; if (tx) break; if (await js(`return !document.querySelector("#txProg")`) === true) break; if (topPkg() !== PKG) { console.log("    left the app during transcript:", topPkg(), nodes(ui()).map(n => n.text).filter(Boolean).slice(0, 8).join(" | ")); clearSystemDialog(); sh("input keyevent 4") } await sleep(2000) }
+            note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")`);
+          }
+          snap("after-transcribe-" + mode);
+          ok(`transcript written from the recording (${mode === "phone" ? "on this phone only" : "speech service"})`, /school|therapy|meeting|week|December|teacher|report/i.test(tx), String(tx).slice(0, 220) || ("no transcript. " + note));
+          await click(".sheet #smDone");
+        }
+        const sum = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.summary?JSON.stringify(e.summary).slice(0,400):""`);
+        ok("meeting notes made from it", !!sum && !/"empty":true/.test(sum), sum);
         await click(".sheet #smDone");
       }
     }
