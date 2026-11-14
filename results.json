@@ -1,0 +1,171 @@
+{
+ "api": 36,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/133.0.6943.137"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "microphone permission prompt appears",
+   "pass": true,
+   "detail": "While using the app"
+  },
+  {
+   "name": "recording timer runs",
+   "pass": true,
+   "detail": "00:20"
+  },
+  {
+   "name": "recording saved on the phone",
+   "pass": true,
+   "detail": "{\"type\":\"audio/mp4\",\"size\":83171,\"secs\":22,\"id\":\"f1794685189397tasv9\"}"
+  },
+  {
+   "name": "spoken test recording ready",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript writer available on this Android",
+   "pass": true,
+   "detail": "{\"supported\":true,\"api\":36,\"service\":true,\"onDevice\":true}"
+  },
+  {
+   "name": "meeting saved from the recording",
+   "pass": true,
+   "detail": "\"1794685292070\""
+  },
+  {
+   "name": "Write the transcript button shows for it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript written from the recording (speech service)",
+   "pass": false,
+   "detail": "no transcript. [object Object]"
+  },
+  {
+   "name": "transcript written from the recording (on this phone only)",
+   "pass": false,
+   "detail": "no transcript. [object Object]"
+  },
+  {
+   "name": "meeting notes made from it",
+   "pass": true,
+   "detail": "[object Object]"
+  },
+  {
+   "name": "Android file picker opens and shows the photo",
+   "pass": false,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": false,
+   "detail": "{\"__err\":\"timeout Runtime.evaluate\"}"
+  },
+  {
+   "name": "PDF preview library loads",
+   "pass": false,
+   "detail": "[object Object]"
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": false,
+   "detail": "[object Object]"
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": false,
+   "detail": "ls: cache/kidarmor-out: No such file or directory\n"
+  },
+  {
+   "name": "Android share sheet opens",
+   "pass": false,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "notification permission prompt appears",
+   "pass": false,
+   "detail": ""
+  },
+  {
+   "name": "notifications allowed",
+   "pass": false,
+   "detail": "[object Object]"
+  },
+  {
+   "name": "app stays on screen while scheduling reminders",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTE"
+  },
+  {
+   "name": "meeting reminders scheduled with Android",
+   "pass": false,
+   "detail": "pending: {\"__err\":\"timeout Runtime.evaluate\"}"
+  },
+  {
+   "name": "a reminder notification shows on the phone",
+   "pass": false,
+   "detail": ""
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": false,
+   "detail": "{\"__err\":\"timeout Runtime.evaluate\"} → {\"entries\":2,\"docs\":0,\"name\":\"Ava Test\"}"
+  },
+  {
+   "name": "recording still plays-ready after reopening",
+   "pass": true,
+   "detail": "83171 bytes"
+  },
+  {
+   "name": "back button returns to Home from another screen",
+   "pass": true,
+   "detail": "add → home"
+  },
+  {
+   "name": "back button closes an open file",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "back button on Home puts the app away without crashing",
+   "pass": true,
+   "detail": "pid 8112, on screen: com.google.android.apps.nexuslauncher"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

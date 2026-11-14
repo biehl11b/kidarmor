@@ -1,0 +1,35 @@
+Android API 36: 20 passed, 13 failed
+ok   app opens and connects
+ok   web view version  → Chrome/133.0.6943.137
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:20
+ok   recording saved on the phone  → {"type":"audio/mp4","size":83171,"secs":22,"id":"f1794685189397tasv9"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"supported":true,"api":36,"service":true,"onDevice":true}
+ok   meeting saved from the recording  → "1794685292070"
+ok   Write the transcript button shows for it
+FAIL transcript written from the recording (speech service)  → no transcript. [object Object]
+FAIL transcript written from the recording (on this phone only)  → no transcript. [object Object]
+ok   meeting notes made from it  → [object Object]
+FAIL Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+FAIL photo saved with the case  → {"__err":"timeout Runtime.evaluate"}
+FAIL PDF preview library loads  → [object Object]
+FAIL PDF binder is made and shows  → [object Object]
+FAIL PDF file written for sharing  → ls: cache/kidarmor-out: No such file or directory
+
+FAIL Android share sheet opens  → com.coastlinecode.kidarmor
+FAIL notification permission prompt appears
+FAIL notifications allowed  → [object Object]
+ok   app stays on screen while scheduling reminders  → com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTE
+FAIL meeting reminders scheduled with Android  → pending: {"__err":"timeout Runtime.evaluate"}
+FAIL a reminder notification shows on the phone
+ok   app reopens after being closed
+FAIL records still there after reopening  → {"__err":"timeout Runtime.evaluate"} → {"entries":2,"docs":0,"name":"Ava Test"}
+ok   recording still plays-ready after reopening  → 83171 bytes
+ok   back button returns to Home from another screen  → add → home
+ok   back button closes an open file
+ok   back button on Home puts the app away without crashing  → pid 8112, on screen: com.google.android.apps.nexuslauncher
+ok   no app crashes
+ok   no script errors in the app

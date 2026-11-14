@@ -1,0 +1,79 @@
+11-14 19:43:09.592  5829  5829 D Capacitor: App resumed
+11-14 19:43:09.608  5829  5829 W HWUI    : Unknown dataspace 0
+11-14 19:43:09.660  5829  5907 W chromium: [WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+11-14 19:43:09.683  5829  5829 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-14 19:43:09.728  5829  5921 I CameraManagerGlobal: Connecting to camera service
+11-14 19:43:09.785  5829  5829 I Capacitor/SpeechRecognition: Instantiated SpeechRecognizer in load()
+11-14 19:43:09.860  5829  5829 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-14 19:43:09.861  5829  5829 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-14 19:43:10.027  5829  5829 I Capacitor/Console: File: https://localhost/ - Line 2977 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-14 19:43:10.029  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:10.030  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:10.032  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:10.033  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:10.035  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717566, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:43:10.037  5829  5829 V Capacitor: callback: 98717566, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:43:10.037  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717567, pluginId: KaTranscribe, methodName: available
+11-14 19:43:10.037  5829  5829 V Capacitor: callback: 98717567, pluginId: KaTranscribe, methodName: available, methodData: {}
+11-14 19:43:10.049  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717568, pluginId: App, methodName: addListener
+11-14 19:43:10.049  5829  5829 V Capacitor: callback: 98717568, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-14 19:43:10.049  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717569, pluginId: App, methodName: addListener
+11-14 19:43:10.049  5829  5829 V Capacitor: callback: 98717569, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-14 19:43:10.053  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-14 19:43:10.054  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: {"supported":true,"api":36,"service":true,"onDevice":true}
+11-14 19:43:10.289  5829  5833 I necode.kidarmor: Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+11-14 19:43:10.611  5829  5829 D SplashScreenView: Building from parcel drawable: android.graphics.drawable.BitmapDrawable@71b4780
+11-14 19:43:10.682  5829  5829 D SplashScreenView: Build android.window.SplashScreenView{60f69fe V.E...... ......ID 0,0-0,0}
+11-14 19:43:10.682  5829  5829 D SplashScreenView: Icon: view: androidx.appcompat.widget.AppCompatImageView{f4fb55f V.ED..... ......I. 0,0-0,0 #1020542 android:id/splashscreen_icon_view} drawable: android.graphics.drawable.BitmapDrawable@71b4780 size: 420
+11-14 19:43:10.682  5829  5829 D SplashScreenView: Branding: view: android.view.View{4ad5bac G.ED..... ......I. 0,0-0,0 #1020541 android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+11-14 19:43:12.246  5829  5829 D InsetsController: hide(ime(), fromIme=false)
+11-14 19:43:12.246  5829  5829 I ImeTracker: com.coastlinecode.kidarmor:af60e8de: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+11-14 19:43:12.267  5829  5931 I HWUI    : Davey! duration=1849ms; Flags=0, FrameTimelineVsyncId=15777, IntendedVsync=361985673701, Vsync=362135673695, InputEventId=0, HandleInputStart=362145433149, AnimationStart=362145433768, PerformTraversalsStart=362146173782, DrawStart=362146213924, FrameDeadline=362169007027, FrameStartTime=362145355078, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=362146438256, SyncStart=362146789799, IssueDrawCommandsStart=362146822397, SwapBuffers=363819806323, FrameCompleted=363835883666, DequeueBufferDuration=3512, QueueBufferDuration=207508, GpuCompleted=363835883666, SwapBuffersCompleted=363831200049, DisplayPresentTime=0, CommandSubmissionCompleted=363819806323, 
+11-14 19:43:12.626  5829  5829 D SplashScreenView: remove starting view
+11-14 19:43:13.029  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:13.029  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717570, pluginId: LocalNotifications, methodName: checkPermissions
+11-14 19:43:13.029  5829  5829 V Capacitor: callback: 98717570, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-14 19:43:13.030  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-14 19:43:15.029  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:15.029  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 19:43:15.030  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717571, pluginId: Filesystem, methodName: rmdir
+11-14 19:43:15.030  5829  5829 V Capacitor: callback: 98717571, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-out","directory":"CACHE","recursive":true}
+11-14 19:43:15.031  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717572, pluginId: Filesystem, methodName: rmdir
+11-14 19:43:15.031  5829  5829 V Capacitor: callback: 98717572, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-tx","directory":"CACHE","recursive":true}
+11-14 19:43:15.051  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: undefined
+11-14 19:43:15.051  5829  5829 D Capacitor: Sending plugin error: {"save":false,"callbackId":"98717571","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-14 19:43:15.052  5829  5829 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-14 19:43:15.405  5829  5940 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-14 19:44:02.564  5829  5829 I cr_A11yState: Enabled accessibility services list updated. []
+11-14 19:44:02.565  5829  5829 D AutofillManager: Fill dialog is enabled:false, hints=[]
+11-14 19:44:02.565  5829  5829 I cr_A11yState: Informing listeners of changes.
+11-14 19:44:02.566  5829  5829 I cr_A11yState: New AccessibilityState: State{isScreenReaderEnabled=false, isTouchExplorationEnabled=false, isPerformGesturesEnabled=false, isAnyAccessibilityServiceEnabled=false, isAccessibilityToolPresent=false, isSpokenFeedbackServicePresent=false, isTextShowPasswordEnabled=true, isOnlyPasswordManagersEnabled=false}
+11-14 20:16:00.780  5829  5834 W necode.kidarmor: Reducing the number of considered missed Gc histogram windows from 195 to 100
+11-14 20:23:54.117  5829  5829 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-14 20:23:54.126  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: {"canGoBack":false}
+11-14 20:23:54.129  5829  5829 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-14 20:23:54.130  5829  5829 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 98717573, pluginId: App, methodName: minimizeApp
+11-14 20:23:54.130  5829  5829 V Capacitor: callback: 98717573, pluginId: App, methodName: minimizeApp, methodData: {}
+11-14 20:23:54.141  5829  5829 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-14 20:23:54.141  5829  5829 D Capacitor/AppPlugin: No listeners found for event pause
+11-14 20:23:54.141  5829  5829 D Capacitor: App paused
+11-14 20:23:54.145  5829  5829 I Capacitor/Console: File:  - Line 333 - Msg: undefined
+11-14 20:23:54.446  5829  5829 D VRI[MainActivity]: visibilityChanged oldVisibility=true newVisibility=false
+11-14 20:23:54.652  5829  5829 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=androidx.activity.OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1@264e2ec
+11-14 20:23:54.672  5829  5829 D Capacitor/AppPlugin: Firing change: false
+11-14 20:23:54.672  5829  5829 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 20:23:54.672  5829  5829 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 20:23:54.672  5829  5829 D Capacitor: App stopped
+11-14 20:23:54.673  5829  5829 D Capacitor: Saving instance state!
+11-14 20:24:25.396  5829  5829 D Capacitor: App restarted
+11-14 20:24:25.396  5829  5829 D Capacitor: App started
+11-14 20:24:25.397  5829  5829 D Capacitor/AppPlugin: Firing change: true
+11-14 20:24:25.397  5829  5829 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-14 20:24:25.397  5829  5829 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-14 20:24:25.397  5829  5829 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-14 20:24:25.397  5829  5829 D Capacitor/AppPlugin: No listeners found for event resume
+11-14 20:24:25.442  5829  5829 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-14 20:24:25.443  5829  5829 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-14 20:24:25.443  5829  5829 D Capacitor: App resumed
+11-14 20:24:26.102  5829  5829 D InsetsController: hide(ime(), fromIme=false)
+11-14 20:24:26.103  5829  5829 I ImeTracker: com.coastlinecode.kidarmor:ffd86efa: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
