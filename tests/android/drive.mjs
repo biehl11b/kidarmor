@@ -98,14 +98,25 @@ async function main() {
         // try both transcript choices: the phone's speech service, then "On this phone only"
         for (const mode of ["service", "phone"]) {
           await js(`localStorage.setItem("kidarmor.stt","${mode}");const e=state.entries.find(x=>x.id==="${made}");e.transcript="";save();renderHome();return 1`); await sleep(800);
-          let tx = "", note = "";
-          for (let attempt = 0; attempt < (mode === "phone" ? 4 : 1) && !tx; attempt++) {
-            if (attempt) { console.log("    waiting for the phone's speech files to download…"); await sleep(60000) }
-            await js(`closeSheet&&closeSheet();writeTranscriptAgain("${made}");return 1`);
-            const t0 = Date.now();
-            while (Date.now() - t0 < 180000) { tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (typeof tx !== "string") tx = ""; if (tx) break; if (await js(`return !document.querySelector("#txProg")`) === true) break; if (topPkg() !== PKG) { console.log("    left the app during transcript:", topPkg(), nodes(ui()).map(n => n.text).filter(Boolean).slice(0, 8).join(" | ")); clearSystemDialog(); sh("input keyevent 4") } await sleep(2000) }
-            note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")`);
+          let tx = "", note = "", tapped = false, lastMsg = "";
+          await js(`closeSheet&&closeSheet();window.KA_TX_LAST_ERR="";writeTranscriptAgain("${made}");return 1`);
+          const t0 = Date.now();
+          // up to 15 min: the first time, the phone may fetch its English speech files (~60 MB)
+          while (Date.now() - t0 < 15 * 60000) {
+            tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (typeof tx !== "string") tx = ""; if (tx) break;
+            const st = await js(`const p=document.querySelector("#txProg");return p?p.textContent:null`);
+            if (st === null) break;
+            if (typeof st === "string" && st !== lastMsg && !/%$/.test(st)) { console.log("    app says:", st.slice(0, 160)); lastMsg = st }
+            if (topPkg() !== PKG) {
+              const n = nodes(ui()), dl = n.find(x => /^Download$/i.test(x.text));
+              console.log("    left the app during transcript:", topPkg(), n.map(x => x.text).filter(Boolean).slice(0, 8).join(" | "));
+              if (dl) { sh(`input tap ${dl.x} ${dl.y}`); tapped = true; console.log("    tapped Download, like a parent would"); await sleep(3000); if (topPkg() !== PKG) sh("input keyevent 4") }
+              else { clearSystemDialog(); sh("input keyevent 4") }
+            }
+            await sleep(3000)
           }
+          note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | last error: "+(window.KA_TX_LAST_ERR||"none")`);
+          console.log(`    ${mode}: ${Math.round((Date.now() - t0) / 1000)}s, Download tapped: ${tapped}, ${note}`);
           snap("after-transcribe-" + mode);
           ok(`transcript written from the recording (${mode === "phone" ? "on this phone only" : "speech service"})`, /school|therapy|meeting|week|December|teacher|report/i.test(tx), String(tx).slice(0, 220) || ("no transcript. " + note));
           await click(".sheet #smDone");

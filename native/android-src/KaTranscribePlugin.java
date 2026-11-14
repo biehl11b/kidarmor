@@ -22,6 +22,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.speech.RecognitionListener;
+import android.speech.RecognitionSupport;
+import android.speech.RecognitionSupportCallback;
+import java.util.List;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import com.getcapacitor.JSArray;
@@ -60,6 +63,60 @@ public class KaTranscribePlugin extends Plugin {
         call.resolve(r);
     }
 
+    /** Whether the phone has its speech files for this language on the phone.
+     * Returns {state: "ready" | "downloading" | "missing" | "unknown"}. With download:true and the
+     * files missing, asks the phone to fetch them (Android shows its own "Download" box). */
+    @PluginMethod
+    public void speechFiles(PluginCall call) {
+        final String lang = call.getString("language", "en-US");
+        final boolean download = Boolean.TRUE.equals(call.getBoolean("download", false));
+        if (Build.VERSION.SDK_INT < 33) { JSObject r = new JSObject(); r.put("state", "unknown"); call.resolve(r); return; }
+        main.post(() -> checkFiles(call, lang, download));
+    }
+
+    @RequiresApi(33)
+    private void checkFiles(PluginCall call, String lang, boolean download) {
+        final SpeechRecognizer sr;
+        try {
+            if (!SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())) { JSObject r = new JSObject(); r.put("state", "unknown"); call.resolve(r); return; }
+            sr = SpeechRecognizer.createOnDeviceSpeechRecognizer(getContext());
+        } catch (Exception e) { JSObject r = new JSObject(); r.put("state", "unknown"); call.resolve(r); return; }
+        final boolean[] answered = {false};
+        final Intent it = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        it.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        it.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang);
+        try {
+            sr.checkRecognitionSupport(it, getContext().getMainExecutor(), new RecognitionSupportCallback() {
+                @Override public void onSupportResult(RecognitionSupport s) {
+                    if (answered[0]) return; answered[0] = true;
+                    String state = "missing";
+                    if (has(s.getInstalledOnDeviceLanguages(), lang)) state = "ready";
+                    else {
+                        try { if (Build.VERSION.SDK_INT >= 34 && has(s.getPendingOnDeviceLanguages(), lang)) state = "downloading"; } catch (Throwable t) { }
+                        if (!"downloading".equals(state) && !has(s.getSupportedOnDeviceLanguages(), lang) && !s.getSupportedOnDeviceLanguages().isEmpty()) state = "unsupported";
+                    }
+                    if (download && "missing".equals(state)) { try { sr.triggerModelDownload(it); state = "downloading"; } catch (Exception e) { } }
+                    try { sr.destroy(); } catch (Exception e) { }
+                    JSObject r = new JSObject(); r.put("state", state); call.resolve(r);
+                }
+                @Override public void onError(int code) {
+                    if (answered[0]) return; answered[0] = true;
+                    try { sr.destroy(); } catch (Exception e) { }
+                    JSObject r = new JSObject(); r.put("state", "unknown"); r.put("error", code); call.resolve(r);
+                }
+            });
+        } catch (Exception e) { try { sr.destroy(); } catch (Exception x) { } JSObject r = new JSObject(); r.put("state", "unknown"); call.resolve(r); return; }
+        main.postDelayed(() -> { if (!answered[0]) { answered[0] = true; try { sr.destroy(); } catch (Exception e) { } JSObject r = new JSObject(); r.put("state", "unknown"); r.put("error", "timeout"); call.resolve(r); } }, 8000);
+    }
+
+    private static boolean has(List<String> langs, String lang) {
+        if (langs == null) return false;
+        String want = lang.toLowerCase().replace('_', '-'), base = want.split("-")[0];
+        for (String l : langs) { if (l == null) continue; String x = l.toLowerCase().replace('_', '-'); if (x.equals(want)) return true; }
+        for (String l : langs) { if (l == null) continue; String x = l.toLowerCase().replace('_', '-'); if (x.equals(base) || x.startsWith(base + "-")) return true; }
+        return false;
+    }
+
     @PluginMethod
     public void transcribe(PluginCall call) {
         if (Build.VERSION.SDK_INT < 33) { call.reject("This Android version can't write transcripts from a recording.", "unsupported"); return; }
@@ -76,7 +133,7 @@ public class KaTranscribePlugin extends Plugin {
             catch (Exception e) { pcm.delete(); call.reject("Couldn't read the recording: " + e.getMessage(), "decode"); return; }
             if (samples <= 0) { pcm.delete(); JSObject r = new JSObject(); r.put("segments", new JSArray()); r.put("seconds", 0); call.resolve(r); return; }
             final double seconds = samples / (double) RATE;
-            main.post(() -> recognize(call, pcm, seconds, onDevice, lang, true));
+            main.post(() -> recognize(call, pcm, seconds, onDevice, lang, true, 0));
         }, "KaTranscribe-decode").start();
     }
 
@@ -84,7 +141,7 @@ public class KaTranscribePlugin extends Plugin {
      * the app, tries the other kind once (never sends to the speech service when the parent chose
      * "On this phone only"). */
     @RequiresApi(33)
-    private void recognize(PluginCall call, File pcm, double seconds, boolean onDevice, String lang, boolean firstTry) {
+    private void recognize(PluginCall call, File pcm, double seconds, boolean onDevice, String lang, boolean firstTry, int earlierCode) {
         final SpeechRecognizer sr;
         try {
             boolean useOnDevice = onDevice && Build.VERSION.SDK_INT >= 31 && SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext());
@@ -126,20 +183,20 @@ public class KaTranscribePlugin extends Plugin {
             @Override public void onResults(Bundle b) { add(b); finish.run(); }
             @Override public void onError(int code) {
                 if (done[0]) return;
-                boolean noAudioSupport = code == SpeechRecognizer.ERROR_CLIENT || code == 15 /* ERROR_CANNOT_LISTEN_TO_DOWNLOAD_EVENTS */ || code == SpeechRecognizer.ERROR_RECOGNIZER_BUSY || code == SpeechRecognizer.ERROR_SERVER_DISCONNECTED;
-                if (segs.isEmpty() && firstTry && noAudioSupport && !onDevice) {
+                // any failure before words come back on the speech service: try the phone's own recognizer once
+                if (segs.isEmpty() && firstTry && !onDevice && code != SpeechRecognizer.ERROR_NO_MATCH && code != SpeechRecognizer.ERROR_SPEECH_TIMEOUT && Build.VERSION.SDK_INT >= 31 && SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())) {
                     done[0] = true; try { sr.destroy(); } catch (Exception e) { } try { pipe[0].close(); } catch (Exception e) { }
-                    main.postDelayed(() -> recognize(call, pcm, seconds, true, lang, false), 300); return;
+                    main.postDelayed(() -> recognize(call, pcm, seconds, true, lang, false, code), 300); return;
                 }
                 if (code == 13 /* ERROR_LANGUAGE_UNAVAILABLE */ && Build.VERSION.SDK_INT >= 33) {
                     try { Intent d = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); d.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang); sr.triggerModelDownload(d); } catch (Exception e) { }
                     done[0] = true; try { sr.destroy(); } catch (Exception e) { } pcm.delete();
-                    call.reject("The phone is downloading its English speech files. Try again in a few minutes.", "language-downloading"); return;
+                    call.reject("The phone is downloading its English speech files. Try again in a few minutes." + (earlierCode != 0 ? " (speech service error " + earlierCode + ")" : ""), "language-downloading"); return;
                 }
                 // no words heard, or the session ended: keep whatever was written
                 if (!segs.isEmpty() || code == SpeechRecognizer.ERROR_NO_MATCH || code == SpeechRecognizer.ERROR_SPEECH_TIMEOUT) { finish.run(); return; }
                 done[0] = true; try { sr.destroy(); } catch (Exception e) { } pcm.delete();
-                call.reject("Speech recognizer error " + code, "error-" + code);
+                call.reject("Speech recognizer error " + code + (earlierCode != 0 ? " (speech service error " + earlierCode + ")" : ""), "error-" + code);
             }
             @Override public void onReadyForSpeech(Bundle b) { }
             @Override public void onBeginningOfSpeech() { }

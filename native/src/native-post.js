@@ -61,14 +61,29 @@
   if(KT)KT.available().then(function(r){window.KA_STT_AFTER=!!(r&&r.supported);if(window.KA_STT_AFTER){try{renderHome()}catch(e){}}}).catch(function(){});
   async function writeBlob(path,blob){var CH=3*1024*1024;for(var i=0;i<blob.size||i===0;i+=CH){var part=blob.slice(i,i+CH),data=await b64(part);
       if(i===0)await FS.writeFile({path:path,data:data,directory:"CACHE",recursive:true});else await FS.appendFile({path:path,data:data,directory:"CACHE"});if(!blob.size)break}}
+  /* the first time, the phone may need its English speech files (Android shows its own Download box).
+     Wait for them, telling the parent what's happening, then carry on. */
+  var FILES_MSG="This phone needs its English speech files first (one time, about 60 MB). If your phone asks, tap Download. KidArmor will write the transcript as soon as they're on the phone.";
+  async function waitForFiles(onProgress){var t0=Date.now(),asked=false;
+    while(Date.now()-t0<12*60*1000){try{onProgress&&onProgress(FILES_MSG)}catch(e){}
+      var f=await KT.speechFiles({language:"en-US",download:!asked}).catch(function(){return{}});asked=true;
+      if(f.state==="ready"||f.state==="unknown"&&Date.now()-t0>60000)return;if(f.state==="unsupported")break;
+      await new Promise(function(res){setTimeout(res,8000)})}
+    throw Object.assign(new Error("speech files not ready"),{code:"language-downloading"})}
+  window.KA_SPEECH_FILES=function(download){return KT?KT.speechFiles({language:"en-US",download:!!download}):Promise.resolve({state:"unknown"})};
   window.KA_TRANSCRIBE_AFTER=async function(parts,onProgress){
-    var lines=[],offset=0,h=null;
+    var lines=[],offset=0,h=null,filesChecked=false,waited=false;
     try{if(onProgress)h=await KT.addListener("progress",function(p){try{onProgress(p.done||0)}catch(e){}})}catch(e){}
     try{
       for(var i=0;i<parts.length;i++){var blob=parts[i].blob;if(!blob||!blob.size)continue;
         var ty=parts[i].type||blob.type||"",name="kidarmor-tx/part"+i+(ty.indexOf("mp4")>=0?".m4a":ty.indexOf("ogg")>=0?".ogg":".webm");
         await writeBlob(name,blob);var uri=(await FS.getUri({path:name,directory:"CACHE"})).uri;
-        var r=await KT.transcribe({path:uri,onDevice:!!(window.KA_STT_LOCAL&&window.KA_STT_LOCAL()),language:"en-US"});
+        var local=!!(window.KA_STT_LOCAL&&window.KA_STT_LOCAL());
+        if(local&&!filesChecked){filesChecked=true;var f=await KT.speechFiles({language:"en-US",download:true}).catch(function(){return{}});if(f.state==="downloading")await waitForFiles(onProgress)}
+        var r;try{r=await KT.transcribe({path:uri,onDevice:local,language:"en-US"})}
+        catch(err){window.KA_TX_LAST_ERR=(err&&err.code||"")+" "+(err&&err.message||"");
+          if(!err||err.code!=="language-downloading"||waited)throw err;
+          waited=true;await waitForFiles(onProgress);r=await KT.transcribe({path:uri,onDevice:local,language:"en-US"})}
         (r.segments||[]).forEach(function(s){lines.push("["+mmss(offset+(s.t||0))+"] "+s.text)});
         offset+=r.seconds||0}
     }finally{try{h&&h.remove()}catch(e){}try{await FS.rmdir({path:"kidarmor-tx",directory:"CACHE",recursive:true})}catch(e){}}
