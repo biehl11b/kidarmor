@@ -1,0 +1,1389 @@
++ node -v
+v22.23.4
++ java -version
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)
+++ cat plugins.txt
++ npm install --no-audit --no-fund --legacy-peer-deps @capacitor/core@8.6.0 @capacitor/cli@8.6.0 @capacitor/ios@8.6.0 @capacitor/android@8.6.0 @capacitor/app@8.1.2 @capacitor/filesystem@8.1.5 @capacitor/share@8.0.3 @capacitor/local-notifications@8.3.1 @capacitor/splash-screen@8.0.2 @capacitor/status-bar@8.0.4 @capacitor-community/speech-recognition@7.0.1 @capgo/capacitor-native-biometric@8.9.1 @ebarooni/capacitor-calendar@8.10.0 @capacitor/assets@4.0.0 @capacitor-community/in-app-review@8.0.0
+npm warn deprecated uuid@7.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+
+added 166 packages in 7s
++ npm ls --depth=0
+kidarmor-native@1.0.0 /home/runner/work/kidarmor/kidarmor/native
+├── @capacitor-community/in-app-review@8.0.0
+├── @capacitor-community/speech-recognition@7.0.1
+├── @capacitor/android@8.6.0
+├── @capacitor/app@8.1.2
+├── @capacitor/assets@4.0.0
+├── @capacitor/cli@8.6.0
+├── @capacitor/core@8.6.0
+├── @capacitor/filesystem@8.1.5
+├── @capacitor/ios@8.6.0
+├── @capacitor/local-notifications@8.3.1
+├── @capacitor/share@8.0.3
+├── @capacitor/splash-screen@8.0.2
+├── @capacitor/status-bar@8.0.4
+├── @capgo/capacitor-native-biometric@8.9.1
+├── @ebarooni/capacitor-calendar@8.10.0
+├── @emnapi/runtime@1.11.3 extraneous
+└── @img/sharp-wasm32@0.35.5 extraneous
+
++ node scripts/patch-speech.mjs
+patched: ios/Plugin/Plugin.swift
+patched: android/src/main/java/com/getcapacitor/community/speechrecognition/SpeechRecognition.java
++ node scripts/prepare-www.mjs
+capacitor core bundle: /home/runner/work/kidarmor/kidarmor/native/node_modules/@capacitor/core/dist/capacitor.js [
+  'capacitor.js',
+  'capacitor.js.map',
+  'index.cjs.js',
+  'index.cjs.js.map',
+  'index.js',
+  'index.js.map'
+]
+CSP script hashes: 3
+www ready: [ 'index.html', 'vendor', 'webview-update.html' ] [
+  'capacitor.js',
+  'fonts',
+  'pdf-lib.min.js',
+  'pdf.min.mjs',
+  'pdf.worker.min.mjs'
+]
++ '[' -d android ']'
++ npx cap add android
+✔ Adding native android project in android in 21.23ms
+✔ add in 21.70ms
+✔ Copying web assets from www to android/app/src/main/assets/public in 3.09ms
+✔ Creating capacitor.config.json in android/app/src/main/assets in 206.98μs
+✔ copy android in 9.03ms
+✔ Updating Android plugins in 701.85μs
+[info] Found 10 Capacitor plugins for android:
+       @capacitor-community/in-app-review@8.0.0
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update android in 20.29ms
+✔ Syncing Gradle in 131.74μs
+[success] android platform added!
+Follow the Developer Workflow guide to get building:
+https://capacitorjs.com/docs/basics/workflow
++ node scripts/patch-native.mjs android
+Android manifest patched
+KaTranscribe plugin added
++ npx capacitor-assets generate --android --iconBackgroundColor '#e19a12' --iconBackgroundColorDark '#e19a12' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b'
+[log] xml(load) at /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/AndroidManifest.xml
+[log] xml(load) Found root namespaces in XML file: http://schemas.android.com/tools http://schemas.android.com/apk/res/android
+Generating assets for android
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-ldpi/ic_launcher.png (1.46 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-mdpi/ic_launcher.png (3.46 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-hdpi/ic_launcher.png (10.13 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png (20.14 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png (50.42 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png (93.92 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-ldpi/ic_launcher_round.png (3.74 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png (6.36 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png (13.73 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png (23.63 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png (51.4 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png (89.27 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-ldpi/ic_launcher_foreground.png (1.89 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png (2.93 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png (5.86 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png (9.94 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png (20.9 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png (36.17 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-ldpi/ic_launcher_background.png (144 B)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-mdpi/ic_launcher_background.png (174 B)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-hdpi/ic_launcher_background.png (270 B)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xhdpi/ic_launcher_background.png (341 B)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.png (700 B)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png (1.03 KB)
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+CREATE android icon /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable/splash.png (54.47 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-ldpi/splash.png (25.48 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-mdpi/splash.png (54.58 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-hdpi/splash.png (145.47 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-xhdpi/splash.png (355.65 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-xxhdpi/splash.png (548.08 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-xxxhdpi/splash.png (774.13 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-ldpi/splash.png (25.4 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-mdpi/splash.png (54.47 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-hdpi/splash.png (144.5 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-xhdpi/splash.png (353.53 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-xxhdpi/splash.png (541.96 KB)
+CREATE android splash /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-xxxhdpi/splash.png (765.14 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-night/splash.png (24.91 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-ldpi/splash.png (24.91 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-mdpi/splash.png (53.72 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-hdpi/splash.png (143.58 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-xhdpi/splash.png (351.67 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-xxhdpi/splash.png (542.54 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-land-night-xxxhdpi/splash.png (768 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-ldpi/splash.png (24.83 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-mdpi/splash.png (53.63 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-hdpi/splash.png (142.73 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-xhdpi/splash.png (349.61 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-xxhdpi/splash.png (536.14 KB)
+CREATE android splash-dark /home/runner/work/kidarmor/kidarmor/native/android/app/src/main/res/drawable-port-night-xxxhdpi/splash.png (758.29 KB)
+
+
+Totals:
+android: 74 generated, 7.88 MB total
++ npx cap sync android
+✔ Copying web assets from www to android/app/src/main/assets/public in 4.83ms
+✔ Creating capacitor.config.json in android/app/src/main/assets in 444.43μs
+✔ copy android in 11.37ms
+✔ Updating Android plugins in 723.88μs
+[info] Found 10 Capacitor plugins for android:
+       @capacitor-community/in-app-review@8.0.0
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update android in 24.84ms
+[info] Sync finished in 0.051s
++ cd android
++ chmod +x gradlew
++ grep -n 'compileSdkVersion\|targetSdkVersion\|minSdkVersion' variables.gradle
+2:    minSdkVersion = 24
+3:    compileSdkVersion = 36
+4:    targetSdkVersion = 36
+++ grep -o 'targetSdkVersion *= *[0-9]*' variables.gradle
+++ grep -o '[0-9]*$'
++ TS=36
++ '[' 36 -lt 36 ']'
++ VC=139
+++ node -p 'require('\''../package.json'\'').version'
++ VN=1.0.0
++ sed -i 's/versionCode [0-9]\+/versionCode 139/; s/versionName "[^"]*"/versionName "1.0.0"/' app/build.gradle
++ grep -n 'versionCode\|versionName' app/build.gradle
+10:        versionCode 139
+11:        versionName "1.0.0"
++ ./gradlew assembleDebug --no-daemon --stacktrace
+Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+.....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+
+Welcome to Gradle 8.14.3!
+
+Here are the highlights of this release:
+ - Java 24 support
+ - GraalVM Native Image toolchain selection
+ - Enhancements to test reporting
+ - Build Authoring improvements
+
+For more details see https://docs.gradle.org/8.14.3/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Configure project :capacitor-cordova-android-plugins
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+The Kotlin Gradle plugin was loaded multiple times in different subprojects, which is not supported and may break the build. 
+This might happen in subprojects that apply the Kotlin plugins with the Gradle 'plugins { ... }' DSL if they specify explicit versions, even if the versions are equal.
+Please add the Kotlin plugin to the common parent project or the root project, then remove the versions in the subprojects.
+If the parent project does not need the plugin, add 'apply false' to the plugin line.
+See: https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl
+The Kotlin plugin was loaded in the following projects: ':capacitor-filesystem', ':ebarooni-capacitor-calendar'
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :capacitor-android:preBuild UP-TO-DATE
+> Task :capacitor-android:preDebugBuild UP-TO-DATE
+> Task :capacitor-app:preBuild UP-TO-DATE
+> Task :capacitor-app:preDebugBuild UP-TO-DATE
+> Task :capacitor-community-in-app-review:preBuild UP-TO-DATE
+> Task :capacitor-community-in-app-review:preDebugBuild UP-TO-DATE
+> Task :capacitor-app:writeDebugAarMetadata
+> Task :capacitor-android:writeDebugAarMetadata
+> Task :app:javaPreCompileDebug
+> Task :capacitor-community-speech-recognition:preBuild UP-TO-DATE
+> Task :capacitor-community-in-app-review:writeDebugAarMetadata
+> Task :capacitor-community-speech-recognition:preDebugBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+> Task :capacitor-community-speech-recognition:writeDebugAarMetadata
+> Task :capacitor-filesystem:preBuild UP-TO-DATE
+> Task :capacitor-filesystem:preDebugBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+> Task :capacitor-local-notifications:preBuild UP-TO-DATE
+> Task :capacitor-local-notifications:preDebugBuild UP-TO-DATE
+> Task :capacitor-filesystem:writeDebugAarMetadata
+> Task :capacitor-share:preBuild UP-TO-DATE
+> Task :capacitor-share:preDebugBuild UP-TO-DATE
+> Task :capacitor-local-notifications:writeDebugAarMetadata
+> Task :capacitor-splash-screen:preBuild UP-TO-DATE
+> Task :capacitor-splash-screen:preDebugBuild UP-TO-DATE
+> Task :capacitor-share:writeDebugAarMetadata
+> Task :capacitor-splash-screen:writeDebugAarMetadata
+> Task :capacitor-status-bar:preBuild UP-TO-DATE
+> Task :capacitor-status-bar:preDebugBuild UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:preBuild UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:preDebugBuild UP-TO-DATE
+> Task :capacitor-status-bar:writeDebugAarMetadata
+> Task :ebarooni-capacitor-calendar:preBuild UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:preDebugBuild UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:writeDebugAarMetadata
+> Task :ebarooni-capacitor-calendar:writeDebugAarMetadata
+> Task :capacitor-android:processDebugNavigationResources
+> Task :capacitor-app:processDebugNavigationResources
+> Task :capacitor-community-in-app-review:processDebugNavigationResources
+> Task :capacitor-community-speech-recognition:processDebugNavigationResources
+> Task :app:checkDebugAarMetadata
+> Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+> Task :capacitor-filesystem:processDebugNavigationResources
+> Task :capacitor-local-notifications:processDebugNavigationResources
+> Task :capacitor-share:processDebugNavigationResources
+> Task :capacitor-splash-screen:processDebugNavigationResources
+> Task :capacitor-status-bar:processDebugNavigationResources
+> Task :capgo-capacitor-native-biometric:processDebugNavigationResources
+> Task :ebarooni-capacitor-calendar:processDebugNavigationResources
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugResValues
+> Task :capacitor-android:generateDebugResValues
+> Task :capacitor-android:generateDebugResources
+> Task :capacitor-android:packageDebugResources
+> Task :capacitor-app:generateDebugResValues
+> Task :capacitor-app:generateDebugResources
+> Task :capacitor-app:packageDebugResources
+> Task :app:compileDebugNavigationResources
+> Task :capacitor-community-in-app-review:generateDebugResValues
+> Task :capacitor-community-in-app-review:generateDebugResources
+> Task :capacitor-community-in-app-review:packageDebugResources
+> Task :capacitor-community-speech-recognition:generateDebugResValues
+> Task :capacitor-community-speech-recognition:generateDebugResources
+> Task :capacitor-community-speech-recognition:packageDebugResources
+> Task :capacitor-cordova-android-plugins:generateDebugResValues
+> Task :capacitor-cordova-android-plugins:generateDebugResources
+> Task :capacitor-cordova-android-plugins:packageDebugResources
+> Task :capacitor-filesystem:generateDebugResValues
+> Task :capacitor-filesystem:generateDebugResources
+> Task :capacitor-filesystem:packageDebugResources
+> Task :capacitor-local-notifications:generateDebugResValues
+> Task :capacitor-local-notifications:generateDebugResources
+> Task :capacitor-local-notifications:packageDebugResources
+> Task :capacitor-share:generateDebugResValues
+> Task :capacitor-share:generateDebugResources
+> Task :capacitor-share:packageDebugResources
+> Task :capacitor-splash-screen:generateDebugResValues
+> Task :capacitor-splash-screen:generateDebugResources
+> Task :capacitor-splash-screen:packageDebugResources
+> Task :capacitor-status-bar:generateDebugResValues
+> Task :capacitor-status-bar:generateDebugResources
+> Task :capacitor-status-bar:packageDebugResources
+> Task :capgo-capacitor-native-biometric:generateDebugResValues
+> Task :capgo-capacitor-native-biometric:generateDebugResources
+> Task :capgo-capacitor-native-biometric:packageDebugResources
+> Task :ebarooni-capacitor-calendar:generateDebugResValues
+> Task :ebarooni-capacitor-calendar:generateDebugResources
+> Task :ebarooni-capacitor-calendar:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :capacitor-android:extractDeepLinksDebug
+> Task :capacitor-app:extractDeepLinksDebug
+> Task :capacitor-community-in-app-review:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :capacitor-community-speech-recognition:extractDeepLinksDebug
+> Task :capacitor-android:processDebugManifest
+> Task :capacitor-app:processDebugManifest
+> Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+> Task :capacitor-community-speech-recognition:processDebugManifest
+> Task :capacitor-community-in-app-review:processDebugManifest
+> Task :capacitor-cordova-android-plugins:processDebugManifest
+> Task :capacitor-filesystem:extractDeepLinksDebug
+> Task :capacitor-local-notifications:extractDeepLinksDebug
+> Task :capacitor-filesystem:processDebugManifest
+> Task :capacitor-share:extractDeepLinksDebug
+> Task :capacitor-local-notifications:processDebugManifest
+> Task :capacitor-share:processDebugManifest
+> Task :capacitor-splash-screen:extractDeepLinksDebug
+> Task :capacitor-splash-screen:processDebugManifest
+> Task :capacitor-status-bar:extractDeepLinksDebug
+> Task :capacitor-status-bar:processDebugManifest
+> Task :capgo-capacitor-native-biometric:extractDeepLinksDebug
+> Task :ebarooni-capacitor-calendar:extractDeepLinksDebug
+> Task :capgo-capacitor-native-biometric:processDebugManifest
+> Task :ebarooni-capacitor-calendar:processDebugManifest
+> Task :capacitor-android:compileDebugLibraryResources
+
+> Task :app:processDebugMainManifest
+/home/runner/work/kidarmor/kidarmor/native/android/app/src/main/AndroidManifest.xml:49:5-92 Warning:
+	uses-permission#android.permission.READ_CALENDAR was tagged at AndroidManifest.xml:49 to remove other declarations but no other declaration present
+/home/runner/work/kidarmor/kidarmor/native/android/app/src/main/AndroidManifest.xml:50:5-93 Warning:
+	uses-permission#android.permission.WRITE_CALENDAR was tagged at AndroidManifest.xml:50 to remove other declarations but no other declaration present
+
+> Task :app:processDebugManifest
+> Task :capacitor-android:parseDebugLocalResources
+> Task :capacitor-app:compileDebugLibraryResources
+> Task :app:processDebugManifestForPackage
+> Task :capacitor-community-in-app-review:compileDebugLibraryResources
+> Task :capacitor-app:parseDebugLocalResources
+> Task :capacitor-community-in-app-review:parseDebugLocalResources
+> Task :capacitor-community-speech-recognition:compileDebugLibraryResources
+> Task :capacitor-community-speech-recognition:parseDebugLocalResources
+> Task :capacitor-app:generateDebugRFile
+> Task :capacitor-community-in-app-review:generateDebugRFile
+> Task :capacitor-android:generateDebugRFile
+> Task :capacitor-community-speech-recognition:generateDebugRFile
+> Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+> Task :capacitor-filesystem:compileDebugLibraryResources
+> Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+> Task :capacitor-filesystem:parseDebugLocalResources
+> Task :capacitor-cordova-android-plugins:generateDebugRFile
+> Task :capacitor-local-notifications:compileDebugLibraryResources
+> Task :capacitor-filesystem:generateDebugRFile
+> Task :capacitor-share:compileDebugLibraryResources
+> Task :capacitor-local-notifications:parseDebugLocalResources
+> Task :capacitor-splash-screen:compileDebugLibraryResources
+> Task :capacitor-share:parseDebugLocalResources
+> Task :capacitor-splash-screen:parseDebugLocalResources
+> Task :capacitor-local-notifications:generateDebugRFile
+> Task :capacitor-share:generateDebugRFile
+> Task :capacitor-splash-screen:generateDebugRFile
+> Task :capacitor-status-bar:compileDebugLibraryResources
+> Task :capacitor-status-bar:parseDebugLocalResources
+> Task :capgo-capacitor-native-biometric:compileDebugLibraryResources
+> Task :capacitor-status-bar:generateDebugRFile
+> Task :ebarooni-capacitor-calendar:compileDebugLibraryResources
+> Task :capacitor-android:javaPreCompileDebug
+> Task :capgo-capacitor-native-biometric:parseDebugLocalResources
+> Task :capacitor-app:javaPreCompileDebug
+> Task :ebarooni-capacitor-calendar:parseDebugLocalResources
+> Task :capgo-capacitor-native-biometric:generateDebugRFile
+> Task :ebarooni-capacitor-calendar:generateDebugRFile
+
+> Task :capacitor-android:compileDebugJavaWithJavac
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :capacitor-community-in-app-review:javaPreCompileDebug
+> Task :capacitor-community-speech-recognition:javaPreCompileDebug
+> Task :capacitor-filesystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+> Task :capacitor-filesystem:javaPreCompileDebug
+> Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+> Task :capacitor-local-notifications:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capacitor-cordova-android-plugins:bundleLibCompileToJarDebug
+> Task :capacitor-local-notifications:javaPreCompileDebug
+> Task :capacitor-share:javaPreCompileDebug
+> Task :capacitor-android:bundleLibCompileToJarDebug
+> Task :capacitor-splash-screen:javaPreCompileDebug
+> Task :capacitor-app:compileDebugJavaWithJavac
+> Task :capacitor-app:bundleLibCompileToJarDebug
+> Task :capacitor-community-in-app-review:compileDebugJavaWithJavac
+> Task :capacitor-community-in-app-review:bundleLibCompileToJarDebug
+> Task :capacitor-community-speech-recognition:compileDebugJavaWithJavac
+> Task :capacitor-community-speech-recognition:bundleLibCompileToJarDebug
+> Task :app:processDebugResources
+> Task :capacitor-share:compileDebugJavaWithJavac
+> Task :capacitor-share:bundleLibCompileToJarDebug
+> Task :capacitor-splash-screen:compileDebugJavaWithJavac
+> Task :capacitor-splash-screen:bundleLibCompileToJarDebug
+> Task :capacitor-status-bar:javaPreCompileDebug
+> Task :capgo-capacitor-native-biometric:javaPreCompileDebug
+
+> Task :capgo-capacitor-native-biometric:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :capacitor-status-bar:compileDebugJavaWithJavac
+> Task :capgo-capacitor-native-biometric:bundleLibCompileToJarDebug
+> Task :ebarooni-capacitor-calendar:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capacitor-status-bar:bundleLibCompileToJarDebug
+> Task :ebarooni-capacitor-calendar:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugShaders
+> Task :capacitor-android:compileDebugShaders NO-SOURCE
+> Task :capacitor-android:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugAssets
+> Task :capacitor-app:mergeDebugShaders
+> Task :capacitor-app:compileDebugShaders NO-SOURCE
+> Task :capacitor-app:generateDebugAssets UP-TO-DATE
+> Task :capacitor-app:mergeDebugAssets
+> Task :capacitor-community-in-app-review:mergeDebugShaders
+> Task :capacitor-community-in-app-review:compileDebugShaders NO-SOURCE
+> Task :capacitor-community-in-app-review:generateDebugAssets UP-TO-DATE
+> Task :capacitor-community-in-app-review:mergeDebugAssets
+> Task :capacitor-community-speech-recognition:mergeDebugShaders
+> Task :capacitor-community-speech-recognition:compileDebugShaders NO-SOURCE
+> Task :capacitor-community-speech-recognition:generateDebugAssets UP-TO-DATE
+> Task :capacitor-community-speech-recognition:mergeDebugAssets
+> Task :capacitor-cordova-android-plugins:mergeDebugShaders
+> Task :capacitor-cordova-android-plugins:compileDebugShaders NO-SOURCE
+> Task :capacitor-cordova-android-plugins:generateDebugAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugAssets
+> Task :capacitor-filesystem:mergeDebugShaders
+> Task :capacitor-filesystem:compileDebugShaders NO-SOURCE
+> Task :capacitor-filesystem:generateDebugAssets UP-TO-DATE
+> Task :capacitor-filesystem:mergeDebugAssets
+> Task :capacitor-local-notifications:mergeDebugShaders
+> Task :capacitor-local-notifications:compileDebugShaders NO-SOURCE
+> Task :capacitor-local-notifications:generateDebugAssets UP-TO-DATE
+> Task :capacitor-local-notifications:mergeDebugAssets
+> Task :capacitor-share:mergeDebugShaders
+> Task :capacitor-share:compileDebugShaders NO-SOURCE
+> Task :capacitor-share:generateDebugAssets UP-TO-DATE
+> Task :capacitor-share:mergeDebugAssets
+> Task :capacitor-splash-screen:mergeDebugShaders
+> Task :capacitor-splash-screen:compileDebugShaders NO-SOURCE
+> Task :capacitor-splash-screen:generateDebugAssets UP-TO-DATE
+> Task :capacitor-splash-screen:mergeDebugAssets
+> Task :capacitor-status-bar:mergeDebugShaders
+> Task :capacitor-status-bar:compileDebugShaders NO-SOURCE
+> Task :capacitor-status-bar:generateDebugAssets UP-TO-DATE
+> Task :capacitor-status-bar:mergeDebugAssets
+> Task :capgo-capacitor-native-biometric:mergeDebugShaders
+> Task :capgo-capacitor-native-biometric:compileDebugShaders NO-SOURCE
+> Task :capgo-capacitor-native-biometric:generateDebugAssets UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:mergeDebugAssets
+> Task :ebarooni-capacitor-calendar:mergeDebugShaders
+> Task :ebarooni-capacitor-calendar:compileDebugShaders NO-SOURCE
+> Task :ebarooni-capacitor-calendar:generateDebugAssets UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:mergeDebugAssets
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :capacitor-community-in-app-review:bundleLibRuntimeToJarDebug
+> Task :capacitor-community-speech-recognition:bundleLibRuntimeToJarDebug
+> Task :capacitor-app:bundleLibRuntimeToJarDebug
+> Task :capacitor-filesystem:compileDebugKotlin
+> Task :capacitor-filesystem:compileDebugJavaWithJavac NO-SOURCE
+> Task :capacitor-filesystem:bundleLibCompileToJarDebug
+> Task :capacitor-filesystem:bundleLibRuntimeToJarDebug
+> Task :capacitor-share:bundleLibRuntimeToJarDebug
+> Task :capacitor-splash-screen:bundleLibRuntimeToJarDebug
+> Task :capacitor-status-bar:bundleLibRuntimeToJarDebug
+> Task :capgo-capacitor-native-biometric:bundleLibRuntimeToJarDebug
+> Task :capacitor-android:bundleLibRuntimeToJarDebug
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarDebug
+> Task :app:desugarDebugFileDependencies
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :capacitor-android:processDebugJavaRes NO-SOURCE
+> Task :capacitor-app:processDebugJavaRes NO-SOURCE
+> Task :capacitor-community-in-app-review:processDebugJavaRes NO-SOURCE
+> Task :capacitor-community-speech-recognition:processDebugJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:processDebugJavaRes NO-SOURCE
+> Task :capacitor-filesystem:processDebugJavaRes
+> Task :capacitor-share:processDebugJavaRes NO-SOURCE
+> Task :capacitor-splash-screen:processDebugJavaRes NO-SOURCE
+> Task :capacitor-status-bar:processDebugJavaRes NO-SOURCE
+> Task :capgo-capacitor-native-biometric:processDebugJavaRes NO-SOURCE
+> Task :capacitor-community-in-app-review:bundleLibRuntimeToDirDebug
+> Task :app:checkDebugDuplicateClasses
+> Task :ebarooni-capacitor-calendar:compileDebugKotlin
+> Task :capacitor-local-notifications:compileDebugKotlin
+> Task :capacitor-local-notifications:compileDebugJavaWithJavac NO-SOURCE
+> Task :ebarooni-capacitor-calendar:compileDebugJavaWithJavac NO-SOURCE
+> Task :capacitor-local-notifications:bundleLibCompileToJarDebug
+> Task :capacitor-local-notifications:bundleLibRuntimeToJarDebug
+> Task :ebarooni-capacitor-calendar:bundleLibCompileToJarDebug
+> Task :ebarooni-capacitor-calendar:bundleLibRuntimeToJarDebug
+> Task :app:compileDebugJavaWithJavac
+> Task :app:dexBuilderDebug
+> Task :capacitor-local-notifications:processDebugJavaRes
+> Task :app:mergeDebugGlobalSynthetics
+> Task :ebarooni-capacitor-calendar:processDebugJavaRes
+> Task :capacitor-community-speech-recognition:bundleLibRuntimeToDirDebug
+> Task :capacitor-app:bundleLibRuntimeToDirDebug
+> Task :capacitor-filesystem:bundleLibRuntimeToDirDebug
+> Task :capacitor-local-notifications:bundleLibRuntimeToDirDebug
+> Task :capacitor-share:bundleLibRuntimeToDirDebug
+> Task :capacitor-splash-screen:bundleLibRuntimeToDirDebug
+> Task :capacitor-status-bar:bundleLibRuntimeToDirDebug
+> Task :capgo-capacitor-native-biometric:bundleLibRuntimeToDirDebug
+> Task :ebarooni-capacitor-calendar:bundleLibRuntimeToDirDebug
+> Task :app:mergeDebugJavaResource
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToDirDebug
+> Task :capacitor-android:bundleLibRuntimeToDirDebug
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeProjectDexDebug
+> Task :capacitor-android:mergeDebugJniLibFolders
+> Task :capacitor-android:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-android:copyDebugJniLibsProjectOnly
+> Task :capacitor-app:mergeDebugJniLibFolders
+> Task :capacitor-app:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-app:copyDebugJniLibsProjectOnly
+> Task :capacitor-community-in-app-review:mergeDebugJniLibFolders
+> Task :capacitor-community-in-app-review:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-community-in-app-review:copyDebugJniLibsProjectOnly
+> Task :capacitor-community-speech-recognition:mergeDebugJniLibFolders
+> Task :capacitor-community-speech-recognition:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-community-speech-recognition:copyDebugJniLibsProjectOnly
+> Task :capacitor-cordova-android-plugins:mergeDebugJniLibFolders
+> Task :capacitor-cordova-android-plugins:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly
+> Task :capacitor-filesystem:mergeDebugJniLibFolders
+> Task :capacitor-filesystem:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-filesystem:copyDebugJniLibsProjectOnly
+> Task :capacitor-local-notifications:mergeDebugJniLibFolders
+> Task :capacitor-local-notifications:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-local-notifications:copyDebugJniLibsProjectOnly
+> Task :capacitor-share:mergeDebugJniLibFolders
+> Task :capacitor-share:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-share:copyDebugJniLibsProjectOnly
+> Task :capacitor-splash-screen:mergeDebugJniLibFolders
+> Task :capacitor-splash-screen:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-splash-screen:copyDebugJniLibsProjectOnly
+> Task :capacitor-status-bar:mergeDebugJniLibFolders
+> Task :capacitor-status-bar:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-status-bar:copyDebugJniLibsProjectOnly
+> Task :capgo-capacitor-native-biometric:mergeDebugJniLibFolders
+> Task :capgo-capacitor-native-biometric:mergeDebugNativeLibs NO-SOURCE
+> Task :capgo-capacitor-native-biometric:copyDebugJniLibsProjectOnly
+> Task :ebarooni-capacitor-calendar:mergeDebugJniLibFolders
+> Task :ebarooni-capacitor-calendar:mergeDebugNativeLibs NO-SOURCE
+> Task :ebarooni-capacitor-calendar:copyDebugJniLibsProjectOnly
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :capacitor-android:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-android:checkDebugAarMetadata
+> Task :capacitor-android:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-android:extractDebugAnnotations
+> Task :capacitor-android:extractDeepLinksForAarDebug
+> Task :capacitor-android:mergeDebugGeneratedProguardFiles
+> Task :capacitor-android:mergeDebugConsumerProguardFiles
+> Task :capacitor-android:prepareDebugArtProfile
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :capacitor-android:prepareLintJarForPublish
+> Task :capacitor-android:mergeDebugJavaResource
+> Task :capacitor-app:checkDebugAarMetadata
+> Task :capacitor-android:syncDebugLibJars
+> Task :capacitor-android:bundleDebugAar
+> Task :capacitor-android:assembleDebug
+> Task :capacitor-app:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-app:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-app:extractDebugAnnotations
+> Task :capacitor-app:extractDeepLinksForAarDebug
+> Task :capacitor-app:mergeDebugGeneratedProguardFiles
+> Task :capacitor-app:mergeDebugConsumerProguardFiles
+> Task :capacitor-app:prepareDebugArtProfile
+> Task :capacitor-app:prepareLintJarForPublish
+> Task :capacitor-app:mergeDebugJavaResource
+> Task :capacitor-community-in-app-review:checkDebugAarMetadata
+> Task :capacitor-app:syncDebugLibJars
+> Task :capacitor-app:bundleDebugAar
+> Task :capacitor-app:assembleDebug
+> Task :capacitor-community-in-app-review:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-community-in-app-review:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-community-in-app-review:extractDebugAnnotations
+> Task :capacitor-community-in-app-review:extractDeepLinksForAarDebug
+> Task :capacitor-community-in-app-review:mergeDebugGeneratedProguardFiles
+> Task :capacitor-community-in-app-review:mergeDebugConsumerProguardFiles
+> Task :capacitor-community-in-app-review:prepareDebugArtProfile
+> Task :capacitor-community-in-app-review:prepareLintJarForPublish
+> Task :capacitor-community-in-app-review:mergeDebugJavaResource
+> Task :capacitor-community-speech-recognition:checkDebugAarMetadata
+> Task :capacitor-community-in-app-review:syncDebugLibJars
+> Task :capacitor-community-in-app-review:bundleDebugAar
+> Task :capacitor-community-in-app-review:assembleDebug
+> Task :capacitor-community-speech-recognition:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-community-speech-recognition:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-community-speech-recognition:extractDebugAnnotations
+> Task :capacitor-community-speech-recognition:extractDeepLinksForAarDebug
+> Task :capacitor-community-speech-recognition:mergeDebugGeneratedProguardFiles
+> Task :capacitor-community-speech-recognition:mergeDebugConsumerProguardFiles
+> Task :capacitor-community-speech-recognition:prepareDebugArtProfile
+> Task :capacitor-community-speech-recognition:prepareLintJarForPublish
+> Task :capacitor-community-speech-recognition:mergeDebugJavaResource
+> Task :capacitor-cordova-android-plugins:checkDebugAarMetadata
+> Task :capacitor-community-speech-recognition:syncDebugLibJars
+> Task :capacitor-community-speech-recognition:bundleDebugAar
+> Task :capacitor-community-speech-recognition:assembleDebug
+> Task :capacitor-cordova-android-plugins:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-cordova-android-plugins:extractDebugAnnotations
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarDebug
+> Task :capacitor-cordova-android-plugins:mergeDebugGeneratedProguardFiles
+> Task :capacitor-cordova-android-plugins:mergeDebugConsumerProguardFiles
+> Task :capacitor-cordova-android-plugins:prepareDebugArtProfile
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish
+> Task :capacitor-cordova-android-plugins:mergeDebugJavaResource
+> Task :capacitor-filesystem:checkDebugAarMetadata
+> Task :capacitor-cordova-android-plugins:syncDebugLibJars
+> Task :capacitor-cordova-android-plugins:bundleDebugAar
+> Task :capacitor-cordova-android-plugins:assembleDebug
+> Task :capacitor-filesystem:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-filesystem:extractDebugAnnotations
+> Task :capacitor-filesystem:extractDeepLinksForAarDebug
+> Task :capacitor-filesystem:mergeDebugGeneratedProguardFiles
+> Task :capacitor-filesystem:mergeDebugConsumerProguardFiles
+> Task :capacitor-filesystem:prepareDebugArtProfile
+> Task :capacitor-filesystem:prepareLintJarForPublish
+> Task :capacitor-filesystem:mergeDebugJavaResource
+> Task :capacitor-local-notifications:checkDebugAarMetadata
+> Task :capacitor-local-notifications:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:syncDebugLibJars
+> Task :capacitor-filesystem:bundleDebugAar
+> Task :capacitor-filesystem:assembleDebug
+> Task :capacitor-local-notifications:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-local-notifications:extractDebugAnnotations
+> Task :capacitor-local-notifications:extractDeepLinksForAarDebug
+> Task :capacitor-local-notifications:mergeDebugGeneratedProguardFiles
+> Task :capacitor-local-notifications:mergeDebugConsumerProguardFiles
+> Task :capacitor-local-notifications:prepareDebugArtProfile
+> Task :capacitor-local-notifications:prepareLintJarForPublish
+> Task :capacitor-local-notifications:mergeDebugJavaResource
+> Task :capacitor-share:checkDebugAarMetadata
+> Task :capacitor-local-notifications:syncDebugLibJars
+> Task :capacitor-local-notifications:bundleDebugAar
+> Task :capacitor-local-notifications:assembleDebug
+> Task :capacitor-share:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-share:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-share:extractDebugAnnotations
+> Task :capacitor-share:extractDeepLinksForAarDebug
+> Task :capacitor-share:mergeDebugGeneratedProguardFiles
+> Task :capacitor-share:mergeDebugConsumerProguardFiles
+> Task :capacitor-share:prepareDebugArtProfile
+> Task :capacitor-share:prepareLintJarForPublish
+> Task :capacitor-share:mergeDebugJavaResource
+> Task :capacitor-splash-screen:checkDebugAarMetadata
+> Task :capacitor-share:syncDebugLibJars
+> Task :capacitor-share:bundleDebugAar
+> Task :capacitor-share:assembleDebug
+> Task :capacitor-splash-screen:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-splash-screen:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-splash-screen:extractDebugAnnotations
+> Task :capacitor-splash-screen:extractDeepLinksForAarDebug
+> Task :capacitor-splash-screen:mergeDebugGeneratedProguardFiles
+> Task :capacitor-splash-screen:mergeDebugConsumerProguardFiles
+> Task :capacitor-splash-screen:prepareDebugArtProfile
+> Task :capacitor-splash-screen:prepareLintJarForPublish
+> Task :capacitor-splash-screen:mergeDebugJavaResource
+> Task :capacitor-status-bar:checkDebugAarMetadata
+> Task :capacitor-splash-screen:syncDebugLibJars
+> Task :capacitor-splash-screen:bundleDebugAar
+> Task :capacitor-splash-screen:assembleDebug
+> Task :capacitor-status-bar:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-status-bar:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-status-bar:extractDebugAnnotations
+> Task :capacitor-status-bar:extractDeepLinksForAarDebug
+> Task :capacitor-status-bar:mergeDebugGeneratedProguardFiles
+> Task :capacitor-status-bar:mergeDebugConsumerProguardFiles
+> Task :capacitor-status-bar:prepareDebugArtProfile
+> Task :capacitor-status-bar:prepareLintJarForPublish
+> Task :capacitor-status-bar:mergeDebugJavaResource
+> Task :capgo-capacitor-native-biometric:checkDebugAarMetadata
+> Task :capacitor-status-bar:syncDebugLibJars
+> Task :capacitor-status-bar:bundleDebugAar
+> Task :capacitor-status-bar:assembleDebug
+> Task :capgo-capacitor-native-biometric:stripDebugDebugSymbols NO-SOURCE
+> Task :capgo-capacitor-native-biometric:copyDebugJniLibsProjectAndLocalJars
+> Task :capgo-capacitor-native-biometric:extractDebugAnnotations
+> Task :capgo-capacitor-native-biometric:extractDeepLinksForAarDebug
+> Task :capgo-capacitor-native-biometric:mergeDebugGeneratedProguardFiles
+> Task :capgo-capacitor-native-biometric:mergeDebugConsumerProguardFiles
+> Task :capgo-capacitor-native-biometric:prepareDebugArtProfile
+> Task :capgo-capacitor-native-biometric:prepareLintJarForPublish
+> Task :capgo-capacitor-native-biometric:mergeDebugJavaResource
+> Task :ebarooni-capacitor-calendar:checkDebugAarMetadata
+> Task :capgo-capacitor-native-biometric:syncDebugLibJars
+> Task :capgo-capacitor-native-biometric:bundleDebugAar
+> Task :capgo-capacitor-native-biometric:assembleDebug
+> Task :ebarooni-capacitor-calendar:stripDebugDebugSymbols NO-SOURCE
+> Task :ebarooni-capacitor-calendar:copyDebugJniLibsProjectAndLocalJars
+> Task :ebarooni-capacitor-calendar:extractDebugAnnotations
+> Task :ebarooni-capacitor-calendar:extractDeepLinksForAarDebug
+> Task :ebarooni-capacitor-calendar:mergeDebugGeneratedProguardFiles
+> Task :ebarooni-capacitor-calendar:mergeDebugConsumerProguardFiles
+> Task :ebarooni-capacitor-calendar:prepareDebugArtProfile
+> Task :ebarooni-capacitor-calendar:prepareLintJarForPublish
+> Task :ebarooni-capacitor-calendar:mergeDebugJavaResource
+> Task :ebarooni-capacitor-calendar:syncDebugLibJars
+> Task :ebarooni-capacitor-calendar:bundleDebugAar
+> Task :ebarooni-capacitor-calendar:assembleDebug
+w: Detected multiple Kotlin daemon sessions at 
+
+[Incubating] Problems report is available at: file:///home/runner/work/kidarmor/kidarmor/native/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 59s
+396 actionable tasks: 396 executed
++ mkdir -p ../out
++ cp app/build/outputs/apk/debug/app-debug.apk ../out/KidArmor-test.apk
++ ls -la ../out
+total 16296
+drwxr-xr-x  2 runner runner     4096 Nov 14 19:32 .
+drwxr-xr-x 11 runner runner     4096 Nov 14 19:32 ..
+-rw-r--r--  1 runner runner 16677725 Nov 14 19:32 KidArmor-test.apk
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Configure project :capacitor-cordova-android-plugins
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+The Kotlin Gradle plugin was loaded multiple times in different subprojects, which is not supported and may break the build. 
+This might happen in subprojects that apply the Kotlin plugins with the Gradle 'plugins { ... }' DSL if they specify explicit versions, even if the versions are equal.
+Please add the Kotlin plugin to the common parent project or the root project, then remove the versions in the subprojects.
+If the parent project does not need the plugin, add 'apply false' to the plugin line.
+See: https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl
+The Kotlin plugin was loaded in the following projects: ':capacitor-filesystem', ':ebarooni-capacitor-calendar'
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :capacitor-android:preBuild UP-TO-DATE
+> Task :capacitor-android:preReleaseBuild UP-TO-DATE
+> Task :capacitor-android:processReleaseNavigationResources
+> Task :capacitor-app:preBuild UP-TO-DATE
+> Task :capacitor-app:preReleaseBuild UP-TO-DATE
+> Task :capacitor-app:processReleaseNavigationResources
+> Task :capacitor-community-in-app-review:preBuild UP-TO-DATE
+> Task :capacitor-community-in-app-review:preReleaseBuild UP-TO-DATE
+> Task :capacitor-community-in-app-review:processReleaseNavigationResources
+> Task :capacitor-community-speech-recognition:preBuild UP-TO-DATE
+> Task :capacitor-community-speech-recognition:preReleaseBuild UP-TO-DATE
+> Task :capacitor-community-speech-recognition:processReleaseNavigationResources
+> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preReleaseBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processReleaseNavigationResources
+> Task :capacitor-filesystem:preBuild UP-TO-DATE
+> Task :capacitor-filesystem:preReleaseBuild UP-TO-DATE
+> Task :capacitor-filesystem:processReleaseNavigationResources
+> Task :capacitor-local-notifications:preBuild UP-TO-DATE
+> Task :capacitor-local-notifications:preReleaseBuild UP-TO-DATE
+> Task :capacitor-local-notifications:processReleaseNavigationResources
+> Task :capacitor-share:preBuild UP-TO-DATE
+> Task :capacitor-share:preReleaseBuild UP-TO-DATE
+> Task :capacitor-share:processReleaseNavigationResources
+> Task :capacitor-splash-screen:preBuild UP-TO-DATE
+> Task :capacitor-splash-screen:preReleaseBuild UP-TO-DATE
+> Task :capacitor-splash-screen:processReleaseNavigationResources
+> Task :capacitor-status-bar:preBuild UP-TO-DATE
+> Task :capacitor-status-bar:preReleaseBuild UP-TO-DATE
+> Task :capacitor-status-bar:processReleaseNavigationResources
+> Task :capgo-capacitor-native-biometric:preBuild UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:preReleaseBuild UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:processReleaseNavigationResources
+> Task :ebarooni-capacitor-calendar:preBuild UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:preReleaseBuild UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:processReleaseNavigationResources
+> Task :app:processReleaseNavigationResources
+> Task :app:generateReleaseResValues
+> Task :capacitor-android:generateReleaseResValues
+> Task :capacitor-android:generateReleaseResources
+> Task :capacitor-android:packageReleaseResources
+> Task :capacitor-app:generateReleaseResValues
+> Task :app:compileReleaseNavigationResources
+> Task :capacitor-app:generateReleaseResources
+> Task :capacitor-app:packageReleaseResources
+> Task :capacitor-community-in-app-review:generateReleaseResValues
+> Task :capacitor-community-in-app-review:generateReleaseResources
+> Task :capacitor-community-in-app-review:packageReleaseResources
+> Task :capacitor-community-speech-recognition:generateReleaseResValues
+> Task :capacitor-community-speech-recognition:generateReleaseResources
+> Task :capacitor-community-speech-recognition:packageReleaseResources
+> Task :capacitor-cordova-android-plugins:generateReleaseResValues
+> Task :capacitor-cordova-android-plugins:generateReleaseResources
+> Task :capacitor-cordova-android-plugins:packageReleaseResources
+> Task :capacitor-filesystem:generateReleaseResValues
+> Task :capacitor-filesystem:generateReleaseResources
+> Task :capacitor-filesystem:packageReleaseResources
+> Task :capacitor-local-notifications:generateReleaseResValues
+> Task :capacitor-local-notifications:generateReleaseResources
+> Task :capacitor-local-notifications:packageReleaseResources
+> Task :capacitor-share:generateReleaseResValues
+> Task :capacitor-share:generateReleaseResources
+> Task :capacitor-share:packageReleaseResources
+> Task :capacitor-splash-screen:generateReleaseResValues
+> Task :capacitor-splash-screen:generateReleaseResources
+> Task :capacitor-splash-screen:packageReleaseResources
+> Task :capacitor-status-bar:generateReleaseResValues
+> Task :capacitor-status-bar:generateReleaseResources
+> Task :capacitor-status-bar:packageReleaseResources
+> Task :capgo-capacitor-native-biometric:generateReleaseResValues
+> Task :capgo-capacitor-native-biometric:generateReleaseResources
+> Task :capgo-capacitor-native-biometric:packageReleaseResources
+> Task :ebarooni-capacitor-calendar:generateReleaseResValues
+> Task :ebarooni-capacitor-calendar:generateReleaseResources
+> Task :ebarooni-capacitor-calendar:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :capacitor-android:extractDeepLinksRelease
+> Task :capacitor-app:extractDeepLinksRelease
+> Task :capacitor-community-in-app-review:extractDeepLinksRelease
+> Task :capacitor-android:processReleaseManifest
+> Task :capacitor-community-speech-recognition:extractDeepLinksRelease
+> Task :capacitor-app:processReleaseManifest
+> Task :capacitor-cordova-android-plugins:extractDeepLinksRelease
+> Task :capacitor-community-in-app-review:processReleaseManifest
+> Task :capacitor-filesystem:extractDeepLinksRelease
+> Task :capacitor-community-speech-recognition:processReleaseManifest
+> Task :capacitor-local-notifications:extractDeepLinksRelease
+> Task :capacitor-cordova-android-plugins:processReleaseManifest
+> Task :capacitor-share:extractDeepLinksRelease
+> Task :capacitor-filesystem:processReleaseManifest
+> Task :capacitor-splash-screen:extractDeepLinksRelease
+> Task :capacitor-local-notifications:processReleaseManifest
+> Task :capacitor-status-bar:extractDeepLinksRelease
+> Task :capacitor-share:processReleaseManifest
+> Task :capgo-capacitor-native-biometric:extractDeepLinksRelease
+> Task :capacitor-splash-screen:processReleaseManifest
+> Task :ebarooni-capacitor-calendar:extractDeepLinksRelease
+> Task :capacitor-status-bar:processReleaseManifest
+> Task :capgo-capacitor-native-biometric:processReleaseManifest
+> Task :ebarooni-capacitor-calendar:processReleaseManifest
+> Task :capacitor-android:writeReleaseAarMetadata
+> Task :capacitor-app:writeReleaseAarMetadata
+
+> Task :app:processReleaseMainManifest
+/home/runner/work/kidarmor/kidarmor/native/android/app/src/main/AndroidManifest.xml:49:5-92 Warning:
+	uses-permission#android.permission.READ_CALENDAR was tagged at AndroidManifest.xml:49 to remove other declarations but no other declaration present
+/home/runner/work/kidarmor/kidarmor/native/android/app/src/main/AndroidManifest.xml:50:5-93 Warning:
+	uses-permission#android.permission.WRITE_CALENDAR was tagged at AndroidManifest.xml:50 to remove other declarations but no other declaration present
+
+> Task :app:processReleaseManifest
+> Task :app:processApplicationManifestReleaseForBundle
+> Task :capacitor-community-in-app-review:writeReleaseAarMetadata
+> Task :capacitor-cordova-android-plugins:writeReleaseAarMetadata
+> Task :capacitor-community-speech-recognition:writeReleaseAarMetadata
+> Task :capacitor-local-notifications:writeReleaseAarMetadata
+> Task :capacitor-share:writeReleaseAarMetadata
+> Task :capacitor-splash-screen:writeReleaseAarMetadata
+> Task :capacitor-filesystem:writeReleaseAarMetadata
+> Task :ebarooni-capacitor-calendar:writeReleaseAarMetadata
+> Task :capgo-capacitor-native-biometric:writeReleaseAarMetadata
+> Task :capacitor-status-bar:writeReleaseAarMetadata
+> Task :app:packageReleaseResources
+> Task :app:checkReleaseAarMetadata
+> Task :app:processReleaseManifestForPackage
+> Task :capacitor-android:compileReleaseLibraryResources
+> Task :capacitor-android:parseReleaseLocalResources
+> Task :app:parseReleaseLocalResources
+> Task :capacitor-app:compileReleaseLibraryResources
+> Task :capacitor-app:parseReleaseLocalResources
+> Task :capacitor-community-in-app-review:compileReleaseLibraryResources
+> Task :capacitor-app:generateReleaseRFile
+> Task :capacitor-android:generateReleaseRFile
+> Task :capacitor-community-in-app-review:parseReleaseLocalResources
+> Task :capacitor-community-speech-recognition:compileReleaseLibraryResources
+> Task :capacitor-community-in-app-review:generateReleaseRFile
+> Task :capacitor-community-speech-recognition:parseReleaseLocalResources
+> Task :capacitor-cordova-android-plugins:compileReleaseLibraryResources
+> Task :capacitor-community-speech-recognition:generateReleaseRFile
+> Task :capacitor-filesystem:compileReleaseLibraryResources
+> Task :capacitor-cordova-android-plugins:parseReleaseLocalResources
+> Task :capacitor-filesystem:parseReleaseLocalResources
+> Task :capacitor-local-notifications:compileReleaseLibraryResources
+> Task :capacitor-cordova-android-plugins:generateReleaseRFile
+> Task :capacitor-filesystem:generateReleaseRFile
+> Task :capacitor-share:compileReleaseLibraryResources
+> Task :capacitor-local-notifications:parseReleaseLocalResources
+> Task :capacitor-splash-screen:compileReleaseLibraryResources
+> Task :capacitor-share:parseReleaseLocalResources
+> Task :capacitor-local-notifications:generateReleaseRFile
+> Task :capacitor-share:generateReleaseRFile
+> Task :capacitor-splash-screen:parseReleaseLocalResources
+> Task :capacitor-status-bar:compileReleaseLibraryResources
+> Task :capacitor-status-bar:parseReleaseLocalResources
+> Task :capacitor-splash-screen:generateReleaseRFile
+> Task :capgo-capacitor-native-biometric:compileReleaseLibraryResources
+> Task :capacitor-status-bar:generateReleaseRFile
+> Task :capgo-capacitor-native-biometric:parseReleaseLocalResources
+> Task :ebarooni-capacitor-calendar:compileReleaseLibraryResources
+> Task :ebarooni-capacitor-calendar:parseReleaseLocalResources
+> Task :capgo-capacitor-native-biometric:generateReleaseRFile
+> Task :app:extractReleaseVersionControlInfo
+> Task :ebarooni-capacitor-calendar:generateReleaseRFile
+> Task :capacitor-android:javaPreCompileRelease
+> Task :capacitor-community-in-app-review:javaPreCompileRelease
+> Task :app:mergeReleaseResources
+
+> Task :capacitor-android:compileReleaseJavaWithJavac
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :capacitor-community-speech-recognition:javaPreCompileRelease
+> Task :capacitor-filesystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capacitor-app:javaPreCompileRelease
+> Task :capacitor-local-notifications:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capacitor-filesystem:javaPreCompileRelease
+> Task :capacitor-local-notifications:javaPreCompileRelease
+> Task :capacitor-share:javaPreCompileRelease
+> Task :capacitor-splash-screen:javaPreCompileRelease
+> Task :capacitor-status-bar:javaPreCompileRelease
+> Task :ebarooni-capacitor-calendar:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :capgo-capacitor-native-biometric:javaPreCompileRelease
+> Task :ebarooni-capacitor-calendar:javaPreCompileRelease
+> Task :capacitor-cordova-android-plugins:javaPreCompileRelease
+> Task :capacitor-android:bundleLibCompileToJarRelease
+> Task :capacitor-cordova-android-plugins:compileReleaseJavaWithJavac NO-SOURCE
+> Task :capacitor-android:bundleLibRuntimeToDirRelease
+> Task :capacitor-community-in-app-review:compileReleaseJavaWithJavac
+> Task :capacitor-community-in-app-review:bundleLibRuntimeToDirRelease
+> Task :capacitor-community-speech-recognition:compileReleaseJavaWithJavac
+> Task :capacitor-community-speech-recognition:bundleLibRuntimeToDirRelease
+> Task :app:processReleaseResources
+> Task :app:bundleReleaseResources
+> Task :capacitor-app:compileReleaseJavaWithJavac
+> Task :capacitor-app:bundleLibRuntimeToDirRelease
+> Task :capacitor-share:compileReleaseJavaWithJavac
+> Task :capacitor-share:bundleLibRuntimeToDirRelease
+> Task :capacitor-splash-screen:compileReleaseJavaWithJavac
+> Task :capacitor-splash-screen:bundleLibRuntimeToDirRelease
+> Task :capacitor-status-bar:compileReleaseJavaWithJavac
+> Task :capacitor-status-bar:bundleLibRuntimeToDirRelease
+
+> Task :capgo-capacitor-native-biometric:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :capgo-capacitor-native-biometric:bundleLibRuntimeToDirRelease
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToDirRelease
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:javaPreCompileRelease
+> Task :capacitor-app:bundleLibCompileToJarRelease
+> Task :capacitor-community-in-app-review:bundleLibCompileToJarRelease
+> Task :capacitor-community-speech-recognition:bundleLibCompileToJarRelease
+> Task :capacitor-cordova-android-plugins:bundleLibCompileToJarRelease
+> Task :capacitor-share:bundleLibCompileToJarRelease
+> Task :capacitor-splash-screen:bundleLibCompileToJarRelease
+> Task :capacitor-status-bar:bundleLibCompileToJarRelease
+> Task :capgo-capacitor-native-biometric:bundleLibCompileToJarRelease
+> Task :app:desugarReleaseFileDependencies
+> Task :app:mergeReleaseStartupProfile
+> Task :capacitor-local-notifications:compileReleaseKotlin
+> Task :ebarooni-capacitor-calendar:compileReleaseKotlin
+> Task :capacitor-filesystem:compileReleaseKotlin
+> Task :capacitor-filesystem:compileReleaseJavaWithJavac NO-SOURCE
+> Task :capacitor-local-notifications:compileReleaseJavaWithJavac NO-SOURCE
+> Task :ebarooni-capacitor-calendar:compileReleaseJavaWithJavac NO-SOURCE
+> Task :capacitor-local-notifications:bundleLibRuntimeToDirRelease
+> Task :capacitor-filesystem:bundleLibRuntimeToDirRelease
+> Task :ebarooni-capacitor-calendar:bundleLibRuntimeToDirRelease
+> Task :capacitor-filesystem:bundleLibCompileToJarRelease
+> Task :capacitor-local-notifications:bundleLibCompileToJarRelease
+> Task :ebarooni-capacitor-calendar:bundleLibCompileToJarRelease
+> Task :app:mergeReleaseShaders
+> Task :app:mergeExtDexRelease
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:dexBuilderRelease
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-android:mergeReleaseShaders
+> Task :capacitor-android:compileReleaseShaders NO-SOURCE
+> Task :capacitor-android:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-android:mergeReleaseAssets
+> Task :capacitor-app:mergeReleaseShaders
+> Task :capacitor-app:compileReleaseShaders NO-SOURCE
+> Task :capacitor-app:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-app:mergeReleaseAssets
+> Task :capacitor-community-in-app-review:mergeReleaseShaders
+> Task :capacitor-community-in-app-review:compileReleaseShaders NO-SOURCE
+> Task :capacitor-community-in-app-review:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-community-in-app-review:mergeReleaseAssets
+> Task :capacitor-community-speech-recognition:mergeReleaseShaders
+> Task :capacitor-community-speech-recognition:compileReleaseShaders NO-SOURCE
+> Task :capacitor-community-speech-recognition:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-community-speech-recognition:mergeReleaseAssets
+> Task :capacitor-cordova-android-plugins:mergeReleaseShaders
+> Task :capacitor-cordova-android-plugins:compileReleaseShaders NO-SOURCE
+> Task :capacitor-cordova-android-plugins:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseAssets
+> Task :capacitor-filesystem:mergeReleaseShaders
+> Task :capacitor-filesystem:compileReleaseShaders NO-SOURCE
+> Task :capacitor-filesystem:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseAssets
+> Task :capacitor-local-notifications:mergeReleaseShaders
+> Task :capacitor-local-notifications:compileReleaseShaders NO-SOURCE
+> Task :capacitor-local-notifications:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-local-notifications:mergeReleaseAssets
+> Task :capacitor-share:mergeReleaseShaders
+> Task :capacitor-share:compileReleaseShaders NO-SOURCE
+> Task :capacitor-share:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-share:mergeReleaseAssets
+> Task :capacitor-splash-screen:mergeReleaseShaders
+> Task :capacitor-splash-screen:compileReleaseShaders NO-SOURCE
+> Task :capacitor-splash-screen:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-splash-screen:mergeReleaseAssets
+> Task :capacitor-status-bar:mergeReleaseShaders
+> Task :capacitor-status-bar:compileReleaseShaders NO-SOURCE
+> Task :capacitor-status-bar:generateReleaseAssets UP-TO-DATE
+> Task :capacitor-status-bar:mergeReleaseAssets
+> Task :capgo-capacitor-native-biometric:mergeReleaseShaders
+> Task :capgo-capacitor-native-biometric:compileReleaseShaders NO-SOURCE
+> Task :capgo-capacitor-native-biometric:generateReleaseAssets UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:mergeReleaseAssets
+> Task :ebarooni-capacitor-calendar:mergeReleaseShaders
+> Task :ebarooni-capacitor-calendar:compileReleaseShaders NO-SOURCE
+> Task :ebarooni-capacitor-calendar:generateReleaseAssets UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:mergeReleaseAssets
+> Task :app:mergeReleaseAssets
+> Task :capacitor-community-in-app-review:bundleLibRuntimeToJarRelease
+> Task :capacitor-community-speech-recognition:bundleLibRuntimeToJarRelease
+> Task :capacitor-app:bundleLibRuntimeToJarRelease
+> Task :capacitor-filesystem:bundleLibRuntimeToJarRelease
+> Task :capacitor-local-notifications:bundleLibRuntimeToJarRelease
+> Task :capacitor-share:bundleLibRuntimeToJarRelease
+> Task :capacitor-splash-screen:bundleLibRuntimeToJarRelease
+> Task :capacitor-status-bar:bundleLibRuntimeToJarRelease
+> Task :capgo-capacitor-native-biometric:bundleLibRuntimeToJarRelease
+> Task :ebarooni-capacitor-calendar:bundleLibRuntimeToJarRelease
+> Task :capacitor-android:bundleLibRuntimeToJarRelease
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarRelease
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-android:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-app:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-community-in-app-review:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-community-speech-recognition:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-filesystem:processReleaseJavaRes
+> Task :capacitor-local-notifications:processReleaseJavaRes
+> Task :capacitor-share:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-splash-screen:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-status-bar:processReleaseJavaRes NO-SOURCE
+> Task :capgo-capacitor-native-biometric:processReleaseJavaRes NO-SOURCE
+> Task :ebarooni-capacitor-calendar:processReleaseJavaRes
+> Task :app:mergeReleaseJniLibFolders
+> Task :capacitor-android:mergeReleaseJniLibFolders
+> Task :capacitor-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-android:copyReleaseJniLibsProjectOnly
+> Task :capacitor-app:mergeReleaseJniLibFolders
+> Task :capacitor-app:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-app:copyReleaseJniLibsProjectOnly
+> Task :capacitor-community-in-app-review:mergeReleaseJniLibFolders
+> Task :capacitor-community-in-app-review:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-community-in-app-review:copyReleaseJniLibsProjectOnly
+> Task :capacitor-community-speech-recognition:mergeReleaseJniLibFolders
+> Task :capacitor-community-speech-recognition:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-community-speech-recognition:copyReleaseJniLibsProjectOnly
+> Task :capacitor-cordova-android-plugins:mergeReleaseJniLibFolders
+> Task :capacitor-cordova-android-plugins:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyReleaseJniLibsProjectOnly
+> Task :capacitor-filesystem:mergeReleaseJniLibFolders
+> Task :capacitor-filesystem:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-filesystem:copyReleaseJniLibsProjectOnly
+> Task :capacitor-local-notifications:mergeReleaseJniLibFolders
+> Task :capacitor-local-notifications:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-local-notifications:copyReleaseJniLibsProjectOnly
+> Task :capacitor-share:mergeReleaseJniLibFolders
+> Task :capacitor-share:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-share:copyReleaseJniLibsProjectOnly
+> Task :capacitor-splash-screen:mergeReleaseJniLibFolders
+> Task :capacitor-splash-screen:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-splash-screen:copyReleaseJniLibsProjectOnly
+> Task :capacitor-status-bar:mergeReleaseJniLibFolders
+> Task :capacitor-status-bar:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-status-bar:copyReleaseJniLibsProjectOnly
+> Task :capgo-capacitor-native-biometric:mergeReleaseJniLibFolders
+> Task :capgo-capacitor-native-biometric:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :capgo-capacitor-native-biometric:copyReleaseJniLibsProjectOnly
+> Task :ebarooni-capacitor-calendar:mergeReleaseJniLibFolders
+> Task :ebarooni-capacitor-calendar:mergeReleaseNativeLibs NO-SOURCE
+> Task :ebarooni-capacitor-calendar:copyReleaseJniLibsProjectOnly
+> Task :app:writeReleaseAppMetadata
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-android:prepareReleaseArtProfile
+> Task :capacitor-app:prepareReleaseArtProfile
+> Task :capacitor-community-in-app-review:prepareReleaseArtProfile
+> Task :capacitor-community-speech-recognition:prepareReleaseArtProfile
+> Task :capacitor-cordova-android-plugins:prepareReleaseArtProfile
+> Task :capacitor-filesystem:prepareReleaseArtProfile
+> Task :capacitor-local-notifications:prepareReleaseArtProfile
+> Task :capacitor-share:prepareReleaseArtProfile
+> Task :capacitor-splash-screen:prepareReleaseArtProfile
+> Task :capacitor-status-bar:prepareReleaseArtProfile
+> Task :capgo-capacitor-native-biometric:prepareReleaseArtProfile
+> Task :ebarooni-capacitor-calendar:prepareReleaseArtProfile
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseJavaResource
+> Task :app:collectReleaseDependencies
+> Task :app:configureReleaseDependencies
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:extractProguardFiles
+> Task :capacitor-android:createFullJarRelease
+> Task :capacitor-android:extractProguardFiles
+> Task :capacitor-android:generateReleaseLintModel
+> Task :capacitor-android:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-app:createFullJarRelease
+> Task :capacitor-app:extractProguardFiles
+> Task :capacitor-app:generateReleaseLintModel
+> Task :capacitor-app:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-community-in-app-review:createFullJarRelease
+> Task :capacitor-community-in-app-review:extractProguardFiles
+> Task :capacitor-community-in-app-review:generateReleaseLintModel
+> Task :capacitor-community-in-app-review:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-community-speech-recognition:createFullJarRelease
+> Task :capacitor-community-speech-recognition:extractProguardFiles
+> Task :capacitor-community-speech-recognition:generateReleaseLintModel
+> Task :capacitor-community-speech-recognition:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:createFullJarRelease
+> Task :capacitor-cordova-android-plugins:extractProguardFiles
+> Task :capacitor-cordova-android-plugins:generateReleaseLintModel
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-filesystem:createFullJarRelease
+> Task :capacitor-filesystem:extractProguardFiles
+> Task :capacitor-filesystem:generateReleaseLintModel
+> Task :capacitor-filesystem:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-local-notifications:createFullJarRelease
+> Task :capacitor-local-notifications:extractProguardFiles
+> Task :capacitor-local-notifications:generateReleaseLintModel
+> Task :capacitor-local-notifications:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-share:createFullJarRelease
+> Task :capacitor-share:extractProguardFiles
+> Task :capacitor-share:generateReleaseLintModel
+> Task :capacitor-share:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-splash-screen:createFullJarRelease
+> Task :capacitor-splash-screen:extractProguardFiles
+> Task :capacitor-splash-screen:generateReleaseLintModel
+> Task :capacitor-splash-screen:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-status-bar:createFullJarRelease
+> Task :capacitor-status-bar:extractProguardFiles
+> Task :capacitor-status-bar:generateReleaseLintModel
+> Task :capacitor-status-bar:prepareLintJarForPublish UP-TO-DATE
+> Task :capgo-capacitor-native-biometric:createFullJarRelease
+> Task :capgo-capacitor-native-biometric:extractProguardFiles
+> Task :capgo-capacitor-native-biometric:generateReleaseLintModel
+> Task :capgo-capacitor-native-biometric:prepareLintJarForPublish UP-TO-DATE
+> Task :ebarooni-capacitor-calendar:createFullJarRelease
+> Task :ebarooni-capacitor-calendar:extractProguardFiles
+> Task :ebarooni-capacitor-calendar:generateReleaseLintModel
+> Task :ebarooni-capacitor-calendar:prepareLintJarForPublish UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :capacitor-community-in-app-review:checkReleaseAarMetadata
+> Task :capacitor-community-in-app-review:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-community-in-app-review:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-community-in-app-review:extractDeepLinksForAarRelease
+> Task :capacitor-community-in-app-review:extractReleaseAnnotations
+> Task :capacitor-community-in-app-review:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-community-in-app-review:mergeReleaseConsumerProguardFiles
+> Task :capacitor-community-in-app-review:mergeReleaseJavaResource
+> Task :capacitor-community-speech-recognition:checkReleaseAarMetadata
+> Task :capacitor-community-speech-recognition:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-community-in-app-review:syncReleaseLibJars
+> Task :capacitor-community-in-app-review:bundleReleaseLocalLintAar
+> Task :capacitor-community-speech-recognition:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-community-speech-recognition:extractDeepLinksForAarRelease
+> Task :capacitor-community-speech-recognition:extractReleaseAnnotations
+> Task :capacitor-community-speech-recognition:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-community-speech-recognition:mergeReleaseConsumerProguardFiles
+> Task :capacitor-community-speech-recognition:mergeReleaseJavaResource
+> Task :capacitor-app:checkReleaseAarMetadata
+> Task :capacitor-app:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-community-speech-recognition:syncReleaseLibJars
+> Task :capacitor-community-speech-recognition:bundleReleaseLocalLintAar
+> Task :capacitor-app:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-app:extractDeepLinksForAarRelease
+> Task :app:mergeDexRelease
+> Task :capacitor-app:extractReleaseAnnotations
+> Task :app:buildReleasePreBundle
+> Task :capacitor-app:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-app:mergeReleaseConsumerProguardFiles
+> Task :capacitor-app:mergeReleaseJavaResource
+> Task :capacitor-filesystem:checkReleaseAarMetadata
+> Task :capacitor-app:syncReleaseLibJars
+> Task :capacitor-app:bundleReleaseLocalLintAar
+> Task :capacitor-filesystem:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-filesystem:extractDeepLinksForAarRelease
+> Task :capacitor-filesystem:extractReleaseAnnotations
+> Task :capacitor-filesystem:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-filesystem:mergeReleaseConsumerProguardFiles
+> Task :capacitor-filesystem:mergeReleaseJavaResource
+> Task :capacitor-local-notifications:checkReleaseAarMetadata
+> Task :capacitor-local-notifications:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:syncReleaseLibJars
+> Task :capacitor-filesystem:bundleReleaseLocalLintAar
+> Task :capacitor-local-notifications:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-local-notifications:extractDeepLinksForAarRelease
+> Task :capacitor-local-notifications:extractReleaseAnnotations
+> Task :capacitor-local-notifications:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-local-notifications:mergeReleaseConsumerProguardFiles
+> Task :capacitor-local-notifications:mergeReleaseJavaResource
+> Task :capacitor-share:checkReleaseAarMetadata
+> Task :capacitor-local-notifications:syncReleaseLibJars
+> Task :capacitor-local-notifications:bundleReleaseLocalLintAar
+> Task :capacitor-share:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-share:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-share:extractDeepLinksForAarRelease
+> Task :capacitor-share:extractReleaseAnnotations
+> Task :capacitor-share:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-share:mergeReleaseConsumerProguardFiles
+> Task :capacitor-share:mergeReleaseJavaResource
+> Task :capacitor-splash-screen:checkReleaseAarMetadata
+> Task :capacitor-share:syncReleaseLibJars
+> Task :capacitor-share:bundleReleaseLocalLintAar
+> Task :capacitor-splash-screen:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-splash-screen:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-splash-screen:extractDeepLinksForAarRelease
+> Task :capacitor-splash-screen:extractReleaseAnnotations
+> Task :capacitor-splash-screen:mergeReleaseGeneratedProguardFiles
+> Task :app:compileReleaseArtProfile
+> Task :capacitor-splash-screen:mergeReleaseConsumerProguardFiles
+> Task :capacitor-status-bar:checkReleaseAarMetadata
+> Task :capacitor-splash-screen:mergeReleaseJavaResource
+> Task :capacitor-status-bar:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-splash-screen:syncReleaseLibJars
+> Task :capacitor-splash-screen:bundleReleaseLocalLintAar
+> Task :capacitor-status-bar:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-status-bar:extractDeepLinksForAarRelease
+> Task :capacitor-status-bar:extractReleaseAnnotations
+> Task :capacitor-status-bar:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-status-bar:mergeReleaseConsumerProguardFiles
+> Task :capacitor-status-bar:mergeReleaseJavaResource
+> Task :capgo-capacitor-native-biometric:checkReleaseAarMetadata
+> Task :capacitor-status-bar:syncReleaseLibJars
+> Task :capacitor-status-bar:bundleReleaseLocalLintAar
+> Task :capgo-capacitor-native-biometric:stripReleaseDebugSymbols NO-SOURCE
+> Task :capgo-capacitor-native-biometric:copyReleaseJniLibsProjectAndLocalJars
+> Task :capgo-capacitor-native-biometric:extractDeepLinksForAarRelease
+> Task :capgo-capacitor-native-biometric:extractReleaseAnnotations
+> Task :capgo-capacitor-native-biometric:mergeReleaseGeneratedProguardFiles
+> Task :capgo-capacitor-native-biometric:mergeReleaseConsumerProguardFiles
+> Task :capgo-capacitor-native-biometric:mergeReleaseJavaResource
+> Task :ebarooni-capacitor-calendar:checkReleaseAarMetadata
+> Task :capgo-capacitor-native-biometric:syncReleaseLibJars
+> Task :capgo-capacitor-native-biometric:bundleReleaseLocalLintAar
+> Task :ebarooni-capacitor-calendar:stripReleaseDebugSymbols NO-SOURCE
+> Task :ebarooni-capacitor-calendar:copyReleaseJniLibsProjectAndLocalJars
+> Task :ebarooni-capacitor-calendar:extractDeepLinksForAarRelease
+> Task :ebarooni-capacitor-calendar:extractReleaseAnnotations
+> Task :ebarooni-capacitor-calendar:mergeReleaseGeneratedProguardFiles
+> Task :ebarooni-capacitor-calendar:mergeReleaseConsumerProguardFiles
+> Task :ebarooni-capacitor-calendar:mergeReleaseJavaResource
+> Task :capacitor-android:checkReleaseAarMetadata
+> Task :ebarooni-capacitor-calendar:syncReleaseLibJars
+> Task :ebarooni-capacitor-calendar:bundleReleaseLocalLintAar
+> Task :capacitor-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-android:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-android:extractDeepLinksForAarRelease
+> Task :capacitor-android:extractReleaseAnnotations
+> Task :capacitor-android:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-android:mergeReleaseConsumerProguardFiles
+> Task :capacitor-android:mergeReleaseJavaResource
+> Task :capacitor-cordova-android-plugins:checkReleaseAarMetadata
+> Task :capacitor-android:syncReleaseLibJars
+> Task :capacitor-android:bundleReleaseLocalLintAar
+> Task :capacitor-cordova-android-plugins:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarRelease
+> Task :capacitor-cordova-android-plugins:extractReleaseAnnotations
+> Task :capacitor-cordova-android-plugins:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-cordova-android-plugins:mergeReleaseConsumerProguardFiles
+> Task :capacitor-cordova-android-plugins:mergeReleaseJavaResource
+> Task :capacitor-cordova-android-plugins:syncReleaseLibJars
+> Task :capacitor-cordova-android-plugins:bundleReleaseLocalLintAar
+> Task :capacitor-android:writeReleaseLintModelMetadata
+> Task :capacitor-app:writeReleaseLintModelMetadata
+> Task :capacitor-community-in-app-review:writeReleaseLintModelMetadata
+> Task :capacitor-community-speech-recognition:writeReleaseLintModelMetadata
+> Task :capacitor-cordova-android-plugins:writeReleaseLintModelMetadata
+> Task :capacitor-filesystem:writeReleaseLintModelMetadata
+> Task :capacitor-local-notifications:writeReleaseLintModelMetadata
+> Task :capacitor-share:writeReleaseLintModelMetadata
+> Task :capacitor-splash-screen:writeReleaseLintModelMetadata
+> Task :capacitor-status-bar:writeReleaseLintModelMetadata
+> Task :capgo-capacitor-native-biometric:writeReleaseLintModelMetadata
+> Task :ebarooni-capacitor-calendar:writeReleaseLintModelMetadata
+> Task :capacitor-android:generateReleaseLintVitalModel
+> Task :capacitor-app:generateReleaseLintVitalModel
+> Task :capacitor-community-in-app-review:generateReleaseLintVitalModel
+> Task :capacitor-community-speech-recognition:generateReleaseLintVitalModel
+> Task :capacitor-cordova-android-plugins:generateReleaseLintVitalModel
+> Task :capacitor-filesystem:generateReleaseLintVitalModel
+> Task :capacitor-local-notifications:generateReleaseLintVitalModel
+> Task :capacitor-share:generateReleaseLintVitalModel
+> Task :capacitor-splash-screen:generateReleaseLintVitalModel
+> Task :capacitor-status-bar:generateReleaseLintVitalModel
+> Task :capgo-capacitor-native-biometric:generateReleaseLintVitalModel
+> Task :ebarooni-capacitor-calendar:generateReleaseLintVitalModel
+> Task :app:validateSigningRelease
+> Task :app:parseReleaseIntegrityConfig
+> Task :capacitor-app:lintVitalAnalyzeRelease
+> Task :capacitor-community-in-app-review:lintVitalAnalyzeRelease
+> Task :capacitor-android:lintVitalAnalyzeRelease
+> Task :capacitor-community-speech-recognition:lintVitalAnalyzeRelease
+> Task :capacitor-cordova-android-plugins:lintVitalAnalyzeRelease
+> Task :capacitor-filesystem:lintVitalAnalyzeRelease
+> Task :capacitor-share:lintVitalAnalyzeRelease
+> Task :capacitor-splash-screen:lintVitalAnalyzeRelease
+> Task :capacitor-local-notifications:lintVitalAnalyzeRelease
+> Task :capacitor-status-bar:lintVitalAnalyzeRelease
+> Task :capgo-capacitor-native-biometric:lintVitalAnalyzeRelease
+> Task :ebarooni-capacitor-calendar:lintVitalAnalyzeRelease
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:packageReleaseBundle
+> Task :app:signReleaseBundle
+> Task :app:produceReleaseBundleIdeListingFile
+> Task :app:createReleaseBundleListingFileRedirect
+> Task :app:bundleRelease
+w: Detected multiple Kotlin daemon sessions at 
+
+[Incubating] Problems report is available at: file:///home/runner/work/kidarmor/kidarmor/native/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 19s
+482 actionable tasks: 470 executed, 12 up-to-date
+total 27760
+drwxr-xr-x  2 runner runner     4096 Nov 14 19:33 .
+drwxr-xr-x 11 runner runner     4096 Nov 14 19:32 ..
+-rw-r--r--  1 runner runner 11738421 Nov 14 19:33 KidArmor-store.aab
+-rw-r--r--  1 runner runner 16677725 Nov 14 19:32 KidArmor-test.apk
