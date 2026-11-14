@@ -119,13 +119,6 @@ async function main() {
     { const tp = topPkg(); const txt = nodes(ui()).map(n => n.text).filter(Boolean).slice(0, 12).join(" | "); snap("after-scheduling"); console.log("    on screen after scheduling:", tp, "::", txt); ok("app stays on screen while scheduling reminders", tp === PKG, tp + " :: " + txt); if (tp !== PKG) { sh("input keyevent 4"); await sleep(2000); console.log("    after back:", topPkg()) } }
     const pend = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const p=await L.getPending();return (p.notifications||[]).filter(n=>n.id>=1000&&n.id<200000).length`);
     ok("meeting reminders scheduled with Android", pend >= 2, "pending: " + JSON.stringify(pend));
-    const diag = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const o={};const T=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error("no answer in "+ms+"ms")),ms))]);
-      try{await T(L.schedule({notifications:[{id:1501,title:"Diag now",body:"x"}]}),6000);o.schedNow="ok"}catch(e){o.schedNow="err "+e.message}
-      try{await T(L.schedule({notifications:[{id:1502,title:"Diag later",body:"x",schedule:{at:new Date(Date.now()+86400000)}}]}),6000);o.schedLater="ok"}catch(e){o.schedLater="err "+e.message}
-      try{await T(L.schedule({notifications:[{id:1500,title:"Diag idle",body:"x",schedule:{at:new Date(Date.now()+86400000),allowWhileIdle:true}}]}),6000);o.schedIdle="ok"}catch(e){o.schedIdle="err "+e.message}
-      try{o.pending=(await T(L.getPending(),6000)).notifications.map(n=>n.id).join(",")}catch(e){o.pending="err "+e.message}
-      try{o.exact=JSON.stringify(await T(L.checkExactNotificationSetting(),6000))}catch(e){o.exact="err "+e.message}return o`);
-    ok("reminder diagnostics", true, JSON.stringify(diag));
     const apid = pid(); const lnlog = adb("logcat", "-d", "--pid", apid).split("\n").filter(l => !/Handling local request|fonts/.test(l)).slice(-80).join("\n");
     fs.writeFileSync(`${OUT}/reminder-log.txt`, lnlog); console.log("---- phone log around reminders ----\n" + lnlog + "\n---- end ----");
     await js(`new Notification("KidArmor test",{body:"Reminder check"});return 1`); await sleep(2500);

@@ -32,8 +32,11 @@
     catch(err){if(/cancel/i.test((err&&err.message)||""))return false;
       var name=(m.title||m.mtype).replace(/[^\w .-]/g,"")+" "+m.date+".ics";var ok=await window.saveFile(name,new Blob([makeIcs(m)],{type:"text/calendar"}));
       if(ok){m.calAddedAt=new Date().toISOString();save();renderHome()}return ok}};
-  /* notifications: real reminders, even when KidArmor is closed */
-  function N(t,o){LN.schedule({notifications:[{id:200000+Math.floor(Math.random()*700000),title:t,body:(o&&o.body)||""}]}).catch(function(){})}
+  /* notifications: real reminders, even when KidArmor is closed.
+     isExactNotification:false: on Android 12+ an "exact" reminder makes the plugin open the phone's
+     "Alarms & reminders" settings screen whenever the app isn't allowed exact alarms (the default on
+     Android 14+). Meeting reminders don't need to-the-second timing, so never send parents there. */
+  function N(t,o){LN.schedule({notifications:[{id:200000+Math.floor(Math.random()*700000),title:t,body:(o&&o.body)||"",isExactNotification:false}]}).catch(function(){})}
   N.permission="default";
   N.requestPermission=async function(){try{var r=await LN.requestPermissions();N.permission=r.display==="granted"?"granted":r.display==="denied"?"denied":"default"}catch(e){}syncReminders();return N.permission};
   LN.checkPermissions().then(function(r){N.permission=r.display==="granted"?"granted":r.display==="denied"?"denied":"default"}).catch(function(){});
@@ -45,7 +48,7 @@
     if(mine.length)await LN.cancel({notifications:mine.map(function(n){return{id:n.id}})});
     var list=[],id=1000,now=Date.now();
     root.cases.forEach(function(c){if(c.readOnly||c.example)return;(c.upcoming||[]).forEach(function(m){if(m.doneEntry)return;[m.rem1,m.rem2].forEach(function(r){if(r==null)return;
-      var at=new Date(meetStart(m).getTime()-r*60000);if(at.getTime()>now+5000&&id<199000)list.push({id:id++,title:(m.title||m.mtype)+(r?" in "+remLabel(r).replace(" before",""):" is starting"),body:fmtWhen(m)+(m.place?" · "+m.place:""),schedule:{at:at,allowWhileIdle:true}})})})});
+      var at=new Date(meetStart(m).getTime()-r*60000);if(at.getTime()>now+5000&&id<199000)list.push({id:id++,title:(m.title||m.mtype)+(r?" in "+remLabel(r).replace(" before",""):" is starting"),body:fmtWhen(m)+(m.place?" · "+m.place:""),schedule:{at:at,allowWhileIdle:true},isExactNotification:false})})})});
     if(list.length)await LN.schedule({notifications:list})}catch(e){}}
   var _save=window.save;window.save=function(){var r=_save.apply(this,arguments);clearTimeout(syncT);syncT=setTimeout(syncReminders,1500);return r};
   window.askNotify=function(){if(N.permission==="default")N.requestPermission().then(function(){try{renderPerms()}catch(e){}})};
