@@ -125,6 +125,8 @@ async function main() {
       try{o.pending=(await T(L.getPending(),6000)).notifications.map(n=>n.id).join(",")}catch(e){o.pending="err "+e.message}
       try{o.exact=JSON.stringify(await T(L.checkExactNotificationSetting(),6000))}catch(e){o.exact="err "+e.message}return o`);
     ok("reminder diagnostics", true, JSON.stringify(diag));
+    const lnlog = adb("logcat", "-d").split("\n").filter(l => /LocalNotification|Capacitor\/Plugin|Capacitor:|Exception|AndroidRuntime/i.test(l) && /kidarmor|Capacitor|LocalNotif|Exception/i.test(l) && !/Handling local request|checkPermissions/.test(l)).slice(-60).join("\n");
+    fs.writeFileSync(`${OUT}/reminder-log.txt`, lnlog); console.log("---- phone log around reminders ----\n" + lnlog + "\n---- end ----");
     await js(`new Notification("KidArmor test",{body:"Reminder check"});return 1`); await sleep(2500);
     const shown = /KidArmor test/.test(sh("dumpsys notification --noredact"));
     ok("a reminder notification shows on the phone", shown || /KidArmor test|Diag now/.test(sh("dumpsys notification --noredact"))); sh("cmd statusbar expand-notifications"); await sleep(1500); snap("notification"); sh("cmd statusbar collapse");
