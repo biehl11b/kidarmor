@@ -52,7 +52,27 @@
     if(list.length)await LN.schedule({notifications:list})}catch(e){}}
   var _save=window.save;window.save=function(){var r=_save.apply(this,arguments);clearTimeout(syncT);syncT=setTimeout(syncReminders,1500);return r};
   window.askNotify=function(){if(N.permission==="default")N.requestPermission().then(function(){try{renderPerms()}catch(e){}})};
-  setTimeout(syncReminders,3000);setTimeout(function(){FS.rmdir({path:"kidarmor-out",directory:"CACHE",recursive:true}).catch(function(){})},5000);
+  setTimeout(syncReminders,3000);setTimeout(function(){FS.rmdir({path:"kidarmor-out",directory:"CACHE",recursive:true}).catch(function(){});FS.rmdir({path:"kidarmor-tx",directory:"CACHE",recursive:true}).catch(function(){})},5000);
+  /* meeting transcripts on Android: while recording, Android gives the microphone to the recording
+     and silence to the speech recognizer, so live transcripts come out empty. On Android 13+ KidArmor
+     records first and then has the phone write the transcript from the saved recording, on the phone. */
+  var KT=C.getPlatform&&C.getPlatform()==="android"?P("KaTranscribe"):null;
+  window.KA_STT_AFTER=false;
+  if(KT)KT.available().then(function(r){window.KA_STT_AFTER=!!(r&&r.supported);if(window.KA_STT_AFTER){try{renderHome()}catch(e){}}}).catch(function(){});
+  async function writeBlob(path,blob){var CH=3*1024*1024;for(var i=0;i<blob.size||i===0;i+=CH){var part=blob.slice(i,i+CH),data=await b64(part);
+      if(i===0)await FS.writeFile({path:path,data:data,directory:"CACHE",recursive:true});else await FS.appendFile({path:path,data:data,directory:"CACHE"});if(!blob.size)break}}
+  window.KA_TRANSCRIBE_AFTER=async function(parts,onProgress){
+    var lines=[],offset=0,h=null;
+    try{if(onProgress)h=await KT.addListener("progress",function(p){try{onProgress(p.done||0)}catch(e){}})}catch(e){}
+    try{
+      for(var i=0;i<parts.length;i++){var blob=parts[i].blob;if(!blob||!blob.size)continue;
+        var ty=parts[i].type||blob.type||"",name="kidarmor-tx/part"+i+(ty.indexOf("mp4")>=0?".m4a":ty.indexOf("ogg")>=0?".ogg":".webm");
+        await writeBlob(name,blob);var uri=(await FS.getUri({path:name,directory:"CACHE"})).uri;
+        var r=await KT.transcribe({path:uri,onDevice:!!(window.KA_STT_LOCAL&&window.KA_STT_LOCAL()),language:"en-US"});
+        (r.segments||[]).forEach(function(s){lines.push("["+mmss(offset+(s.t||0))+"] "+s.text)});
+        offset+=r.seconds||0}
+    }finally{try{h&&h.remove()}catch(e){}try{await FS.rmdir({path:"kidarmor-tx",directory:"CACHE",recursive:true})}catch(e){}}
+    return lines};
   /* app version for the feedback email, and the store's own rating prompt */
   window.KA_APPINFO=async function(){var i=await APP.getInfo();return{version:i.version,build:i.build}};
   window.KA_RATE=async function(){var R=P("InAppReview");if(!R)throw new Error("no review plugin");await R.requestReview()};

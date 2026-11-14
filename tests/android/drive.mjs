@@ -76,6 +76,36 @@ async function main() {
     if (done) await click(".sheet #smDone");
     if (r) fs.writeFileSync(`${OUT}/rec-id.txt`, r.id + " " + r.size);
   }
+  if (step("transcribe")) { // ---- the phone writes the transcript from a saved recording (spoken test audio)
+    const have = fs.existsSync("speech.webm");
+    ok("spoken test recording ready", have);
+    if (have) {
+      adb("push", "speech.webm", "/data/local/tmp/speech.webm"); sh("chmod 644 /data/local/tmp/speech.webm");
+      const av = await js(`return await Capacitor.registerPlugin("KaTranscribe").available()`);
+      ok("transcript writer available on this Android", av && (av.supported || av.api < 33), JSON.stringify(av));
+      if (av && av.supported) {
+        // put the recording into the app like a saved meeting
+        sh(`run-as ${PKG} sh -c 'mkdir -p cache/kidarmor-tx && cp /data/local/tmp/speech.webm cache/kidarmor-tx/test.webm'`);
+        const made = await js(`const FS=Capacitor.registerPlugin("Filesystem");const r=await FS.readFile({path:"kidarmor-tx/test.webm",directory:"CACHE"});
+          const bin=atob(r.data),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+          const e=await saveMeetingFromRecording({blob:new Blob([u],{type:"audio/webm"}),type:"audio/webm",extra:[],t0:Date.now()-15000,secs:12,lines:[],interim:"",announcedAt:new Date().toISOString(),meet:null});
+          show("home");renderHome();return e.id`);
+        ok("meeting saved from the recording", typeof made === "string", JSON.stringify(made));
+        await sleep(800); snap("before-transcribe");
+        const btn = await js(`return !!document.querySelector('[data-txagain="${made}"]')`);
+        ok("Write the transcript button shows for it", btn);
+        await js(`document.querySelector('[data-txagain="${made}"]').click();return 1`);
+        const t0 = Date.now(); let tx = "";
+        while (Date.now() - t0 < 180000) { tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (tx) break; if (await js(`return !document.querySelector("#txProg")`)) break; await sleep(2000) }
+        await sleep(1500); snap("after-transcribe");
+        const toastTxt = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")`);
+        ok("transcript written from the recording", /school|therapy|meeting|week|December/i.test(tx), tx.slice(0, 200) || ("no transcript. " + toastTxt));
+        const sum = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.summary?JSON.stringify(e.summary).slice(0,300):""`);
+        ok("meeting notes made from it", !!sum, sum);
+        await click(".sheet #smDone");
+      }
+    }
+  }
   if (step("photo")) { // ---- add a photo through Android's file picker
     await click('nav.tabs button[data-v="plan"]'); await js(`show("plan");return 1`); await sleep(800);
     const before = await js(`return state.docs.length`);

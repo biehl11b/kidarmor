@@ -796,7 +796,7 @@ function card(e){const K=KINDS[e.kind],m=[],mi=(l,v)=>v&&m.push(`<span><b>${l}:<
     <h3>${esc(titleOf(e))}</h3><p class="clamp">${esc(useSum?e.summary.overview:e.desc)}</p>
     <div class="sub">${statusOf(e)}${nf?`<span class="status plain">${nf} attachment${nf>1?"s":""}</span>`:""}</div></summary>
   <div class="body">${useSum?summaryBlock(e):`<p>${esc(e.desc)}</p>`}${m.length?`<div class="meta">${m.join("")}</div>`:""}
-    ${(e.recordings||[]).length?`<div class="files" data-recs="${e.id}">${e.recordings.map((f,i)=>fileTile(f,i,false)).join("")}</div>${e.announcedAt?`<p class="note" style="margin:0">Recording was announced to everyone at the start.</p>`:""}`:""}
+    ${(e.recordings||[]).length?`<div class="files" data-recs="${e.id}">${e.recordings.map((f,i)=>fileTile(f,i,false)).join("")}</div>${e.kind==="meeting"&&!e.transcript&&window.KA_STT_AFTER&&!state.readOnly?`<button class="btn light" type="button" data-txagain="${e.id}">Write the transcript</button>`:""}${e.announcedAt?`<p class="note" style="margin:0">Recording was announced to everyone at the start.</p>`:""}`:""}
     ${e.onPhone&&((e.onPhone.recs|0)||(e.onPhone.files|0))?`<p class="note" style="margin:0">📱 ${[(e.onPhone.recs|0)?`${(e.onPhone.recs|0)===1?"The recording is":(e.onPhone.recs|0)+" recordings are"}`:"",(e.onPhone.files|0)?`${e.onPhone.files|0} photo${(e.onPhone.files|0)>1?"s or documents are":" or document is"}`:""].filter(Boolean).join(" and ")} on your phone.</p>`:""}
     ${e.transcript?`<details class="txtab"><summary>See full transcript</summary><div class="tbox"><pre style="white-space:pre-wrap">${esc(e.transcript)}</pre></div></details>`:""}
     ${nf?`<div class="files" data-files="${e.id}">${e.files.map((f,i)=>fileTile(f,i,false)).join("")}</div>`:""}
@@ -1767,7 +1767,7 @@ async function startRecording(){
   Object.assign(REC,{stream,chunks:[],segments:[],lines:[],interim:"",announcedAt:null,stopping:false,srError:"",t0:Date.now(),active:true,paused:false});
   startMediaRecorder(stream);clearInterval(REC.draftT);REC.draftT=setInterval(saveRecDraft,15000);
   try{REC.wake=navigator.wakeLock?await navigator.wakeLock.request("screen"):null}catch(e){REC.wake=null}
-  if(SR)startSR();
+  if(SR&&!window.KA_STT_AFTER)startSR();
   renderRecording();REC.timer=setInterval(renderRecTick,1000);
 }
 function startSR(){try{const r=makeSR();r.lang="en-US";r.continuous=true;r.interimResults=true;
@@ -1837,7 +1837,7 @@ function renderRecording(){const sh=document.querySelector(".sheet");if(!sh)retu
   renderRecText()}
 function renderRecTick(){const t=mmss((Date.now()-REC.t0)/1000),el=$("#recTime");if(el)el.textContent=t;const b=$("#recBarTime");if(b)b.textContent=t}
 function renderRecText(){const el=$("#recText");if(!el)return;const shown=REC.lines.slice(-14).join("\n")+(REC.interim?"\n"+REC.interim:"");
-  el.textContent=shown||(SR&&REC.srOn!==false?"Words will appear here as people talk.":"Recording audio. A transcript isn't available in this browser.");el.scrollTop=el.scrollHeight;
+  el.textContent=shown||(window.KA_STT_AFTER?"Recording. KidArmor writes the transcript when you tap Stop.":SR&&REC.srOn!==false?"Words will appear here as people talk.":"Recording audio. A transcript isn't available in this browser.");el.scrollTop=el.scrollHeight;
   const n=$("#recNote");if(n&&SR&&!REC.srOn&&REC.srError)n.textContent=/on-device-unavailable|language-not-supported/.test(REC.srError)&&sttMode()==="phone"?STT_NOPHONE:"The transcript stopped ("+REC.srError+"), but the recording is still going. You can type notes after.";}
 async function stopRecording(){REC.stopping=true;clearInterval(REC.timer);clearInterval(REC.draftT);clearInterval(REC.quietT);const qa=$(".quietask");if(qa)qa.remove();REC.active=false;updateRecBar();if(!document.querySelector(".sheetwrap"))openSheet("");
   const sh=document.querySelector(".sheet");if(sh)sh.innerHTML=`<p class="note" style="text-align:center;padding:30px 0">Saving the recording, transcript and meeting notes…</p>`;
@@ -1848,7 +1848,10 @@ async function stopRecording(){REC.stopping=true;clearInterval(REC.timer);clearI
   const secs=Math.round((Date.now()-REC.t0)/1000),type=(REC.rec&&REC.rec.mimeType)||"audio/webm";
   const parts=REC.segments.length?REC.segments:[{blob:new Blob([],{type:type.split(";")[0]}),type}];REC.paused=false;
   try{const e=await saveMeetingFromRecording({blob:parts[0].blob,type:parts[0].type,extra:parts.slice(1),t0:REC.t0,secs,lines:REC.lines,interim:REC.interim,announcedAt:REC.announcedAt,meet:REC.meet});
-    clearRecDraft();closeSheet();filter="all";show("home");showSavedMeeting(e)}
+    clearRecDraft();
+    if(window.KA_STT_AFTER&&!e.transcript){const s2=document.querySelector(".sheet");if(s2)s2.innerHTML=`<p class="note" style="text-align:center;padding:30px 0" id="txProg">Recording saved. Writing the transcript… A long meeting can take a few minutes. Keep KidArmor open.</p>`;
+      try{await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=`Recording saved. Writing the transcript… ${Math.round(p*100)}%`})}catch(err){setTimeout(()=>toast(txErrMsg(err)),400)}}
+    closeSheet();filter="all";show("home");showSavedMeeting(e)}
   catch(e){closeSheet();toast("Couldn't save the recording. Free up space on your device and try again.")}}
 
 $("#homeRecord").onclick=()=>openRecorder();$("#homeSchedule").onclick=()=>openSchedule();$("#homeInvite").onclick=()=>openInvite();
@@ -2075,11 +2078,31 @@ function summaryBlock(e){const m=e.summary;
     ${sec("Problems raised",m.problems)}${sec("School agreed to",m.agreed)}${sec("Next steps",m.steps)}${m.nextMeeting?sec("Next meeting",[m.nextMeeting]):""}
     ${!m.empty&&!m.problems.length&&!m.agreed.length&&!m.steps.length&&!m.nextMeeting?`<p class="note">Nothing stood out as a problem, promise or next step. Open the full transcript below to read everything.</p>`:""}
     <p class="note" style="margin:0">The times show where each part is in the recording.</p></div>`}
+/* Android: the phone writes the transcript from the saved recording (see native-post.js) */
+function txErrMsg(err){const c=(err&&err.code)||"";
+  if(c==="language-downloading")return"The phone is downloading its English speech files. Try Write the transcript again in a few minutes.";
+  if(c==="on-device-unavailable")return"This phone can't make transcripts on the phone itself. To use the phone's speech service instead, go to the Child tab, then Transcripts.";
+  if(c==="service-not-allowed")return"This phone doesn't have a speech service turned on, so there's no transcript. You can still listen to the recording.";
+  return"Couldn't write the transcript this time. You can still listen to the recording, or try Write the transcript again."}
+async function addTranscript(e,onProgress){const parts=[];for(const m of e.recordings||[]){const f=await getFile(m.id);if(f&&f.blob&&f.blob.size)parts.push({blob:f.blob,type:f.type||m.type})}
+  if(!parts.length)throw Object.assign(new Error("missing"),{code:"missing"});
+  const lines=await window.KA_TRANSCRIBE_AFTER(parts,onProgress);if(!lines.length)return 0;
+  const d0=new Date(`${e.date}T${e.time||"00:00"}`),t0=isNaN(d0)?Date.now():d0.getTime(),keep=!e.desc||e.desc===e.summaryDesc;
+  const notes=makeMeetingNotes(lines,{t0,secs:e.recordingSeconds||0,announcedAt:e.announcedAt,title:e.title||"Meeting",who:e.attendees});
+  e.transcript=[`[Recording started ${new Date(t0).toLocaleString()}${e.announcedAt?"; I announced the recording":""}]`,...lines].join("\n");
+  e.summary=notes.summary;e.summaryDesc=notes.desc;if(keep){e.desc=notes.desc;e.agreed=notes.agreed;e.actions=notes.actions}save();return lines.length}
+async function writeTranscriptAgain(id){const e=state.entries.find(x=>x.id===id);if(!e||!window.KA_TRANSCRIBE_AFTER)return;
+  openSheet(`<h3>Writing the transcript</h3><p class="note" id="txProg">The phone is listening to the recording. A long meeting can take a few minutes. Keep KidArmor open.</p>`);
+  try{const n=await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=`Writing the transcript… ${Math.round(p*100)}%`});closeSheet();
+    if(!n){toast("The phone couldn't make out any words in this recording.");return}try{renderHome()}catch(_){}showSavedMeeting(e)}
+  catch(err){closeSheet();toast(txErrMsg(err))}}
+document.addEventListener("click",ev=>{const b=ev.target.closest&&ev.target.closest("[data-txagain]");if(!b)return;ev.preventDefault();ev.stopPropagation();writeTranscriptAgain(b.dataset.txagain)},true);
 function showSavedMeeting(e,recovered){
   const n=(e.transcript||"").split("\n").length-1,mins=Math.max(1,Math.round((e.recordingSeconds||0)/60));
   const sh=openSheet(`<h3>${recovered?"We saved your last recording":"Meeting saved"}</h3>
     ${recovered?`<p class="note">KidArmor closed before the recording was stopped. Everything recorded up to then is saved.</p>`:""}
     <div class="banner ok" style="flex-direction:column;align-items:flex-start;gap:4px"><b>✓ Recording saved · about ${mins} min</b><b>✓ ${n?`Transcript saved · ${n} line${n===1?"":"s"}`:"No transcript this time (you can still listen)"}</b><b>✓ Meeting notes written</b></div>
+    ${!n&&window.KA_STT_AFTER&&(e.recordings||[]).length?`<button class="btn light wide" type="button" data-txagain="${e.id}">Write the transcript</button>`:""}
     ${summaryBlock(e)}
     ${e.transcript?`<details class="txtab"><summary>See full transcript</summary><div class="tbox"><pre style="max-height:45vh;white-space:pre-wrap">${esc(e.transcript)}</pre></div></details>`:""}
     <button class="btn primary wide" id="smOpen" type="button">Check and fix the summary</button>

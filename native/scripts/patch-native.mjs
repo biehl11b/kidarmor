@@ -53,6 +53,17 @@ function patchAndroid() {
   const xmlDir = path.join(root, "android/app/src/main/res/xml"); fs.mkdirSync(xmlDir, { recursive: true });
   fs.writeFileSync(path.join(xmlDir, "data_extraction_rules.xml"), `<?xml version="1.0" encoding="utf-8"?>\n<data-extraction-rules>\n  <cloud-backup><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></cloud-backup>\n  <device-transfer><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></device-transfer>\n</data-extraction-rules>\n`);
   fs.writeFileSync(f, s); console.log("Android manifest patched");
+  // KidArmor's own plugin: writes the meeting transcript from the saved recording (see android-src/)
+  const javaDir = path.join(root, "android/app/src/main/java/com/coastlinecode/kidarmor");
+  fs.copyFileSync(path.join(root, "android-src/KaTranscribePlugin.java"), path.join(javaDir, "KaTranscribePlugin.java"));
+  const ma = path.join(javaDir, "MainActivity.java"); let m = fs.readFileSync(ma, "utf8");
+  if (!m.includes("KaTranscribePlugin")) {
+    if (!m.includes("import android.os.Bundle;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.os.Bundle;");
+    m = m.replace(/public class MainActivity extends BridgeActivity\s*\{\s*\}/, "public class MainActivity extends BridgeActivity {\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        registerPlugin(KaTranscribePlugin.class);\n        super.onCreate(savedInstanceState);\n    }\n}");
+    if (!m.includes("KaTranscribePlugin")) throw new Error("Couldn't add KaTranscribePlugin to MainActivity:\n" + m);
+    fs.writeFileSync(ma, m);
+  }
+  console.log("KaTranscribe plugin added");
 }
 if (which === "ios" || which === "all") patchIOS();
 if (which === "android" || which === "all") patchAndroid();

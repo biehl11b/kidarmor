@@ -4,7 +4,7 @@ name: Android phone test
 on:
   workflow_dispatch:
     inputs:
-      only: { description: "Run only these steps (record,photo,pdf,remind,restart,back). Blank = all", required: false, default: "" }
+      only: { description: "Run only these steps (record,transcribe,photo,pdf,remind,restart,back). Blank = all", required: false, default: "" }
   push:
     branches: [main]
     paths: ["tests/android/**", ".github/workflows/android-phone-test.yml"]
@@ -33,6 +33,11 @@ jobs:
       - name: Get the latest Android test app
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh release download android-test -p KidArmor-test.apk -R "$GITHUB_REPOSITORY" && ls -la KidArmor-test.apk
+      - name: Make a spoken test recording
+        run: |
+          sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          espeak-ng -s 140 -w speech.wav "Thank you for meeting with us today. The school agreed to provide speech therapy two times a week. The teacher will send a progress report every Friday. Our next meeting is on December fifth at ten in the morning."
+          ffmpeg -loglevel error -y -i speech.wav -ar 48000 -ac 1 -c:a libopus -b:a 32k speech.webm && ls -la speech.webm
       - name: Enable virtual phone support
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
