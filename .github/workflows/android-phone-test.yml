@@ -1,0 +1,56 @@
+name: Android phone test
+# Walks through KidArmor on virtual Android phones (old, current and newest Android):
+# recording, adding a photo, the PDF binder and share sheet, reminders, reopening, back button.
+on:
+  workflow_dispatch:
+    inputs:
+      only: { description: "Run only these steps (record,photo,pdf,remind,restart,back). Blank = all", required: false, default: "" }
+  push:
+    branches: [main]
+    paths: ["tests/android/**", ".github/workflows/android-phone-test.yml"]
+  workflow_run:
+    workflows: ["Build phone apps"]
+    types: [completed]
+permissions:
+  contents: write
+concurrency:
+  group: phone-test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  phone:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [29, 34, 36]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: 22 }
+      - name: Get the latest Android test app
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release download android-test -p KidArmor-test.apk -R "$GITHUB_REPOSITORY" && ls -la KidArmor-test.apk
+      - name: Enable virtual phone support
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Walk through the app on Android API ${{ matrix.api }}
+        uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+          OUT: emu
+        with:
+          api-level: ${{ matrix.api }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          emulator-boot-timeout: 900
+          script: bash tests/android/run.sh
+      - name: Save results
+        if: always()
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: bash native/scripts/push-dir.sh phone-${{ matrix.api }} emu
