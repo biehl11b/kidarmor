@@ -1,0 +1,29 @@
+Android API 31: 26 passed, 2 failed
+ok   app opens and connects
+ok   web view version  → Chrome/91.0.4472.114
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:22
+ok   recording saved on the phone  → {"type":"audio/webm","size":88719,"secs":23,"id":"f1794685160108me16m"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"supported":false,"api":31,"service":true,"onDevice":true}
+ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+FAIL PDF preview library loads  → pdf viewer failed: Unexpected token '{'
+FAIL PDF binder is made and shows  → This phone can't show a preview of the PDF. Tap Download to save or share it.
+ok   PDF file written for sharing  → -rw------- 1 u0_a145 u0_a145_cache 8789 2026-11-14 19:40 Case Binder - Ava Test - 2026-11-14.pdf
+ok   Android share sheet opens  → android
+ok   notification permission not needed on this Android
+ok   notifications allowed  → granted
+ok   app stays on screen while scheduling reminders  → com.coastlinecode.kidarmor :: KidArmor | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTER | 0 Bullying | 0 IEP / 504
+ok   meeting reminders scheduled with Android  → pending: 2
+ok   a reminder notification shows on the phone
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":1,"docs":1,"name":"Ava Test"} → {"entries":1,"docs":1,"name":"Ava Test"}
+ok   recording still plays-ready after reopening  → 88719 bytes
+ok   back button returns to Home from another screen  → add → home
+ok   back button closes an open file
+ok   back button on Home puts the app away without crashing  → pid 7441, on screen: com.google.android.apps.nexuslauncher
+ok   no app crashes
+ok   no script errors in the app

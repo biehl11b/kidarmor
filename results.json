@@ -1,0 +1,146 @@
+{
+ "api": 31,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/91.0.4472.114"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "microphone permission prompt appears",
+   "pass": true,
+   "detail": "While using the app"
+  },
+  {
+   "name": "recording timer runs",
+   "pass": true,
+   "detail": "00:22"
+  },
+  {
+   "name": "recording saved on the phone",
+   "pass": true,
+   "detail": "{\"type\":\"audio/webm\",\"size\":88719,\"secs\":23,\"id\":\"f1794685160108me16m\"}"
+  },
+  {
+   "name": "spoken test recording ready",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript writer available on this Android",
+   "pass": true,
+   "detail": "{\"supported\":false,\"api\":31,\"service\":true,\"onDevice\":true}"
+  },
+  {
+   "name": "Android file picker opens and shows the photo",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": true,
+   "detail": "{\"name\":\"Report card\",\"type\":\"image/png\",\"size\":7965,\"pickedSize\":7965,\"readBytes\":7965,\"err\":\"\"}"
+  },
+  {
+   "name": "PDF preview library loads",
+   "pass": false,
+   "detail": "pdf viewer failed: Unexpected token '{'"
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": false,
+   "detail": "This phone can't show a preview of the PDF. Tap Download to save or share it."
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": true,
+   "detail": "-rw------- 1 u0_a145 u0_a145_cache 8789 2026-11-14 19:40 Case Binder - Ava Test - 2026-11-14.pdf"
+  },
+  {
+   "name": "Android share sheet opens",
+   "pass": true,
+   "detail": "android"
+  },
+  {
+   "name": "notification permission not needed on this Android",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "notifications allowed",
+   "pass": true,
+   "detail": "granted"
+  },
+  {
+   "name": "app stays on screen while scheduling reminders",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor :: KidArmor | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTER | 0 Bullying | 0 IEP / 504"
+  },
+  {
+   "name": "meeting reminders scheduled with Android",
+   "pass": true,
+   "detail": "pending: 2"
+  },
+  {
+   "name": "a reminder notification shows on the phone",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": true,
+   "detail": "{\"entries\":1,\"docs\":1,\"name\":\"Ava Test\"} → {\"entries\":1,\"docs\":1,\"name\":\"Ava Test\"}"
+  },
+  {
+   "name": "recording still plays-ready after reopening",
+   "pass": true,
+   "detail": "88719 bytes"
+  },
+  {
+   "name": "back button returns to Home from another screen",
+   "pass": true,
+   "detail": "add → home"
+  },
+  {
+   "name": "back button closes an open file",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "back button on Home puts the app away without crashing",
+   "pass": true,
+   "detail": "pid 7441, on screen: com.google.android.apps.nexuslauncher"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}
