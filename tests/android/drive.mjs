@@ -15,7 +15,8 @@ const snap = label => { const f = `${OUT}/${String(++shot).padStart(2, "0")}-${l
 // ---------- Android screens via uiautomator ----------
 function ui() { sh("uiautomator dump /sdcard/ui.xml >/dev/null 2>&1"); return adb("shell", "cat", "/sdcard/ui.xml") }
 function nodes(xml) { return [...xml.matchAll(/<node [^>]*>/g)].map(m => { const t = m[0], g = k => (t.match(new RegExp(k + '="([^"]*)"')) || [])[1] || ""; const b = g("bounds").match(/\d+/g) || [0, 0, 0, 0]; return { text: g("text"), desc: g("content-desc"), id: g("resource-id"), pkg: g("package"), x: (+b[0] + +b[2]) >> 1, y: (+b[1] + +b[3]) >> 1 } }) }
-async function tapText(re, tries = 8) { for (let i = 0; i < tries; i++) { const n = nodes(ui()).find(n => re.test(n.text) || re.test(n.desc)); if (n) { sh(`input tap ${n.x} ${n.y}`); await sleep(1200); return n } await sleep(1000) } return null }
+function clearSystemDialog() { const n = nodes(ui()); if (n.some(x => /isn.t responding/i.test(x.text))) { const w = n.find(x => /^Wait$/i.test(x.text)); if (w) { sh(`input tap ${w.x} ${w.y}`); console.log("    dismissed an Android 'not responding' dialog"); return true } } return false }
+async function tapText(re, tries = 8) { for (let i = 0; i < tries; i++) { clearSystemDialog(); const n = nodes(ui()).find(n => re.test(n.text) || re.test(n.desc)); if (n) { sh(`input tap ${n.x} ${n.y}`); await sleep(1200); return n } await sleep(1000) } return null }
 const screenHas = re => nodes(ui()).some(n => re.test(n.text) || re.test(n.desc));
 const topPkg = () => { const xml = ui(); const m = xml.match(/package="([^"]+)"/); return m ? m[1] : "" };
 // ---------- the app's web view via Chrome DevTools ----------
@@ -33,7 +34,7 @@ async function js(expr) { const r = await cdp("Runtime.evaluate", { expression: 
 async function waitFor(expr, ms = 15000) { const t = Date.now(); while (Date.now() - t < ms) { const v = await js(`return !!(${expr})`); if (v === true) return true; await sleep(500) } return false }
 const click = sel => js(`const e=document.querySelector(${JSON.stringify(sel)});if(!e)return "missing";e.scrollIntoView({block:"center"});e.click();return "ok"`);
 async function launch(fresh) { if (fresh) sh(`pm clear ${PKG}`); sh(`am force-stop ${PKG}`); await sleep(800); sh(`am start -n ${PKG}/.MainActivity`); await sleep(6000); if (ws) try { ws.close() } catch (e) { } return connect() }
-const step = (name) => { if (ONLY.length && !ONLY.includes(name)) return false; if (topPkg() !== PKG) { sh("input keyevent 4"); sh(`am start -n ${PKG}/.MainActivity`) } return true };
+const step = (name) => { if (ONLY.length && !ONLY.includes(name)) return false; clearSystemDialog(); if (topPkg() !== PKG) { sh("input keyevent 4"); sh(`am start -n ${PKG}/.MainActivity`) } return true };
 // ---------- the walkthrough ----------
 async function main() {
   sh("settings put global window_animation_scale 0; settings put global transition_animation_scale 0; settings put global animator_duration_scale 0");
@@ -93,7 +94,7 @@ async function main() {
     }
     snap("picker-2"); ok("Android file picker opens and shows the photo", !!picked, topPkg());
     const saved = await waitFor(`state.docs.length>${before}`, 15000);
-    const d = await js(`const d=state.docs[state.docs.length-1];if(!d)return null;const f=await getFile(d.files[0].id);return{name:d.name,type:f&&f.type,size:f&&f.blob.size}`);
+    const d = await js(`const d=state.docs[state.docs.length-1];if(!d)return null;const f=await getFile(d.files[0].id);let rd=-1,err="";try{rd=(await f.blob.arrayBuffer()).byteLength}catch(e){err=e.message}return{name:d.name,type:f&&f.type,size:f&&f.blob.size,pickedSize:d.files[0].size,readBytes:rd,err}`);
     ok("photo saved with the case", saved && d && d.size > 100, JSON.stringify(d)); snap("photo-saved");
   }
   if (step("pdf")) { // ---- make the PDF case binder and share it
@@ -117,6 +118,12 @@ async function main() {
     await sleep(5000);
     const pend = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const p=await L.getPending();return (p.notifications||[]).filter(n=>n.id>=1000&&n.id<200000).length`);
     ok("meeting reminders scheduled with Android", pend >= 2, "pending: " + JSON.stringify(pend));
+    const diag = await js(`const L=Capacitor.registerPlugin("LocalNotifications");const o={};try{o.perm=(await L.checkPermissions()).display}catch(e){o.perm="err "+e.message}
+      try{o.exact=JSON.stringify(await L.checkExactNotificationSetting())}catch(e){o.exact="err "+e.message}
+      try{await L.schedule({notifications:[{id:1500,title:"Diag",body:"x",schedule:{at:new Date(Date.now()+86400000),allowWhileIdle:true}}]});o.schedAt="ok"}catch(e){o.schedAt="err "+e.message}
+      try{await L.schedule({notifications:[{id:1501,title:"Diag now",body:"x"}]});o.schedNow="ok"}catch(e){o.schedNow="err "+e.message}
+      try{o.pending=(await L.getPending()).notifications.map(n=>n.id).join(",")}catch(e){o.pending="err "+e.message}return o`);
+    ok("reminder diagnostics", true, JSON.stringify(diag));
     await js(`new Notification("KidArmor test",{body:"Reminder check"});return 1`); await sleep(2500);
     const shown = /KidArmor test/.test(sh("dumpsys notification --noredact"));
     ok("a reminder notification shows on the phone", shown); sh("cmd statusbar expand-notifications"); await sleep(1500); snap("notification"); sh("cmd statusbar collapse");
