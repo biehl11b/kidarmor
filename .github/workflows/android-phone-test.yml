@@ -50,6 +50,10 @@ jobs:
           disable-animations: true
           emulator-boot-timeout: 900
           script: bash tests/android/run.sh
+      - name: Keep results (download from the run page)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with: { name: "phone-${{ matrix.api }}", path: emu, retention-days: 14 }
       - name: Save results
         if: always()
         env: { GH_TOKEN: "${{ github.token }}" }

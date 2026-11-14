@@ -41,9 +41,14 @@ async function main() {
   // a photo to pick later
   fs.copyFileSync(new URL("./report-card.png", import.meta.url), "/tmp/report-card.png");
   adb("push", "/tmp/report-card.png", "/sdcard/Download/report-card.png");
+  adb("push", "/tmp/report-card.png", "/sdcard/DCIM/report-card.png");
   sh("am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/Download/report-card.png");
+  sh("am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/DCIM/report-card.png");
+  sh("content call --method scan_volume --uri content://media --arg external_primary");
   ok("app opens and connects", await launch(true));
   await sleep(4000); snap("first-open");
+  const ua = await js(`return navigator.userAgent`); fs.writeFileSync(`${OUT}/webview.txt`, String(ua));
+  ok("web view version", true, (String(ua).match(/Chrome\/[\d.]+/) || [ua])[0]);
   ok("phone features load (native mode)", await js(`return window.KA_NATIVE===true&&!!window.Capacitor`));
   // skip only the first-run screens covered by the browser tests (Terms screen and setup wizard)
   await cdp("Page.addScriptToEvaluateOnNewDocument", { source: "window.__kaSkipTerms=true;window.__kaSkipWizard=true;" });
@@ -75,8 +80,12 @@ async function main() {
     const before = await js(`return state.docs.length`);
     await js(`document.querySelector("#d-name").value="Report card";document.querySelector("#d-file").click();return 1`); await sleep(3000); snap("picker-1");
     fs.writeFileSync(`${OUT}/picker-ui.xml`, ui());
-    // Android's file picker: open the side menu, choose Downloads, then the photo
-    let picked = null;
+    // Android 13+ opens the photo picker for pictures; older Android opens the file picker
+    let picked = null; const pk = topPkg(); console.log("    picker:", pk);
+    if (/media|photopicker/i.test(pk)) {
+      const th = nodes(ui()).find(n => /^(Photo|Image)/i.test(n.desc) && !/album/i.test(n.desc));
+      if (th) { sh(`input tap ${th.x} ${th.y}`); await sleep(1500); picked = th; await tapText(/^(Add|Done|Select)( \(1\))?$/i, 2) }
+    }
     for (let i = 0; i < 3 && !picked; i++) {
       if (topPkg() === "com.google.android.apps.photos") { sh("input keyevent 4"); await sleep(1500) }
       picked = await tapText(/^report-card\.png$/i, 2);
@@ -90,6 +99,8 @@ async function main() {
   if (step("pdf")) { // ---- make the PDF case binder and share it
     await js(`show("home");return 1`); await sleep(800); await click("#homeBinder");
     const opened = await waitFor(`document.querySelector(".viewer canvas, .viewer .vbody img, .viewer .vbody embed, .viewer .pdfpage")`, 45000); snap("binder");
+    const pdfjs = await js(`try{await getPdfjs();return "pdf viewer loaded"}catch(e){return "pdf viewer failed: "+(e&&e.message)}`);
+    ok("PDF preview library loads", /loaded/.test(pdfjs), pdfjs);
     ok("PDF binder is made and shows", opened, await js(`return (document.querySelector(".viewer .vbody")||{}).innerText||"no viewer"`));
     await click("#vdl"); await sleep(4000); snap("share-sheet");
     const files = sh(`run-as ${PKG} ls -la cache/kidarmor-out`); const pdf = /Case Binder.*\.pdf/.test(files);
