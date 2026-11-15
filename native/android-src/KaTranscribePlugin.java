@@ -373,6 +373,9 @@ public class KaTranscribePlugin extends Plugin {
 
     /** Adds one stretch of speech. KidArmor's engine gives words without punctuation, so a pause of
      * about half a second or more ends a sentence (period + capital letter); "i" becomes "I". */
+    private static final java.util.Set<String> PROPER = new java.util.HashSet<>(java.util.Arrays.asList(
+        "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "february", "april",
+        "june", "july", "august", "september", "october", "november", "december"));
     private static void addSeg(JSArray segs, String json, double fallbackT) {
         try {
             JSONObject o = new JSONObject(json);
@@ -393,6 +396,8 @@ public class KaTranscribePlugin extends Plugin {
                         sb.append(' ');
                     }
                     if (word.equals("i") || word.startsWith("i'")) word = "I" + word.substring(1);
+                    else if (word.equals("iep") || word.equals("ard") || word.equals("fape")) word = word.toUpperCase();
+                    else if (PROPER.contains(word)) word = word.substring(0, 1).toUpperCase() + word.substring(1);
                     if (cap) { word = word.substring(0, 1).toUpperCase() + word.substring(1); cap = false; }
                     sb.append(word); lastEnd = w.optDouble("end", st);
                 }
