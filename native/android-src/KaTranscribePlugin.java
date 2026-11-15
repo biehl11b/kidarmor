@@ -371,15 +371,35 @@ public class KaTranscribePlugin extends Plugin {
         }, "KaTranscribe-own").start();
     }
 
+    /** Adds one stretch of speech. KidArmor's engine gives words without punctuation, so a pause of
+     * about half a second or more ends a sentence (period + capital letter); "i" becomes "I". */
     private static void addSeg(JSArray segs, String json, double fallbackT) {
         try {
             JSONObject o = new JSONObject(json);
-            String text = o.optString("text", "").trim();
-            if (text.isEmpty()) return;
-            double t = fallbackT;
+            String plain = o.optString("text", "").trim();
+            if (plain.isEmpty()) return;
             JSONArray words = o.optJSONArray("result");
-            if (words != null && words.length() > 0) t = words.getJSONObject(0).optDouble("start", fallbackT);
-            JSObject s = new JSObject(); s.put("t", t); s.put("text", text.substring(0, 1).toUpperCase() + text.substring(1)); segs.put(s);
+            double t = fallbackT;
+            StringBuilder sb = new StringBuilder();
+            if (words != null && words.length() > 0) {
+                t = words.getJSONObject(0).optDouble("start", fallbackT);
+                boolean cap = true; double lastEnd = -1;
+                for (int i = 0; i < words.length(); i++) {
+                    JSONObject w = words.getJSONObject(i);
+                    String word = w.optString("word", "").trim(); if (word.isEmpty()) continue;
+                    double st = w.optDouble("start", -1);
+                    if (sb.length() > 0) {
+                        if (lastEnd >= 0 && st >= 0 && st - lastEnd >= 0.55) { sb.append('.'); cap = true; }
+                        sb.append(' ');
+                    }
+                    if (word.equals("i") || word.startsWith("i'")) word = "I" + word.substring(1);
+                    if (cap) { word = word.substring(0, 1).toUpperCase() + word.substring(1); cap = false; }
+                    sb.append(word); lastEnd = w.optDouble("end", st);
+                }
+            } else sb.append(plain.substring(0, 1).toUpperCase()).append(plain.substring(1));
+            String text = sb.toString().trim(); if (text.isEmpty()) return;
+            if (!text.endsWith(".") && !text.endsWith("?") && !text.endsWith("!")) text += ".";
+            JSObject s = new JSObject(); s.put("t", t); s.put("text", text); segs.put(s);
         } catch (Exception e) { }
     }
 
