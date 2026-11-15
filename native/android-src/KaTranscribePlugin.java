@@ -402,7 +402,10 @@ public class KaTranscribePlugin extends Plugin {
                     sb.append(word); lastEnd = w.optDouble("end", st);
                 }
             } else sb.append(plain.substring(0, 1).toUpperCase()).append(plain.substring(1));
-            String text = sb.toString().trim(); if (text.isEmpty()) return;
+            String text = sb.toString().trim()
+                .replaceAll("(?i)\\bi e p's\\b", "IEP's").replaceAll("(?i)\\bi e p\\b", "IEP")
+                .replaceAll("(?i)\\ba r d\\b", "ARD").replaceAll("(?i)\\bf a p e\\b", "FAPE");
+            if (text.isEmpty()) return;
             if (!text.endsWith(".") && !text.endsWith("?") && !text.endsWith("!")) text += ".";
             JSObject s = new JSObject(); s.put("t", t); s.put("text", text); segs.put(s);
         } catch (Exception e) { }

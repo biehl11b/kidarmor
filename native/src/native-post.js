@@ -85,7 +85,7 @@
             /* nothing came back from a recording with sound in it: let KidArmor's engine try */
             if(!(r.segments||[]).length&&(r.seconds||0)>8)r=null}
           catch(err){window.KA_TX_LAST_ERR=(err&&err.code||"")+" "+(err&&err.message||"");r=null}}
-        if(!r){r=await KT.ownTranscribe({path:uri,urls:SPEECH_URLS});window.KA_TX_ENGINE="kidarmor"}
+        if(!r){try{r=await KT.ownTranscribe({path:uri,urls:SPEECH_URLS})}catch(err){window.KA_TX_LAST_ERR="own: "+(err&&err.code||"")+" "+(err&&err.message||"");throw err}window.KA_TX_ENGINE="kidarmor"}
         window.KA_TX_DEBUG=(window.KA_TX_DEBUG||"")+" part"+i+": "+(r.segments||[]).length+" pieces, "+Math.round(r.seconds||0)+"s;";
         (r.segments||[]).forEach(function(s){lines.push("["+mmss(offset+(s.t||0))+"] "+s.text)});
         offset+=r.seconds||0}
