@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       only: { description: "Run only these steps (record,transcribe,photo,pdf,remind,restart,back). Blank = all", required: false, default: "" }
+      long: { description: "Use a ~10 minute IEP meeting recording for the transcript test", required: false, default: "" }
   push:
     branches: [main]
     paths: ["tests/android/**", ".github/workflows/android-phone-test.yml"]
@@ -20,7 +21,7 @@ jobs:
   phone:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 70
+    timeout-minutes: 90
     strategy:
       fail-fast: false
       matrix:
@@ -43,6 +44,11 @@ jobs:
             && curl -sfL $V.onnx -o voice.onnx && curl -sfL $V.onnx.json -o voice.onnx.json \
             && echo "$TEXT" | python3 -m piper -m voice.onnx -f speech.wav && test -s speech.wav && echo "voice: natural" ) \
           || { espeak-ng -s 140 -w speech.wav "$TEXT"; echo "voice: robotic"; }
+          if [ -n "${{ github.event.inputs.long }}" ] && [ -f voice.onnx ]; then
+            # a ~10 minute IEP meeting, read twice, with natural pauses between sentences
+            { cat tests/android/long-meeting.txt; echo "Let me go over everything one more time before we finish."; cat tests/android/long-meeting.txt; } \
+              | python3 -m piper -m voice.onnx --sentence-silence 0.8 -f speech.wav && echo "long meeting recording made"
+          fi
           ffmpeg -loglevel error -y -i speech.wav -ar 48000 -ac 1 -c:a libopus -b:a 32k speech.webm && ls -la speech.webm
       - name: Enable virtual phone support
         run: |
@@ -52,6 +58,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
         env:
           ONLY: ${{ github.event.inputs.only }}
+          LONG: ${{ github.event.inputs.long }}
           OUT: emu
         with:
           api-level: ${{ matrix.api }}

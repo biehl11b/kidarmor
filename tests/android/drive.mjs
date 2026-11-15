@@ -5,6 +5,7 @@ import { execSync, execFileSync } from "child_process";
 import fs from "fs";
 const PKG = "com.coastlinecode.kidarmor", OUT = process.env.OUT || "emu";
 fs.mkdirSync(OUT, { recursive: true });
+const LONG = !!process.env.LONG;
 const ONLY = (process.env.ONLY || "").split(",").filter(Boolean); // run only some steps (quick checks)
 const results = []; let shot = 0, ws = null, msgId = 0; const pending = new Map(); const jsErrors = [];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -89,20 +90,20 @@ async function main() {
         sh(`run-as ${PKG} sh -c 'mkdir -p cache/kidarmor-tx && cp /data/local/tmp/speech.webm cache/kidarmor-tx/test.webm'`);
         const made = await js(`const FS=Capacitor.registerPlugin("Filesystem");const r=await FS.readFile({path:"kidarmor-tx/test.webm",directory:"CACHE"});
           const bin=atob(r.data),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
-          const e=await saveMeetingFromRecording({blob:new Blob([u],{type:"audio/webm"}),type:"audio/webm",extra:[],t0:Date.now()-15000,secs:12,lines:[],interim:"",announcedAt:new Date().toISOString(),meet:null});
+          const e=await saveMeetingFromRecording({blob:new Blob([u],{type:"audio/webm"}),type:"audio/webm",extra:[],t0:Date.now()-15000,secs:${LONG ? 600 : 12},lines:[],interim:"",announcedAt:new Date().toISOString(),meet:null});
           show("home");renderHome();return e.id`);
         ok("meeting saved from the recording", typeof made === "string", JSON.stringify(made));
         await sleep(800); snap("before-transcribe");
         const btn = await js(`return !!document.querySelector('[data-txagain="${made}"]')`);
         ok("Write the transcript button shows for it", btn);
         // try both transcript choices: the phone's speech service, then "On this phone only"
-        for (const mode of ["service", "phone"]) {
+        for (const mode of (LONG ? ["phone"] : ["service", "phone"])) {
           await js(`localStorage.setItem("kidarmor.stt","${mode}");const e=state.entries.find(x=>x.id==="${made}");e.transcript="";save();renderHome();return 1`); await sleep(800);
           let tx = "", note = "", tapped = false, lastMsg = "";
           await js(`closeSheet&&closeSheet();window.KA_TX_LAST_ERR="";window.__toasts=window.__toasts||[];if(!window.__toastWrapped){const t0=toast;window.toast=toast=function(m){window.__toasts.push(String(m));return t0.apply(this,arguments)};window.__toastWrapped=1}window.__toasts.length=0;writeTranscriptAgain("${made}");return 1`);
           const t0 = Date.now();
-          // up to 10 min: the first time, KidArmor downloads its English speech files (~40 MB)
-          while (Date.now() - t0 < 10 * 60000) {
+          // up to 10 min (30 for the long meeting): the first time, KidArmor downloads its English speech files (~40 MB)
+          while (Date.now() - t0 < (LONG ? 30 : 10) * 60000) {
             tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (typeof tx !== "string") tx = ""; if (tx) break;
             const st = await js(`const p=document.querySelector("#txProg");return p?p.textContent:null`);
             if (st === null) break;
@@ -119,6 +120,14 @@ async function main() {
           note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | toasts: "+(window.__toasts||[]).join(" / ")+" | engine: "+(window.KA_TX_ENGINE||"?")+" | "+(window.KA_TX_DEBUG||"")+" | phone engine error: "+(window.KA_TX_LAST_ERR||"none")`);
           console.log(`    ${mode}: ${Math.round((Date.now() - t0) / 1000)}s, Download tapped: ${tapped}, ${note}`);
           console.log("    heard: " + String(tx).split("\n").filter(l => !/Recording started|announced/i.test(l)).join(" ").slice(0, 400));
+          if (LONG) {
+            const L = String(tx).split("\n").filter(l => /^\[\d/.test(l));
+            console.log(`    LONG MEETING: ${Math.round((Date.now() - t0) / 1000)}s to write, ${L.length} transcript lines, ${String(tx).split(/\s+/).length} words`);
+            console.log("    first lines:\n      " + L.slice(0, 8).join("\n      "));
+            console.log("    last lines:\n      " + L.slice(-4).join("\n      "));
+            const d = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.desc||""`);
+            console.log("    SUMMARY:\n" + String(d).split("\n").map(l => "      " + l).join("\n"));
+          }
           snap("after-transcribe-" + mode);
           ok(`transcript written from the recording (${mode === "phone" ? "on this phone only" : "speech service"})`, /school|therapy|meeting|week|December|teacher|report/i.test(tx), String(tx).slice(0, 220) || ("no transcript. " + note));
           await click(".sheet #smDone");
