@@ -71,7 +71,7 @@
       if(i===0)await FS.writeFile({path:path,data:data,directory:"CACHE",recursive:true});else await FS.appendFile({path:path,data:data,directory:"CACHE"});if(!blob.size)break}}
   window.KA_OWN_SPEECH_FILES=function(){return KT?KT.ownSpeechFiles():Promise.resolve({ready:false})};
   window.KA_TRANSCRIBE_AFTER=async function(parts,onProgress){
-    var lines=[],offset=0,h=null;window.KA_TX_ENGINE="";window.KA_TX_LAST_ERR="";
+    var lines=[],offset=0,h=null;window.KA_TX_ENGINE="";window.KA_TX_LAST_ERR="";window.KA_TX_DEBUG="";
     try{if(onProgress)h=await KT.addListener("progress",function(p){try{
       if(p.stage==="download")onProgress("Getting KidArmor's English speech files ready (one time, about 40 MB; Wi-Fi is best)… "+Math.round((p.done||0)*100)+"%");
       else onProgress(p.done||0)}catch(e){}})}catch(e){}
@@ -86,6 +86,7 @@
             if(!(r.segments||[]).length&&(r.seconds||0)>8)r=null}
           catch(err){window.KA_TX_LAST_ERR=(err&&err.code||"")+" "+(err&&err.message||"");r=null}}
         if(!r){r=await KT.ownTranscribe({path:uri,urls:SPEECH_URLS});window.KA_TX_ENGINE="kidarmor"}
+        window.KA_TX_DEBUG=(window.KA_TX_DEBUG||"")+" part"+i+": "+(r.segments||[]).length+" pieces, "+Math.round(r.seconds||0)+"s;";
         (r.segments||[]).forEach(function(s){lines.push("["+mmss(offset+(s.t||0))+"] "+s.text)});
         offset+=r.seconds||0}
     }finally{try{h&&h.remove()}catch(e){}try{await FS.rmdir({path:"kidarmor-tx",directory:"CACHE",recursive:true})}catch(e){}}

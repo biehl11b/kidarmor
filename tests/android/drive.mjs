@@ -99,7 +99,7 @@ async function main() {
         for (const mode of ["service", "phone"]) {
           await js(`localStorage.setItem("kidarmor.stt","${mode}");const e=state.entries.find(x=>x.id==="${made}");e.transcript="";save();renderHome();return 1`); await sleep(800);
           let tx = "", note = "", tapped = false, lastMsg = "";
-          await js(`closeSheet&&closeSheet();window.KA_TX_LAST_ERR="";writeTranscriptAgain("${made}");return 1`);
+          await js(`closeSheet&&closeSheet();window.KA_TX_LAST_ERR="";window.__toasts=window.__toasts||[];if(!window.__toastWrapped){const t0=toast;window.toast=toast=function(m){window.__toasts.push(String(m));return t0.apply(this,arguments)};window.__toastWrapped=1}window.__toasts.length=0;writeTranscriptAgain("${made}");return 1`);
           const t0 = Date.now();
           // up to 10 min: the first time, KidArmor downloads its English speech files (~40 MB)
           while (Date.now() - t0 < 10 * 60000) {
@@ -116,7 +116,7 @@ async function main() {
             }
             await sleep(3000)
           }
-          note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | engine: "+(window.KA_TX_ENGINE||"?")+" | phone engine error: "+(window.KA_TX_LAST_ERR||"none")`);
+          note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | toasts: "+(window.__toasts||[]).join(" / ")+" | engine: "+(window.KA_TX_ENGINE||"?")+" | "+(window.KA_TX_DEBUG||"")+" | phone engine error: "+(window.KA_TX_LAST_ERR||"none")`);
           console.log(`    ${mode}: ${Math.round((Date.now() - t0) / 1000)}s, Download tapped: ${tapped}, ${note}`);
           console.log("    heard: " + String(tx).split("\n").filter(l => !/Recording started|announced/i.test(l)).join(" ").slice(0, 400));
           snap("after-transcribe-" + mode);

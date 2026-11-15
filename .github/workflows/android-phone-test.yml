@@ -38,10 +38,10 @@ jobs:
           sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
           TEXT="Thank you for meeting with us today. The school agreed to provide speech therapy two times a week. The teacher will send a progress report every Friday. Our next meeting is on December fifth at ten in the morning."
           # a natural-sounding voice (Piper), like a real person in a meeting; the robotic voice is the fallback
-          ( pip install -q piper-tts==1.2.0 onnxruntime >/dev/null 2>&1 \
+          ( pip install -q piper-tts 2>&1 | tail -3 \
             && V=https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium \
             && curl -sfL $V.onnx -o voice.onnx && curl -sfL $V.onnx.json -o voice.onnx.json \
-            && echo "$TEXT" | piper -m voice.onnx -f speech.wav && echo "voice: natural" ) \
+            && echo "$TEXT" | python3 -m piper -m voice.onnx -f speech.wav && test -s speech.wav && echo "voice: natural" ) \
           || { espeak-ng -s 140 -w speech.wav "$TEXT"; echo "voice: robotic"; }
           ffmpeg -loglevel error -y -i speech.wav -ar 48000 -ac 1 -c:a libopus -b:a 32k speech.webm && ls -la speech.webm
       - name: Enable virtual phone support
