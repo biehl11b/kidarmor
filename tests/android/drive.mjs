@@ -118,6 +118,7 @@ async function main() {
           }
           note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | engine: "+(window.KA_TX_ENGINE||"?")+" | phone engine error: "+(window.KA_TX_LAST_ERR||"none")`);
           console.log(`    ${mode}: ${Math.round((Date.now() - t0) / 1000)}s, Download tapped: ${tapped}, ${note}`);
+          console.log("    heard: " + String(tx).split("\n").filter(l => !/Recording started|announced/i.test(l)).join(" ").slice(0, 400));
           snap("after-transcribe-" + mode);
           ok(`transcript written from the recording (${mode === "phone" ? "on this phone only" : "speech service"})`, /school|therapy|meeting|week|December|teacher|report/i.test(tx), String(tx).slice(0, 220) || ("no transcript. " + note));
           await click(".sheet #smDone");

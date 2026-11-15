@@ -398,7 +398,7 @@ public class KaTranscribePlugin extends Plugin {
         dec.configure(fmt, null, null, 0); dec.start();
         int srcRate = fmt.containsKey(MediaFormat.KEY_SAMPLE_RATE) ? fmt.getInteger(MediaFormat.KEY_SAMPLE_RATE) : 48000;
         int ch = fmt.containsKey(MediaFormat.KEY_CHANNEL_COUNT) ? fmt.getInteger(MediaFormat.KEY_CHANNEL_COUNT) : 1;
-        long written = 0; double pos = 0; // resampler position in source samples
+        long written = 0; double pos = 0, acc = 0; int cnt = 0; // resampler state
         MediaCodec.BufferInfo info = new MediaCodec.BufferInfo();
         boolean inDone = false, outDone = false;
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(out), 1 << 16)) {
@@ -424,15 +424,17 @@ public class KaTranscribePlugin extends Plugin {
                         b.position(info.offset); b.limit(info.offset + info.size);
                         ByteBuffer s = b.slice().order(ByteOrder.LITTLE_ENDIAN);
                         int frames = info.size / 2 / ch; double step = srcRate / (double) RATE;
-                        // simple resampler: average the channels, pick samples at the 16 kHz positions
-                        while (pos < frames) {
-                            int f = (int) pos; int sum = 0;
-                            for (int c = 0; c < ch; c++) sum += s.getShort((f * ch + c) * 2);
-                            short v = (short) (sum / ch);
-                            if (ob.remaining() < 2) { os.write(ob.array(), 0, ob.position()); ob.clear(); }
-                            ob.putShort(v); written++; pos += step;
+                        // resampler: average the channels, then average each 16 kHz step's worth of source
+                        // samples (a simple low-pass, so higher sounds don't fold down into noise)
+                        for (int f = 0; f < frames; f++) {
+                            int sum = 0; for (int c = 0; c < ch; c++) sum += s.getShort((f * ch + c) * 2);
+                            acc += sum / (double) ch; cnt++; pos += 1;
+                            if (pos >= step) {
+                                short v = (short) Math.max(-32768, Math.min(32767, Math.round(acc / cnt)));
+                                if (ob.remaining() < 2) { os.write(ob.array(), 0, ob.position()); ob.clear(); }
+                                ob.putShort(v); written++; pos -= step; acc = 0; cnt = 0;
+                            }
                         }
-                        pos -= frames;
                     }
                     dec.releaseOutputBuffer(oi, false);
                     if ((info.flags & MediaCodec.BUFFER_FLAG_END_OF_STREAM) != 0) outDone = true;
