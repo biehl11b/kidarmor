@@ -16,12 +16,13 @@ jobs:
       - name: 16 KB page check of the native code
         run: |
           set +e
-          check() { d=$(mktemp -d); curl -sfL "$1" -o $d/x.aar || { echo "no $1"; return; }; (cd $d && unzip -q x.aar); for so in $(find $d -name "*.so" | grep -E "arm64|x86_64"); do al=$(llvm-objdump -p $so 2>/dev/null | grep -m1 -A0 "LOAD" | grep -o "align 2\*\*[0-9]*"); echo "$(basename $(dirname $so))/$(basename $so): $al"; done; }
-          for v in 0.3.47 0.3.45; do echo "== vosk-android $v"; check https://repo1.maven.org/maven2/com/alphacephei/vosk-android/$v/vosk-android-$v.aar; done
-          for v in 5.17.0 5.16.0 5.13.0; do echo "== jna $v"; check https://repo1.maven.org/maven2/net/java/dev/jna/jna/$v/jna-$v.aar; done
+          check() { d=$(mktemp -d); curl -sfL "$1" -o $d/x.aar || { echo "no $1"; return; }; (cd $d && unzip -q x.aar); for so in $(find $d -name "*.so" | grep -E "arm64|x86_64"); do al=$(readelf -lW $so | awk '/LOAD/{print $NF}' | sort -u | tr "\n" " "); echo "$(basename $(dirname $so))/$(basename $so): $al"; done; }
+          for v in 0.3.75 0.3.70 0.3.47; do echo "== vosk-android $v"; check https://repo1.maven.org/maven2/com/alphacephei/vosk-android/$v/vosk-android-$v.aar; done
+          for v in 5.19.1 5.18.1 5.17.0; do echo "== jna $v"; check https://repo1.maven.org/maven2/net/java/dev/jna/jna/$v/jna-$v.aar; done
           echo "== sherpa-onnx github releases"; curl -sf https://api.github.com/repos/k2-fsa/sherpa-onnx/releases?per_page=3 | grep -o '"name": "[^"]*\.aar"' | head -8
-          SV=$(curl -sf https://api.github.com/repos/k2-fsa/sherpa-onnx/releases/latest | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4); echo "latest sherpa $SV"
-          check "https://github.com/k2-fsa/sherpa-onnx/releases/download/$SV/sherpa-onnx-${SV#v}.aar"
+          check "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/sherpa-onnx-2.0.1.aar"
+      - name: Vosk 0.3.75 details
+        run: curl -sfL https://repo1.maven.org/maven2/com/alphacephei/vosk-android/0.3.75/vosk-android-0.3.75.pom | grep -A3 "<dependency>" | head -20 || true
       - name: English speech files (host a copy for the app)
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
