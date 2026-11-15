@@ -1743,7 +1743,10 @@ function micAllowedHere(){
   return true}
 const REC={stream:null,rec:null,chunks:[],sr:null,srOn:false,stopping:false,t0:0,timer:null,lines:[],interim:"",announcedAt:null,wake:null,srError:""};
 const mmss=s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(Math.floor(s%60)).padStart(2,"0")}`;
-function recMime(){for(const m of["audio/mp4","audio/webm;codecs=opus","audio/webm","audio/ogg"])if(MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(m))return m;return""}
+/* the Android app records WebM/Opus: it's what Android phones record by default, and Android 16's MP4 (AAC)
+   decoder can crash when KidArmor reads the recording back to write the transcript */
+function recMime(){const android=!!window.KA_NATIVE&&/Android/i.test(navigator.userAgent);
+  for(const m of android?["audio/webm;codecs=opus","audio/webm","audio/ogg","audio/mp4"]:["audio/mp4","audio/webm;codecs=opus","audio/webm","audio/ogg"])if(MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(m))return m;return""}
 function openRecorder(meetId){if(REC.active){reopenRecorder();return}REC.meet=typeof meetId==="string"?meetId:null;
   if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}
   if(!micAllowedHere()){openRecordInfo();return}
