@@ -64,6 +64,14 @@ function patchAndroid() {
     fs.writeFileSync(ma, m);
   }
   console.log("KaTranscribe plugin added");
+  // KidArmor's own speech engine (Vosk). These versions are built for 16 KB memory pages (Google Play requires it).
+  const bg = path.join(root, "android/app/build.gradle"); let g = fs.readFileSync(bg, "utf8");
+  if (!g.includes("vosk-android")) {
+    g = g.replace(/dependencies\s*\{/, "dependencies {\n    implementation 'net.java.dev.jna:jna:5.19.1@aar'\n    implementation 'com.alphacephei:vosk-android:0.3.75@aar'");
+    if (!g.includes("vosk-android")) throw new Error("Couldn't add the speech engine to app/build.gradle");
+    fs.writeFileSync(bg, g);
+  }
+  console.log("Speech engine added");
 }
 if (which === "ios" || which === "all") patchIOS();
 if (which === "android" || which === "all") patchAndroid();

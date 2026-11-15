@@ -83,7 +83,7 @@ async function main() {
     if (have) {
       adb("push", "speech.webm", "/data/local/tmp/speech.webm"); sh("chmod 644 /data/local/tmp/speech.webm");
       const av = await js(`return await Capacitor.registerPlugin("KaTranscribe").available()`);
-      ok("transcript writer available on this Android", av && (av.supported || av.api < 33), JSON.stringify(av));
+      ok("transcript writer available on this Android", av && av.supported, JSON.stringify(av));
       if (av && av.supported) {
         // put the recording into the app like a saved meeting
         sh(`run-as ${PKG} sh -c 'mkdir -p cache/kidarmor-tx && cp /data/local/tmp/speech.webm cache/kidarmor-tx/test.webm'`);
@@ -101,8 +101,8 @@ async function main() {
           let tx = "", note = "", tapped = false, lastMsg = "";
           await js(`closeSheet&&closeSheet();window.KA_TX_LAST_ERR="";writeTranscriptAgain("${made}");return 1`);
           const t0 = Date.now();
-          // up to 15 min: the first time, the phone may fetch its English speech files (~60 MB)
-          while (Date.now() - t0 < 15 * 60000) {
+          // up to 10 min: the first time, KidArmor downloads its English speech files (~40 MB)
+          while (Date.now() - t0 < 10 * 60000) {
             tx = await js(`const e=state.entries.find(x=>x.id==="${made}");return e&&e.transcript||""`); if (typeof tx !== "string") tx = ""; if (tx) break;
             const st = await js(`const p=document.querySelector("#txProg");return p?p.textContent:null`);
             if (st === null) break;
@@ -116,7 +116,7 @@ async function main() {
             }
             await sleep(3000)
           }
-          note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | last error: "+(window.KA_TX_LAST_ERR||"none")`);
+          note = await js(`return [...document.querySelectorAll(".toast")].map(t=>t.textContent).join(" | ")+" | engine: "+(window.KA_TX_ENGINE||"?")+" | phone engine error: "+(window.KA_TX_LAST_ERR||"none")`);
           console.log(`    ${mode}: ${Math.round((Date.now() - t0) / 1000)}s, Download tapped: ${tapped}, ${note}`);
           snap("after-transcribe-" + mode);
           ok(`transcript written from the recording (${mode === "phone" ? "on this phone only" : "speech service"})`, /school|therapy|meeting|week|December|teacher|report/i.test(tx), String(tx).slice(0, 220) || ("no transcript. " + note));

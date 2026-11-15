@@ -2082,7 +2082,9 @@ function summaryBlock(e){const m=e.summary;
     <p class="note" style="margin:0">The times show where each part is in the recording.</p></div>`}
 /* Android: the phone writes the transcript from the saved recording (see native-post.js) */
 function txErrMsg(err){const c=(err&&err.code)||"";
-  if(c==="language-downloading")return"The phone's English speech files aren't on the phone yet. Check that you're on Wi-Fi, then open the meeting and tap Write the transcript. If the phone asks, tap Download.";
+  if(c==="speech-download")return"KidArmor couldn't download its English speech files (one time, about 40 MB). Check your internet connection (Wi-Fi is best), then open the meeting and tap Write the transcript. Your recording is saved.";
+  if(c==="no-space")return"This phone is almost out of storage, so KidArmor can't add its English speech files (about 40 MB plus room to unpack). Free up some space, then open the meeting and tap Write the transcript. Your recording is saved.";
+  if(c==="language-downloading")return"The phone's English speech files aren't on the phone yet. Open the meeting and tap Write the transcript to try again.";
   if(c==="on-device-unavailable")return"This phone can't make transcripts on the phone itself. To use the phone's speech service instead, go to the Child tab, then Transcripts.";
   if(c==="service-not-allowed")return"This phone doesn't have a speech service turned on, so there's no transcript. You can still listen to the recording.";
   return"Couldn't write the transcript this time. You can still listen to the recording, or try Write the transcript again."}
@@ -2096,7 +2098,7 @@ async function addTranscript(e,onProgress){const parts=[];for(const m of e.recor
 async function writeTranscriptAgain(id){const e=state.entries.find(x=>x.id===id);if(!e||!window.KA_TRANSCRIBE_AFTER)return;
   openSheet(`<h3>Writing the transcript</h3><p class="note" id="txProg">The phone is listening to the recording. A long meeting can take a few minutes. Keep KidArmor open.</p>`);
   try{const n=await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=typeof p==="string"?p:`Writing the transcript… ${Math.round(p*100)}%`});closeSheet();
-    if(!n){toast("The phone couldn't make out any words in this recording.");return}try{renderHome()}catch(_){}showSavedMeeting(e)}
+    if(!n){toast("KidArmor couldn't make out any words in this recording. You can still listen to it.");return}try{renderHome()}catch(_){}showSavedMeeting(e)}
   catch(err){closeSheet();toast(txErrMsg(err))}}
 document.addEventListener("click",ev=>{const b=ev.target.closest&&ev.target.closest("[data-txagain]");if(!b)return;ev.preventDefault();ev.stopPropagation();writeTranscriptAgain(b.dataset.txagain)},true);
 function showSavedMeeting(e,recovered){

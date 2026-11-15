@@ -6,7 +6,9 @@
  * parent taps Stop, this decodes the saved recording and feeds the sound to Android's
  * speech recognizer (Android 13+ can take audio from the app instead of the microphone).
  * Nothing is uploaded by KidArmor. With "On this phone only" it uses the phone's
- * on-device recognizer; otherwise the phone's speech service (Google's). */
+ * on-device recognizer; otherwise the phone's speech service (Google's).
+ * On any Android (7+), or when the phone's own recognizer can't do it, KidArmor uses its own
+ * speech engine (Vosk, Apache 2.0) with English speech files it downloads once (about 40 MB). */
 package com.coastlinecode.kidarmor;
 
 import android.content.Intent;
@@ -42,6 +44,17 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.vosk.LibVosk;
+import org.vosk.LogLevel;
+import org.vosk.Model;
+import org.vosk.Recognizer;
 
 @CapacitorPlugin(name = "KaTranscribe")
 public class KaTranscribePlugin extends Plugin {
@@ -56,7 +69,8 @@ public class KaTranscribePlugin extends Plugin {
         boolean service = false, onDevice = false;
         try { service = SpeechRecognizer.isRecognitionAvailable(getContext()); } catch (Exception e) { }
         try { if (Build.VERSION.SDK_INT >= 31) onDevice = SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext()); } catch (Exception e) { }
-        r.put("supported", api && (service || onDevice));
+        r.put("google", api && (service || onDevice));
+        r.put("supported", true); // KidArmor's own engine works on every Android it runs on
         r.put("api", Build.VERSION.SDK_INT);
         r.put("service", service);
         r.put("onDevice", onDevice);
@@ -189,9 +203,8 @@ public class KaTranscribePlugin extends Plugin {
                     main.postDelayed(() -> recognize(call, pcm, seconds, true, lang, false, code), 300); return;
                 }
                 if (code == 13 /* ERROR_LANGUAGE_UNAVAILABLE */ && Build.VERSION.SDK_INT >= 33) {
-                    try { Intent d = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); d.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang); sr.triggerModelDownload(d); } catch (Exception e) { }
                     done[0] = true; try { sr.destroy(); } catch (Exception e) { } pcm.delete();
-                    call.reject("The phone is downloading its English speech files. Try again in a few minutes." + (earlierCode != 0 ? " (speech service error " + earlierCode + ")" : ""), "language-downloading"); return;
+                    call.reject("The phone doesn't have its English speech files." + (earlierCode != 0 ? " (speech service error " + earlierCode + ")" : ""), "language-downloading"); return;
                 }
                 // no words heard, or the session ended: keep whatever was written
                 if (!segs.isEmpty() || code == SpeechRecognizer.ERROR_NO_MATCH || code == SpeechRecognizer.ERROR_SPEECH_TIMEOUT) { finish.run(); return; }
@@ -234,6 +247,140 @@ public class KaTranscribePlugin extends Plugin {
         // safety net: never leave the parent waiting forever
         long limitMs = (long) (seconds * 1000 * 2) + 120000;
         main.postDelayed(() -> { if (!done[0]) finish.run(); }, limitMs);
+    }
+
+    /* ---------- KidArmor's own speech engine (works on every Android) ---------- */
+    private static final String MODEL_NAME = "vosk-model-small-en-us-0.15";
+    private static final long MODEL_ZIP_BYTES = 41205931L;
+    private static final Object MODEL_LOCK = new Object();
+
+    private File modelDir() { return new File(new File(getContext().getFilesDir(), "kidarmor-speech"), MODEL_NAME); }
+    private boolean modelReady() { return new File(modelDir(), ".ready").exists() && new File(modelDir(), "am/final.mdl").exists(); }
+
+    @PluginMethod
+    public void ownSpeechFiles(PluginCall call) {
+        JSObject r = new JSObject(); r.put("ready", modelReady()); r.put("bytes", MODEL_ZIP_BYTES); call.resolve(r);
+    }
+
+    private void progress(String stage, double done) {
+        JSObject p = new JSObject(); p.put("stage", stage); p.put("done", Math.max(0, Math.min(1, done))); notifyListeners("progress", p);
+    }
+
+    /** Downloads and unpacks the English speech files once. Tries each address in turn. */
+    private void ensureModel(JSONArray urls) throws Exception {
+        synchronized (MODEL_LOCK) {
+            if (modelReady()) return;
+            File base = modelDir().getParentFile(); base.mkdirs();
+            File zip = new File(getContext().getCacheDir(), MODEL_NAME + ".zip");
+            Exception last = null;
+            for (int i = 0; i < urls.length() && !zip.exists(); i++) {
+                File part = new File(zip.getPath() + ".part");
+                try { download(urls.getString(i), part); if (!part.renameTo(zip)) throw new Exception("rename"); }
+                catch (Exception e) { last = e; part.delete(); }
+            }
+            if (!zip.exists()) throw new Exception("speech-download: " + (last == null ? "no address" : last.getMessage()));
+            File tmp = new File(base, MODEL_NAME + ".tmp"); deleteTree(tmp); tmp.mkdirs();
+            try {
+                unzip(zip, tmp);
+                File inner = new File(tmp, MODEL_NAME); if (!inner.isDirectory()) inner = tmp;
+                if (!new File(inner, "am/final.mdl").exists()) throw new Exception("speech-download: files incomplete");
+                deleteTree(modelDir());
+                if (!inner.renameTo(modelDir())) throw new Exception("speech-download: couldn't save");
+                new FileOutputStream(new File(modelDir(), ".ready")).close();
+            } finally { deleteTree(tmp); zip.delete(); }
+        }
+    }
+
+    private void download(String url, File out) throws Exception {
+        HttpURLConnection c = null;
+        for (int hop = 0; hop < 6; hop++) {
+            c = (HttpURLConnection) new URL(url).openConnection();
+            c.setConnectTimeout(20000); c.setReadTimeout(30000); c.setInstanceFollowRedirects(false);
+            int code = c.getResponseCode();
+            if (code >= 300 && code < 400 && c.getHeaderField("Location") != null) { url = new URL(new URL(url), c.getHeaderField("Location")).toString(); c.disconnect(); continue; }
+            if (code != 200) { c.disconnect(); throw new Exception("HTTP " + code); }
+            break;
+        }
+        long total = c.getContentLengthLong(); if (total <= 0) total = MODEL_ZIP_BYTES;
+        if (getContext().getFilesDir().getUsableSpace() < total * 3) { c.disconnect(); throw new Exception("no-space"); }
+        try (InputStream in = new BufferedInputStream(c.getInputStream()); OutputStream os = new BufferedOutputStream(new FileOutputStream(out))) {
+            byte[] buf = new byte[1 << 16]; long got = 0, lastTick = 0; int n;
+            while ((n = in.read(buf)) > 0) { os.write(buf, 0, n); got += n; if (got - lastTick > 512 * 1024) { lastTick = got; progress("download", got / (double) total); } }
+            if (got < total * 0.98) throw new Exception("download cut off");
+        } finally { c.disconnect(); }
+        progress("download", 1);
+    }
+
+    private static void unzip(File zip, File dest) throws Exception {
+        String root = dest.getCanonicalPath() + File.separator;
+        try (ZipInputStream zin = new ZipInputStream(new BufferedInputStream(new FileInputStream(zip)))) {
+            ZipEntry e; byte[] buf = new byte[1 << 16];
+            while ((e = zin.getNextEntry()) != null) {
+                File f = new File(dest, e.getName());
+                if (!f.getCanonicalPath().startsWith(root)) throw new Exception("bad zip entry");
+                if (e.isDirectory()) { f.mkdirs(); continue; }
+                f.getParentFile().mkdirs();
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(f))) { int n; while ((n = zin.read(buf)) > 0) os.write(buf, 0, n); }
+            }
+        }
+    }
+
+    private static void deleteTree(File f) {
+        if (f == null || !f.exists()) return;
+        File[] kids = f.listFiles(); if (kids != null) for (File k : kids) deleteTree(k);
+        f.delete();
+    }
+
+    /** Writes the transcript with KidArmor's own engine: {path, urls:[...]} -> {segments:[{t,text}], seconds} */
+    @PluginMethod
+    public void ownTranscribe(PluginCall call) {
+        String path = call.getString("path", "");
+        if (path.startsWith("file://")) path = Uri.parse(path).getPath();
+        final File in = new File(path);
+        if (!in.exists()) { call.reject("Recording file not found", "missing"); return; }
+        final JSONArray urls = call.getArray("urls", new JSArray());
+        new Thread(() -> {
+            File pcm = new File(getContext().getCacheDir(), "kidarmor-own-" + System.currentTimeMillis() + ".pcm");
+            try {
+                try { ensureModel(urls); }
+                catch (Exception e) { String m = String.valueOf(e.getMessage()); call.reject(m, m.contains("no-space") ? "no-space" : "speech-download"); return; }
+                progress("write", 0);
+                long samples;
+                try { samples = decodeToPcm(in, pcm); } catch (Exception e) { call.reject("Couldn't read the recording: " + e.getMessage(), "decode"); return; }
+                double seconds = samples / (double) RATE;
+                JSArray segs = new JSArray();
+                try { LibVosk.setLogLevel(LogLevel.WARNINGS); } catch (Throwable t) { }
+                try (Model model = new Model(modelDir().getAbsolutePath()); Recognizer rec = new Recognizer(model, (float) RATE)) {
+                    rec.setWords(true);
+                    long fed = 0, lastTick = 0;
+                    try (BufferedInputStream fi = new BufferedInputStream(new FileInputStream(pcm))) {
+                        byte[] buf = new byte[8000]; int n;
+                        while ((n = fi.read(buf)) > 0) {
+                            if (rec.acceptWaveForm(buf, n)) addSeg(segs, rec.getResult(), fed / 2.0 / RATE);
+                            fed += n;
+                            if (fed - lastTick > RATE * 2 * 5) { lastTick = fed; progress("write", fed / 2.0 / RATE / Math.max(seconds, 1)); }
+                        }
+                    }
+                    addSeg(segs, rec.getFinalResult(), fed / 2.0 / RATE);
+                }
+                progress("write", 1);
+                JSObject r = new JSObject(); r.put("segments", segs); r.put("seconds", seconds); r.put("engine", "kidarmor"); call.resolve(r);
+            } catch (Throwable e) {
+                call.reject("Couldn't write the transcript: " + e.getMessage(), "own-engine");
+            } finally { pcm.delete(); }
+        }, "KaTranscribe-own").start();
+    }
+
+    private static void addSeg(JSArray segs, String json, double fallbackT) {
+        try {
+            JSONObject o = new JSONObject(json);
+            String text = o.optString("text", "").trim();
+            if (text.isEmpty()) return;
+            double t = fallbackT;
+            JSONArray words = o.optJSONArray("result");
+            if (words != null && words.length() > 0) t = words.getJSONObject(0).optDouble("start", fallbackT);
+            JSObject s = new JSObject(); s.put("t", t); s.put("text", text.substring(0, 1).toUpperCase() + text.substring(1)); segs.put(s);
+        } catch (Exception e) { }
     }
 
     /** Decodes the recording (WebM/Opus or MP4/AAC) to 16 kHz mono 16-bit PCM. Returns samples written. */
