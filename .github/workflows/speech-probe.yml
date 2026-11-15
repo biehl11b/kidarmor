@@ -1,0 +1,29 @@
+name: Speech engine check
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/speech-probe.yml"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Library versions
+        run: |
+          for a in com/alphacephei/vosk-android net/java/dev/jna/jna com/k2fsa/sherpa/onnx/sherpa-onnx; do echo "== $a"; curl -sf https://repo1.maven.org/maven2/$a/maven-metadata.xml | grep -o "<version>[^<]*" | tail -4 || echo none; done
+      - name: 16 KB page check of the native code
+        run: |
+          set +e
+          check() { d=$(mktemp -d); curl -sfL "$1" -o $d/x.aar || { echo "no $1"; return; }; (cd $d && unzip -q x.aar); for so in $(find $d -name "*.so" | grep -E "arm64|x86_64"); do al=$(llvm-objdump -p $so 2>/dev/null | grep -m1 -A0 "LOAD" | grep -o "align 2\*\*[0-9]*"); echo "$(basename $(dirname $so))/$(basename $so): $al"; done; }
+          for v in 0.3.47 0.3.45; do echo "== vosk-android $v"; check https://repo1.maven.org/maven2/com/alphacephei/vosk-android/$v/vosk-android-$v.aar; done
+          for v in 5.17.0 5.16.0 5.13.0; do echo "== jna $v"; check https://repo1.maven.org/maven2/net/java/dev/jna/jna/$v/jna-$v.aar; done
+          echo "== sherpa-onnx github releases"; curl -sf https://api.github.com/repos/k2-fsa/sherpa-onnx/releases?per_page=3 | grep -o '"name": "[^"]*\.aar"' | head -8
+          SV=$(curl -sf https://api.github.com/repos/k2-fsa/sherpa-onnx/releases/latest | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4); echo "latest sherpa $SV"
+          check "https://github.com/k2-fsa/sherpa-onnx/releases/download/$SV/sherpa-onnx-${SV#v}.aar"
+      - name: English speech files (host a copy for the app)
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          curl -sfL https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip -o vosk-model-small-en-us-0.15.zip && ls -la *.zip && sha256sum *.zip && unzip -l vosk-model-small-en-us-0.15.zip | tail -3
+          gh release view speech-en -R ${{ github.repository }} >/dev/null 2>&1 || gh release create speech-en vosk-model-small-en-us-0.15.zip -R ${{ github.repository }} --title "KidArmor English speech files" --notes "Speech files KidArmor downloads on first use to write transcripts on the phone (Vosk small English model, Apache 2.0, alphacephei.com)."
