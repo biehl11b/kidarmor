@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       only: { description: "Run only these steps (layout,record,photo,remind,calendar,faceid,pdf,restart). Blank = all", required: false, default: "" }
+      mac: { description: "Mac to use (macos-15, macos-26, macos-15-intel)", required: false, default: "macos-15" }
       devices: { description: "Only these phones (SE,Standard,ProMax,Air,Older iOS). Blank = all", required: false, default: "" }
 permissions:
   contents: write
@@ -13,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   iphone:
-    runs-on: macos-26
+    runs-on: ${{ github.event.inputs.mac || 'macos-15' }}
     timeout-minutes: 150
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
