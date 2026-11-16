@@ -1,0 +1,36 @@
+name: iPhone test
+# Walks through KidArmor on virtual iPhones (small SE, standard, Pro Max, Air, and an older iOS):
+# screen layout, recording, photo picker, reminders, calendar, Face ID, PDF binder and share sheet, reopening.
+on:
+  workflow_dispatch:
+    inputs:
+      only: { description: "Run only these steps (layout,record,photo,remind,calendar,faceid,pdf,restart). Blank = all", required: false, default: "" }
+      devices: { description: "Only these phones (SE,Standard,ProMax,Air,Older iOS). Blank = all", required: false, default: "" }
+permissions:
+  contents: write
+concurrency:
+  group: iphone-test
+  cancel-in-progress: true
+jobs:
+  iphone:
+    runs-on: macos-26
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: 22 }
+      - name: Build the test app and walk through it on virtual iPhones
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+          DEVICES: ${{ github.event.inputs.devices }}
+          OUT: sim
+        run: bash tests/ios/run.sh
+      - name: Keep results (download from the run page)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with: { name: iphone-results, path: sim, retention-days: 14 }
+      - name: Save results
+        if: always()
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: bash native/scripts/push-dir.sh iphone sim

@@ -10,6 +10,11 @@ npm install --no-audit --no-fund --legacy-peer-deps $(cat plugins.txt)
 npm ls --depth=0 || true
 node scripts/patch-speech.mjs
 node scripts/prepare-www.mjs
+if [ -n "${KA_TEST:-}" ]; then # iPhone test build only: adds the test helper page script
+  cp ../tests/ios/ka-test.js www/ka-test.js
+  perl -0pi -e 's/<script/<script src="ka-test.js"><\/script><script/' www/index.html
+  grep -c 'ka-test.js' www/index.html
+fi
 [ -d ios ] || npx cap add ios
 node scripts/patch-native.mjs ios
 # Add the privacy manifest to the Xcode project so it ships inside the app
@@ -34,5 +39,5 @@ cd ios/App
 if [ -d App.xcworkspace ]; then T=(-workspace App.xcworkspace); else T=(-project App.xcodeproj); fi
 echo "${T[@]}" > ../../.xcode-target
 grep -n "TARGETED_DEVICE_FAMILY\|IPHONEOS_DEPLOYMENT_TARGET" App.xcodeproj/project.pbxproj | sort -u | head -6 || true
-xcodebuild "${T[@]}" -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO -quiet build
+xcodebuild "${T[@]}" -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO ${KA_DERIVED:+-derivedDataPath $KA_DERIVED} -quiet build
 echo "IOS SIMULATOR BUILD OK"
