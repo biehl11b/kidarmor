@@ -12,7 +12,7 @@ const results = []; let shot = 0, d, web = null; const jsErrors = [];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const ok = (name, pass, detail = "") => { results.push({ name, pass: !!pass, detail: String(detail).slice(0, 300) }); console.log((pass ? "  ok   " : "  FAIL ") + name + (detail ? "  → " + String(detail).slice(0, 300) : "")) };
 const info = (name, detail) => { results.push({ name, pass: true, info: true, detail: String(detail).slice(0, 300) }); console.log("  info " + name + "  → " + String(detail).slice(0, 300)) };
-const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 60000 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") } };
+const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 60000, maxBuffer: 64e6 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") } };
 const snap = label => { const f = `${OUT}/${String(++shot).padStart(2, "0")}-${label}.png`; xc("simctl", "io", UDID, "screenshot", "--type=png", f); return f };
 const step = n => !ONLY.length || ONLY.includes(n);
 const dataDir = () => xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim();
@@ -78,14 +78,13 @@ async function layout(label) {
 // ---------- the walkthrough ----------
 async function main() {
   d = await remote({
-    hostname: "127.0.0.1", port: 4723, logLevel: "error", connectionRetryTimeout: 600000, connectionRetryCount: 1,
-    capabilities: { platformName: "iOS", "appium:automationName": "XCUITest", "appium:udid": UDID, "appium:app": APP, "appium:bundleId": BUNDLE,
+    hostname: "127.0.0.1", port: 4723, logLevel: "error", connectionRetryTimeout: 1800000, connectionRetryCount: 0,
+    capabilities: { platformName: "iOS", "appium:automationName": "XCUITest", "appium:udid": UDID, "appium:app": APP, "appium:bundleId": BUNDLE, "appium:deviceName": DEVICE, ...(process.env.IOSVER ? { "appium:platformVersion": process.env.IOSVER } : {}),
       "appium:noReset": false, "appium:newCommandTimeout": 900, "appium:wdaLaunchTimeout": 600000, "appium:wdaConnectionTimeout": 600000,
       "appium:webviewConnectTimeout": 30000, "appium:autoAcceptAlerts": false, "appium:shouldTerminateApp": true, "appium:reduceMotion": true }
   });
   await d.setTimeout({ script: 90000 });
-  const ver = xc("simctl", "list", "devices", "-j"); const dev = Object.entries(JSON.parse(ver).devices).flatMap(([rt, l]) => l.map(x => ({ ...x, rt }))).find(x => x.udid === UDID);
-  const ios = dev ? dev.rt.replace(/.*SimRuntime\./, "").replace(/-/g, ".") : "?";
+  const ios = process.env.IOSVER || "?";
   console.log("Device:", DEVICE, ios);
   ok("app opens and its screen loads", await toWeb(90000)); await sleep(3000);
   ok("phone features load (native mode)", await js(`return window.KA_NATIVE===true&&Capacitor.getPlatform()==="ios"`), await js(`return navigator.userAgent`));
