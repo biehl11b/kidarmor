@@ -9,6 +9,10 @@ APP=$(find "$ROOT/dd/Build/Products" -maxdepth 2 -name App.app -type d | head -1
 xcrun simctl list runtimes | tee "$OUT/runtimes.txt"
 npm i -g appium@3 >/dev/null 2>&1 && appium driver install xcuitest 2>&1 | tail -2
 ( cd tests/ios && npm init -y >/dev/null && npm i --no-audit --no-fund webdriverio@9 >/dev/null 2>&1 ) && echo "webdriverio ready"
+# Build the iPhone driver (WebDriverAgent) once up front, so each phone's test starts quickly
+WDA=$(find ~/.appium -name WebDriverAgent.xcodeproj -maxdepth 6 | head -1); echo "WDA: $WDA"
+xcodebuild build-for-testing -project "$WDA" -scheme WebDriverAgentRunner -destination 'generic/platform=iOS Simulator' -derivedDataPath "$ROOT/wda" CODE_SIGNING_ALLOWED=NO -quiet > "$OUT/wda-build.txt" 2>&1 && echo "WDA BUILD OK" || tail -30 "$OUT/wda-build.txt"
+export WDA_DD="$ROOT/wda"
 appium --log-level warn --log "$OUT/appium.txt" > /dev/null 2>&1 &
 sleep 8
 # Which iPhones: the newest iOS on every phone size, plus the oldest iOS this Mac has
@@ -29,7 +33,7 @@ echo "$PLAN" | while IFS='|' read -r LABEL PAT RT; do
   xcrun simctl boot "$UDID"; xcrun simctl bootstatus "$UDID" -b > /dev/null
   for s in calendar reminders photos microphone; do xcrun simctl privacy "$UDID" grant $s com.coastlinecode.kidarmor 2>/dev/null; done
   D="$OUT/$(echo "$LABEL" | tr ' ' '-')"; mkdir -p "$D"
-  IOSVER=$(echo "$RT" | sed -E "s/.*iOS-//; s/-/./g") UDID=$UDID APP=$APP DEVICE="$NAME" OUT=$D perl -e "alarm 1500; exec @ARGV" node tests/ios/drive.mjs 2>&1 | tee "$D/run.txt"
+  IOSVER=$(echo "$RT" | sed -E "s/.*iOS-//; s/-/./g") UDID=$UDID APP=$APP DEVICE="$NAME" OUT=$D perl -e "alarm 2400; exec @ARGV" node tests/ios/drive.mjs 2>&1 | tee "$D/run.txt"
   xcrun simctl shutdown "$UDID"; xcrun simctl delete "$UDID"
 done
 cat "$OUT"/*/summary.txt > "$OUT/summary.txt" 2>/dev/null

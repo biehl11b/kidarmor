@@ -79,7 +79,7 @@ async function layout(label) {
 async function main() {
   d = await remote({
     hostname: "127.0.0.1", port: 4723, logLevel: "error", connectionRetryTimeout: 1800000, connectionRetryCount: 0,
-    capabilities: { platformName: "iOS", "appium:automationName": "XCUITest", "appium:udid": UDID, "appium:app": APP, "appium:bundleId": BUNDLE, "appium:deviceName": DEVICE, ...(process.env.IOSVER ? { "appium:platformVersion": process.env.IOSVER } : {}),
+    capabilities: { platformName: "iOS", "appium:automationName": "XCUITest", "appium:udid": UDID, "appium:app": APP, "appium:bundleId": BUNDLE, "appium:deviceName": DEVICE, ...(process.env.WDA_DD ? { "appium:derivedDataPath": process.env.WDA_DD, "appium:usePrebuiltWDA": true } : {}), ...(process.env.IOSVER ? { "appium:platformVersion": process.env.IOSVER } : {}),
       "appium:noReset": false, "appium:newCommandTimeout": 900, "appium:wdaLaunchTimeout": 600000, "appium:wdaConnectionTimeout": 600000,
       "appium:webviewConnectTimeout": 30000, "appium:autoAcceptAlerts": false, "appium:shouldTerminateApp": true, "appium:reduceMotion": true }
   });
