@@ -105,9 +105,11 @@ async function quickCheck() {
   console.log(xc("simctl", "launch", UDID, BUNDLE).trim());
   let dd; try { dd = dataDir() } catch (e) { ok("quick: app folder found", false, e.message); return false }
   fs.mkdirSync(dd + "/Documents/ka-rpc", { recursive: true });
-  const t = Date.now(); let alive = false;
-  while (Date.now() - t < 240000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) }
-  ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 4 min");
+  let alive = false;
+  for (let tryN = 1; tryN <= 3 && !alive; tryN++) { // slow Macs sometimes don't open the app the first time
+    if (tryN > 1) { console.log("    opening the app again (try " + tryN + ")"); xc("simctl", "terminate", UDID, BUNDLE); await sleep(2000); console.log(xc("simctl", "launch", UDID, BUNDLE).trim()) }
+    const t0 = Date.now(); while (Date.now() - t0 < 120000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) } }
+  ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 3 tries");
   const errf = dd + "/Documents/ka-rpc/agent-err.txt"; if (fs.existsSync(errf)) info("quick: helper error", fs.readFileSync(errf, "utf8"));
   const two = await js("return 1+1", 20000); ok("quick: app answers", two === 2, JSON.stringify(two));
   const g = await js("return {native:!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()),show:typeof show,state:typeof state,errs:window.__kaErrs||[]}", 20000);
@@ -226,6 +228,10 @@ async function main() {
     const a = await tapAlert(/^(OK|Allow)$/i, 4); console.log("    Face ID permission:", a); await sleep(1500); snap("faceid");
     await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: true }));
     await waitFor(`window.__bio!=="waiting"`, 10000);
+    if (await js(`return window.__bio`) !== "on") { // iOS 18: the first try can be used up by the permission step; try once more, like a person would
+      info("Face ID first try", await js(`return window.__bio`));
+      await kick(`window.__bio="waiting";try{await bioEnroll();window.__bio="on"}catch(e){window.__bio="failed: "+(e&&e.message||e)}`); await sleep(3000);
+      await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: true })); await waitFor(`window.__bio!=="waiting"`, 10000) }
     ok("Face ID turns on", await js(`return window.__bio`) === "on", await js(`return window.__bio`));
     await kick(`window.__unl="waiting";window.__unl=await bioUnlock()`); await sleep(2000);
     await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: true })); await waitFor(`window.__unl!=="waiting"`, 10000);
