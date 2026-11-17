@@ -16,21 +16,29 @@ const info = (name, detail) => { if (detail && typeof detail === "object") detai
 const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 60000, maxBuffer: 64e6 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") } };
 const snap = label => { const f = `${OUT}/${String(++shot).padStart(2, "0")}-${label}.png`; xc("simctl", "io", UDID, "screenshot", "--type=png", f); return f };
 const step = n => !ONLY.length || ONLY.includes(n);
-const dataDir = () => xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim();
+let _dd = ""; const dataDir = () => _dd || (_dd = xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim());
 
 // ---------- the app's web view ----------
+// The test talks to the app through files in its Documents folder: the test-only helper inside the app
+// (ka-test.js) runs each request and writes the answer back. (iPhone simulators on the test Macs
+// don't let the test tool see inside web views, so this is how it works the app's own screens.)
+let rpcId = 0;
 async function toWeb(ms = 60000) {
   const t = Date.now();
-  while (Date.now() - t < ms) {
-    try { const c = await d.getContexts(); const w = c.map(x => typeof x === "string" ? x : x.id).find(x => /^WEBVIEW/.test(x)); if (w) { await d.switchContext(w); web = w; const r = await js(`return location.href`); if (typeof r === "string") return true } } catch (e) { }
-    await sleep(1500)
-  }
+  while (Date.now() - t < ms) { const r = await js(`return location.href`, 8000); if (typeof r === "string") return true; await sleep(1500) }
   return false
 }
-async function js(body) {
-  try {
-    return await d.executeAsync(`const done=arguments[arguments.length-1];(async()=>{${body}})().then(v=>done(v===undefined?null:v),e=>done({__err:String(e&&e.stack||e)}))`)
-  } catch (e) { return { __err: String(e.message || e).slice(0, 300) } }
+async function js(body, ms = 90000) {
+  let dir; try { dir = dataDir() + "/Documents/ka-rpc"; fs.mkdirSync(dir, { recursive: true }) } catch (e) { return { __err: "no app folder: " + e.message } }
+  const id = ++rpcId, res = `${dir}/res-${id}.json`;
+  fs.writeFileSync(`${dir}/req-${id}.tmp`, JSON.stringify({ body })); fs.renameSync(`${dir}/req-${id}.tmp`, `${dir}/req-${id}.json`);
+  const t = Date.now();
+  while (Date.now() - t < ms) {
+    if (fs.existsSync(res)) { try { const v = JSON.parse(fs.readFileSync(res, "utf8")).v; fs.unlinkSync(res); return v } catch (e) { } }
+    await sleep(250)
+  }
+  try { fs.unlinkSync(`${dir}/req-${id}.json`) } catch (e) { }
+  return { __err: "the app didn't answer" }
 }
 async function waitFor(expr, ms = 15000) { const t = Date.now(); while (Date.now() - t < ms) { if (await js(`return !!(${expr})`) === true) return true; await sleep(600) } return false }
 const click = sel => js(`const e=document.querySelector(${JSON.stringify(sel)});if(!e)return "missing";e.scrollIntoView({block:"center"});e.click();return "ok"`);
@@ -38,7 +46,7 @@ const kick = body => js(`setTimeout(async()=>{try{${body}}catch(e){window.__kick
 async function grabErrors() { const e = await js(`const a=window.__kaErrs||[];window.__kaErrs=[];return a`); if (Array.isArray(e)) jsErrors.push(...e) }
 
 // ---------- iPhone screens ----------
-async function native(fn) { await d.switchContext("NATIVE_APP"); try { return await fn() } finally { if (web) try { await d.switchContext(web) } catch (e) { } } }
+async function native(fn) { return fn() }
 function elements(xml) {
   return [...xml.matchAll(/<(XCUIElementType\w+)\s([^>]*)>/g)].map(m => { const a = m[2], g = k => (a.match(new RegExp(" ?" + k + '="([^"]*)"')) || [])[1] || ""; return { type: m[1], name: g("name"), label: g("label"), visible: g("visible") !== "false", x: +g("x") + (+g("width") >> 1), y: +g("y") + (+g("height") >> 1), w: +g("width") } })
 }

@@ -13,7 +13,8 @@ node scripts/prepare-www.mjs
 if [ -n "${KA_TEST:-}" ]; then # iPhone test build only: adds the test helper page script
   cp ../tests/ios/ka-test.js www/ka-test.js
   perl -0pi -e 's/<script/<script src="ka-test.js"><\/script><script/' www/index.html
-  grep -c 'ka-test.js' www/index.html
+  perl -0pi -e "s/script-src 'self'/script-src 'self' 'unsafe-eval'/" www/index.html
+  grep -c 'ka-test.js' www/index.html; grep -o "script-src 'self' 'unsafe-eval'" www/index.html
   # let the test tool see inside the app's web view (test build only)
   node -e 'const f="capacitor.config.json",c=JSON.parse(require("fs").readFileSync(f));c.ios.webContentsDebuggingEnabled=true;require("fs").writeFileSync(f,JSON.stringify(c,null,2))'
 fi
