@@ -4,7 +4,7 @@ name: iPhone test
 on:
   workflow_dispatch:
     inputs:
-      only: { description: "Run only these steps (layout,record,photo,remind,calendar,faceid,pdf,restart). Blank = all", required: false, default: "" }
+      only: { description: "Run only these steps (rpc = quick check only; or layout,record,photo,remind,calendar,faceid,pdf,restart). Blank = all", required: false, default: "" }
       mac: { description: "Mac to use (macos-15, macos-26, macos-15-intel)", required: false, default: "macos-15" }
       devices: { description: "Only these phones (SE,Standard,ProMax,Air,Older iOS). Blank = all", required: false, default: "" }
 permissions:

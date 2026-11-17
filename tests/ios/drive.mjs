@@ -16,7 +16,7 @@ const info = (name, detail) => { if (detail && typeof detail === "object") detai
 const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 60000, maxBuffer: 64e6 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") } };
 const snap = label => { const f = `${OUT}/${String(++shot).padStart(2, "0")}-${label}.png`; xc("simctl", "io", UDID, "screenshot", "--type=png", f); return f };
 const step = n => !ONLY.length || ONLY.includes(n);
-let _dd = ""; const dataDir = () => _dd || (_dd = xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim());
+let _dd = ""; const dataDir = () => { if (_dd) return _dd; const p = xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim(); if (!p.startsWith("/")) throw new Error(p.slice(0, 150)); return (_dd = p) };
 
 // ---------- the app's web view ----------
 // The test talks to the app through files in its Documents folder: the test-only helper inside the app
@@ -85,7 +85,31 @@ async function layout(label) {
 }
 
 // ---------- the walkthrough ----------
+// Quick check, no Appium (takes seconds): does the app's test helper answer? Stops early if not,
+// so a broken link costs minutes instead of a 40-minute run.
+async function quickCheck() {
+  console.log("Quick check: install and open the app");
+  console.log(xc("simctl", "install", UDID, APP).trim() || "  installed");
+  console.log(xc("simctl", "launch", UDID, BUNDLE).trim());
+  let dd; try { dd = dataDir() } catch (e) { ok("quick: app folder found", false, e.message); return false }
+  fs.mkdirSync(dd + "/Documents/ka-rpc", { recursive: true });
+  const t = Date.now(); let alive = false;
+  while (Date.now() - t < 90000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) }
+  ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 90 s");
+  const errf = dd + "/Documents/ka-rpc/agent-err.txt"; if (fs.existsSync(errf)) info("quick: helper error", fs.readFileSync(errf, "utf8"));
+  const two = await js("return 1+1", 20000); ok("quick: app answers", two === 2, JSON.stringify(two));
+  const g = await js("return {native:!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()),show:typeof show,state:typeof state,errs:window.__kaErrs||[]}", 20000);
+  info("quick: inside the app", g); snap("quick-open");
+  try { info("quick: Documents", JSON.stringify(fs.readdirSync(dd + "/Documents", { recursive: true }))) } catch (e) { }
+  if (two !== 2) { const log = xc("simctl", "spawn", UDID, "log", "show", "--last", "3m", "--style", "compact", "--predicate", 'process == "App" AND (eventMessage CONTAINS "ka-" OR eventMessage CONTAINS "rror" OR eventMessage CONTAINS "CSP" OR eventMessage CONTAINS "Content Security")'); fs.writeFileSync(`${OUT}/quick-log.txt`, log); console.log(log.split("\n").slice(-40).join("\n")) }
+  xc("simctl", "terminate", UDID, BUNDLE);
+  return two === 2
+}
+
 async function main() {
+  const quick = await quickCheck();
+  if (!quick || (ONLY.length === 1 && ONLY[0] === "rpc")) { console.log(quick ? "Quick check passed." : "Quick check failed, stopping before the long part."); fs.writeFileSync(`${OUT}/summary.txt`, `${DEVICE} quick check: ${quick ? "passed" : "FAILED"}\n` + results.map(r => (r.info ? "info " : r.pass ? "ok   " : "FAIL ") + r.name + (r.detail ? "  → " + r.detail : "")).join("\n") + "\n"); process.exit(0) }
+  _dd = "";
   // the first start can take over 10 minutes on the test Macs (the iPhone driver warms up), so try again
   const opts = {
     hostname: "127.0.0.1", port: 4723, logLevel: "error", connectionRetryTimeout: 1800000, connectionRetryCount: 0,
