@@ -1,0 +1,154 @@
+Quick check: install and open the app
+  install 1: ok
+  open: com.coastlinecode.kidarmor: 31270
+  ok   quick: test helper started in the app
+  ok   quick: app answers  → 2
+  info quick: inside the app  → {"native":true,"show":"function","state":"object","errs":[]}
+Wrote screenshot to: sim/Air/01-quick-open.png
+  info quick: Documents  → ["ka-rpc","ka-rpc/alive.json"]
+Device: iPhone 16 Plus 26.2
+  ok   app opens and its screen loads
+  ok   phone features load (native mode)  → Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+  info first screen  → Welcome to KidArmor
+KidArmor helps you keep your own records organized. It is not legal advice.
+What you save stays on t
+Wrote screenshot to: sim/Air/02-screen-first-open.png
+  ok   first-open: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   first-open: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+  ok   child added
+Wrote screenshot to: sim/Air/03-screen-home.png
+  ok   home: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   home: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/04-screen-add.png
+  ok   add: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   add: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/05-screen-plan.png
+  ok   plan: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   plan: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/06-screen-letters.png
+  ok   letters: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   letters: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/07-screen-reports.png
+  ok   reports: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   reports: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/08-screen-res.png
+  ok   res: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   res: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+Wrote screenshot to: sim/Air/09-screen-me.png
+  ok   me: nothing wider than the screen  → screen 430x932, page 430 wide 
+  ok   me: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+    chose on-phone
+2026-11-17T18:59:35.898Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T18:59:37.773Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T18:59:39.681Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T18:59:41.477Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T18:59:43.370Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T18:59:45.126Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+Wrote screenshot to: sim/Air/10-recording.png
+  info recording formats this iPhone supports  → audio/mp4:true audio/webm:true audio/webm;codecs=opus:true
+  info recording (needs a real iPhone microphone)  → timer ""; on screen: Child & privacy
+Your child's info fills in the letters.
+Use KidArmor on a computer
+Read everything on a bigger screen, and write letters, send emails and make t
+Wrote screenshot to: sim/Air/11-picker-menu.png
+    on screen: KidArmor | No documents yet. Start with the plan itself, then evaluations, report cards and doctor's notes. | Take a picture of a paper document or choose a file | Transcripts, web dialog | How should KidArmor make transcripts? | When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them. | On this phone only MOST PRIVATE | On this phone only | MOST PRIVATE | + The sound never leaves your phone. | + | The sound never leaves your phone. | + Works without internet. | Works without internet. | − Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − | Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − Can be a little less accurate. | Can be a little less accurate. | Use on this phone only | Apple or Google speech service | + Works on every phone and is usually the most accurate. | Works on every phone and is usually the most accurate. | − On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us. | On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us.
+Wrote screenshot to: sim/Air/12-picker.png
+    picker: KidArmor | No documents yet. Start with the plan itself, then evaluations, report cards and doctor's notes. | Take a picture of a paper document or choose a file | Transcripts, web dialog | How should KidArmor make transcripts? | When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them. | On this phone only MOST PRIVATE | On this phone only | MOST PRIVATE | + The sound never leaves your phone. | + | The sound never leaves your phone. | + Works without internet. | Works without internet. | − Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − | Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − Can be a little less accurate. | Can be a little less accurate. | Use on this phone only | Apple or Google speech service | + Works on every phone and is usually the most accurate. | Works on every phone and is usually the most accurate. | − On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us. | On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us.
+  info photo tap  → tapped spot
+Wrote screenshot to: sim/Air/13-picker-after-tap.png
+  info page after picking  → {"docs":1,"errs":[],"file":0}
+  ok   photo picker opens and a photo can be picked  → picker opened; saved: true
+  ok   photo saved with the case  → {"name":"Report card","type":"image/jpeg","readBytes":4127524}
+Wrote screenshot to: sim/Air/14-photo-saved.png
+Wrote screenshot to: sim/Air/15-notify-permission.png
+  ok   notification permission prompt appears  → Allow
+  ok   notifications allowed  → granted
+  ok   meeting reminders scheduled with the iPhone  → pending: 2
+2026-11-17T19:02:50.263Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T19:02:52.038Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+Wrote screenshot to: sim/Air/16-calendar.png
+    on screen: KidArmor | Record a meeting | Transcripts, web dialog | How should KidArmor make transcripts? | When you record a meeting or talk instead of typing, KidArmor can type out what's said. Choose how. Either way, your recordings and transcripts are saved only on this phone, and we never receive them. | On this phone only MOST PRIVATE | On this phone only | MOST PRIVATE | + The sound never leaves your phone. | + | The sound never leaves your phone. | + Works without internet. | Works without internet. | − Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − | Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a live transcript. | − Can be a little less accurate. | Can be a little less accurate. | Use on this phone only | Apple or Google speech service | + Works on every phone and is usually the most accurate. | Works on every phone and is usually the most accurate. | − On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us. | On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us. | − Needs an internet connection on those phones.
+  ok   calendar screen opens with the meeting  → New Event
+  info calendar save button  → tapped Done
+  ok   meeting added to the iPhone calendar  → true 
+  ok   Face ID available to the app
+2026-11-17T19:03:30.077Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T19:03:32.557Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T19:03:34.359Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+2026-11-17T19:03:36.191Z ERROR webdriver: WebDriverError: An attempt was made to operate on a modal dialog when one was not open when running "execute/sync" with method "POST"
+    Face ID permission: null
+Wrote screenshot to: sim/Air/17-faceid.png
+  ok   Face ID turns on  → on
+  ok   Face ID unlocks the app  → true
+Wrote screenshot to: sim/Air/18-faceid-wrong-face.png
+  info Face ID retry screen  → tapped spot
+  ok   a face that doesn't match is refused  → false
+Wrote screenshot to: sim/Air/19-binder.png
+  ok   PDF preview library loads  → pdf viewer loaded
+  ok   PDF binder is made and shows  → no viewer
+Wrote screenshot to: sim/Air/20-share-sheet.png
+  ok   PDF file written for sharing  → Case Binder - Ava Test - 2026-11-17.pdf
+  ok   iPhone share sheet opens  → Copy
+  ok   app reopens after being closed
+  ok   records still there after reopening  → {"entries":0,"docs":1,"name":"Ava Test"} → {"entries":0,"docs":1,"name":"Ava Test"}
+Wrote screenshot to: sim/Air/21-after-restart.png
+  ok   app still running at the end  → state 4
+  ok   no app crashes
+  ok   no script errors in the app
+iPhone 16 Plus (iOS 26.2): 41 passed, 0 failed
+ok   quick: test helper started in the app
+ok   quick: app answers  → 2
+info quick: inside the app  → {"native":true,"show":"function","state":"object","errs":[]}
+info quick: Documents  → ["ka-rpc","ka-rpc/alive.json"]
+ok   app opens and its screen loads
+ok   phone features load (native mode)  → Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+info first screen  → Welcome to KidArmor
+KidArmor helps you keep your own records organized. It is not legal advice.
+What you save stays on t
+ok   first-open: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   first-open: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   child added
+ok   home: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   home: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   add: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   add: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   plan: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   plan: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   letters: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   letters: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   reports: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   reports: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   res: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   res: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   me: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   me: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+info recording formats this iPhone supports  → audio/mp4:true audio/webm:true audio/webm;codecs=opus:true
+info recording (needs a real iPhone microphone)  → timer ""; on screen: Child & privacy
+Your child's info fills in the letters.
+Use KidArmor on a computer
+Read everything on a bigger screen, and write letters, send emails and make t
+info photo tap  → tapped spot
+info page after picking  → {"docs":1,"errs":[],"file":0}
+ok   photo picker opens and a photo can be picked  → picker opened; saved: true
+ok   photo saved with the case  → {"name":"Report card","type":"image/jpeg","readBytes":4127524}
+ok   notification permission prompt appears  → Allow
+ok   notifications allowed  → granted
+ok   meeting reminders scheduled with the iPhone  → pending: 2
+ok   calendar screen opens with the meeting  → New Event
+info calendar save button  → tapped Done
+ok   meeting added to the iPhone calendar  → true 
+ok   Face ID available to the app
+ok   Face ID turns on  → on
+ok   Face ID unlocks the app  → true
+info Face ID retry screen  → tapped spot
+ok   a face that doesn't match is refused  → false
+ok   PDF preview library loads  → pdf viewer loaded
+ok   PDF binder is made and shows  → no viewer
+ok   PDF file written for sharing  → Case Binder - Ava Test - 2026-11-17.pdf
+ok   iPhone share sheet opens  → Copy
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":0,"docs":1,"name":"Ava Test"} → {"entries":0,"docs":1,"name":"Ava Test"}
+ok   app still running at the end  → state 4
+ok   no app crashes
+ok   no script errors in the app
+

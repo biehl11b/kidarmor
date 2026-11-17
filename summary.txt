@@ -1,0 +1,56 @@
+iPhone 16 Plus (iOS 26.2): 41 passed, 0 failed
+ok   quick: test helper started in the app
+ok   quick: app answers  → 2
+info quick: inside the app  → {"native":true,"show":"function","state":"object","errs":[]}
+info quick: Documents  → ["ka-rpc","ka-rpc/alive.json"]
+ok   app opens and its screen loads
+ok   phone features load (native mode)  → Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+info first screen  → Welcome to KidArmor
+KidArmor helps you keep your own records organized. It is not legal advice.
+What you save stays on t
+ok   first-open: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   first-open: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   child added
+ok   home: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   home: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   add: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   add: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   plan: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   plan: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   letters: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   letters: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   reports: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   reports: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   res: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   res: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+ok   me: nothing wider than the screen  → screen 430x932, page 430 wide 
+ok   me: buttons clear of the notch and home bar  → safe top 59, bottom 34 
+info recording formats this iPhone supports  → audio/mp4:true audio/webm:true audio/webm;codecs=opus:true
+info recording (needs a real iPhone microphone)  → timer ""; on screen: Child & privacy
+Your child's info fills in the letters.
+Use KidArmor on a computer
+Read everything on a bigger screen, and write letters, send emails and make t
+info photo tap  → tapped spot
+info page after picking  → {"docs":1,"errs":[],"file":0}
+ok   photo picker opens and a photo can be picked  → picker opened; saved: true
+ok   photo saved with the case  → {"name":"Report card","type":"image/jpeg","readBytes":4127524}
+ok   notification permission prompt appears  → Allow
+ok   notifications allowed  → granted
+ok   meeting reminders scheduled with the iPhone  → pending: 2
+ok   calendar screen opens with the meeting  → New Event
+info calendar save button  → tapped Done
+ok   meeting added to the iPhone calendar  → true 
+ok   Face ID available to the app
+ok   Face ID turns on  → on
+ok   Face ID unlocks the app  → true
+info Face ID retry screen  → tapped spot
+ok   a face that doesn't match is refused  → false
+ok   PDF preview library loads  → pdf viewer loaded
+ok   PDF binder is made and shows  → no viewer
+ok   PDF file written for sharing  → Case Binder - Ava Test - 2026-11-17.pdf
+ok   iPhone share sheet opens  → Copy
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":0,"docs":1,"name":"Ava Test"} → {"entries":0,"docs":1,"name":"Ava Test"}
+ok   app still running at the end  → state 4
+ok   no app crashes
+ok   no script errors in the app
