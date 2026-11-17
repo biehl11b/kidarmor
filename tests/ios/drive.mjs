@@ -106,8 +106,8 @@ async function quickCheck() {
   let dd; try { dd = dataDir() } catch (e) { ok("quick: app folder found", false, e.message); return false }
   fs.mkdirSync(dd + "/Documents/ka-rpc", { recursive: true });
   const t = Date.now(); let alive = false;
-  while (Date.now() - t < 90000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) }
-  ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 90 s");
+  while (Date.now() - t < 240000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) }
+  ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 4 min");
   const errf = dd + "/Documents/ka-rpc/agent-err.txt"; if (fs.existsSync(errf)) info("quick: helper error", fs.readFileSync(errf, "utf8"));
   const two = await js("return 1+1", 20000); ok("quick: app answers", two === 2, JSON.stringify(two));
   const g = await js("return {native:!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()),show:typeof show,state:typeof state,errs:window.__kaErrs||[]}", 20000);
@@ -139,10 +139,17 @@ async function main() {
   // first-run screens as a new parent sees them
   info("first screen", await js(`return (document.querySelector(".agreescreen,.wizard")||document.body).innerText.slice(0,120)`));
   await layout("first-open");
-  await js(`localStorage.setItem("ka_test_skip","1");location.reload();return 1`); await sleep(5000); await toWeb(30000);
-  await click("#startOwn"); await sleep(800);
-  await js(`document.querySelector("#s-child").value="Ava Test";document.querySelector("#s-parent").value="Josh";document.querySelector("#setupForm button[type=submit]").click();return 1`);
-  await sleep(1500); await click("#fsDone"); await sleep(500); await click('nav.tabs button[data-v="home"]'); await sleep(800);
+  // reload with the first-run screens skipped (the reload is delayed so the answer gets out first), then set up a child;
+  // each step waits for its screen, since the test Macs are sometimes very slow
+  await js(`localStorage.setItem("ka_test_skip","1");setTimeout(()=>location.reload(),300);return 1`, 20000); await sleep(4000); await toWeb(60000);
+  for (let i = 0; i < 3; i++) {
+    if (await js(`return !!(state&&state.child&&state.child.name==="Ava Test")`)) break;
+    await waitFor(`document.querySelector("#startOwn")||document.querySelector("#setupForm")`, 30000);
+    await click("#startOwn"); await waitFor(`document.querySelector("#s-child")`, 15000);
+    await js(`document.querySelector("#s-child").value="Ava Test";document.querySelector("#s-parent").value="Josh";document.querySelector("#setupForm button[type=submit]").click();return 1`);
+    await waitFor(`document.querySelector("#fsDone")||(state.child&&state.child.name==="Ava Test")`, 15000); await click("#fsDone"); await sleep(800);
+  }
+  await click('nav.tabs button[data-v="home"]'); await sleep(800);
   ok("child added", await js(`return !!(state&&state.child&&state.child.name==="Ava Test")`));
   await grabErrors();
 

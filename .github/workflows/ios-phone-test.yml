@@ -13,7 +13,20 @@ concurrency:
   group: iphone-test
   cancel-in-progress: true
 jobs:
+  plan: # which phones; each one then runs on its own Mac at the same time
+    runs-on: ubuntu-latest
+    outputs: { phones: "${{ steps.p.outputs.phones }}" }
+    steps:
+      - id: p
+        env: { DEVICES: "${{ github.event.inputs.devices }}" }
+        run: |
+          python3 -c "import json,os;a=['SE','Standard','ProMax','Air','Older iOS'];w=[x.strip() for x in os.environ.get('DEVICES','').split(',') if x.strip()];print('phones='+json.dumps([x for x in a if not w or x in w]))" >> "$GITHUB_OUTPUT"
   iphone:
+    needs: plan
+    strategy:
+      fail-fast: false
+      matrix: { phone: "${{ fromJSON(needs.plan.outputs.phones) }}" }
+    name: iphone (${{ matrix.phone }})
     runs-on: ${{ github.event.inputs.mac || 'macos-15' }}
     timeout-minutes: 150
     steps:
@@ -24,14 +37,14 @@ jobs:
       - name: Build the test app and walk through it on virtual iPhones
         env:
           ONLY: ${{ github.event.inputs.only }}
-          DEVICES: ${{ github.event.inputs.devices }}
+          DEVICES: ${{ matrix.phone }}
           OUT: sim
         run: bash tests/ios/run.sh
       - name: Keep results (download from the run page)
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with: { name: iphone-results, path: sim, retention-days: 14 }
+        with: { name: "iphone-results-${{ strategy.job-index }}", path: sim, retention-days: 14 }
       - name: Save results
         if: always()
         env: { GH_TOKEN: "${{ github.token }}" }
-        run: bash native/scripts/push-dir.sh iphone sim
+        run: bash native/scripts/push-dir.sh "iphone-$(echo '${{ matrix.phone }}' | tr ' ' '-')" sim
