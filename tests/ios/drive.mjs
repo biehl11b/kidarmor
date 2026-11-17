@@ -13,7 +13,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const bad = v => v && typeof v === "object" && v.__err;
 const ok = (name, pass, detail = "") => { if (bad(pass)) { detail = pass.__err; pass = false } if (detail && typeof detail === "object") detail = JSON.stringify(detail); results.push({ name, pass: !!pass, detail: String(detail).slice(0, 300) }); console.log((pass ? "  ok   " : "  FAIL ") + name + (detail ? "  → " + String(detail).slice(0, 300) : "")) };
 const info = (name, detail) => { if (detail && typeof detail === "object") detail = JSON.stringify(detail); results.push({ name, pass: true, info: true, detail: String(detail).slice(0, 300) }); console.log("  info " + name + "  → " + String(detail).slice(0, 300)) };
-const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 60000, maxBuffer: 64e6 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") } };
+const xc = (...a) => { try { return execFileSync("xcrun", a, { encoding: "utf8", timeout: 300000, maxBuffer: 64e6 }) } catch (e) { return (e.stdout || "") + (e.stderr || "") + (e.code === "ETIMEDOUT" || e.signal ? " [timed out]" : "") } }; // slow test Macs: give simctl 5 min
 const snap = label => { const f = `${OUT}/${String(++shot).padStart(2, "0")}-${label}.png`; xc("simctl", "io", UDID, "screenshot", "--type=png", f); return f };
 const step = n => !ONLY.length || ONLY.includes(n);
 let _dd = ""; const dataDir = () => { if (_dd) return _dd; const p = xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim(); if (!p.startsWith("/")) throw new Error(p.slice(0, 150)); return (_dd = p) };
@@ -101,8 +101,9 @@ async function layout(label) {
 // so a broken link costs minutes instead of a 40-minute run.
 async function quickCheck() {
   console.log("Quick check: install and open the app");
-  console.log(xc("simctl", "install", UDID, APP).trim() || "  installed");
-  console.log(xc("simctl", "launch", UDID, BUNDLE).trim());
+  for (let i = 1; i <= 3; i++) { const r = xc("simctl", "install", UDID, APP).trim(); console.log("  install " + i + ": " + (r || "ok"));
+    if (xc("simctl", "get_app_container", UDID, BUNDLE, "data").trim().startsWith("/")) break; await sleep(10000) }
+  console.log("  open: " + xc("simctl", "launch", UDID, BUNDLE).trim());
   let dd; try { dd = dataDir() } catch (e) { ok("quick: app folder found", false, e.message); return false }
   fs.mkdirSync(dd + "/Documents/ka-rpc", { recursive: true });
   let alive = false;
@@ -111,8 +112,8 @@ async function quickCheck() {
     const t0 = Date.now(); while (Date.now() - t0 < 120000 && !alive) { alive = fs.existsSync(dd + "/Documents/ka-rpc/alive.json"); await sleep(1000) } }
   ok("quick: test helper started in the app", alive, alive ? "" : "no alive.json after 3 tries");
   const errf = dd + "/Documents/ka-rpc/agent-err.txt"; if (fs.existsSync(errf)) info("quick: helper error", fs.readFileSync(errf, "utf8"));
-  const two = await js("return 1+1", 20000); ok("quick: app answers", two === 2, JSON.stringify(two));
-  const g = await js("return {native:!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()),show:typeof show,state:typeof state,errs:window.__kaErrs||[]}", 20000);
+  let two = await js("return 1+1", 90000); if (two !== 2) { await sleep(5000); two = await js("return 1+1", 90000) } ok("quick: app answers", two === 2, JSON.stringify(two));
+  const g = await js("return {native:!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()),show:typeof show,state:typeof state,errs:window.__kaErrs||[]}", 60000);
   info("quick: inside the app", g); snap("quick-open");
   try { info("quick: Documents", JSON.stringify(fs.readdirSync(dd + "/Documents", { recursive: true }))) } catch (e) { }
   if (two !== 2) { const log = xc("simctl", "spawn", UDID, "log", "show", "--last", "3m", "--style", "compact", "--predicate", 'process == "App" AND (eventMessage CONTAINS "ka-" OR eventMessage CONTAINS "rror" OR eventMessage CONTAINS "CSP" OR eventMessage CONTAINS "Content Security")'); fs.writeFileSync(`${OUT}/quick-log.txt`, log); console.log(log.split("\n").slice(-40).join("\n")) }
