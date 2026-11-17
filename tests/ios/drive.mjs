@@ -66,9 +66,9 @@ async function tapText(re, tries = 8, types = /Button|Cell|StaticText|Image|Othe
 }
 // iPhone screens shown by other parts of iOS (photo picker, calendar, Face ID retry, share sheet) don't show
 // up in the page source, so look them up live by label, and fall back to tapping where they sit on screen.
-async function liveTap(labels, fx, fy) {
-  const q = labels.map(l => `label == ${JSON.stringify(l)} OR name == ${JSON.stringify(l)}`).join(" OR ");
-  try { const e = await d.$(`-ios predicate string:${q}`); if (await e.isExisting()) { const how = await e.getAttribute("label"); await e.click(); await sleep(1200); return "tapped " + how } } catch (e) { }
+// sels: Appium selectors aimed at the iPhone screen only (a bare label could match a button in the app's own page)
+async function liveTap(sels, fx, fy) {
+  for (const sel of sels) { try { const e = await d.$(sel); if (await e.isExisting()) { const how = await e.getAttribute("label"); await e.click(); await sleep(1200); return "tapped " + how } } catch (e) { } }
   if (fx == null) return null;
   const w = await d.getWindowSize(); await d.execute("mobile: tap", { x: Math.round(w.width * fx), y: Math.round(w.height * fy) }); await sleep(1200); return "tapped spot"
 }
@@ -177,7 +177,7 @@ async function main() {
     console.log("    on screen:", await screenText());
     let picked = await tapText(/^Photo Library$/i, 4);
     if (picked) { await sleep(3000); snap("picker"); console.log("    picker:", await screenText());
-      const img = (await tapText(/^Photo,|^Image|^Photo$/i, 2, /Image|Cell|Other|Button/)) || await liveTap([], 0.165, 0.435); await sleep(1500); await liveTap(["Add", "Done", "Choose"]); picked = !!img }
+      const img = (await tapText(/^Photo,|^Image|^Photo$/i, 2, /Image|Cell|Other|Button/)) || await liveTap([], 0.5, 0.43); await sleep(1500); await liveTap(['-ios class chain:**/XCUIElementTypeNavigationBar/**/XCUIElementTypeButton[`label == "Add" OR label == "Done"`]']); picked = !!img }
     let saved = await waitFor(`state.docs.length>${before}`, 15000);
     ok("photo picker opens and a photo can be picked", !!picked && saved, picked ? "picker opened; saved: " + saved : await screenText());
     if (!saved) { // still check that a picked file saves, by handing it to the page directly
@@ -206,7 +206,7 @@ async function main() {
     console.log("    on screen:", await screenText());
     const seen = await liveSees(["New Event", "IEP meeting (Ava)"]);
     ok("calendar screen opens with the meeting", !!seen, seen || "not found (see screenshot)");
-    const add = await liveTap(["Add", "Done", "checkmark"], 0.903, 0.113); info("calendar save button", add);
+    const add = await liveTap(['-ios class chain:**/XCUIElementTypeNavigationBar[`name == "New Event"`]/**/XCUIElementTypeButton[`label == "Add" OR label == "Done"`]'], 0.894, 0.114); info("calendar save button", add);
     const done = await waitFor(`window.__cal===true`, 10000);
     ok("meeting added to the iPhone calendar", done, await js(`return String(window.__cal)+" "+(window.__kick||"")`)); await grabErrors();
   }
@@ -223,7 +223,7 @@ async function main() {
     await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: true })); await waitFor(`window.__unl!=="waiting"`, 10000);
     ok("Face ID unlocks the app", await js(`return window.__unl`) === true, await js(`return String(window.__unl)`));
     await kick(`window.__unl="waiting";window.__unl=await bioUnlock()`); await sleep(2000);
-    await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: false })); await sleep(2500); snap("faceid-wrong-face"); info("Face ID retry screen", await liveTap(["Cancel"], 0.498, 0.59)); await waitFor(`window.__unl!=="waiting"`, 10000);
+    await native(() => d.execute("mobile: sendBiometricMatch", { type: "faceId", match: false })); await sleep(2500); snap("faceid-wrong-face"); info("Face ID retry screen", await liveTap([], 0.5, 0.589)); await waitFor(`window.__unl!=="waiting"`, 10000);
     ok("a face that doesn't match is refused", await js(`return window.__unl`) === false, await js(`return String(window.__unl)`)); await grabErrors();
   }
 
@@ -237,7 +237,7 @@ async function main() {
     let files = ""; try { files = fs.readdirSync(dataDir() + "/Library/Caches/kidarmor-out").join(", ") } catch (e) { files = "none: " + e.message }
     ok("PDF file written for sharing", /Binder.*\.pdf/i.test(files), files);
     const sh = await liveSees(["Save to Files", "Copy", "Print", "AirDrop", "Messages", "Mail", "Markup"]); ok("iPhone share sheet opens", !!sh, sh || await screenText());
-    await liveTap(["Close"], 0.5, 0.12); await sleep(1000); await click("#vclose"); await sleep(500); await grabErrors();
+    await liveTap(['-ios class chain:**/XCUIElementTypeNavigationBar/**/XCUIElementTypeButton[`label == "Close"`]'], 0.5, 0.12); await sleep(1000); await click("#vclose"); await sleep(500); await grabErrors();
   }
 
   if (step("restart")) { // ---- everything still there after the app is closed and reopened
