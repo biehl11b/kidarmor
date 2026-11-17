@@ -13,7 +13,7 @@ npm i -g appium@3 >/dev/null 2>&1 && appium driver install xcuitest 2>&1 | tail 
 WDA=$(find ~/.appium -name WebDriverAgent.xcodeproj -maxdepth 6 | head -1); echo "WDA: $WDA"
 xcodebuild build-for-testing -project "$WDA" -scheme WebDriverAgentRunner -destination 'generic/platform=iOS Simulator' -derivedDataPath "$ROOT/wda" CODE_SIGNING_ALLOWED=NO -quiet > "$OUT/wda-build.txt" 2>&1 && echo "WDA BUILD OK" || tail -30 "$OUT/wda-build.txt"
 export WDA_DD="$ROOT/wda"
-appium --log-level warn --log "$OUT/appium.txt" > /dev/null 2>&1 &
+appium --session-override --log-level warn --log "$OUT/appium.txt" > /dev/null 2>&1 &
 sleep 8
 # Which iPhones: the newest iOS on every phone size, plus the oldest iOS this Mac has
 NEW=$(xcrun simctl list runtimes -j | python3 -c 'import json,sys;r=[x for x in json.load(sys.stdin)["runtimes"] if x["platform"]=="iOS" and x["isAvailable"]];r.sort(key=lambda x:[int(p) for p in x["version"].split(".")]);print(r[-1]["identifier"],r[0]["identifier"])')

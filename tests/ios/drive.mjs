@@ -78,12 +78,15 @@ async function layout(label) {
 
 // ---------- the walkthrough ----------
 async function main() {
-  d = await remote({
+  // the first start can take over 10 minutes on the test Macs (the iPhone driver warms up), so try again
+  const opts = {
     hostname: "127.0.0.1", port: 4723, logLevel: "error", connectionRetryTimeout: 1800000, connectionRetryCount: 0,
     capabilities: { platformName: "iOS", "appium:automationName": "XCUITest", "appium:udid": UDID, "appium:app": APP, "appium:bundleId": BUNDLE, "appium:deviceName": DEVICE, ...(process.env.WDA_DD ? { "appium:derivedDataPath": process.env.WDA_DD, "appium:usePrebuiltWDA": true } : {}), ...(process.env.IOSVER ? { "appium:platformVersion": process.env.IOSVER } : {}),
       "appium:noReset": false, "appium:newCommandTimeout": 900, "appium:wdaLaunchTimeout": 600000, "appium:wdaConnectionTimeout": 600000,
       "appium:webviewConnectTimeout": 30000, "appium:autoAcceptAlerts": false, "appium:shouldTerminateApp": true, "appium:reduceMotion": true }
-  });
+  };
+  for (let i = 1; i <= 3 && !d; i++) { try { d = await remote(opts) } catch (e) { console.log(`    start try ${i} failed: ${String(e.message).slice(0, 120)}`); if (i === 3) throw e; await sleep(20000) } }
+
   await d.setTimeout({ script: 90000 });
   const ios = process.env.IOSVER || "?";
   console.log("Device:", DEVICE, ios);
