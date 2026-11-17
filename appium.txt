@@ -1,0 +1,19 @@
+2026-11-17 18:08:13:456 [be61f8bc][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-17 18:08:14:884 [be61f8bc][XCUITestDriver@c6bd] Reset: failed to terminate Simulator application with id "com.coastlinecode.kidarmor"
+2026-11-17 18:08:54:910 [be61f8bc][XCUITestDriver@c6bd] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms
+2026-11-17 18:18:28:379 [a08d9f0d][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-17 18:18:28:650 [a08d9f0d][XCUITestDriver@c6bd] Session 'a08d9f0d-5fbc-400c-9db5-a7219f338a2b' is starting on udid 'C867133A-6CF5-45CA-8A90-AD09914ECCB3', which is already in use by another session identified by be61f8bc-ef24-431c-b681-154e98564627. Running multiple parallel sessions on the same device is highly discouraged. Consider enabling the Appium server's '--session-override' flag and make sure to properly quit the previous session before starting a new one. Terminating the obsolete session.
+2026-11-17 18:18:28:837 [a08d9f0d][XCUITestDriver@6dc2] Reset: failed to terminate Simulator application with id "com.coastlinecode.kidarmor"
+2026-11-17 18:19:01:358 [be61f8bc][Xcode] xcodebuild exited with code '65' and signal 'null'
+2026-11-17 18:19:11:369 [be61f8bc][XCUITestDriver@c6bd] Error: WebDriverAgent is not initialized
+    at get wda (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/driver.js:687:19)
+    at quitAndThrow (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:344:18)
+    at handleLaunchFailure (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:229:11)
+    at file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:187:19
+    at async wrapped (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/build/esm/lib/retry.js:40:19)
+    at async retry (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/build/esm/lib/retry.js:15:19)
+    at async retryInterval (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/build/esm/lib/retry.js:51:12)
+    at async runStartupWithRetries (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:177:5)
+    at async startUnderSynchronizationLock (file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:128:5)
+    at async file:///Users/runner/.appium/node_modules/appium-xcuitest-driver/build/lib/commands/wda/startup.js:22:9
+2026-11-17 18:19:14:395 [a08d9f0d][XCUITestDriver@6dc2] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms
