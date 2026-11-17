@@ -25,6 +25,7 @@ jobs:
     needs: plan
     strategy:
       fail-fast: false
+      max-parallel: 2 # GitHub often has few free Macs; fewer at once get picked up more reliably
       matrix: { phone: "${{ fromJSON(needs.plan.outputs.phones) }}" }
     name: iphone (${{ matrix.phone }})
     runs-on: ${{ github.event.inputs.mac || 'macos-15' }}
