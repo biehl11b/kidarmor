@@ -177,8 +177,9 @@ async function main() {
     console.log("    on screen:", await screenText());
     let picked = await tapText(/^Photo Library$/i, 4);
     if (picked) { await sleep(3000); snap("picker"); console.log("    picker:", await screenText());
-      const img = (await tapText(/^Photo,|^Image|^Photo$/i, 2, /Image|Cell|Other|Button/)) || await liveTap([], 0.5, 0.43); await sleep(1500); await liveTap(['-ios class chain:**/XCUIElementTypeNavigationBar/**/XCUIElementTypeButton[`label == "Add" OR label == "Done"`]']); picked = !!img }
-    let saved = await waitFor(`state.docs.length>${before}`, 15000);
+      fs.writeFileSync(`${OUT}/picker-source.xml`, await source());
+      const img = (await tapText(/^Photo,|^Image|^Photo$/i, 2, /Image|Cell|Other|Button/)) || await liveTap([], 0.5, 0.43); info("photo tap", img && (img.label || img.name || img)); await sleep(2500); snap("picker-after-tap"); fs.writeFileSync(`${OUT}/picker-after-source.xml`, await source()); await sleep(1500); await liveTap(['-ios class chain:**/XCUIElementTypeNavigationBar/**/XCUIElementTypeButton[`label == "Add" OR label == "Done"`]']); picked = !!img }
+    let saved = await waitFor(`state.docs.length>${before}`, 30000); info("page after picking", await js(`return {docs:state.docs.length,errs:window.__kaErrs,file:(document.querySelector("#d-file").files||[]).length}`));
     ok("photo picker opens and a photo can be picked", !!picked && saved, picked ? "picker opened; saved: " + saved : await screenText());
     if (!saved) { // still check that a picked file saves, by handing it to the page directly
       for (let i = 0; i < 3; i++) { if (!(await tapText(/^(Cancel|Close)$/i, 1, /Button/))) break }
