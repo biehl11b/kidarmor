@@ -4,7 +4,7 @@ set -euxo pipefail
 XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1 || true)
 if [ -n "$XC" ]; then sudo xcode-select -s "$XC"; fi
 node -v; xcodebuild -version
-XV=$(xcodebuild -version | head -1 | awk '{print $2}' | cut -d. -f1)
+XV=$(xcodebuild -version 2>/dev/null | awk 'NR==1{print $2}' | cut -d. -f1)  # awk reads all of it, so xcodebuild never hits a closed pipe
 if [ "$XV" -lt 26 ]; then echo "Xcode $XV is too old for the App Store (needs 26 or later)"; exit 1; fi
 npm install --no-audit --no-fund --legacy-peer-deps $(cat plugins.txt)
 npm ls --depth=0 || true
