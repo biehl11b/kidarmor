@@ -105,6 +105,9 @@ Answer **None** to every content question, including medical or treatment inform
 
 KidArmor needs no login. On first open, tick "I have read and agree" and tap Continue. Then enter any parent name, email and state, add a child, and set any 4-digit PIN.
 To try the main features: tap Record a meeting. The first time, KidArmor asks how to make transcripts (on this phone only, or Apple's speech service); either choice works. Tap Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. On the Child tab, "Share with my professional" makes a locked link and code that a parent sends to their own attorney or counselor; nothing is uploaded to us. Tap Schedule a meeting to add a meeting with two reminders. All data is stored only on the device; there is no account or server.
+Name and email are asked for only to fill in the parent's own letters and emails; they stay on the phone and are never sent to us.
+Features that use the phone itself: microphone recording with on-device or Apple speech transcription, Face ID / passcode lock, local notifications for meeting reminders, the system "New Event" calendar screen, the camera for photos of school documents, and the share sheet for letters, PDFs and encrypted backups.
+Advertising: the Resources tab can show a short list of local professionals (for example, special-education attorneys) who pay to be listed. Each is labeled "Paid listing". There are no ad networks, no tracking and no pop-up ads.
 Demo account: not needed.
 
 ## Apple: Export compliance
