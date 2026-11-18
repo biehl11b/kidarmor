@@ -2,6 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="vendor/fonts/fonts.css">
 <style>
+.kaAppOnly{display:none}html.native .kaAppOnly{display:inline}html.native .kaWebOnly{display:none}
 /* Layout: phone-first case file. Sticky header with a privacy pill, one view at a time, bottom tab bar with a raised Add button. Entries are compact cards that expand. */
 :root{
   --bg:#f3f5f7; --surface:#ffffff; --ink:#17212b; --muted:#5b6876; --line:#d9dfe5;
@@ -480,7 +481,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Information leaves only when you send a letter, save a file, or make a backup.</li>
       </ul>
       <div><div class="eyebrow" id="storageLabel">Space used on this phone</div><div class="meter"><i id="storageBar" style="width:0%"></i></div></div>
-      <p class="note">Because nothing is stored online, clearing this browser's data erases the record. Make an encrypted backup below.</p>
+      <p class="note"><span class="kaWebOnly">Because nothing is stored online, clearing this browser's data erases the record.</span><span class="kaAppOnly">Because nothing is stored online, deleting KidArmor from this phone erases the record.</span> Make an encrypted backup below.</p>
       <button class="btn danger" id="wipe" type="button">Erase everything on this phone</button>
     </div>
     <div class="panel" id="sttPanel"><h3>Transcripts</h3>
@@ -2218,6 +2219,7 @@ function askNotify(fromSchedule){try{if(!window.Notification||Notification.permi
 
 /* ---------- permissions: see them, turn them on, and where to turn them off ---------- */
 const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const SPEECH_CO=isIOS?"Apple":/Android/i.test(navigator.userAgent)?"Google":"Apple or Google";
 async function permState(name){try{if(!navigator.permissions||!navigator.permissions.query)return"unknown";const r=await navigator.permissions.query({name});return r.state}catch(e){return"unknown"}}
 async function renderPerms(){const el=$("#permList");if(!el)return;const framed=(()=>{try{return window.self!==window.top}catch(e){return true}})();
   const mic=framed?"blocked-here":await permState("microphone");
@@ -2916,7 +2918,7 @@ function renderLegal(){const a=agreement(),el=$("#legalAgreed");if(el)el.textCon
   const r=$("#hfRate");if(r)r.hidden=!window.KA_RATE;
   appVersion().then(v=>{const e=$("#hfEmail");if(e)e.href=feedbackHref(v);const vv=$("#hfVer");if(vv)vv.textContent=`KidArmor version ${v}`})}
 $("#legalPanel").addEventListener("click",e=>{const b=e.target.closest("[data-legal]");if(!b)return;e.preventDefault();openLegal(b.dataset.legal)});
-$("#hfRate").onclick=async()=>{try{await window.KA_RATE()}catch(e){toast("Couldn't open the rating screen. You can rate KidArmor in the App Store or Google Play.")}};
+$("#hfRate").onclick=async()=>{try{await window.KA_RATE()}catch(e){toast(`Couldn't open the rating screen. You can rate KidArmor in the ${isIOS?"App Store":/Android/i.test(navigator.userAgent)?"Google Play Store":"App Store or Google Play"}.`)}};
 $("#hfEmail").onclick=()=>toast("Opening your email app…");
 renderLegal();
 /* ---------- transcripts: the parent chooses "on this phone only" or the phone's Apple/Google speech service ---------- */
@@ -2933,15 +2935,15 @@ function sttSheet(after){const old=$(".legalview");if(old)old.remove();const cur
       <ul class="pc"><li class="pro">The sound never leaves your phone.</li><li class="pro">Works without internet.</li>
       <li class="con">Some phones can't do this. If yours can't, KidArmor still records the meeting, just without a ${window.KA_STT_AFTER?"":"live "}transcript.</li><li class="con">Can be a little less accurate.</li></ul>
       <button class="btn ${cur==="phone"?"primary":"light"} wide" type="button" data-stt="phone">${cur==="phone"?"✓ Using on this phone only":"Use on this phone only"}</button></div>
-    <div class="panel sttopt"><h3>Apple or Google speech service</h3>
+    <div class="panel sttopt"><h3>${SPEECH_CO} speech service</h3>
       <ul class="pc"><li class="pro">Works on every phone and is usually the most accurate.</li>
-      <li class="con">On some phones, the sound is sent to Apple (iPhone) or Google (Android) to turn it into text, under their privacy policies. It isn't sent to us.</li><li class="con">Needs an internet connection on those phones.</li></ul>
-      <button class="btn ${cur==="service"?"primary":"light"} wide" type="button" data-stt="service">${cur==="service"?"✓ Using Apple or Google speech":"Use Apple or Google speech"}</button></div>
+      <li class="con">On some phones, the sound is sent to ${isIOS?"Apple":/Android/i.test(navigator.userAgent)?"Google":"Apple (iPhone) or Google (Android)"} to turn it into text, under ${isIOS?"Apple's":/Android/i.test(navigator.userAgent)?"Google's":"their"} privacy polic${isIOS||/Android/i.test(navigator.userAgent)?"y":"ies"}. It isn't sent to us.</li><li class="con">Needs an internet connection on those phones.</li></ul>
+      <button class="btn ${cur==="service"?"primary":"light"} wide" type="button" data-stt="service">${cur==="service"?`✓ Using ${SPEECH_CO} speech`:`Use ${SPEECH_CO} speech`}</button></div>
     <p class="note">You can change this anytime in the Child tab, under Transcripts.</p>
     ${cur?`<button class="btn ghost" type="button" data-sttclose>Close</button>`:""}</div>`;
   w.querySelectorAll("[data-stt]").forEach(b=>b.onclick=()=>{try{localStorage.setItem(STTKEY,b.dataset.stt)}catch(e){}w.remove();renderStt();toast(b.dataset.stt==="phone"?"Transcripts will be made on this phone only.":"Transcripts will use Apple's or Google's speech service.");after&&after()});
   const c=w.querySelector("[data-sttclose]");if(c)c.onclick=()=>w.remove();document.body.appendChild(w)}
-function renderStt(){const el=$("#sttNow");if(!el)return;const m=sttMode();el.textContent=m==="phone"?"Now: on this phone only. The sound never leaves your phone.":m==="service"?"Now: Apple or Google speech service. On some phones, the sound goes to Apple or Google to make the text.":"Not chosen yet. KidArmor will ask the first time you record or talk."}
+function renderStt(){const el=$("#sttNow");if(!el)return;const m=sttMode();el.textContent=m==="phone"?"Now: on this phone only. The sound never leaves your phone.":m==="service"?`Now: ${SPEECH_CO} speech service. On some phones, the sound goes to ${SPEECH_CO} to make the text.`:"Not chosen yet. KidArmor will ask the first time you record or talk."}
 $("#sttChange").onclick=()=>sttSheet();renderStt();
 {const _openRecorder=openRecorder;openRecorder=function(m){if(!REC.active&&SR&&micAllowedHere()&&!sttMode()){sttSheet(()=>_openRecorder(m));return}return _openRecorder(m)};
  const _dict=dictateInto;dictateInto=function(ta,btn){if(!DICT&&!sttMode()){sttSheet(()=>_dict(ta,btn));return}return _dict(ta,btn)}}

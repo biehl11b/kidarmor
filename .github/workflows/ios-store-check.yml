@@ -1,0 +1,33 @@
+name: iPhone App Store build check
+# Builds the App Store (Release) version for the simulator, checks it for common App Review / upload problems,
+# then opens it on an iPhone, an iPad and an older iOS the way an App Reviewer would.
+on:
+  workflow_dispatch:
+    inputs:
+      mac: { description: "Mac to use (macos-15, macos-26, macos-15-intel)", required: false, default: "macos-15-intel" }
+      devices: { description: "Only these (iPhone,iPad,Older-iOS). Blank = all", required: false, default: "" }
+permissions:
+  contents: write
+concurrency:
+  group: ios-store-check
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ${{ github.event.inputs.mac || 'macos-15-intel' }}
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with: { node-version: 22 }
+      - name: Build the App Store version, check it, open it on iPhone and iPad
+        env: { OUT: store, DEVICES: "${{ github.event.inputs.devices }}" }
+        run: bash tests/ios/store-run.sh
+      - name: Keep results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with: { name: ios-store-check, path: store, retention-days: 14 }
+      - name: Save results
+        if: always()
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: bash native/scripts/push-dir.sh ios-store store

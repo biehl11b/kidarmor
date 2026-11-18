@@ -95,6 +95,8 @@
     return lines};
   /* app version for the feedback email, and the store's own rating prompt */
   window.KA_APPINFO=async function(){var i=await APP.getInfo();return{version:i.version,build:i.build}};
+  /* Settings → permissions help: in the phone app, permissions live in the phone's Settings under KidArmor (not Safari or Chrome) */
+  if(typeof window.renderPerms==="function"){var rp0=window.renderPerms;window.renderPerms=function(){var r=rp0.apply(this,arguments);try{var h=document.getElementById("permHow");if(h)h.innerHTML=/iP(hone|ad|od)/.test(navigator.userAgent)?"<b>To turn these off or back on:</b> open your iPhone's <b>Settings</b> → <b>Apps</b> → <b>KidArmor</b>.":"<b>To turn these off or back on:</b> open your phone's <b>Settings</b> → <b>Apps</b> → <b>KidArmor</b> → <b>Permissions</b>."}catch(e){}return r}}
   window.KA_RATE=async function(){var R=P("InAppReview");if(!R)throw new Error("no review plugin");await R.requestReview()};
   /* links: outside websites open in the phone's browser */
   document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="http"]');if(!a||e.defaultPrevented)return;
