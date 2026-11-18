@@ -560,7 +560,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 /* ---------- helpers ---------- */
 const KEY="papertrail.v3";
 const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const esc=s=>String((s==null?"":s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const iso=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*6e4);return z.toISOString().slice(0,10)};
 const today=()=>iso(new Date());
 const daysAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return iso(d)};
@@ -694,7 +694,7 @@ const SAMPLE={example:true,
 const blank=()=>({example:false,child:{},plan:{accoms:[]},docs:[],entries:[]});
 /* ---------- input sanitizer: every case (saved, restored, shared, moved) passes through here ---------- */
 const SAFE_IMG=/^data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+\/=]+$/;
-function safeId(v){return String(v??"").replace(/[^A-Za-z0-9_.:-]/g,"").slice(0,80)}
+function safeId(v){return String((v==null?"":v)).replace(/[^A-Za-z0-9_.:-]/g,"").slice(0,80)}
 function scrub(o,depth){if(depth>12||o===null||typeof o!=="object")return o;
   if(Array.isArray(o)){for(let i=0;i<o.length;i++)o[i]=scrub(o[i],depth+1);return o}
   for(const k of Object.keys(o)){const v=o[k];
@@ -715,7 +715,7 @@ function coerce(o,depth){if(depth>12||!o||typeof o!=="object")return;if(Array.is
 function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);coerce(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
   if(Array.isArray(s.entries))s.entries=s.entries.filter(e=>e&&typeof e==="object"&&typeof e.kind==="string"&&Object.prototype.hasOwnProperty.call(KINDS,e.kind));
   for(const k of ["reports","health","docs","entries"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
-  for(const list of [s.entries,s.docs,s.reports])(list||[]).forEach(x=>{if(x&&typeof x==="object"){for(const fk of ["files","recordings"]){if(x[fk]!=null&&!Array.isArray(x[fk]))x[fk]=[];(x[fk]||[]).forEach(f=>{if(f&&typeof f==="object"){f.name=String(f.name??"File");f.type=typeof f.type==="string"?f.type:"application/octet-stream"}});if(x[fk])x[fk]=x[fk].filter(f=>f&&typeof f==="object")}}});
+  for(const list of [s.entries,s.docs,s.reports])(list||[]).forEach(x=>{if(x&&typeof x==="object"){for(const fk of ["files","recordings"]){if(x[fk]!=null&&!Array.isArray(x[fk]))x[fk]=[];(x[fk]||[]).forEach(f=>{if(f&&typeof f==="object"){f.name=String((f.name==null?"File":f.name));f.type=typeof f.type==="string"?f.type:"application/octet-stream"}});if(x[fk])x[fk]=x[fk].filter(f=>f&&typeof f==="object")}}});
   s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
   s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;if(n.onPhone!=null)n.onPhone=(typeof n.onPhone==="object")?{files:Math.max(0,+n.onPhone.files|0),recs:Math.max(0,+n.onPhone.recs|0),...(n.onPhone.where==="preview"?{where:"preview"}:{})}:undefined;return n});
   for(const list of [s.docs,s.reports])list.forEach(x=>{if(x&&x.onPhone!=null)x.onPhone=Math.max(0,+x.onPhone|0)});return s}
@@ -824,7 +824,7 @@ let kind="incident",vals={},editing=null,pendingFiles=[],removedFiles=[];
 $("#kind").innerHTML=ORDER.map(k=>`<option value="${k}">${KINDS[k].label}</option>`).join("");
 $("#kind").onchange=e=>{readFields();const keep={date:vals.date,desc:vals.desc,files:vals.files};kind=e.target.value;vals={...defaults(),...keep};drawForm()};
 function defaults(){const v={date:today(),types:[],sev:"med",files:[],resolved:false,recapSent:false};KINDS[kind].fields.forEach(f=>{if(f.t==="select")v[f.k]=f.opts[0]});return v}
-function fieldHTML(f){const id="f-"+f.k,lab=`${esc(f.l)}${f.s?` <small>${esc(f.s)}</small>`:""}`,v=vals[f.k]??"";
+function fieldHTML(f){const id="f-"+f.k,lab=`${esc(f.l)}${f.s?` <small>${esc(f.s)}</small>`:""}`,v=(vals[f.k]==null?"":vals[f.k]);
   switch(f.t){
     case"area":return`<label for="${id}">${lab}<textarea id="${id}" data-k="${f.k}">${esc(v)}</textarea></label>${f.k==="desc"?`<button type="button" class="linkbtn" data-factual="desc">✦ Make it factual<small>calm wording schools take seriously</small></button>`:""}`;
     case"date":case"time":return`<label for="${id}">${lab}<input type="${f.t}" id="${id}" data-k="${f.k}" value="${esc(v)}"></label>`;
@@ -1337,7 +1337,7 @@ $("#imGo").onclick=async()=>{if(!imText)return;const btn=$("#imGo");btn.disabled
 
 /* ---------- PDF case binder ---------- */
 const PDFLIBSRC=()=>window.KA_PDFLIB||VENDOR()+"pdf-lib.min.js";
-const pdfClean=t=>String(t??"").replace(/[‘’ʼ]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,"-").replace(/…/g,"...").replace(/→/g,"->").replace(/≥/g,">=").replace(/≤/g,"<=").replace(/\t/g,"  ").replace(/[^\x20-\x7E\xA0-\xFF•\n]/g,"");
+const pdfClean=t=>String((t==null?"":t)).replace(/[‘’ʼ]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,"-").replace(/…/g,"...").replace(/→/g,"->").replace(/≥/g,">=").replace(/≤/g,"<=").replace(/\t/g,"  ").replace(/[^\x20-\x7E\xA0-\xFF•\n]/g,"");
 const hex=h=>{const n=parseInt(h.slice(1),16);return[(n>>16&255)/255,(n>>8&255)/255,(n&255)/255]};
 const KCOL={incident:"#b8412f",missed:"#8a4fb0",comm:"#2f6fb8",meeting:"#3f8a55"};
 function binderExhibits(){const list=[],byEntry={};let n=1;
@@ -1358,7 +1358,7 @@ async function buildBinder(onStep){
   const wrap=(t,font,size,width)=>{const out=[];pdfClean(t).split("\n").forEach(par=>{let cur="";par.split(/\s+/).filter(Boolean).forEach(w=>{
       while(font.widthOfTextAtSize(w,size)>width&&w.length>1){let k=w.length;while(k>1&&font.widthOfTextAtSize(w.slice(0,k),size)>width)k--;if(cur){out.push(cur);cur=""}out.push(w.slice(0,k));w=w.slice(k)}
       const t2=cur?cur+" "+w:w;if(font.widthOfTextAtSize(t2,size)>width){out.push(cur);cur=w}else cur=t2});out.push(cur)});return out};
-  const text=(t,o={})=>{const size=o.size||10.5,font=o.font||F,color=o.color||INK,ind=o.indent||0;for(const l of wrap(t,font,size,W-2*M-ind)){ensure(size+4);if(l)page.drawText(l,{x:M+ind,y:y-size,size,font,color});y-=size*1.38}y-=(o.gap??3)};
+  const text=(t,o={})=>{const size=o.size||10.5,font=o.font||F,color=o.color||INK,ind=o.indent||0;for(const l of wrap(t,font,size,W-2*M-ind)){ensure(size+4);if(l)page.drawText(l,{x:M+ind,y:y-size,size,font,color});y-=size*1.38}y-=((o.gap==null?3:o.gap))};
   const h2=t=>{ensure(60);y-=10;page.drawText(pdfClean(t),{x:M,y:y-15,size:15,font:FB,color:ACC});y-=22;page.drawLine({start:{x:M,y},end:{x:W-M,y},thickness:1.5,color:ACC});y-=10};
   const kv=(k,v)=>{if(!v)return;const lw=118;const ls=wrap(v,F,10.5,W-2*M-lw);ensure(15);page.drawText(pdfClean(k),{x:M,y:y-10.5,size:10.5,font:FB,color:MUT});ls.forEach((l,i)=>{if(i)ensure(15);page.drawText(l,{x:M+lw,y:y-10.5,size:10.5,font:F,color:INK});y-=14.5});y-=1};
   const c=state.child,p=state.plan,a=analyze("all"),{list:ex,byEntry}=binderExhibits();
@@ -2135,7 +2135,7 @@ const remLabel=m=>{if(m===""||m==null)return"";m=+m;const f=REMS.find(r=>r[0]===
   return m%1440===0?`${m/1440} days before`:m%60===0?`${m/60} hours before`:`${m} minutes before`};
 const meetStart=m=>{const[y,mo,d]=m.date.split("-").map(Number),[h,mi]=(m.time||"09:00").split(":").map(Number);return new Date(y,mo-1,d,h,mi)};
 const fmtWhen=m=>{const s=meetStart(m);return s.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})+" at "+s.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"})};
-function remSelect(id,val){const known=REMS.some(r=>r[0]===String(val??""));const v=val==null?"":String(val);
+function remSelect(id,val){const known=REMS.some(r=>r[0]===String((val==null?"":val)));const v=val==null?"":String(val);
   return `<select id="${id}">${REMS.map(([k,l])=>`<option value="${k}"${(known?k===v:k==="custom")?" selected":""}>${l}</option>`).join("")}</select>
   <span class="pair" id="${id}C"${known?" hidden":""}><input id="${id}N" type="number" min="1" max="999" inputmode="numeric" value="${known?"":(+v%1440===0?+v/1440:+v%60===0?+v/60:+v)||""}" aria-label="How many"><select id="${id}U" aria-label="Unit"><option value="1"${!known&&+v%60!==0?" selected":""}>minutes before</option><option value="60"${!known&&+v%60===0&&+v%1440!==0?" selected":""}>hours before</option><option value="1440"${!known&&+v%1440===0?" selected":""}>days before</option></select></span>`}
 function readRem(sh,id){const v=sh.querySelector("#"+id).value;if(v!=="custom")return v===""?null:+v;
@@ -2473,7 +2473,7 @@ async function unpackObj(s){const u8=unb64u(s.slice(1));return JSON.parse(dec.de
 /* teacher updates are signed with a secret that only travels in the parent's invite link */
 const UPD_FIELDS=["id","from","role","org","child","date","kind","text","k","sent"];
 async function updSig(secret,u){const key=await crypto.subtle.importKey("raw",unb64u(secret),{name:"HMAC",hash:"SHA-256"},false,["sign"]);
-  return b64u(new Uint8Array(await crypto.subtle.sign("HMAC",key,enc.encode(JSON.stringify(UPD_FIELDS.map(f=>String(u[f]??"")))))))}
+  return b64u(new Uint8Array(await crypto.subtle.sign("HMAC",key,enc.encode(JSON.stringify(UPD_FIELDS.map(f=>String((u[f]==null?"":u[f]))))))))}
 function newInvite(c){c.invites=Array.isArray(c.invites)?c.invites:[];const inv={id:"i"+b64u(crypto.getRandomValues(new Uint8Array(9))),key:b64u(crypto.getRandomValues(new Uint8Array(18))),at:new Date().toISOString()};c.invites.push(inv);if(c.invites.length>50)c.invites=c.invites.slice(-50);return inv}
 async function updVerified(u){try{if(!u||!u.sig||!u.k)return null;for(const c of root.cases){if(c.readOnly||!Array.isArray(c.invites))continue;const inv=c.invites.find(i=>i&&i.id===u.k&&!i.revoked);if(inv&&(await updSig(inv.key,u))===u.sig)return c}return null}catch(e){return null}}
 function hashMode(){const h=location.hash||"";if(/^#send(=|$)/.test(h))return"send";if(/^#upd=/.test(h))return"upd";return""}
@@ -2540,7 +2540,7 @@ async function promptUpdateLink(){const m=(location.hash||"").match(/^#upd=([A-Z
   const first=s=>(s||"").toLowerCase().split(" ")[0];
   let pick=kids.find(x=>u.k&&x.c.caseId===u.k)||kids.find(x=>first(x.c.child.name)===first(u.child))||kids[0];
   if(!u||typeof u!=="object"){toast("That update link isn't complete.");return true}
-  for(const f of UPD_FIELDS)u[f]=String(u[f]??"").slice(0,f==="text"?20000:300);if(!/^\d{4}-\d{2}-\d{2}$/.test(u.date))u.date=today();
+  for(const f of UPD_FIELDS)u[f]=String((u[f]==null?"":u[f])).slice(0,f==="text"?20000:300);if(!/^\d{4}-\d{2}-\d{2}$/.test(u.date))u.date=today();
   const vc=await updVerified(u);if(vc)pick=kids.find(x=>x.c===vc)||pick;const verified=!!vc;
   const dup=kids.some(x=>x.c.entries.some(e=>e.updateId===u.id));
   const sh=openSheet(`<h3>Update from ${esc(u.from)}</h3>
@@ -2631,7 +2631,7 @@ async function buildDoctorReport(o){await loadScript(PDFLIBSRC());const{PDFDocum
   const W=612,H=792,M=54,INK=rgb(.09,.13,.17),MUT=rgb(.36,.41,.46),ACC=rgb(.12,.37,.45),RED=rgb(.48,.16,.12),GRN=rgb(.15,.42,.25);
   let page,y;const newPage=()=>{page=doc.addPage([W,H]);y=H-M};const ensure=h=>{if(y-h<M+20)newPage()};
   const wrap=(t,font,size,width)=>{const out=[];pdfClean(t).split("\n").forEach(par=>{let cur="";par.split(/\s+/).filter(Boolean).forEach(w=>{const t2=cur?cur+" "+w:w;if(font.widthOfTextAtSize(t2,size)>width&&cur){out.push(cur);cur=w}else cur=t2});out.push(cur)});return out};
-  const text=(t,op={})=>{const size=op.size||10.5,font=op.font||F,color=op.color||INK,ind=op.indent||0;for(const l of wrap(t,font,size,W-2*M-ind)){ensure(size+4);if(l)page.drawText(l,{x:M+ind,y:y-size,size,font,color});y-=size*1.38}y-=(op.gap??3)};
+  const text=(t,op={})=>{const size=op.size||10.5,font=op.font||F,color=op.color||INK,ind=op.indent||0;for(const l of wrap(t,font,size,W-2*M-ind)){ensure(size+4);if(l)page.drawText(l,{x:M+ind,y:y-size,size,font,color});y-=size*1.38}y-=((op.gap==null?3:op.gap))};
   const h2=t=>{ensure(60);y-=10;page.drawText(pdfClean(t),{x:M,y:y-15,size:15,font:FB,color:ACC});y-=22;page.drawLine({start:{x:M,y},end:{x:W-M,y},thickness:1.5,color:ACC});y-=10};
   const from=o.days?iso(new Date(Date.now()-o.days*864e5)):"0000",inR=d=>(d||"")>=from;
   const c=state.child,R=o.r?(state.reports||[]).filter(r=>inR(r.date)).sort((a,b)=>a.date.localeCompare(b.date)):[],HL=o.h?(state.health||[]).filter(h=>inR(h.date)).sort((a,b)=>a.date.localeCompare(b.date)):[];
