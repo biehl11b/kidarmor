@@ -3,7 +3,7 @@
 Seller / developer: **Coastline Code LLC**
 Bundle ID / package name: **com.coastlinecode.kidarmor**
 Copyright: **2026 Coastline Code LLC**
-Price: **$1.99 one-time download** (US). No ads, no subscription, no in-app purchases at launch.
+Price: **$1.99 one-time download** (US). No tracking, no pop-up ads, no subscription, no in-app purchases at launch. (The Resources tab has clearly labeled paid listings from professionals.)
 
 - Apple: price tier USD 1.99; enroll in the App Store Small Business Program (15% commission instead of 30%). Needs the Paid Apps agreement, tax forms and bank info in App Store Connect → Business.
 - Google: set the app as **Paid** at USD 1.99 *before* first publishing (a free app can never be changed to paid on Google Play). Needs a merchant account linked to the payments profile. Google charges 15% on the first $1M a year automatically.
@@ -38,7 +38,7 @@ IEP,504,bullying,special education,school meeting,parent advocate,transcript,acc
 
 KidArmor helps parents keep an organized, private record of what happens with their child at school, so when it's time to speak up, you have the facts.
 
-Everything stays on your phone. No account, no sign-up, no ads and no tracking.
+Everything stays on your phone. No account, no sign-up, no tracking and no pop-up ads.
 
 KEEP THE RECORD
 • Log bullying, IEP and 504 problems, calls with the school and meetings, each with its own category
@@ -90,7 +90,7 @@ KidArmor helps you organize facts. It isn't legal advice. Recording laws vary by
 
 ## Apple: App Privacy ("nutrition label")
 
-Choose **Data Not Collected**. KidArmor has no account, no analytics, no ads and no tracking; everything the parent enters stays on the device.
+Choose **Data Not Collected**. KidArmor has no account, no analytics, no ad networks and no tracking; everything the parent enters stays on the device.
 - The app downloads the same public list of parent resources and paid listings for everyone; nothing about the user is sent.
 - Live transcripts use Apple's built-in speech recognition (processed by Apple, not by us), which doesn't count as collection by the developer.
 - If a parent emails us from the app, that's the parent choosing to contact us, not data the app collects.
@@ -98,7 +98,7 @@ Choose **Data Not Collected**. KidArmor has no account, no analytics, no ads and
 
 ## Apple: Age rating questionnaire
 
-Answer **None** to every content question, including medical or treatment information (the medication notes are the parent's own private notes). User-generated content shared with other users: **No**. Messaging or chat: **No**. Advertising: **No**. Unrestricted web access: **No**. Parental controls / age assurance: **No**. Expected result: **4+**.
+Answer **None** to every content question, including medical or treatment information (the medication notes are the parent's own private notes). User-generated content shared with other users: **No**. Messaging or chat: **No**. Advertising: **Yes** (labeled paid listings from local professionals; no ad networks, no tracking). Unrestricted web access: **No**. Parental controls / age assurance: **No**. Expected result: **4+**.
 (The app mentions bullying only as something parents record; it has no violent or mature content.)
 
 ## Apple: Notes for the reviewer (App Review Information)
@@ -137,7 +137,7 @@ Category: **Utility, Productivity, Communication or Other**. Answer **No** to vi
 
 ## Google Play: other declarations
 
-- Ads: **No ads**
+- Ads: **Yes, contains ads** (the paid professional listings in the Resources tab count as ads; they are clearly labeled "Paid listing")
 - App access: **All functionality is available without special access**
 - Government app: **No**
 - Financial features: **None**
