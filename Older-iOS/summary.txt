@@ -1,0 +1,10 @@
+iPhone 14 (store build): 8 passed, 0 failed
+info device  → iPhone 14 iOS 18.5, window 390x844
+ok   Welcome screen with the agree box shows  → about 260 s after opening
+ok   Terms of Use opens inside the app
+ok   "Read it on our website" opens Safari and KidArmor keeps running  → Safari state 4, KidArmor state 4
+ok   back in KidArmor, still on the same screen
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens setup
+ok   app still running at the end  → state 4
+ok   no crash reports

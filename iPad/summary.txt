@@ -1,0 +1,9 @@
+iPad Pro (12.9-inch) (3rd generation) (store build): 2 passed, 4 failed
+info device  → iPad Pro (12.9-inch) (3rd generation) iOS 26.2, window 1024x1366
+FAIL Welcome screen with the agree box shows  → not seen
+info Terms of Use link not found by label  → skipped link check
+FAIL checking the box turns on Continue  → no Continue button
+FAIL Continue opens setup
+FAIL still fine after rotating
+ok   app still running at the end  → state 4
+ok   no crash reports

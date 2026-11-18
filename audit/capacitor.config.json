@@ -1,0 +1,39 @@
+{
+	"appId": "com.coastlinecode.kidarmor",
+	"appName": "KidArmor",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https",
+		"errorPath": "webview-update.html"
+	},
+	"ios": {
+		"contentInset": "never",
+		"limitsNavigationsToAppBoundDomains": false
+	},
+	"android": {
+		"allowMixedContent": false,
+		"minWebViewVersion": 69
+	},
+	"plugins": {
+		"LocalNotifications": {
+			"iconColor": "#1f5d70"
+		},
+		"SplashScreen": {
+			"launchShowDuration": 3000,
+			"backgroundColor": "#1f5d70",
+			"showSpinner": false
+		}
+	},
+	"packageClassList": [
+		"InAppReviewPlugin",
+		"SpeechRecognition",
+		"AppPlugin",
+		"FilesystemPlugin",
+		"LocalNotificationsPlugin",
+		"SharePlugin",
+		"SplashScreenPlugin",
+		"StatusBarPlugin",
+		"NativeBiometricPlugin",
+		"CapacitorCalendarPlugin"
+	]
+}

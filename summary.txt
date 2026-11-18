@@ -1,0 +1,59 @@
+== App Store build checks
+info version  → 1.0 (1), min iOS 15.0, devices Array{1}
+info NSMicrophoneUsageDescription present (app code doesn't seem to use it)
+info NSCameraUsageDescription present (app code doesn't seem to use it)
+info NSPhotoLibraryUsageDescription present (app code doesn't seem to use it)
+info NSSpeechRecognitionUsageDescription present (app code doesn't seem to use it)
+ok   purpose text for Face ID (NSFaceIDUsageDescription)
+ok   purpose text for calendar (older iOS) (NSCalendarsUsageDescription)
+ok   purpose text for calendar full access (NSCalendarsFullAccessUsageDescription)
+ok   purpose text for calendar add-only (NSCalendarsWriteOnlyAccessUsageDescription)
+ok   purpose text for reminders (older iOS) (NSRemindersUsageDescription)
+ok   purpose text for reminders (NSRemindersFullAccessUsageDescription)
+ok   no background modes (none are used)
+info export compliance key ITSAppUsesNonExemptEncryption  → false
+info UIRequiresFullScreen not set (iPad multitasking sizes must work)
+info orientations iPhone  → Array { UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight}
+info orientations iPad  → Array { UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight}
+ok   launch screen  → LaunchScreen
+info privacy manifests in the app  → 3
+ok   app's own privacy manifest is inside the app
+ok   required-reason API declared: NSPrivacyAccessedAPICategoryFileTimestamp
+ok   app icon 1024px has no transparency
+ok   compiled icons/images (Assets.car)
+ok   no test helper in the store build
+ok   no unsafe-eval in the store build
+ok   web inspector off in the store build
+info app size  →  16M
+== store/iPad/summary.txt
+iPad Pro (12.9-inch) (3rd generation) (store build): 2 passed, 4 failed
+info device  → iPad Pro (12.9-inch) (3rd generation) iOS 26.2, window 1024x1366
+FAIL Welcome screen with the agree box shows  → not seen
+info Terms of Use link not found by label  → skipped link check
+FAIL checking the box turns on Continue  → no Continue button
+FAIL Continue opens setup
+FAIL still fine after rotating
+ok   app still running at the end  → state 4
+ok   no crash reports
+== store/iPhone/summary.txt
+iPhone 16 (store build): 8 passed, 0 failed
+info device  → iPhone 16 iOS 26.2, window 393x852
+ok   Welcome screen with the agree box shows  → about 326 s after opening
+ok   Terms of Use opens inside the app
+ok   "Read it on our website" opens Safari and KidArmor keeps running  → Safari state 4, KidArmor state 2
+ok   back in KidArmor, still on the same screen
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens setup
+ok   app still running at the end  → state 4
+ok   no crash reports
+== store/Older-iOS/summary.txt
+iPhone 14 (store build): 8 passed, 0 failed
+info device  → iPhone 14 iOS 18.5, window 390x844
+ok   Welcome screen with the agree box shows  → about 260 s after opening
+ok   Terms of Use opens inside the app
+ok   "Read it on our website" opens Safari and KidArmor keeps running  → Safari state 4, KidArmor state 4
+ok   back in KidArmor, still on the same screen
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens setup
+ok   app still running at the end  → state 4
+ok   no crash reports

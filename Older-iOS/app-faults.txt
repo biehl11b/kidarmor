@@ -1,0 +1,9 @@
+Timestamp               Ty Process[PID:TID]
+2026-11-18 20:11:06.560 F  App[70848:2f28d] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/02FECA16-783B-42E8-81BD-A24751E9615E/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 20:11:08.870 F  App[70848:2f274] [com.apple.WebKit:Process] Networking process (0x117000800) took 2.314128 seconds to launch
+2026-11-18 20:11:08.875 F  App[70848:2f274] [com.apple.WebKit:Process] WebContent process (0x117001920) took 2.037029 seconds to launch
+2026-11-18 20:11:08.883 F  App[70848:2f274] [com.apple.WebKit:Process] GPU process (0x1170032c0) took 1.841310 seconds to launch
+2026-11-18 20:15:10.528 F  App[78200:33991] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/02FECA16-783B-42E8-81BD-A24751E9615E/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 20:15:12.043 F  App[78200:3393a] [com.apple.WebKit:Process] Networking process (0x10c000800) took 1.522189 seconds to launch
+2026-11-18 20:15:12.075 F  App[78200:3393a] [com.apple.WebKit:Process] WebContent process (0x10c001920) took 1.487097 seconds to launch
+2026-11-18 20:15:12.125 F  App[78200:3393a] [com.apple.WebKit:Process] GPU process (0x10c0034d0) took 1.505491 seconds to launch

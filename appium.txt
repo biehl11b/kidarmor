@@ -1,0 +1,9 @@
+2026-11-18 19:45:39:539 [b6b66c70][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-18 19:46:37:787 [b6b66c70][XCUITestDriver@8838] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms
+2026-11-18 19:54:45:492 [b6b66c70][Xcode] xcodebuild exited with code '65' and signal 'null'
+2026-11-18 19:59:15:884 [2ea2cb92][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-18 19:59:53:019 [2ea2cb92][XCUITestDriver@03b4] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms
+2026-11-18 20:05:56:317 [2ea2cb92][XCUITestDriver@03b4] The POST /session/:sessionId/orientation endpoint has been deprecated and will be removed in a future version of Appium or your driver/plugin. Please use a different endpoint or contact the driver/plugin author to add explicit support for the endpoint before it is removed
+2026-11-18 20:07:56:101 [2ea2cb92][Xcode] xcodebuild exited with code '65' and signal 'null'
+2026-11-18 20:11:44:105 [bc36e839][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-18 20:12:45:433 [bc36e839][XCUITestDriver@8971] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms

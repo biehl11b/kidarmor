@@ -1,0 +1,17 @@
+Timestamp               Ty Process[PID:TID]
+2026-11-18 19:58:28.103 F  App[50340:21f6a] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/59908149-ACD3-4EBD-AEDB-9D09954017DC/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 19:58:30.430 F  App[50340:21f4c] [com.apple.WebKit:Process] Networking process (0x119060100) took 2.347055 seconds to launch
+2026-11-18 19:58:30.431 F  App[50340:21f4c] [com.apple.WebKit:Process] WebContent process (0x1190f00c0) took 2.029920 seconds to launch
+2026-11-18 19:58:30.435 F  App[50340:21f4c] [com.apple.WebKit:Process] GPU process (0x11912c1e0) took 1.992969 seconds to launch
+2026-11-18 19:59:19.609 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x11912c1e0 - GPUProcessProxy::gpuProcessExited: reason=Crash
+2026-11-18 19:59:19.609 Df App[50340:21f4c] [com.apple.WebKit:Process] 0x10b810a08 - WebProcessPool::gpuProcessDidExit: PID=50356, reason=Crash
+2026-11-18 19:59:19.609 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x1190f00c0 - [PID=50355] WebProcessProxy::gpuProcessExited: reason=Crash
+2026-11-18 19:59:19.628 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x119060100 - NetworkProcessProxy::didClose (Network Process 0 crash)
+2026-11-18 19:59:19.643 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x1190f00c0 - [PID=50355] WebProcessProxy::didClose: (web process 0 crash)
+2026-11-18 19:59:19.643 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x1190f00c0 - [PID=50355] WebProcessProxy::processDidTerminateOrFailedToLaunch: reason=Crash
+2026-11-18 19:59:19.644 E  App[50340:21f4c] [com.apple.WebKit:Process] 0x10d02b420 - [pageProxyID=7, webPageID=8, PID=50355] WebPageProxy::processDidTerminate: (pid 50355), reason=Crash
+2026-11-18 19:59:19.648 E  App[50340:21f4c] [com.apple.WebKit:Loading] 0x10d02b420 - [pageProxyID=7, webPageID=8, PID=50355] WebPageProxy::dispatchProcessDidTerminate: reason=Crash
+2026-11-18 20:02:36.401 F  App[55986:25ba6] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/59908149-ACD3-4EBD-AEDB-9D09954017DC/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 20:02:39.315 F  App[55986:25ab2] [com.apple.WebKit:Process] WebContent process (0x1160ec0c0) took 2.872139 seconds to launch
+2026-11-18 20:02:39.327 F  App[55986:25ab2] [com.apple.WebKit:Process] Networking process (0x116060100) took 2.959458 seconds to launch
+2026-11-18 20:02:39.357 F  App[55986:25ab2] [com.apple.WebKit:Process] GPU process (0x1161281e0) took 2.893658 seconds to launch

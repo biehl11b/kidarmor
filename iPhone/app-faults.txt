@@ -1,0 +1,24 @@
+Timestamp               Ty Process[PID:TID]
+2026-11-18 19:44:56.021 F  App[31472:1506d] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/7F81C689-4D98-4CA7-82A1-A5762887404F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 19:45:00.566 F  App[31472:15054] [com.apple.WebKit:Process] Networking process (0x116070100) took 4.542821 seconds to launch
+2026-11-18 19:45:00.569 F  App[31472:15054] [com.apple.WebKit:Process] GPU process (0x1161301e0) took 3.966020 seconds to launch
+2026-11-18 19:45:00.579 F  App[31472:15054] [com.apple.WebKit:Process] WebContent process (0x1160f40c0) took 4.272400 seconds to launch
+2026-11-18 19:45:48.862 E  App[31472:15054] [com.apple.WebKit:Process] 0x11082c608 - WebProcessPool::gpuProcessDidExit: GPU Process has crashed more than 2 times in the last 30 seconds, terminating all WebProcesses
+2026-11-18 19:45:48.873 E  App[31472:15054] [com.apple.WebKit:Process] 0x1160f40c0 - [PID=0] WebProcessProxy::processDidTerminateOrFailedToLaunch: reason=GPUProcessCrashedTooManyTimes
+2026-11-18 19:45:48.902 E  App[31472:15054] [com.apple.WebKit:Process] 0x112014220 - [pageProxyID=7, webPageID=8, PID=0] WebPageProxy::processDidTerminate: (pid 0), reason=GPUProcessCrashedTooManyTimes
+2026-11-18 19:45:48.922 E  App[31472:15054] [com.apple.WebKit:Loading] 0x112014220 - [pageProxyID=7, webPageID=8, PID=0] WebPageProxy::dispatchProcessDidTerminate: reason=GPUProcessCrashedTooManyTimes
+2026-11-18 19:45:55.999 F  App[31472:15054] [com.apple.WebKit:Process] WebContent process (0x1160f4680) took 7.072886 seconds to launch
+2026-11-18 19:45:57.840 F  App[31472:15054] [com.apple.WebKit:Process] GPU process (0x1161301e0) took 1.554133 seconds to launch
+2026-11-18 19:46:04.191 E  App[31472:15054] [com.apple.WebKit:Process] 0x116070100 - NetworkProcessProxy::didClose (Network Process 31476 crash)
+2026-11-18 19:46:04.208 E  App[31472:15054] [com.apple.WebKit:Process] 0x1161301e0 - GPUProcessProxy::gpuProcessExited: reason=Crash
+2026-11-18 19:46:04.208 Df App[31472:15054] [com.apple.WebKit:Process] 0x11082c608 - WebProcessPool::gpuProcessDidExit: PID=32913, reason=Crash
+2026-11-18 19:46:04.208 E  App[31472:15054] [com.apple.WebKit:Process] 0x1160f4680 - [PID=32574] WebProcessProxy::gpuProcessExited: reason=Crash
+2026-11-18 19:46:04.227 E  App[31472:15054] [com.apple.WebKit:Process] 0x1160f4680 - [PID=32574] WebProcessProxy::didClose: (web process 0 crash)
+2026-11-18 19:46:04.227 E  App[31472:15054] [com.apple.WebKit:Process] 0x1160f4680 - [PID=32574] WebProcessProxy::processDidTerminateOrFailedToLaunch: reason=Crash
+2026-11-18 19:46:04.289 E  App[31472:15054] [com.apple.WebKit:Process] 0x112014220 - [pageProxyID=7, webPageID=8, PID=32574] WebPageProxy::processDidTerminate: (pid 32574), reason=Crash
+2026-11-18 19:46:04.297 E  App[31472:15054] [com.apple.WebKit:Loading] 0x112014220 - [pageProxyID=7, webPageID=8, PID=32574] WebPageProxy::dispatchProcessDidTerminate: reason=Crash
+2026-11-18 19:49:54.588 F  App[39745:1a74e] [com.apple.ManagedConfiguration:MC] Failed to get profile system group container path. Overriding with expected path: /Users/runner/Library/Developer/CoreSimulator/Devices/7F81C689-4D98-4CA7-82A1-A5762887404F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2026-11-18 19:49:57.377 F  App[39745:1a720] [com.apple.WebKit:Process] Networking process (0x11d060100) took 2.803414 seconds to launch
+2026-11-18 19:49:57.385 F  App[39745:1a720] [com.apple.WebKit:Process] WebContent process (0x11d0f00c0) took 2.696670 seconds to launch
+2026-11-18 19:49:57.429 F  App[39745:1a720] [com.apple.WebKit:Process] GPU process (0x11d12c1e0) took 2.702403 seconds to launch
+2026-11-18 19:51:14.768 Df App[39745:1a720] [com.apple.WebKit:ProcessSuspension] 0x10f040808 - WebProcessPool::applicationIsAboutToSuspend: Terminating non-critical processes

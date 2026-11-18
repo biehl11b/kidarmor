@@ -1,0 +1,3 @@
+/Users/runner/work/kidarmor/kidarmor/ddr/Build/Products/Release-iphonesimulator/App.app/PrivacyInfo.xcprivacy
+/Users/runner/work/kidarmor/kidarmor/ddr/Build/Products/Release-iphonesimulator/App.app/Frameworks/Capacitor.framework/PrivacyInfo.xcprivacy
+/Users/runner/work/kidarmor/kidarmor/ddr/Build/Products/Release-iphonesimulator/App.app/Frameworks/Cordova.framework/PrivacyInfo.xcprivacy
