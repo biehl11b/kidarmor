@@ -1,0 +1,5 @@
+iPhone 16 quick check: passed
+ok   quick: test helper started in the app
+ok   quick: app answers  → 2
+info quick: inside the app  → {"native":true,"show":"function","state":"object","errs":[]}
+info quick: Documents  → ["ka-rpc","ka-rpc/alive.json"]

@@ -1,0 +1,9 @@
+Quick check: install and open the app
+  install 1: ok
+  open: com.coastlinecode.kidarmor: 15640
+  ok   quick: test helper started in the app
+  ok   quick: app answers  → 2
+  info quick: inside the app  → {"native":true,"show":"function","state":"object","errs":[]}
+Wrote screenshot to: sim/Standard/01-quick-open.png
+  info quick: Documents  → ["ka-rpc","ka-rpc/alive.json"]
+Quick check passed.
