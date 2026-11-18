@@ -1,0 +1,21 @@
+WebView: com.google.android.webview, 74.0.3729.185
+before reload, agree screen: false
+after reload, agree screen: false
+UA: Mozilla/5.0 (Linux; Android 10; Android SDK built for x86_64 Build/QSR1.211112.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.185 Mobile Safari/537.36
+initLock: missing
+renderWho: missing
+recoverRecDraft: missing
+checkReminders: missing
+initFramed: missing
+refreshResources: missing
+renderStateResources: missing
+needsWizard: missing
+errors while loading:
+  SyntaxError: Unexpected token ? @line 2304:22
+  SyntaxError: Unexpected token ? @line 2304:22
+  error: SyntaxError: Unexpected token ?
+  error: Object
+  error: Object
+  error: SyntaxError: Unexpected token ?
+  error: Object
+  error: Object
