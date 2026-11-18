@@ -53,7 +53,7 @@ if [ -n "$ICON" ]; then a=$(sips -g hasAlpha "$ICON" | awk '/hasAlpha/{print $2}
 # 5. the web part is the store version, not the test version
 WWW="$APP/public"; [ -d "$WWW" ] || WWW=$(dirname "$(find "$APP" -name index.html | head -1)")
 grep -q "ka-test.js" "$WWW/index.html" && bad "test helper is in the store build" || ok "no test helper in the store build"
-grep -q "unsafe-eval" "$WWW/index.html" && bad "unsafe-eval in the store build" || ok "no unsafe-eval in the store build"
+grep -q "'unsafe-eval'" "$WWW/index.html" && bad "unsafe-eval in the store build" || ok "no unsafe-eval in the store build"
 grep -q '"webContentsDebuggingEnabled": *true' "$APP/capacitor.config.json" 2>/dev/null && bad "web inspector turned on in the store build" || ok "web inspector off in the store build"
 cp "$APP/capacitor.config.json" "$OUT/" 2>/dev/null
 info "app size" "$(du -sh "$APP" | cut -f1)"

@@ -11,6 +11,11 @@ function patchIOS() {
   add("NSFaceIDUsageDescription", str("Use Face ID to unlock your KidArmor records."));
   add("NSCalendarsUsageDescription", str("KidArmor adds school meetings you schedule to your calendar with your reminders."));
   add("NSCalendarsWriteOnlyAccessUsageDescription", str("KidArmor adds school meetings you schedule to your calendar with your reminders."));
+  // The calendar plugin's code can also ask for full calendar and Reminders access. KidArmor never asks for them
+  // (it only adds meetings through iOS's own "new event" screen), but Apple's upload check requires the text anyway.
+  add("NSCalendarsFullAccessUsageDescription", str("KidArmor adds school meetings you schedule to your calendar with your reminders."));
+  add("NSRemindersUsageDescription", str("KidArmor asks only if you choose to save a school follow-up as a reminder. It doesn't read your other reminders."));
+  add("NSRemindersFullAccessUsageDescription", str("KidArmor asks only if you choose to save a school follow-up as a reminder. It doesn't read your other reminders."));
   add("NSCameraUsageDescription", str("Take pictures of report cards, documents and incidents to keep with your records."));
   add("NSPhotoLibraryUsageDescription", str("Choose photos and documents to keep with your records."));
   add("NSPhotoLibraryAddUsageDescription", str("Save files you choose to share from KidArmor."));

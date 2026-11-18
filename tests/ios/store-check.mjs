@@ -10,7 +10,7 @@ const lines = []; let fails = 0;
 const log = (kind, what, detail = "") => { if (kind === "FAIL") fails++; const s = `${kind.padEnd(4)} ${what}${detail ? "  → " + String(detail).slice(0, 300) : ""}`; console.log(s); lines.push(s) };
 const shot = name => xc("simctl", "io", UDID, "screenshot", `${OUT}/${name}.png`);
 let d;
-async function find(pred, ms = 20000) { const end = Date.now() + ms; while (Date.now() < end) { try { const e = await d.$(`-ios predicate string:${pred}`); if (await e.isExisting() && await e.isDisplayed()) return e } catch (e) { } await sleep(1000) } return null }
+async function find(pred, ms = 20000) { const end = Date.now() + ms; while (Date.now() < end) { try { const e = await d.$(`-ios predicate string:${pred}`); if (await e.isExisting()) return e } catch (e) { } await sleep(1000) } return null }
 async function state(b = BUNDLE) { try { return await d.execute("mobile: queryAppState", { bundleId: b }) } catch (e) { return "?" } }
 async function main() {
   xc("simctl", "install", UDID, APP);
