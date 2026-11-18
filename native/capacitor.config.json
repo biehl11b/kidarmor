@@ -12,14 +12,14 @@
   },
   "android": {
     "allowMixedContent": false,
-    "minWebViewVersion": 80
+    "minWebViewVersion": 69
   },
   "plugins": {
     "LocalNotifications": {
       "iconColor": "#1f5d70"
     },
     "SplashScreen": {
-      "launchShowDuration": 600,
+      "launchShowDuration": 3000,
       "backgroundColor": "#1f5d70",
       "showSpinner": false
     }

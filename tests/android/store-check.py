@@ -84,21 +84,19 @@ else:
 snap("3-welcome")
 
 if n is not None:
-    box = None
-    for nd in nodes(root):
-        if nd.get("checkable") == "true": box = nd; break
-    if box is None: box = find(root, r"I have read and agree")
+    box = next((nd for nd in nodes(root) if nd.get("resource-id") == "agBox"), None)
+    if box is None: box = next((nd for nd in nodes(root) if nd.get("class") == "android.widget.CheckBox" and nd.get("bounds") != "[0,0][0,0]"), None)
     if box is not None:
         adb("shell", "input", "tap", *map(str, center(box))); time.sleep(2)
         root = dump("after-check")
-        go = find(root, r"^Continue")
+        go = next((nd for nd in nodes(root) if nd.get("resource-id") == "agGo"), None) or find(root, r"^Continue")
         ok = go is not None and go.get("enabled") == "true"
         log("ok" if ok else "FAIL", "checking the box turns on Continue", "enabled" if ok else "still off")
         snap("4-box-checked")
         if go is not None:
             adb("shell", "input", "tap", *map(str, center(go))); time.sleep(3)
-            root, nxt = wait_for(r"Add my child|Who are you keeping|Home|Settings", 30, "after-continue")
-            gone = find(root, r"Welcome to KidArmor") is None
+            root, nxt = wait_for(r"set up KidArmor|Step 1 of", 30, "after-continue")
+            gone = not any(nd.get("resource-id") == "agGo" for nd in nodes(root))
             log("ok" if (nxt is not None and gone) else "FAIL", "Continue opens the app", screen_text(root)[:200])
             snap("5-after-continue")
     else:

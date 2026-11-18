@@ -4,6 +4,8 @@
   var C=window.Capacitor,P=function(n){return C.registerPlugin?C.registerPlugin(n):(C.Plugins&&C.Plugins[n])};
   var LN=P("LocalNotifications"),FS=P("Filesystem"),SH=P("Share"),APP=P("App"),BIO=P("NativeBiometric"),CAL=P("CapacitorCalendar");
   document.documentElement.classList.add("native");
+  /* the app has drawn its first screen: hide the logo screen now (it hides on its own after 3 s at most) */
+  try{var SP=P("SplashScreen");if(SP&&SP.hide)SP.hide().catch(function(){})}catch(e){}
   try{console.log("KA_NATIVE_OK "+JSON.stringify({registerPlugin:!!C.registerPlugin,plugins:Object.keys(C.Plugins||{}).sort()}))}catch(e){}
   /* microphone: the app's web view can always record on the phone */
   window.micAllowedHere=function(){return !!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder)};
