@@ -8,4 +8,6 @@ let bad = 0;
 code.forEach((c, i) => { c = c.replace(/await import\(/g, "await IMPORT("); // import() works from WebView 63
   try { acorn.parse(c, { ecmaVersion: 2019, sourceType: "script", allowReturnOutsideFunction: true }) }
   catch (e) { bad++; const L = c.split("\n")[e.loc.line - 1] || ""; console.error(`TOO NEW FOR OLDER PHONES (script ${i}, line ${e.loc.line}): ${L.slice(Math.max(0, e.loc.column - 60), e.loc.column + 30)}`) } });
-if (bad) process.exit(1); console.log("app script works on older phones (WebView 69+)");
+// Regex lookbehind (?<= (?<! only works from iOS 16.4; the iPhone app supports iOS 15.
+code.forEach((c, i) => { const m = c.match(/.{0,40}\(\?<[=!].{0,20}/); if (m) { bad++; console.error(`TOO NEW FOR OLDER IPHONES (script ${i}): regex lookbehind: ${m[0]}`) } });
+if (bad) process.exit(1); console.log("app script works on older phones (Android WebView 69+, iOS 15+)");
