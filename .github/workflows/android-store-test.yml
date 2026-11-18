@@ -1,0 +1,81 @@
+name: Android store version test
+# Opens the signed Google Play bundle (not the test build) on old and new Android phones and a tablet,
+# installed the way Google Play installs it, and checks it gets past the Welcome screen.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: { description: "Build run to test (blank = newest successful 'Build phone apps' run)", required: false, default: "" }
+      phones: { description: "Which phones (comma list of names below). Blank = all", required: false, default: "" }
+  workflow_run:
+    workflows: ["Build phone apps"]
+    types: [completed]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: store-test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  phone:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: api24, api: 24, profile: pixel_2 }
+          - { name: api26, api: 26, profile: pixel_2 }
+          - { name: api29, api: 29, profile: pixel_4 }
+          - { name: api33, api: 33, profile: pixel_6 }
+          - { name: api36, api: 36, profile: pixel_6 }
+          - { name: tablet, api: 34, profile: pixel_tablet }
+    steps:
+      - name: Skip phones not asked for
+        id: want
+        run: |
+          P="${{ github.event.inputs.phones }}"
+          if [ -z "$P" ] || echo ",$P," | grep -q ",${{ matrix.name }},"; then echo "go=1" >> "$GITHUB_OUTPUT"; else echo "go=0" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        if: steps.want.outputs.go == '1'
+        with: { persist-credentials: false }
+      - name: Get the Google Play bundle and bundletool
+        if: steps.want.outputs.go == '1'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          RUN="${{ github.event.inputs.run_id }}"
+          [ -n "$RUN" ] || RUN="${{ github.event.workflow_run.id }}"
+          [ -n "$RUN" ] || RUN=$(gh run list -R "$GITHUB_REPOSITORY" -w native.yml -s success -L 1 --json databaseId --jq '.[0].databaseId')
+          echo "Testing the bundle from run $RUN"
+          gh run download "$RUN" -R "$GITHUB_REPOSITORY" -n KidArmor-store-bundle -D .
+          ls -la KidArmor-store.aab
+          mkdir -p store && echo "bundle from build run $RUN" > store/bundle.txt
+          curl -sfL -o bundletool.jar https://github.com/google/bundletool/releases/download/1.18.1/bundletool-all-1.18.1.jar \
+            || curl -sfL -o bundletool.jar https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar
+          java -jar bundletool.jar version
+          java -jar bundletool.jar dump manifest --bundle=KidArmor-store.aab | head -5 >> store/bundle.txt
+      - name: Enable virtual phone support
+        if: steps.want.outputs.go == '1'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Open the store version on ${{ matrix.name }}
+        if: steps.want.outputs.go == '1'
+        uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
+        env: { OUT: store }
+        with:
+          api-level: ${{ matrix.api }}
+          target: google_apis
+          arch: x86_64
+          profile: ${{ matrix.profile }}
+          disable-animations: true
+          emulator-boot-timeout: 900
+          script: bash tests/android/store-check.sh
+      - name: Keep results
+        if: always() && steps.want.outputs.go == '1'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with: { name: "store-${{ matrix.name }}", path: store, retention-days: 14 }
+      - name: Save results
+        if: always() && steps.want.outputs.go == '1'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: bash native/scripts/push-dir.sh store-${{ matrix.name }} store
