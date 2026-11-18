@@ -75,16 +75,28 @@ t0 = time.time()
 time.sleep(5); snap("1-after-5s")
 time.sleep(10); snap("2-after-15s")
 
-root, n = wait_for(r"Welcome to KidArmor|updated our terms", 90, "welcome")
+def agree_box(root):
+    for nd in nodes(root):
+        if nd.get("resource-id") == "agBox":
+            x1, y1, x2, y2 = map(int, re.findall(r"\d+", nd.get("bounds", "0,0,0,0")))
+            H = int((size.split("x") + ["0", "0"])[1] or 0)
+            if y2 - y1 > 20 and y2 <= (H or 99999): return nd
+    return None
+end = time.time() + 90; root = n = None
+while time.time() < end:
+    root = dump(); n = agree_box(root)
+    if n is not None: break
+    time.sleep(3)
+dump("welcome")
 if n is not None:
-    log("ok", "Welcome screen shows", f"after {int(time.time() - t0)} s")
+    log("ok", "Welcome screen shows (agree box on screen)", f"after {int(time.time() - t0)} s")
 else:
     upd = find(root, r"update|WebView")
-    log("FAIL", "Welcome screen shows", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
+    log("FAIL", "Welcome screen shows (agree box on screen)", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
 snap("3-welcome")
 
 if n is not None:
-    box = next((nd for nd in nodes(root) if nd.get("resource-id") == "agBox"), None)
+    box = n
     if box is None: box = next((nd for nd in nodes(root) if nd.get("class") == "android.widget.CheckBox" and nd.get("bounds") != "[0,0][0,0]"), None)
     if box is not None:
         adb("shell", "input", "tap", *map(str, center(box))); time.sleep(2)

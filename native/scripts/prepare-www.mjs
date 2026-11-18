@@ -1,8 +1,9 @@
 // Builds www/ for the phone app from the KidArmor page. Copyright (c) 2026 Coastline Code LLC.
-import fs from "fs"; import path from "path"; import { fileURLToPath } from "url"; import crypto from "crypto";
+import fs from "fs"; import path from "path"; import { fileURLToPath } from "url"; import crypto from "crypto"; import { oldWebviewCss } from "./old-webview-css.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = f => fs.readFileSync(path.join(root, f), "utf8");
-const app = read("src/app.html"), pre = read("src/native-pre.js"), post = read("src/native-post.js");
+const compat = oldWebviewCss(read("src/app.html")); console.log("older-phone CSS fallbacks added:", compat.changed);
+const app = compat.css, pre = read("src/native-pre.js"), post = read("src/native-post.js");
 fs.rmSync(path.join(root, "www"), { recursive: true, force: true });
 fs.mkdirSync(path.join(root, "www/vendor"), { recursive: true });
 const coreSrc = ["dist/capacitor.js", "dist/capacitor.min.js"].map(f => path.join(root, "node_modules/@capacitor/core", f)).find(f => fs.existsSync(f));
