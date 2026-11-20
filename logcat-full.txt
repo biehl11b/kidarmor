@@ -1,0 +1,1145 @@
+--------- beginning of main
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f0203f6
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f13080c
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f0203f8
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f13086b
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f0203fa
+11-20 05:22:29.816  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f1308b0
+11-20 05:22:29.838  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f020078
+11-20 05:22:29.843  1605  1655 W ResourceType: No known package when getting value for resource number 0x7f100262
+11-20 05:22:29.893  2196  2953 W Icing   : No valid account for uploading user actions
+11-20 05:22:29.896  4635  4635 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:29.913  2196  2953 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:29.984  4635  4635 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:30.002  4635  4635 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-20 05:22:30.006  4635  4635 D AndroidRuntime: Shutting down VM
+11-20 05:22:30.014  2430  2533 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:30.014  2430  2533 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:30.014  2430  2533 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:30.017  2430  2533 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:30.020  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:30.020  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:30.043  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:30.043  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:30.051  1605  1655 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-20 05:22:30.051  1605  1655 W Binder  : java.lang.Throwable
+11-20 05:22:30.051  1605  1655 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:736)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at com.android.internal.location.ILocationProvider$Stub$Proxy.getProperties(ILocationProvider.java:232)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at com.android.server.location.LocationProviderProxy$1.run(LocationProviderProxy.java:119)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at android.os.Handler.handleCallback(Handler.java:789)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at android.os.Handler.dispatchMessage(Handler.java:98)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at android.os.Looper.loop(Looper.java:164)
+11-20 05:22:30.051  1605  1655 W Binder  : 	at android.os.HandlerThread.run(HandlerThread.java:65)
+11-20 05:22:30.053  1605  1655 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-20 05:22:30.053  1605  1655 W Binder  : java.lang.Throwable
+11-20 05:22:30.053  1605  1655 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:736)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at com.android.internal.location.ILocationProvider$Stub$Proxy.getProperties(ILocationProvider.java:232)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at com.android.server.location.LocationProviderProxy$1.run(LocationProviderProxy.java:119)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at android.os.Handler.handleCallback(Handler.java:789)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at android.os.Handler.dispatchMessage(Handler.java:98)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at android.os.Looper.loop(Looper.java:164)
+11-20 05:22:30.053  1605  1655 W Binder  : 	at android.os.HandlerThread.run(HandlerThread.java:65)
+11-20 05:22:30.168  2196  2957 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:30.168  2196  2957 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:30.168  2196  2957 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:30.169  2196  2957 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:30.848  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:30.854  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:30.854  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:31.036  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.036  2196  2957 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+11-20 05:22:31.044  2196  2957 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+11-20 05:22:31.104  2196  2957 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+11-20 05:22:31.106  2196  2957 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+11-20 05:22:31.110  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.111  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.165  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.166  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.168  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.169  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.174  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.175  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.194  2196  2957 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+11-20 05:22:31.196  2196  2957 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+11-20 05:22:31.200  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.201  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.225  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.226  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.248  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.249  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.250  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.250  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.274  2196  2957 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:31.275  2196  2957 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:31.311  2468  2468 I MicroDetectionWorker: #updateMicroDetector [detectionMode: [mDetectionMode: [1]]]
+11-20 05:22:31.311  2468  2468 I MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+11-20 05:22:31.312  2468  2468 I AudioController: Using mInputStreamFactoryBuilder
+11-20 05:22:31.313  2468  2468 I MicroDetectionWorker: onReady
+11-20 05:22:31.314  2468  2813 I MicroRecognitionRunner: Starting detection.
+11-20 05:22:31.315  2468  2710 I MicrophoneInputStream: mic_starting com.google.android.apps.gsa.staticplugins.aa.c@c32768
+11-20 05:22:31.315  1510  4654 I AudioFlinger: AudioFlinger's thread 0xe9983d80 tid=4654 ready to run
+11-20 05:22:31.317  2468  2710 I MicrophoneInputStream: mic_started com.google.android.apps.gsa.staticplugins.aa.c@c32768
+11-20 05:22:31.317  2468  2468 I MicroDetectionWorker: onReady
+11-20 05:22:31.318  2468  2710 I MicrophoneInputStream: mic_close com.google.android.apps.gsa.staticplugins.aa.c@c32768
+11-20 05:22:31.319  2468  2813 I MicroRecognitionRunner: Detection finished
+11-20 05:22:31.319  2468  2813 W ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+11-20 05:22:31.319  2468  2871 I MicroRecognitionRunner: Stopping hotword detection.
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: onFatalError, processing error from engine(4)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.staticplugins.recognizer.j.a.a(SourceFile:28)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.staticplugins.recognizer.j.b.run(SourceFile:15)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:457)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.ax.run(SourceFile:14)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.bl.run(SourceFile:4)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.bl.run(SourceFile:4)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.ai.run(SourceFile:6)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.Tee.f(SourceFile:103)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at java.io.InputStream.read(InputStream.java:101)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:18)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+11-20 05:22:31.319  2468  2813 W ErrorProcessor: 	... 9 more
+11-20 05:22:31.319  2468  2813 I AudioController: internalShutdown
+11-20 05:22:31.320  2468  2468 I MicroDetector: Keeping mic open: false
+11-20 05:22:31.320  2468  2468 I MicroDetectionWorker: #onError(false)
+11-20 05:22:31.320  2468  2700 I DeviceStateChecker: DeviceStateChecker cancelled
+11-20 05:22:32.781  2196  3081 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:32.781  2196  3081 I Vision  : Checking for download completion for 90128 -- ocr
+11-20 05:22:33.576  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:33.576  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+--------- beginning of system
+11-20 05:22:34.462  1605  1658 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver
+11-20 05:22:34.462  1605  1658 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+11-20 05:22:35.056  1605  1662 E BatteryStatsService: modem info is invalid: ModemActivityInfo{ mTimestamp=0 mSleepTimeMs=0 mIdleTimeMs=0 mTxTimeMs[]=[0, 0, 0, 0, 0] mRxTimeMs=0 mEnergyUsed=0}
+11-20 05:22:35.743  1605  4454 D WificondControl: Scan result ready event
+11-20 05:22:36.194  4658  4658 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:36.217  4658  4658 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:36.228  4658  4658 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:36.229  4658  4658 W Monkey  : args: [-p, com.coastlinecode.kidarmor, -c, android.intent.category.LAUNCHER, 1]
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "-p"
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "com.coastlinecode.kidarmor"
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "-c"
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "android.intent.category.LAUNCHER"
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "1"
+11-20 05:22:36.231  4658  4658 W Monkey  : data="com.coastlinecode.kidarmor"
+11-20 05:22:36.231  4658  4658 W Monkey  : data="android.intent.category.LAUNCHER"
+11-20 05:22:36.239  1605  1658 W BroadcastQueue: Skipping deliver [background] BroadcastRecord{a49e104 u-1 android.net.conn.CONNECTIVITY_CHANGE} to ReceiverList{11c36ed 4658 (unknown name)/2000/u-1 remote:278a996}: process gone or crashing
+11-20 05:22:36.249  1605  4454 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-20 05:22:36.249  1605  4454 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-20 05:22:36.249  1605  4454 W Binder  : java.lang.Throwable
+11-20 05:22:36.249  1605  4454 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:736)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at android.app.IActivityController$Stub$Proxy.activityStarting(IActivityController.java:172)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityStarter.startActivity(ActivityStarter.java:445)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityStarter.startActivityLocked(ActivityStarter.java:273)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityStarter.startActivityMayWait(ActivityStarter.java:827)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityManagerService.startActivityAsUser(ActivityManagerService.java:4497)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityManagerService.startActivity(ActivityManagerService.java:4464)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:121)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2935)
+11-20 05:22:36.249  1605  4454 W Binder  : 	at android.os.Binder.execTransact(Binder.java:674)
+11-20 05:22:36.250  1605  4454 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.250  1605  4454 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.250  1605  4454 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.250  1605  4454 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:36.250  1605  4454 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:36.251  1605  4454 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:36.253  1605  1710 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.253  1605  1710 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.253  1605  1710 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.253  1605  1710 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:36.253  1605  1710 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:36.253  1605  1710 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:36.255  4658  4658 I Monkey  : Events injected: 1
+11-20 05:22:36.258  1605  1710 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:36.261  1605  4454 I ActivityManager: Start proc 4668:com.coastlinecode.kidarmor/u0a77 for activity com.coastlinecode.kidarmor/.MainActivity
+11-20 05:22:36.265  4658  4658 I Monkey  : ## Network stats: elapsed time=14ms (0ms mobile, 0ms wifi, 14ms not connected)
+11-20 05:22:36.276  4658  4658 I com.android.commands.monkey: System.exit called, status: 0
+11-20 05:22:36.276  4658  4658 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:36.282  1605  1710 W System  : ClassLoader referenced unknown path: 
+11-20 05:22:36.286  4668  4668 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:36.311  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.311  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.311  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.324  2468  2468 I MicroDetectionWorker: #updateMicroDetector [detectionMode: [mDetectionMode: [1]]]
+11-20 05:22:36.324  2468  2468 I MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+11-20 05:22:36.324  2468  2468 I AudioController: Using mInputStreamFactoryBuilder
+11-20 05:22:36.334  2468  2700 I MicroRecognitionRunner: Starting detection.
+11-20 05:22:36.338  2468  2710 I MicrophoneInputStream: mic_starting com.google.android.apps.gsa.staticplugins.aa.c@922bdfe
+11-20 05:22:36.339  2468  2468 I MicroDetectionWorker: onReady
+11-20 05:22:36.341  1510  4689 I AudioFlinger: AudioFlinger's thread 0xe98032c0 tid=4689 ready to run
+11-20 05:22:36.345  2468  2710 I MicrophoneInputStream: mic_started com.google.android.apps.gsa.staticplugins.aa.c@922bdfe
+11-20 05:22:36.345  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.345  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.345  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.345  2468  2710 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+11-20 05:22:36.354  4668  4668 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:36.356  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:36.356  4668  4668 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-20 05:22:36.357  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.357  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.357  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.364  4668  4668 W ResourceType: For resource 0x7f12021c, entry index(540) is beyond type entryCount(220)
+11-20 05:22:36.364  4668  4668 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:36.364  4668  4668 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:36.365  4668  4668 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:36.368  1605  1710 D         : HostConnection::get() New Host Connection established 0x752b81df5940, tid 1710
+11-20 05:22:36.369  2468  2710 I MicrophoneInputStream: mic_close com.google.android.apps.gsa.staticplugins.aa.c@922bdfe
+11-20 05:22:36.370  2468  2468 I MicroDetectionWorker: onReady
+11-20 05:22:36.374  1815  1828 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.375  1815  1828 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.375  1815  1828 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.375  2468  2700 I MicroRecognitionRunner: Detection finished
+11-20 05:22:36.375  2468  2700 W ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+11-20 05:22:36.376  2468  2871 I MicroRecognitionRunner: Stopping hotword detection.
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: onFatalError, processing error from engine(4)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.staticplugins.recognizer.j.a.a(SourceFile:28)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.staticplugins.recognizer.j.b.run(SourceFile:15)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:457)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.ax.run(SourceFile:14)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.bl.run(SourceFile:4)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.bl.run(SourceFile:4)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.shared.util.concurrent.a.ai.run(SourceFile:6)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.Tee.f(SourceFile:103)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at java.io.InputStream.read(InputStream.java:101)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:18)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+11-20 05:22:36.376  2468  2700 W ErrorProcessor: 	... 9 more
+11-20 05:22:36.376  2468  2700 I AudioController: internalShutdown
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f120149, entry index(329) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:36.377  4668  4668 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:36.378  4668  4668 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:36.378  4668  4668 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:36.378  4668  4668 W ResourceType: For resource 0x7f120149, entry index(329) is beyond type entryCount(220)
+11-20 05:22:36.379  1815  1828 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:36.381  4668  4668 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:36.382  2468  2468 I MicroDetector: Keeping mic open: false
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:36.382  2468  2468 I MicroDetectionWorker: #onError(false)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:36.382  4668  4668 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:36.383  2468  2813 I DeviceStateChecker: DeviceStateChecker cancelled
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:36.384  4668  4668 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:36.385  4668  4668 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:36.385  4668  4668 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:36.386  4668  4668 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:36.387  4668  4668 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:36.401  4668  4668 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-20 05:22:36.448  2468  2788 D EGL_emulation: eglMakeCurrent: 0xe0b1ae80: ver 3 0 (tinfo 0xe0da3900)
+11-20 05:22:36.449  2430  2592 D EGL_emulation: eglMakeCurrent: 0x752b929b80c0: ver 3 0 (tinfo 0x752b88a94440)
+11-20 05:22:36.475  2468  2868 E SQLiteLog: (1) no such table: blob_table
+11-20 05:22:36.479  2468  2868 E ContentStoreEUAS: Failed to commit the deferred actions
+11-20 05:22:36.519  4668  4668 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.519  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.519  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.520  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.520  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.520  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.521  4668  4668 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.521  4668  4668 I zygote64: 
+11-20 05:22:36.522  4668  4668 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.522  4668  4668 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.523  4668  4668 I zygote64: 
+11-20 05:22:36.524  4668  4668 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.524  4668  4668 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context) (View.java:4536)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4668)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:597)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance0(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:334)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:647)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:790)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:730)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:863)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:824)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:515)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:423)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:374)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6975)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1213)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2770)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2892)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.ActivityThread.-wrap11(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1593)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-20 05:22:36.525  4668  4668 I zygote64: 
+11-20 05:22:36.545  4668  4668 I cr_LibraryLoader: Time to load native libraries: 1 ms (timestamps 3891-3892)
+11-20 05:22:36.559  4668  4696 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-20 05:22:36.559  4668  4696 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-20 05:22:36.561  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.561  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.561  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120149, entry index(329) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.562  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.562  4668  4668 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f12021c, entry index(540) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:36.562  4668  4668 W ResourceType: For resource 0x7f120149, entry index(329) is beyond type entryCount(220)
+11-20 05:22:36.565  4697  4697 W zygote  : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:36.570  4668  4668 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:36.570  4668  4668 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-20 05:22:36.571  1605  3764 I ActivityManager: Start proc 4697:com.android.chrome:webview_service/u0a49 for service com.android.chrome/org.chromium.android_webview.services.VariationsSeedServer
+11-20 05:22:36.577  4668  4712 W cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.android.chrome, sandboxed = true
+11-20 05:22:36.578  4668  4668 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-20 05:22:36.580  4668  4668 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(1121)
+11-20 05:22:36.580  4668  4668 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(220)
+11-20 05:22:36.580  4668  4668 W ResourceType: Failure getting entry for 0x7f1204b0 (t=17 e=1200) (error -75)
+11-20 05:22:36.594  1605  2658 I Zygote  : Process: zygote socket webview_zygote opened, supported ABIS: x86_64,x86
+11-20 05:22:36.594  1605  2658 D WebViewZygote: Preloading package /system/app/Chrome/Chrome.apk /system/app/Chrome/lib/x86:/system/app/Chrome/Chrome.apk!/lib/x86
+11-20 05:22:36.605  1605  2658 I Zygote  : Process: zygote socket webview_zygote opened, supported ABIS: x86_64,x86
+11-20 05:22:36.605  1880  1880 I WebViewZygoteInit: Beginning package preload
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86, /system/app/Chrome/Chrome.apk!/lib/x86, /system/lib, /vendor/lib]]
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: 
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86, /system/app/Chrome/Chrome.apk!/lib/x86, /system/lib, /vendor/lib]]
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: 
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86, /system/app/Chrome/Chrome.apk!/lib/x86, /system/lib, /vendor/lib]]
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.ZygoteConnection.runOnce(com.android.internal.os.ZygoteServer) (ZygoteConnection.java:179)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.ZygoteServer.runSelectLoop(java.lang.String) (ZygoteServer.java:164)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32: 
+11-20 05:22:36.625  1880  1880 I WebViewZygoteInit: Package preload done
+11-20 05:22:36.636  4723  4723 E /system/bin/webview_zygote32: failed to make and chown /acct/uid_99000: Permission denied
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: returned from zygote!
+11-20 05:22:36.636  4723  4723 E Zygote  : createProcessGroup(99000, 0) failed: Permission denied
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating battery stats
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: building log message
+11-20 05:22:36.636  1605  2658 I ActivityManager: Start proc 4723:com.android.chrome:sandboxed_process0/u0i0 for webview_service com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: starting to update pids map
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating pids map
+11-20 05:22:36.636  1605  2658 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done starting proc!
+11-20 05:22:36.637  4723  4723 W /system/bin/webview_zygote32: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:36.660  4723  4723 I SamplingProfilerIntegration: Profiling disabled.
+11-20 05:22:36.670  4668  4668 D Capacitor: Starting BridgeActivity
+11-20 05:22:36.690  4751  4751 E asset   : setgid: Operation not permitted
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:36.707  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:36.708  4668  4668 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:36.733  4668  4722 W cr_media: Requires BLUETOOTH permission
+11-20 05:22:36.733  4723  4723 I cr_ChildProcessService: Creating new ChildProcessService pid=4723
+11-20 05:22:36.757  1400  2013 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:36.757  4668  4758 D OpenGLRenderer: HWUI GL Pipeline
+11-20 05:22:36.757  4668  4755 D         : HostConnection::get() New Host Connection established 0x752b9eb2a2e0, tid 4755
+11-20 05:22:36.760  4668  4755 D EGL_emulation: eglCreateContext: 0x752b871047e0: maj 3 min 0 rcv 3
+11-20 05:22:36.760  4668  4755 D EGL_emulation: eglMakeCurrent: 0x752b871047e0: ver 3 0 (tinfo 0x752b871fece0)
+11-20 05:22:36.785  4668  4755 I VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+11-20 05:22:36.789  4668  4755 W cr_MediaCodecUtil: HW encoder for video/avc is not available on this device.
+11-20 05:22:36.790  4668  4758 I OpenGLRenderer: Initialized EGL, version 1.4
+11-20 05:22:36.790  4668  4758 D OpenGLRenderer: Swap behavior 1
+11-20 05:22:36.790  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:36.791  4668  4758 D         : HostConnection::get() New Host Connection established 0x752b9eb2a460, tid 4758
+11-20 05:22:36.791  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:36.792  4668  4758 D EGL_emulation: eglCreateContext: 0x752b87104600: maj 3 min 0 rcv 3
+11-20 05:22:36.793  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:36.794  4668  4758 D EGL_emulation: eglMakeCurrent: 0x752b87104600: ver 3 0 (tinfo 0x752b871d0300)
+11-20 05:22:36.812  1605  3861 I ActivityManager: Killing 3809:com.google.android.onetimeinitializer/u0a14 (adj 906): empty #17
+11-20 05:22:36.816  4697  4736 W acm     : copyMemory is missing from platform - proto runtime falling back to safer methods.
+11-20 05:22:36.818  4723  4757 I cr_LibraryLoader: Time to load native libraries: 0 ms (timestamps 4165-4165)
+11-20 05:22:36.838  4723  4757 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:36.838  4723  4757 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-20 05:22:36.848  4723  4757 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:36.848  4723  4757 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:36.848  4723  4757 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:36.875  4668  4680 I zygote64: Background concurrent copying GC freed 1459(303KB) AllocSpace objects, 10(1572KB) LOS objects, 37% free, 10MB/16MB, paused 543us total 121.940ms
+11-20 05:22:36.876  4668  4674 I zygote64: Do partial code cache collection, code=30KB, data=22KB
+11-20 05:22:36.876  4668  4674 I zygote64: After code cache collection, code=30KB, data=22KB
+11-20 05:22:36.877  4668  4674 I zygote64: Increasing code cache capacity to 128KB
+11-20 05:22:36.914  4668  4693 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-20 05:22:37.031  4668  4755 D EGL_emulation: eglCreateContext: 0x752b94efb400: maj 3 min 0 rcv 3
+11-20 05:22:37.031  4668  4755 D EGL_emulation: eglMakeCurrent: 0x752b94efb400: ver 3 0 (tinfo 0x752b871fece0)
+11-20 05:22:37.185  4668  4758 D EGL_emulation: eglMakeCurrent: 0x752b87104600: ver 3 0 (tinfo 0x752b871d0300)
+11-20 05:22:37.265  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:37.265  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:37.344  1605  1670 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s86ms
+11-20 05:22:37.367  1815  2132 D EGL_emulation: eglMakeCurrent: 0x752b94e3ab80: ver 3 0 (tinfo 0x752b94e18c20)
+11-20 05:22:37.380  1815  2132 D EGL_emulation: eglMakeCurrent: 0x752b94e3ab80: ver 3 0 (tinfo 0x752b94e18c20)
+11-20 05:22:37.442  1400  1400 W SurfaceFlinger: couldn't log to binary event log: overflow.
+11-20 05:22:37.442  1400  1400 W SurfaceFlinger: couldn't log to binary event log: overflow.
+11-20 05:22:37.498  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:37.499  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:37.507  2468  2468 W SearchService: Abort, client detached.
+11-20 05:22:37.507  2468  2468 I chatty  : uid=10030(u0_a30) com.google.android.googlequicksearchbox:search identical 3 lines
+11-20 05:22:37.507  2468  2468 W SearchService: Abort, client detached.
+11-20 05:22:38.162  4668  4668 I Choreographer: Skipped 47 frames!  The application may be doing too much work on its main thread.
+11-20 05:22:38.251  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:38.784  4668  4758 I chatty  : uid=10077(u0_a77) RenderThread identical 14 lines
+11-20 05:22:38.784  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:38.836  4668  4730 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-20 05:22:38.846  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:38.892  4668  4758 I chatty  : uid=10077(u0_a77) RenderThread identical 2 lines
+11-20 05:22:38.892  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:39.757  1605  1768 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-20 05:22:40.122  1786  2541 W Nearby  : Failed attempt #3 out of 3 for RestoreDeviceName [CONTEXT service_id=49 ]
+11-20 05:22:40.122  1786  2541 W Nearby  : java.lang.IllegalStateException: BluetoothAdapter not ready yet!
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at ajpy.d(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at ajpx.run(Unknown Source:0)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at bwuj.call(Unknown Source:0)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):9)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at ajpw.run(Unknown Source:0)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at sow.run(Unknown Source:0)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at sux.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:40.122  1786  2541 W Nearby  : 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:41.329  1400  2013 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:41.330  1400  2013 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=2000 => granted (103 us)
+11-20 05:22:41.337  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:41.338  4778  4778 D         : HostConnection::get() New Host Connection established 0x7f8573c2f780, tid 4778
+11-20 05:22:42.183  1605  3861 D VoldConnector: SND -> {39 volume mkdirs /storage/emulated/0/Android/data/com.coastlinecode.kidarmor/cache/}
+11-20 05:22:42.185  1605  1734 D VoldConnector: RCV <- {200 39 Command succeeded}
+11-20 05:22:42.295  4668  4786 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:42.508  1605  1723 I ActivityManager: Killing 3839:com.google.android.packageinstaller/u0a17 (adj 906): empty #17
+11-20 05:22:42.509  1786  3029 I zygote64: Deoptimizing void aabu.a(aabp) due to JIT inline cache
+11-20 05:22:42.513  2468  4787 I EventLogSendingHelper: Sending log events.
+11-20 05:22:42.558  2468  2474 I zygote  : Do partial code cache collection, code=232KB, data=178KB
+11-20 05:22:42.558  2468  2474 I zygote  : After code cache collection, code=232KB, data=178KB
+11-20 05:22:42.558  2468  2474 I zygote  : Increasing code cache capacity to 1024KB
+11-20 05:22:42.582  1786  3291 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-20 05:22:42.593  1786  4789 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-20 05:22:42.606  1786  1798 I zygote64: Background concurrent copying GC freed 123079(6MB) AllocSpace objects, 4(100KB) LOS objects, 39% free, 9MB/15MB, paused 5.114ms total 51.506ms
+11-20 05:22:42.618  1786  3208 I zygote64: Deoptimizing void com.google.android.gms.common.api.internal.BasePendingResult.<init>(rlc) due to JIT inline cache
+11-20 05:22:42.619  1786  3208 I LogUtils: [Places]: ?: PlacesBleScanner stop() [CONTEXT service_id=253 ]
+11-20 05:22:42.620  1786  1786 I BeaconBle: Scan : No clients left, canceling alarm. [CONTEXT service_id=111 ]
+11-20 05:22:42.621  1786  1786 I BeaconBle: Scan canceled successfully. [CONTEXT service_id=111 ]
+11-20 05:22:42.630  1786  3208 I PlacesLogger: [PlaceInferenceEngine]: [anon] Changed inference mode: 0 [CONTEXT service_id=253 ]
+11-20 05:22:42.634  1786  3208 I zygote64: Deoptimizing void bzyp.a(java.lang.Iterable, java.util.List) due to JIT inline cache
+11-20 05:22:42.637  1786  2510 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-20 05:22:42.647  1786  4790 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-20 05:22:42.647  1786  1786 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_BY_PENDING_INTENT pendingIntent=PendingIntent[creatorPackage=com.google.android.gms], packageName=com.google.android.gms]
+11-20 05:22:42.784  2196  4792 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:42.784  2196  4792 I Vision  : Exceeded maximum feature download tries for ocr
+11-20 05:22:42.785  2196  4792 W Vision  : Request of optional module download of ocr failed.
+11-20 05:22:42.785  2196  4792 I Vision  : Checking for download completion for 100132 -- ocr
+11-20 05:22:44.896  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:44.896  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:45.960  2196  4792 I GmscoreIpa: how are you::
+11-20 05:22:45.964  1605  1962 I ActivityManager: Killing 4073:com.android.cellbroadcastreceiver/u0a5 (adj 906): empty #17
+11-20 05:22:45.965  1605  1962 I ActivityManager: Killing 3040:com.google.process.gapps/u0a46 (adj 906): empty #18
+11-20 05:22:47.627  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:47.627  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:47.627  1786  1786 I BeaconBle: Scan : No clients left, canceling alarm. [CONTEXT service_id=111 ]
+11-20 05:22:47.634  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:47.634  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:49.486  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:49.486  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:49.491  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:49.491  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:49.495  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:49.495  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:49.853  1398  1398 I boot-pipe: done populating /dev/random
+11-20 05:22:49.991  2468  2468 W SearchService: Abort, client detached.
+11-20 05:22:50.567  2196  2957 I GCM-GMS : Registering GMS for direct boot.
+11-20 05:22:50.590  1605  4795 I BackgroundDexOptService: Pinning optimized code {}
+11-20 05:22:50.796  2196  2957 I GCM-GMS : Got GMS direct boot token.
+11-20 05:22:51.475  1400  2013 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:51.481  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:51.482  4802  4802 D         : HostConnection::get() New Host Connection established 0x7eab20c2f780, tid 4802
+11-20 05:22:51.678  4805  4805 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:51.680  4805  4805 I app_process: RelocateImage: /system/bin/patchoat --input-image-location=/system/framework/boot.art --output-image-file=/data/local/tmp/dalvik-cache/x86_64/system@framework@boot.art --instruction-set=x86_64 --base-offset-delta=-405504
+11-20 05:22:51.846  4805  4805 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:51.858  4805  4805 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:52.912  4805  4805 W AccessibilityNodeInfoDumper: Fetch time: 18ms
+11-20 05:22:52.913  1605  1623 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@d9965d9
+11-20 05:22:52.917  4805  4805 D AndroidRuntime: Shutting down VM
+11-20 05:22:52.936  4668  4674 I zygote64: Do partial code cache collection, code=59KB, data=44KB
+11-20 05:22:52.936  4668  4674 I zygote64: After code cache collection, code=58KB, data=44KB
+11-20 05:22:52.936  4668  4674 I zygote64: Increasing code cache capacity to 256KB
+11-20 05:22:53.040  4824  4824 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:53.099  4824  4824 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:53.109  4824  4824 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:53.202  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:53.202  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:53.499  2196  4835 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:53.505  2196  4835 I Vision  : Checking for download completion for 110852 -- ocr
+11-20 05:22:54.152  4824  4824 W AccessibilityNodeInfoDumper: Fetch time: 20ms
+11-20 05:22:54.152  1605  1623 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@55e3aa
+11-20 05:22:54.157  4824  4824 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.204  1400  2079 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:54.209  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:54.211  4841  4841 D         : HostConnection::get() New Host Connection established 0x72aba642f780, tid 4841
+11-20 05:22:54.407  4844  4844 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:54.431  4844  4844 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:54.440  4844  4844 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:54.441  4844  4844 I Input   : injectMotionEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=120.0, y[0]=855.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=101787, downTime=101787, deviceId=0, source=0x1002 }
+11-20 05:22:54.444  4844  4844 I Input   : injectMotionEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=120.0, y[0]=855.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=101787, downTime=101787, deviceId=0, source=0x1002 }
+11-20 05:22:54.445  4844  4844 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.520  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:54.642  4668  4758 I chatty  : uid=10077(u0_a77) RenderThread identical 2 lines
+11-20 05:22:54.642  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:55.187  2242  3327 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT
+11-20 05:22:55.187  2242  2242 I Dialer  : RetryPolicy - discarding deferred status: configuration_state=4
+11-20 05:22:55.188  2242  2242 I Dialer  : VvmTaskExecutor - no more tasks, stopping service if no task are added in 5000 millis
+11-20 05:22:55.193  2242  2242 I Dialer  : VvmTaskReceiver - task received
+11-20 05:22:55.193  2242  2242 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-20 05:22:55.193  2242  2242 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-20 05:22:55.193  2242  2242 I Dialer  : RetryPolicy - retry #1 for com.android.voicemail.impl.ActivationTask@bb68f62 queued, executing in 5000
+11-20 05:22:55.193  2242  2242 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@bb68f62 added
+11-20 05:22:55.193  2242  2242 I Dialer  : VvmTaskExecutor - minimal wait time:5000
+11-20 05:22:55.193  2242  2242 I Dialer  : VvmTaskExecutor - sleep for 5000 millis
+11-20 05:22:55.327  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:55.327  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:55.588  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:55.588  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:55.824  2468  2468 E WorkerRegistryImpl: getWorker() is called after WorkerRegistry disposal.
+11-20 05:22:55.824  2468  2468 E WorkerRegistryImpl: getWorker() is called after WorkerRegistry disposal.
+11-20 05:22:55.831  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:55.831  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:56.549  4854  4854 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:56.577  4854  4854 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:56.589  4854  4854 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:57.561  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:57.561  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:57.567  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:57.567  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:57.611  4854  4854 I app_process: Deoptimizing java.lang.String com.android.uiautomator.core.AccessibilityNodeInfoDumper.stripInvalidXMLChars(java.lang.CharSequence) due to JIT inline cache
+11-20 05:22:57.631  4854  4854 W AccessibilityNodeInfoDumper: Fetch time: 22ms
+11-20 05:22:57.631  1605  3861 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@fab384e
+11-20 05:22:57.637  4854  4854 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.679  1400  2078 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:57.685  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:22:57.686  4871  4871 D         : HostConnection::get() New Host Connection established 0x761c0d62f780, tid 4871
+11-20 05:22:57.884  4874  4874 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.908  4874  4874 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:57.917  4874  4874 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:57.919  4874  4874 I Input   : injectMotionEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=540.0, y[0]=1044.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=105264, downTime=105264, deviceId=0, source=0x1002 }
+11-20 05:22:57.921  4874  4874 I Input   : injectMotionEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=540.0, y[0]=1044.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=105264, downTime=105264, deviceId=0, source=0x1002 }
+11-20 05:22:57.924  4874  4874 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.956  1605  3308 W AutofillManagerServiceImpl: cancelSessionLocked(): no session for -2147483648(10077)
+11-20 05:22:57.960  1605  4631 D AutofillSession: Starting partition for view id 1073741824:65559: STARTED_SESSION
+11-20 05:22:57.961  4668  4668 W View    : dispatchProvideAutofillStructure(): not laid out, ignoring
+11-20 05:22:57.963  1605  3308 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-20 05:22:57.963  1605  3308 W Binder  : java.lang.Throwable
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:736)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.app.assist.AssistStructure$ParcelTransferReader.fetchData(AssistStructure.java:407)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.app.assist.AssistStructure$ParcelTransferReader.go(AssistStructure.java:343)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.app.assist.AssistStructure.ensureData(AssistStructure.java:2106)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at com.android.server.autofill.Session$1.send(Session.java:200)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at com.android.server.am.ActivityManagerService.reportAssistContextExtras(ActivityManagerService.java:13139)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2466)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2935)
+11-20 05:22:57.963  1605  3308 W Binder  : 	at android.os.Binder.execTransact(Binder.java:674)
+11-20 05:22:57.968  4668  4668 I AssistStructure: Flattened final assist data: 17448 bytes, containing 1 windows, 28 views
+11-20 05:22:57.970  4668  4668 W View    : dispatchProvideAutofillStructure(): not laid out, ignoring
+11-20 05:22:57.972  1605  3308 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-20 05:22:57.972  1605  3308 W Binder  : java.lang.Throwable
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:736)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.app.assist.AssistStructure$ParcelTransferReader.fetchData(AssistStructure.java:407)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.app.assist.AssistStructure$ParcelTransferReader.go(AssistStructure.java:343)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.app.assist.AssistStructure.ensureData(AssistStructure.java:2106)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at com.android.server.autofill.Session$1.send(Session.java:200)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at com.android.server.am.ActivityManagerService.reportAssistContextExtras(ActivityManagerService.java:13139)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2466)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2935)
+11-20 05:22:57.972  1605  3308 W Binder  : 	at android.os.Binder.execTransact(Binder.java:674)
+11-20 05:22:57.977  4668  4668 I AssistStructure: Flattened final assist data: 17448 bytes, containing 1 windows, 28 views
+11-20 05:22:58.014  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:58.014  4668  4758 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:58.015  1605  2658 I AssistStructure: Flattened final assist data: 15488 bytes, containing 1 windows, 28 views
+11-20 05:22:58.038  1786  1786 W ktk     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+11-20 05:22:58.098  1786  1786 I zygote64: Deoptimizing bpgz bpgz.a(int, java.lang.Object[]) due to JIT inline cache
+11-20 05:22:58.099  1786  1786 I zygote64: Deoptimizing java.lang.Object bpnf.a(java.lang.Object[], int, int, int) due to JIT inline cache
+11-20 05:22:58.161  1605  3764 I AssistStructure: Flattened final assist data: 15488 bytes, containing 1 windows, 28 views
+11-20 05:22:58.163  1786  1786 W ktk     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+11-20 05:22:58.581  2196  4458 W ChimeraConfigurator: Error syncing flags: qoq: COMMIT_TIMEOUT
+11-20 05:22:58.581  2196  4458 I ChmraDebugLogger: [79] COMMIT_TIMEOUT
+11-20 05:22:58.585  2196  4458 I ChmraDebugLogger: [52] null
+11-20 05:22:58.593  2196  4458 I ChimeraConfigService: Scheduling checkin for one-off execution between [3300,43200] seconds from now (1795152178593)
+11-20 05:22:58.597  1786  2291 I zygote64: Deoptimizing java.lang.String aqui.a(android.os.Bundle) due to JIT inline cache
+11-20 05:22:58.599  2196  4458 I ChimeraConfigurator: Starting update, reason: 4 urgentFeatures: vision.ocr:-1
+11-20 05:22:58.678  1786  2541 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:58.678  1786  2541 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:58.678  1786  2541 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.694  1786  2541 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:58.694  1786  2541 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:58.694  1786  2541 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.940  1786  2626 W GLSUser : [AppCertManager] Failed to get security token.
+11-20 05:22:58.940  1786  2626 W GLSUser : java.io.IOException: Invalid scope
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at adiw.b(:com.google.android.gms@202414023@20.24.14 (040800-319035315):23)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at adiw.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):18)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at adiw.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):11)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at hwy.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):17)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at hww.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):45)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at hwr.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at hwu.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):10)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at gbi.call(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at soy.b(:com.google.android.gms@202414023@20.24.14 (040800-319035315):12)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at soy.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):7)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at sux.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.940  1786  2626 W GLSUser : 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:58.969  1786  2626 W GLSUser : [AppCertManager] IOException while requesting key: 
+11-20 05:22:58.969  1786  2626 W GLSUser : java.io.IOException: Invalid device key response.
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at hwy.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):49)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at hww.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):45)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at hwr.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at hwu.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):10)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at gbi.call(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at soy.b(:com.google.android.gms@202414023@20.24.14 (040800-319035315):12)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at soy.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):7)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at sux.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:58.969  1786  2626 W GLSUser : 	at java.lang.Thread.run(Thread.java:764)
+11-20 05:22:58.989  1786  2541 I zygote64: Deoptimizing ccoj aonj.a(android.content.Context, java.lang.String, java.lang.String, int, boolean) due to JIT inline cache
+11-20 05:22:59.022  1786  4891 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Updating password complexity components state.
+11-20 05:22:59.022  1786  4891 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+11-20 05:22:59.022  1786  4891 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.ui.SetNewPasswordActivity
+11-20 05:22:59.032  2468  2468 I zygote  : Deoptimizing void com.google.android.apps.gsa.search.core.service.worker.a.a.a(com.google.android.apps.gsa.search.core.state.qc) due to JIT inline cache
+11-20 05:22:59.037  1786  4894 I aorp    : updateFromConfigurations using legacy put method [CONTEXT service_id=204 ]
+11-20 05:22:59.043  2468  2468 I zygote  : Deoptimizing void com.google.android.apps.gsa.search.core.service.workcontroller.a.b.cZ(boolean) due to JIT same target
+11-20 05:22:59.068  1786  2541 I aopq    : Scheduling Phenotype for a PhenotypeSyncImmediately(13, com.google.android.gms) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+11-20 05:22:59.078  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Updating password complexity components state.
+11-20 05:22:59.078  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+11-20 05:22:59.078  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.ui.SetNewPasswordActivity
+11-20 05:22:59.084  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Updating password complexity components state.
+11-20 05:22:59.084  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+11-20 05:22:59.084  1786  4894 I Auth    : [AuthManaged,PasswordComplexityHelperImpl] Disabling com.google.android.gms.auth.managed.ui.SetNewPasswordActivity
+11-20 05:22:59.089  1786  2541 I zygote64: Deoptimizing void aoob.a(android.content.Context, long, java.lang.Exception) due to JIT same target
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_birthdaydoodle_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_call_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_canvas_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_chkpkg_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_dining_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_doodle_notifications_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_imageviewer_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_ipa_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_jslocation_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_localintent_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_messaging_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_nativesrp_activity_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_nativesrp_presenter_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_nowcontent_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_recents_activity_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_save_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_searchresults_activity_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_test_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag AndroidGsaVelourJars__velour_weather_jar__name to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag bindle_flags__bloblobber_blob to integer.
+11-20 05:22:59.123  2468  2812 W PhenotypeToGsaConfigs: Can't format flag bindle_flags__velour_jar to integer.
+11-20 05:22:59.200  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:22:59.200  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:22:59.339  1786  4791 I zygote64: Deoptimizing bzzo bzzo.a(bzzo) due to JIT inline cache
+11-20 05:22:59.418  1786  4791 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:59.418  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:59.418  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:59.437  1786  4791 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:59.437  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:59.437  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:59.657  1786  4791 I zygote64: Deoptimizing void bzzv.b(byte[], int, int) due to JIT inline cache
+11-20 05:22:59.678  1786  4791 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:59.678  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:59.678  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:59.688  4910  4910 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:59.693  1605  1658 I ActivityManager: Start proc 4910:com.google.android.apps.wallpaper/u0a72 for broadcast com.google.android.apps.wallpaper/.module.DailyLoggingAlarmReceiver
+11-20 05:22:59.703  1786  4791 W Conscrypt: Could not set socket write timeout: java.net.SocketException: Socket closed
+11-20 05:22:59.703  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.Platform.setSocketWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:59.703  1786  4791 W Conscrypt: 	at com.google.android.gms.org.conscrypt.ConscryptFileDescriptorSocket.setSoWriteTimeout(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:59.748  1605  4631 D CryptdConnector: SND -> {7 cryptfs getpwtype}
+11-20 05:22:59.748  1341  1347 D VoldCryptCmdListener: cryptfs getpwtype
+11-20 05:22:59.750  1605  1735 D CryptdConnector: RCV <- {213 7 default}
+11-20 05:22:59.843  2468  2814 I GservicesUpdateTask: Updating Gservices keys
+11-20 05:22:59.893  2468  2814 I GStaticConfiguration: #getNewConfigurationUrl [pref=2013_10_04_22_22_03, gservice=2018_04_18_16_50_26]
+11-20 05:23:00.006  2468  2812 W CookieHeaderHelper: Auth token not ready, no auth header set.
+11-20 05:23:00.116  2468  2812 E SuggestionOnlyFetcher: unrecognized content type: text/html; charset=UTF-8
+11-20 05:23:00.199  2242  3327 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@bb68f62
+11-20 05:23:00.200  2242  3327 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-20 05:23:00.213  2242  3327 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-20 05:23:00.214  2242  3327 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-20 05:23:00.222  2242  3327 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-20 05:23:00.224  2242  3327 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-20 05:23:01.028  4940  4940 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:01.055  4940  4940 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:23:01.067  4940  4940 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:02.107  4940  4940 W AccessibilityNodeInfoDumper: Fetch time: 18ms
+11-20 05:23:02.108  1605  1963 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@13a1fad
+11-20 05:23:02.112  4940  4940 D AndroidRuntime: Shutting down VM
+11-20 05:23:02.232  4955  4955 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:02.258  4955  4955 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:23:02.271  4955  4955 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:03.149  1605  1668 W RemoteFillService: Not handling { when=-5ms what=3 target=com.android.internal.os.HandlerCaller$MyHandler } as service for ComponentInfo{com.google.android.gms/com.google.android.gms.autofill.service.AutofillService} is already destroyed
+11-20 05:23:03.291  4955  4955 I app_process: Deoptimizing java.lang.String com.android.uiautomator.core.AccessibilityNodeInfoDumper.stripInvalidXMLChars(java.lang.CharSequence) due to JIT inline cache
+11-20 05:23:03.306  4955  4955 W AccessibilityNodeInfoDumper: Fetch time: 17ms
+11-20 05:23:03.306  1605  2043 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@13b2673
+11-20 05:23:03.310  4955  4955 D AndroidRuntime: Shutting down VM
+11-20 05:23:03.351  1400  2013 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:23:03.357  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-20 05:23:03.358  4971  4971 D         : HostConnection::get() New Host Connection established 0x7d5c1722f780, tid 4971
+11-20 05:23:03.509  2196  4885 I Vision  : Requesting optional module download of ocr.
+11-20 05:23:03.509  2196  4885 I Vision  : Checking for download completion for 120856 -- ocr
+11-20 05:23:03.674  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:23:03.674  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:23:03.679  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:23:03.679  1605  1655 W android.os.Debug: failed to get memory consumption info: -1
+11-20 05:23:04.745  1605  1658 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver
+11-20 05:23:04.745  1605  1658 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+11-20 05:23:04.747  1605  1655 E memtrack: Couldn't load memtrack module
+11-20 05:23:04.747  1605  1655 W android.os.Debug: failed to get memory consumption info: -1

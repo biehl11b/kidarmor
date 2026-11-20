@@ -1,0 +1,142 @@
+11-20 05:22:29.896  4635  4635 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:30.002  4635  4635 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-20 05:22:30.006  4635  4635 D AndroidRuntime: Shutting down VM
+11-20 05:22:36.194  4658  4658 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:36.228  4658  4658 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:36.229  4658  4658 W Monkey  : args: [-p, com.coastlinecode.kidarmor, -c, android.intent.category.LAUNCHER, 1]
+11-20 05:22:36.230  4658  4658 W Monkey  :  arg: "com.coastlinecode.kidarmor"
+11-20 05:22:36.231  4658  4658 W Monkey  : data="com.coastlinecode.kidarmor"
+11-20 05:22:36.249  1605  4454 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-20 05:22:36.261  1605  4454 I ActivityManager: Start proc 4668:com.coastlinecode.kidarmor/u0a77 for activity com.coastlinecode.kidarmor/.MainActivity
+11-20 05:22:36.276  4658  4658 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:36.382  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.384  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.387  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.401  4668  4668 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.519  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.519  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.519  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.519  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.520  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.521  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.521  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.521  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.522  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.522  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.522  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.523  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.523  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.523  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.524  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.524  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.524  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.525  4668  4668 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-20 05:22:36.525  4668  4668 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2467)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2462)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2527)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:636)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:581)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:564)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:551)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:36.525  4668  4668 I zygote64:   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:36.559  4668  4696 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-20 05:22:36.559  4668  4696 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-20 05:22:36.570  4668  4668 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:36.571  1605  3764 I ActivityManager: Start proc 4697:com.android.chrome:webview_service/u0a49 for service com.android.chrome/org.chromium.android_webview.services.VariationsSeedServer
+11-20 05:22:36.578  4668  4668 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-20 05:22:36.594  1605  2658 D WebViewZygote: Preloading package /system/app/Chrome/Chrome.apk /system/app/Chrome/lib/x86:/system/app/Chrome/Chrome.apk!/lib/x86
+11-20 05:22:36.605  1880  1880 I WebViewZygoteInit: Beginning package preload
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.611  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at boolean com.android.internal.os.WebViewZygoteInit$WebViewZygoteConnection.handlePreloadPackage(java.lang.String, java.lang.String, java.lang.String) (WebViewZygoteInit.java:92)
+11-20 05:22:36.612  1880  1880 I /system/bin/webview_zygote32:   at void com.android.internal.os.WebViewZygoteInit.main(java.lang.String[]) (WebViewZygoteInit.java:118)
+11-20 05:22:36.625  1880  1880 I WebViewZygoteInit: Package preload done
+11-20 05:22:36.636  1605  2658 I ActivityManager: Start proc 4723:com.android.chrome:sandboxed_process0/u0i0 for webview_service com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0
+11-20 05:22:36.670  4668  4668 D Capacitor: Starting BridgeActivity
+11-20 05:22:36.708  4668  4668 I chatty  : uid=10077(u0_a77) com.coastlinecode.kidarmor identical 2 lines
+11-20 05:22:36.838  4723  4757 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:36.914  4668  4693 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-20 05:22:37.344  1605  1670 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s86ms
+11-20 05:22:42.183  1605  3861 D VoldConnector: SND -> {39 volume mkdirs /storage/emulated/0/Android/data/com.coastlinecode.kidarmor/cache/}
+11-20 05:22:42.295  4668  4786 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:51.678  4805  4805 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:51.858  4805  4805 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:52.917  4805  4805 D AndroidRuntime: Shutting down VM
+11-20 05:22:53.040  4824  4824 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:53.109  4824  4824 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:54.157  4824  4824 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.407  4844  4844 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:54.440  4844  4844 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:54.445  4844  4844 D AndroidRuntime: Shutting down VM
+11-20 05:22:56.549  4854  4854 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:56.589  4854  4854 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:57.637  4854  4854 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.884  4874  4874 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.917  4874  4874 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:57.924  4874  4874 D AndroidRuntime: Shutting down VM
+11-20 05:23:01.028  4940  4940 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:01.067  4940  4940 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:02.112  4940  4940 D AndroidRuntime: Shutting down VM
+11-20 05:23:02.232  4955  4955 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:02.271  4955  4955 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:03.310  4955  4955 D AndroidRuntime: Shutting down VM
