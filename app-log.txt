@@ -1,0 +1,202 @@
+11-20 05:22:29.724  1200  1453 I SatelliteAppTracker: onPackageAdded : com.coastlinecode.kidarmor
+11-20 05:22:29.836   600   600 I AppsFilter: interaction: PackageSetting{57f1a90 com.android.microdroid.empty_payload/10203} -> PackageSetting{c965f89 com.coastlinecode.kidarmor/10216} BLOCKED
+11-20 05:22:30.138  1200  1200 D CarrierSvcBindHelper: onPackageAdded: com.coastlinecode.kidarmor
+11-20 05:22:30.209   600  3146 D SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService
+11-20 05:22:30.209   600  3146 V SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService took to complete: 0ms
+11-20 05:22:30.445  3110  3110 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:30.448  3110  3110 I AndroidRuntime: Using default boot image
+11-20 05:22:30.448  3110  3110 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:30.567  1200  1447 D ImsResolver: maybeAddedImsService, packageName: com.coastlinecode.kidarmor
+11-20 05:22:30.567  1200  1447 V ImsResolver: searchForImsServices: package=com.coastlinecode.kidarmor, users=[UserHandle{0}]
+11-20 05:22:30.567  1200  1447 V ImsResolver: searchForImsServices: package=com.coastlinecode.kidarmor, users=[UserHandle{0}]
+11-20 05:22:30.655  3110  3110 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:22:30.663  1200  1200 W VvmPkgInstalledRcvr: carrierVvmPkgAdded: carrier vvm packages doesn't contain com.coastlinecode.kidarmor
+11-20 05:22:30.719  1200  1453 I SatelliteAppTracker: onPackageModified : com.coastlinecode.kidarmor
+11-20 05:22:30.794   600   690 D LauncherAppsService: onPackageAdded: Skipping - package filtered for user=UserHandle{0}, packageName=com.coastlinecode.kidarmor
+11-20 05:22:30.794   600   690 D LauncherAppsService: onPackageAdded: triggering onPackageAdded for user=UserHandle{0}, packageName=com.coastlinecode.kidarmor
+11-20 05:22:30.794   600   690 D LauncherAppsService: onPackageAdded: triggering onPackageAdded for user=UserHandle{0}, packageName=com.coastlinecode.kidarmor
+11-20 05:22:30.794   600   690 D LauncherAppsService: onPackageAdded: triggering onPackageAdded for user=UserHandle{0}, packageName=com.coastlinecode.kidarmor
+11-20 05:22:30.806  1758  1758 I AiAiEcho: AppFetcherImplV2 updateApps package:[com.coastlinecode.kidarmor], userId:[0], reason:[package is added.].
+11-20 05:22:30.808  3110  3110 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:30.811  1758  2427 I AiAiEcho: AppIndexer Package:[com.coastlinecode.kidarmor] UserProfile:[0] Enabled:[true].
+11-20 05:22:30.812  1758  2427 I AiAiEcho: AppFetcherImplV2 updateApps package:[com.coastlinecode.kidarmor], userId:[0], reason:[package is updated.].
+11-20 05:22:30.818  3110  3110 W Monkey  : args: [-p, com.coastlinecode.kidarmor, -c, android.intent.category.LAUNCHER, 1]
+11-20 05:22:30.841  1200  1200 D CarrierSvcBindHelper: onPackageModified: com.coastlinecode.kidarmor
+11-20 05:22:30.892   600   982 D ShortcutService: changing package: com.coastlinecode.kidarmor userId=0
+11-20 05:22:30.905  3110  3110 W Monkey  :  arg: "com.coastlinecode.kidarmor"
+11-20 05:22:30.905  3110  3110 W Monkey  : data="com.coastlinecode.kidarmor"
+11-20 05:22:30.969  1200  1447 D ImsResolver: maybeAddedImsService, packageName: com.coastlinecode.kidarmor
+11-20 05:22:30.969  1200  1447 V ImsResolver: searchForImsServices: package=com.coastlinecode.kidarmor, users=[UserHandle{0}]
+11-20 05:22:30.976  1200  1447 V ImsResolver: searchForImsServices: package=com.coastlinecode.kidarmor, users=[UserHandle{0}]
+11-20 05:22:31.025  1200  1200 D SatelliteController: packageStateChanged: package:com.coastlinecode.kidarmor DefaultSmsPackageName:com.google.android.apps.messaging
+11-20 05:22:31.129  1022  1089 V WindowManagerShell: Transition requested (#11): android.os.BinderProxy@354af5b TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 effectiveUid=10216 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity } baseActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} topActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} origActivity=null realActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} numActivities=1 lastActiveTime=73652 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@3de93f8} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 128 - 0, 0) topActivityInfo=ActivityInfo{aac0d1 com.coastlinecode.kidarmor.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(276, 692 - 804, 1772) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 11 }
+11-20 05:22:31.135   600  1402 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+11-20 05:22:31.232   600  2029 I AppsFilter: interaction: PackageSetting{57f1a90 com.android.microdroid.empty_payload/10203} -> PackageSetting{7767325 com.coastlinecode.kidarmor/10216} BLOCKED
+11-20 05:22:31.596   600   682 V WindowManager: Sent Transition (#11) createdAt=11-20 05:22:31.046 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 effectiveUid=10216 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity } baseActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} topActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} origActivity=null realActivity=ComponentInfo{com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity} numActivities=1 lastActiveTime=73652 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{b52a56e Task{6d96f24 #8 type=standard A=10216:com.coastlinecode.kidarmor}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 128 - 0, 0) topActivityInfo=ActivityInfo{1ac240f com.coastlinecode.kidarmor.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(276, 692 - 804, 1772) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 11 }
+11-20 05:22:31.596   600   682 V WindowManager:         {WCT{RemoteToken{b52a56e Task{6d96f24 #8 type=standard A=10216:com.coastlinecode.kidarmor}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0x1f0d970 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1},
+11-20 05:22:31.823   600   967 I AppWidgetServiceImpl: Updating package stopped masked state for uid 10216 package com.coastlinecode.kidarmor isStopped false
+11-20 05:22:31.825  3110  3110 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:31.929  3206  3206 I necode.kidarmor: Using CollectorTypeCMC GC.
+11-20 05:22:31.932  3206  3206 W necode.kidarmor: Unexpected CPU variant for x86: x86_64.
+11-20 05:22:31.932  3206  3206 W necode.kidarmor: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, default
+11-20 05:22:31.933  3206  3206 E necode.kidarmor: Not starting debugger since process cannot load the jdwp agent.
+11-20 05:22:31.982   600   692 I ActivityManager: Start proc 3206:com.coastlinecode.kidarmor/u0a216 for next-top-activity {com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-20 05:22:32.108  3206  3206 W necode.kidarmor: Failed to find entry 'classes.dex': Entry not found
+11-20 05:22:32.108  3206  3206 W necode.kidarmor: Failed to find entry 'classes.dex': Entry not found
+11-20 05:22:32.109  3206  3206 W necode.kidarmor: Failed to find entry 'classes.dex': Entry not found
+11-20 05:22:32.109  3206  3206 D nativeloader: Configuring clns-9 for other apk /data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/base.apk:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.en.apk:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.x86_64.apk:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/lib/x86_64:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/base.apk!/lib/x86_64:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.en.apk!/lib/x86_64:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastl
+11-20 05:22:32.111  3206  3206 I necode.kidarmor: AssetManager2(0x72b84758f7b8) locale list changing from [] to [en-US]
+11-20 05:22:32.123  3206  3206 V GraphicsEnvironment: com.coastlinecode.kidarmor is not listed in per-application setting
+11-20 05:22:32.123  3206  3206 V GraphicsEnvironment: com.coastlinecode.kidarmor is not listed in ANGLE allowlist or settings, returning default
+11-20 05:22:32.220  3206  3206 I necode.kidarmor: AssetManager2(0x72b8475961f8) locale list changing from [] to [en-US]
+11-20 05:22:32.235  3206  3206 I necode.kidarmor: AssetManager2(0x72b8475948f8) locale list changing from [] to [en-US]
+11-20 05:22:32.418  3206  3206 I necode.kidarmor: AssetManager2(0x72b8475974b8) locale list changing from [] to [en-US]
+11-20 05:22:32.418  3206  3206 I WebViewFactory: Loading com.google.android.webview version 133.0.6943.137 (code 694313738)
+11-20 05:22:32.419  3206  3206 I necode.kidarmor: AssetManager2(0x72b847592ff8) locale list changing from [] to [en-US]
+11-20 05:22:32.419  3206  3206 I necode.kidarmor: AssetManager2(0x72b847593318) locale list changing from [] to [en-US]
+11-20 05:22:32.419  3206  3206 I necode.kidarmor: AssetManager2(0x72b847592378) locale list changing from [] to [en-US]
+11-20 05:22:32.419  3206  3206 I necode.kidarmor: AssetManager2(0x72b847592698) locale list changing from [] to [en-US]
+11-20 05:22:32.420  3206  3206 V ResourcesManager: The following library key has been added: ResourcesKey{ mHash=a528326b mResDir=null mSplitDirs=[] mOverlayDirs=[] mLibDirs=[/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk,/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk] mDisplayId=0 mOverrideConfig=v36 mCompatInfo={420dpi always-compat} mLoaders=[]}
+11-20 05:22:32.423  3206  3206 W necode.kidarmor: Failed to find entry 'classes.dex': Entry not found
+11-20 05:22:32.423  3206  3206 D nativeloader: Configuring clns-10 for other apk /data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-20 05:22:32.428  3206  3206 D nativeloader: Configuring clns-11 for other apk /data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-20 05:22:32.455  3206  3206 I necode.kidarmor: AssetManager2(0x72b847595bb8) locale list changing from [] to [en-US]
+11-20 05:22:32.469  3206  3206 D nativeloader: Load /data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64/libmonochrome_64.so using class loader ns clns-11 (caller=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk): ok
+11-20 05:22:32.475  3206  3206 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using class loader ns clns-11 (caller=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk): ok
+11-20 05:22:32.487  3206  3236 I chromium: [1120/052232.479577:INFO:variations_seed_loader.cc(67)] Failed to open file for reading.: No such file or directory (2)
+11-20 05:22:32.489  3206  3236 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new"
+11-20 05:22:32.489  3206  3236 I chromium: [INFO:variations_seed_loader.cc(67)] Failed to open file for reading.: No such file or directory (2)
+11-20 05:22:32.489  3206  3236 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed"
+11-20 05:22:32.576   600   692 I ActivityManager: Start proc 3239:com.google.android.webview:webview_service/u0a166 for service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+11-20 05:22:32.672  3206  3254 W chromium: [WARNING:dns_config_service_android.cc(81)] Failed to read DnsConfig.
+11-20 05:22:32.679  3206  3206 I necode.kidarmor: AssetManager2(0x72b84758d558) locale list changing from [] to [en-US]
+11-20 05:22:32.680  3206  3206 I necode.kidarmor: AssetManager2(0x72b847591d38) locale list changing from [] to [en-US]
+11-20 05:22:32.698   600   692 I ActivityManager: Start proc 3248:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+11-20 05:22:32.996  3239  3239 D nativeloader: Configuring clns-9 for other apk /data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:33.058  3239  3239 D nativeloader: Configuring clns-10 for other apk /data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:33.072  3248  3248 I cr_WebViewApkApp: version=133.0.6943.137 (694313738) minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-20 05:22:33.351  3239  3239 I cr_WebViewApkApp: version=133.0.6943.137 (694313738) minSdkVersion=29 isBundle=false processName=com.google.android.webview:webview_service
+11-20 05:22:33.577  3206  3206 D Capacitor: Starting BridgeActivity
+11-20 05:22:33.650   600  1127 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 User id: 0 Status: 7
+11-20 05:22:33.653   600  1127 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 User id: 0 Status: 7
+11-20 05:22:33.688  3206  3315 D vulkan  : searching for layers in '/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/lib/x86_64'
+11-20 05:22:33.688  3206  3315 D vulkan  : searching for layers in '/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/base.apk!/lib/x86_64'
+11-20 05:22:33.688  3206  3315 D vulkan  : searching for layers in '/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.en.apk!/lib/x86_64'
+11-20 05:22:33.688  3206  3315 D vulkan  : searching for layers in '/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.x86_64.apk!/lib/x86_64'
+11-20 05:22:33.688  3206  3315 D vulkan  : searching for layers in '/data/app/~~dZ62lwy3VSImCgQxzORfTQ==/com.coastlinecode.kidarmor-ZHGBxafIIbsiRCmsqki-tA==/split_config.xxhdpi.apk!/lib/x86_64'
+11-20 05:22:33.810  3206  3315 W chromium: [WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+11-20 05:22:33.861  1842  3297 W chromium: [1120/052233.681884:WARNING:url_request_context_config.cc(715)] Unrecognized Cronet experimental option "enable_telemetry" with params "false
+11-20 05:22:33.861  1842  3297 W chromium: 
+11-20 05:22:33.896  3248  3294 W chromium: [WARNING:runtime_features.cc(560)] Fenced frames cannot be enabled in this configuration. Use --enable-features=FencedFrames instead.
+11-20 05:22:33.896  3248  3294 W chromium: [WARNING:runtime_features.cc(585)] Topics cannot be enabled in this configuration. Use --enable-features=BrowsingTopics in addition.
+11-20 05:22:33.896  3248  3294 W chromium: [WARNING:runtime_features.cc(606)] SharedStorage cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI in addition.
+11-20 05:22:33.970   600  1950 D CoreBackPreview: Window{4c00abc u0 com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@7bf2cb2, mPriority=-1, mIsAnimationCallback=false, mOverrideBehavior=0}
+11-20 05:22:33.971   600  1950 D CoreBackPreview: Window{4c00abc u0 com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@d6cc12d, mPriority=0, mIsAnimationCallback=true, mOverrideBehavior=0}
+11-20 05:22:34.517  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.517  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.558  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.558  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.621   600   692 I ActivityManager: Start proc 3369:com.google.android.webview:webview_apk/u0a166 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+11-20 05:22:34.682  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.683  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.686  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.687  3248  3347 E chromium: [ERROR:tile_manager.cc(937)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:34.937  3369  3369 D nativeloader: Configuring clns-9 for other apk /data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:34.979   600   682 I ActivityTaskManager: Displayed com.coastlinecode.kidarmor/.MainActivity for user 0: +3s900ms
+11-20 05:22:34.988  3369  3369 D nativeloader: Configuring clns-10 for other apk /data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/lib/x86_64:/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:35.001   600   782 I ImeTracker: com.coastlinecode.kidarmor:d0f80f93: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+11-20 05:22:35.222  3369  3369 I cr_WebViewApkApp: version=133.0.6943.137 (694313738) minSdkVersion=29 isBundle=false processName=com.google.android.webview:webview_apk
+11-20 05:22:35.287  1585  1585 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1293 onStartInput(EditorInfo{EditorInfo{packageName=com.coastlinecode.kidarmor, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=12000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-20 05:22:35.301   600  2270 W PackageConfigPersister: App-specific configuration not found for packageName: com.coastlinecode.kidarmor and userId: 0
+11-20 05:22:35.363  3369  3369 D nativeloader: Load /data/app/~~XJU8DBFFnwVj0NTpvGXhCQ==/com.google.android.trichromelibrary_694313738-7eqoT_DwAUwkH_al0t9O2Q==/TrichromeLibrary.apk!/lib/x86_64/libmonochrome_64.so using class loader ns clns-10 (caller=/data/app/~~QL-wbbWsjREIDg0xYlMDAw==/com.google.android.webview-Bc6v8T0Youau9IRYglOY-Q==/WebViewGoogle.apk): ok
+11-20 05:22:35.585  1842  2397 W earchbox:search: Verification of void org.chromium.base.TraceEvent.setEnabled(boolean) took 119.391ms (1063.73 bytecodes/s) (0B arena alloc)
+11-20 05:22:35.628  1842  3390 W earchbox:search: Verification of android.net.wifi.WifiInfo org.chromium.net.AndroidNetworkLibrary.a() took 154.164ms (531.90 bytecodes/s) (0B arena alloc)
+11-20 05:22:35.958  1842  3415 W chromium: [1120/052235.958693:WARNING:components/cronet/url_request_context_config.cc:769] Unrecognized Cronet experimental option "enable_telemetry" with params "false
+11-20 05:22:35.958  1842  3415 W chromium: 
+11-20 05:22:36.305  3369  3435 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.aab-stable-694313738:58)
+11-20 05:22:36.367  1842  3430 W earchbox:search: Verification of void org.chromium.net.impl.CronetUrlRequest.c() took 206.503ms (2183.98 bytecodes/s) (0B arena alloc)
+11-20 05:22:36.480  3369  3369 E chromium: [1120/052236.480602:ERROR:aw_component_update_service.cc(285)] No directory found for component llkgjffcdpffmhiakmfcdcblohccpfmo
+11-20 05:22:36.956  3206  3206 I ImeTracker: com.coastlinecode.kidarmor:d0f80f93: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+11-20 05:22:37.139   600   685 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{58666998 u0 com.coastlinecode.kidarmor/.MainActivity t8} state 2
+11-20 05:22:37.788  3206  3548 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:39.789  1311  1337 D SessionCommitReceiver: Removing unneeded PromiseIcon for package: com.coastlinecode.kidarmor, install reason: 0, alreadyAddedPromiseIcon: false
+11-20 05:22:39.898  1311  1337 D LauncherAppsCallbackImpl: onPackageAdded triggered for packageName=com.coastlinecode.kidarmor, user=UserHandle{0}
+11-20 05:22:39.899  1311  1337 D PackageUpdatedTask: Package updated: mOp=ADD packages=[com.coastlinecode.kidarmor], user=UserHandle{0}
+11-20 05:22:40.188  1311  1337 D AlphabeticIndexCompat: computeSectionName: cs: KidArmor sectionName: K
+11-20 05:22:40.217  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:40.217  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:40.692  1311  1337 D PackageUpdatedTask: Package updated: mOp=UPDATE packages=[com.coastlinecode.kidarmor], user=UserHandle{0}
+11-20 05:22:40.736  1311  1337 D AlphabeticIndexCompat: computeSectionName: cs: KidArmor sectionName: K
+11-20 05:22:40.738  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:40.738  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:40.758  1023  1023 I SafetyLabelChangedBroadcastReceiver: received broadcast packageName: com.coastlinecode.kidarmor, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+11-20 05:22:40.883  1503  2412 I Blockstore: [DataStoreImpl] Clearing Blockstore Data for package com.coastlinecode.kidarmor [CONTEXT service_id=258 ]
+11-20 05:22:41.212  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.212  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.250  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.250  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.553  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.554  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:41.951   600   756 W JobServiceContext: Sending onNetworkChanged for a job that isn't started. JobStatus{1a4cc11 #u0a166/83 com.google.android.webview/org.chromium.android_webview.services.AwVariationsSeedFetcher u=0 s=10166 NET CHARGING READY}
+11-20 05:22:44.969  1282  3823 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:22:44.972  1282  1295 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:22:44.998  1282  1296 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:22:47.960  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:47.996  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:48.256  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:48.268  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:48.507  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:48.510  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:49.612  4038  4038 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:49.662  4038  4038 I AndroidRuntime: Using default boot image
+11-20 05:22:49.662  4038  4038 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:50.034  4038  4038 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:22:50.227  4038  4038 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:51.703  4038  4038 D AndroidRuntime: Shutting down VM
+11-20 05:22:52.794  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:52.797  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:55.208  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:55.209  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:55.672  4231  4231 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:55.676  4231  4231 I AndroidRuntime: Using default boot image
+11-20 05:22:55.676  4231  4231 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:55.732  4231  4231 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:22:55.787  4231  4231 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:56.670  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:56.670  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:56.902  4231  4231 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.663  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:57.663  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:57.775  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:57.775  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:22:57.926  4309  4309 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.930  4309  4309 I AndroidRuntime: Using default boot image
+11-20 05:22:57.933  4309  4309 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:58.070  4309  4309 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:22:58.139  4309  4309 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:59.279  4309  4309 D AndroidRuntime: Shutting down VM
+11-20 05:23:00.619  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:23:00.628  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:23:02.977  4423  4423 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:02.988  4423  4423 I AndroidRuntime: Using default boot image
+11-20 05:23:02.996  4423  4423 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:03.252  4423  4423 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:23:03.385  4423  4423 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:04.314  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:23:04.314  1311  1311 D AlphabeticalAppsList: addAppsWithSections: adding sectionName: K with appInfoTitle: KidArmor
+11-20 05:23:04.596  4423  4423 D AndroidRuntime: Shutting down VM
+11-20 05:23:05.822  3854  4529 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@b817bef
+11-20 05:23:06.850  3854  4529 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@437603f
+11-20 05:23:06.868   600   742 D ContentCapturePerUserService: Notified activity assist data for activity: Token{cae5442 ActivityRecord{58666998 u0 com.coastlinecode.kidarmor/.MainActivity t8}} without a session Id
+11-20 05:23:09.799  4680  4680 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:09.824  4680  4680 I AndroidRuntime: Using default boot image
+11-20 05:23:09.824  4680  4680 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:10.105  4680  4680 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:23:10.195  4680  4680 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:11.392  4680  4680 D AndroidRuntime: Shutting down VM
+11-20 05:23:12.444  4708  4708 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:12.447  4708  4708 I AndroidRuntime: Using default boot image
+11-20 05:23:12.447  4708  4708 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:12.542  4708  4708 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-20 05:23:12.591  4708  4708 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:13.720  4708  4708 D AndroidRuntime: Shutting down VM

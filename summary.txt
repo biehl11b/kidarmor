@@ -1,0 +1,8 @@
+Store version on Android API 36 (1080x2400): 6 passed, 0 failed
+info phone  → Android API 36, x86_64, screen 1080x2400, WebView 133.0.6943.137
+ok   Welcome screen shows (agree box on screen)  → after 27 s
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens the app  → KidArmor | KidArmor | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1 | Add your child and school, and set a PIN |
+ok   app still running  → pid 3206
+ok   no crashes
+ok   no script errors
