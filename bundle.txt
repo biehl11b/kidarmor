@@ -1,0 +1,6 @@
+bundle from build run 44679532876
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" android:versionCode="162" android:versionName="1.0.0" package="com.coastlinecode.kidarmor" platformBuildVersionCode="36" platformBuildVersionName="16">
+      
+  <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36"/>
+      
+

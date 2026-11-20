@@ -1,0 +1,72 @@
+11-20 05:22:28.609  4305  4305 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:28.610  4305  4305 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:28.642  4305  4305 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:28.687  1646  3813 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000 on display 0
+11-20 05:22:28.709  1646  3562 I ActivityManager: Start proc 4315:com.coastlinecode.kidarmor/u0a78 for activity com.coastlinecode.kidarmor/.MainActivity
+11-20 05:22:28.759  4305  4305 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:28.929  4315  4315 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-20 05:22:29.064  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-20 05:22:29.064  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2325)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2320)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2379)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:627)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:572)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:555)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:542)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-20 05:22:29.065  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-20 05:22:29.065  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2325)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2320)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2379)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:627)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:572)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:555)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:542)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:29.096  4315  4315 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:29.097  4315  4336 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-20 05:22:29.097  4315  4336 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-20 05:22:29.118  1646  2145 I ActivityManager: Start proc 4337:com.android.chrome:webview_service/u0a37 for service com.android.chrome/org.chromium.android_webview.services.VariationsSeedServer
+11-20 05:22:29.120  4315  4315 I cr_BrowserStartup: Initializing chromium process, singleProcess=true
+11-20 05:22:29.214  4315  4315 D Capacitor: Starting BridgeActivity
+11-20 05:22:29.600  4315  4333 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-20 05:22:30.831  1646  1667 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +2s133ms
+11-20 05:22:30.867  1646  1667 I WindowManager: Destroying surface Surface(name=Starting com.coastlinecode.kidarmor) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-20 05:22:34.934  1646  1869 D VoldConnector: SND -> {33 volume mkdirs /storage/emulated/0/Android/data/com.coastlinecode.kidarmor/cache/}
+11-20 05:22:35.424  4315  4448 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:44.227  4458  4458 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:44.228  4458  4458 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:44.429  4458  4458 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:45.494  4458  4458 D AndroidRuntime: Shutting down VM
+11-20 05:22:48.637  4477  4477 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:48.638  4477  4477 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:48.672  4477  4477 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:49.707  4477  4477 D AndroidRuntime: Shutting down VM
+11-20 05:22:49.854  4490  4490 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:49.855  4490  4490 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:49.890  4490  4490 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:50.925  4490  4490 D AndroidRuntime: Shutting down VM
+11-20 05:22:51.225  4509  4509 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:51.226  4509  4509 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:51.260  4509  4509 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:51.269  4509  4509 D AndroidRuntime: Shutting down VM
+11-20 05:22:53.398  4519  4519 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:53.399  4519  4519 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:53.432  4519  4519 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:54.470  4519  4519 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.778  4540  4540 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:54.779  4540  4540 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:54.810  4540  4540 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:54.819  4540  4540 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.945  4551  4551 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.946  4551  4551 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:57.980  4551  4551 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:59.022  4551  4551 D AndroidRuntime: Shutting down VM
+11-20 05:22:59.179  4564  4564 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:59.180  4564  4564 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:59.214  4564  4564 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:00.265  4564  4564 D AndroidRuntime: Shutting down VM

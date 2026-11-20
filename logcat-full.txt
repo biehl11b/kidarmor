@@ -1,0 +1,669 @@
+--------- beginning of main
+11-20 05:22:28.466  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:28.479  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:28.609  4305  4305 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:28.610  4305  4305 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:28.625  4305  4305 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:28.628  4305  4305 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:28.637  4305  4305 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:28.637  4305  4305 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:28.637  4305  4305 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:28.642  4305  4305 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+--------- beginning of system
+11-20 05:22:28.667  1646  1660 W BroadcastQueue: Skipping deliver [background] BroadcastRecord{bc9e1a6 u-1 android.net.conn.CONNECTIVITY_CHANGE} to ReceiverList{419d7e7 4305 (unknown name)/2000/u-1 remote:4af7ce8}: process crashing
+11-20 05:22:28.687  1646  3813 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000 on display 0
+11-20 05:22:28.688  1646  3813 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:28.689  1646  3813 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:28.689  1646  3813 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:28.689  1646  3813 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:28.689  1646  3813 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:28.689  1646  3813 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:28.690  1646  1667 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:28.702  4315  4315 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:28.709  1646  3562 I ActivityManager: Start proc 4315:com.coastlinecode.kidarmor/u0a78 for activity com.coastlinecode.kidarmor/.MainActivity
+11-20 05:22:28.751  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:28.751  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:28.751  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:28.759  4305  4305 I art     : System.exit called, status: 0
+11-20 05:22:28.759  4305  4305 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:28.807  4315  4315 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:28.808  4315  4315 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-20 05:22:28.811  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:28.812  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:28.812  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:28.813  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:28.813  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:28.813  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:28.817  4315  4315 W ResourceType: For resource 0x7f12021c, entry index(540) is beyond type entryCount(220)
+11-20 05:22:28.817  4315  4315 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:28.818  4315  4315 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:28.818  4315  4315 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:28.844  1767  2610 W Nearby  : Failed attempt #3 out of 3 for RestoreDeviceName [CONTEXT service_id=49 ]
+11-20 05:22:28.844  1767  2610 W Nearby  : java.lang.IllegalStateException: BluetoothAdapter not ready yet!
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at ajpy.d(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at ajpx.run(Unknown Source)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at bwuj.call(Unknown Source)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):9)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at ajpw.run(Unknown Source)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at java.lang.Thread.run(Thread.java:761)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at sow.run(Unknown Source)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at sux.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:28.844  1767  2610 W Nearby  : 	at java.lang.Thread.run(Thread.java:761)
+11-20 05:22:28.848  1311  2582 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:22:28.854  1311  2582 D         : HostConnection::get() New Host Connection established 0x7d2ab7ae53c0, tid 2582
+11-20 05:22:28.861  4315  4315 W art     : Before Android 4.1, method android.graphics.PorterDuffColorFilter androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+11-20 05:22:28.862  1818  1818 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:28.863  1818  1818 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:28.863  1818  1818 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:28.865  1818  1818 W ResourceType: For resource 0x7f1100c1, entry index(193) is beyond type entryCount(192)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120147, entry index(327) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:28.883  4315  4315 W ResourceType: For resource 0x7f120147, entry index(327) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.888  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:28.889  4315  4315 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:28.894  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:28.895  4315  4315 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:28.899  4315  4315 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:28.918  4315  4315 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:28.928  4315  4315 W System  : ClassLoader referenced unknown path: /system/app/Chrome/lib/x86_64
+11-20 05:22:28.929  4315  4315 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-20 05:22:28.939  2314  2450 D EGL_emulation: eglMakeCurrent: 0x7fdd16eac200: ver 3 0 (tinfo 0x7fdd16ec4cc0)
+11-20 05:22:28.967  1646  3813 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowManagerService.tryStartExitingAnimation:3024 com.android.server.wm.WindowManagerService.relayoutWindow:2904 com.android.server.wm.Session.relayout:224 android.view.IWindowSession$Stub.onTransact:286 com.android.server.wm.Session.onTransact:145 
+11-20 05:22:29.064  4315  4315 I art     : Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.Class.classForName!(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:400)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-20 05:22:29.064  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-20 05:22:29.064  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2325)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2320)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2379)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.view.View.<init>(android.content.Context) (View.java:4002)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4119)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:578)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:627)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:572)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:555)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:542)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Constructor.newInstance0!(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:430)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:645)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:787)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:727)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:858)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:821)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:518)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:426)
+11-20 05:22:29.064  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:377)
+11-20 05:22:29.064  4315  4315 I art     :   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:29.064  4315  4315 I art     :   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6662)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1118)
+11-20 05:22:29.064  4315  4315 I art     :   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2599)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2707)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.ActivityThread.-wrap12(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1460)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.os.Looper.loop() (Looper.java:154)
+11-20 05:22:29.064  4315  4315 I art     :   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)
+11-20 05:22:29.064  4315  4315 I art     :   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)
+11-20 05:22:29.064  4315  4315 I art     : Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:56)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:380)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.Class.classForName!(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:400)
+11-20 05:22:29.064  4315  4315 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-20 05:22:29.065  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-20 05:22:29.065  4315  4315 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebView.getFactory() (WebView.java:2325)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.ensureProviderCreated() (WebView.java:2320)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.setOverScrollMode(int) (WebView.java:2379)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.view.View.<init>(android.content.Context) (View.java:4002)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int) (View.java:4119)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.view.ViewGroup.<init>(android.content.Context, android.util.AttributeSet, int, int) (ViewGroup.java:578)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.widget.AbsoluteLayout.<init>(android.content.Context, android.util.AttributeSet, int, int) (AbsoluteLayout.java:55)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int, java.util.Map, boolean) (WebView.java:627)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int, int) (WebView.java:572)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet, int) (WebView.java:555)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.webkit.WebView.<init>(android.content.Context, android.util.AttributeSet) (WebView.java:542)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.getcapacitor.CapacitorWebView.<init>(android.content.Context, android.util.AttributeSet) (CapacitorWebView.java:22)
+11-20 05:22:29.065  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Constructor.newInstance0!(java.lang.Object[]) (Constructor.java:-2)
+11-20 05:22:29.065  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:430)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:645)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:787)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:727)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:858)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:821)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:518)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:426)
+11-20 05:22:29.065  4315  4315 I art     :   at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:377)
+11-20 05:22:29.065  4315  4315 I art     :   at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:751)
+11-20 05:22:29.065  4315  4315 I art     :   at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:193)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.getcapacitor.BridgeActivity.onCreate(android.os.Bundle) (BridgeActivity.java:28)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.coastlinecode.kidarmor.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:10)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6662)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1118)
+11-20 05:22:29.065  4315  4315 I art     :   at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2599)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2707)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.ActivityThread.-wrap12(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1460)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.os.Looper.loop() (Looper.java:154)
+11-20 05:22:29.065  4315  4315 I art     :   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)
+11-20 05:22:29.065  4315  4315 I art     :   at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)
+11-20 05:22:29.065  4315  4315 I art     :   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)
+11-20 05:22:29.065  4315  4315 I art     : 
+11-20 05:22:29.078  4315  4315 I cr_LibraryLoader: Time to load native libraries: 3 ms (timestamps 6228-6231)
+11-20 05:22:29.093  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:29.094  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:29.094  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:29.094  4315  4315 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:29.094  4315  4315 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:29.094  4315  4315 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:29.094  4315  4315 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:29.094  4315  4315 W ResourceType: For resource 0x7f120147, entry index(327) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-20 05:22:29.095  4315  4315 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f12021c, entry index(540) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120276, entry index(630) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120277, entry index(631) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120123, entry index(291) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120217, entry index(535) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120223, entry index(547) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f12021d, entry index(541) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f12013e, entry index(318) is beyond type entryCount(220)
+11-20 05:22:29.095  4315  4315 W ResourceType: For resource 0x7f120147, entry index(327) is beyond type entryCount(220)
+11-20 05:22:29.096  4315  4315 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:29.096  4315  4315 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-20 05:22:29.097  4315  4336 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-20 05:22:29.097  4315  4336 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-20 05:22:29.106  4315  4336 W System  : ClassLoader referenced unknown path: 
+11-20 05:22:29.107  4315  4336 W System  : ClassLoader referenced unknown path: /system/app/Chrome/lib/x86_64
+11-20 05:22:29.111  4337  4337 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-20 05:22:29.118  1646  2145 I ActivityManager: Start proc 4337:com.android.chrome:webview_service/u0a37 for service com.android.chrome/org.chromium.android_webview.services.VariationsSeedServer
+11-20 05:22:29.120  4315  4315 I cr_BrowserStartup: Initializing chromium process, singleProcess=true
+11-20 05:22:29.123  4315  4315 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(1121)
+11-20 05:22:29.123  4315  4315 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(220)
+11-20 05:22:29.123  4315  4315 W ResourceType: Failure getting entry for 0x7f1204b0 (t=17 e=1200) (error -75)
+11-20 05:22:29.123  1646  2291 I ActivityManager: Killing 3648:com.google.android.apps.maps/u0a56 (adj 906): empty #17
+11-20 05:22:29.130  4337  4337 W System  : ClassLoader referenced unknown path: /system/app/Chrome/lib/x86
+11-20 05:22:29.158  1646  1658 D ActivityManager: cleanUpApplicationRecord -- 3648
+11-20 05:22:29.214  4315  4315 D Capacitor: Starting BridgeActivity
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120303, entry index(771) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120305, entry index(773) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120309, entry index(777) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120307, entry index(775) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120317, entry index(791) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202ee, entry index(750) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f0, entry index(752) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f12027a, entry index(634) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120315, entry index(789) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f1, entry index(753) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120280, entry index(640) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f2, entry index(754) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f6, entry index(758) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202f9, entry index(761) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f12027f, entry index(639) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f12031b, entry index(795) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120300, entry index(768) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120301, entry index(769) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120318, entry index(792) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120319, entry index(793) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120210, entry index(528) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120314, entry index(788) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120316, entry index(790) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120327, entry index(807) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202ff, entry index(767) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1202fd, entry index(765) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120198, entry index(408) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1201af, entry index(431) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1201c2, entry index(450) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1201ab, entry index(427) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f1201ac, entry index(428) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f120330, entry index(816) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f12032f, entry index(815) is beyond type entryCount(220)
+11-20 05:22:29.283  4315  4315 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-20 05:22:29.316  4315  4359 W cr_media: Requires BLUETOOTH permission
+11-20 05:22:29.320  4315  4376 E libEGL  : validate_display:99 error 3008 (EGL_BAD_DISPLAY)
+11-20 05:22:29.321  4315  4376 D         : HostConnection::get() New Host Connection established 0x7fdd1419ddc0, tid 4376
+11-20 05:22:29.328  4315  4376 D EGL_emulation: eglCreateContext: 0x7fdd14088dc0: maj 3 min 0 rcv 3
+11-20 05:22:29.330  4315  4376 D EGL_emulation: eglMakeCurrent: 0x7fdd14088dc0: ver 3 0 (tinfo 0x7fdd2459a520)
+11-20 05:22:29.331  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-20 05:22:29.331  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-20 05:22:29.351  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x000087fe
+11-20 05:22:29.371  1311  1320 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:29.388  4315  4315 D         : HostConnection::get() New Host Connection established 0x7fdd16549940, tid 4315
+11-20 05:22:29.404  4315  4376 I VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+11-20 05:22:29.417  4315  4376 W cr_MediaCodecUtil: HW encoder for video/avc is not available on this device.
+11-20 05:22:29.434  4315  4315 I Choreographer: Skipped 40 frames!  The application may be doing too much work on its main thread.
+11-20 05:22:29.441  4315  4376 D EGL_emulation: eglCreateContext: 0x7fdd1256a0a0: maj 3 min 0 rcv 3
+11-20 05:22:29.443  2359  2536 I Icing   : Indexing com.google.android.googlequicksearchbox-applications_uri from com.google.android.googlequicksearchbox
+11-20 05:22:29.445  4315  4376 D EGL_emulation: eglMakeCurrent: 0x7fdd1256a0a0: ver 3 0 (tinfo 0x7fdd2459a520)
+11-20 05:22:29.445  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-20 05:22:29.445  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-20 05:22:29.453  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008a34
+11-20 05:22:29.453  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008073
+11-20 05:22:29.453  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-20 05:22:29.465  4315  4383 I OpenGLRenderer: Initialized EGL, version 1.4
+11-20 05:22:29.465  4315  4383 D OpenGLRenderer: Swap behavior 1
+11-20 05:22:29.465  4315  4383 D         : HostConnection::get() New Host Connection established 0x7fdd26f99680, tid 4383
+11-20 05:22:29.479  4315  4383 D EGL_emulation: eglCreateContext: 0x7fdd26fdf8c0: maj 3 min 0 rcv 3
+11-20 05:22:29.486  1646  3562 I ActivityManager: Killing 3676:com.google.android.apps.photos:CameraShortcut/u0a62 (adj 906): empty #17
+11-20 05:22:29.491  4315  4383 D EGL_emulation: eglMakeCurrent: 0x7fdd26fdf8c0: ver 3 0 (tinfo 0x7fdd11abea00)
+11-20 05:22:29.491  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-20 05:22:29.491  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-20 05:22:29.493  2359  2536 I Icing   : Indexing com.google.android.gms-internal.3p:MobileApplication from com.google.android.gms
+11-20 05:22:29.513  2359  2536 I Icing   : Indexing done com.google.android.googlequicksearchbox-applications_uri
+11-20 05:22:29.515  2359  2536 I Icing   : Indexing done com.google.android.gms-internal.3p:MobileApplication
+11-20 05:22:29.516  2359  2536 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+11-20 05:22:29.532  1646  1658 D ActivityManager: cleanUpApplicationRecord -- 3676
+11-20 05:22:29.534  4315  4376 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-20 05:22:29.541  4337  4360 W acm     : copyMemory is missing from platform - proto runtime falling back to safer methods.
+11-20 05:22:29.541  4224  4224 I dex2oat : dex2oat took 6.003s (threads: 2) arena alloc=6MB (7077368B) java alloc=6MB (6320776B) native alloc=13MB (14659088B) free=9MB (9458160B)
+11-20 05:22:29.553  2359  2536 I Icing   : Indexing done com.google.android.gms-apps
+11-20 05:22:29.600  4315  4333 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-20 05:22:29.602  4385  4385 W dex2oat : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:29.602  4385  4385 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/GoogleCertificates.apk --oat-fd=99 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000005/oat/x86_64/GoogleCertificates.dex --compiler-filter=speed
+11-20 05:22:29.613  1646  2145 I ActivityManager: Killing 3425:com.google.android.apps.photos/u0a62 (adj 906): empty #17
+11-20 05:22:29.648  1646  2289 D ActivityManager: cleanUpApplicationRecord -- 3425
+11-20 05:22:29.857  4385  4385 I dex2oat : dex2oat took 254.849ms (threads: 2) arena alloc=665KB (681904B) java alloc=237KB (243248B) native alloc=1149KB (1177552B) free=2MB (2492464B)
+11-20 05:22:29.875  4390  4390 W dex2oat : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:29.875  4390  4390 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/MeasurementDynamite.apk --oat-fd=99 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000007/oat/x86_64/MeasurementDynamite.dex --compiler-filter=speed
+11-20 05:22:29.938  4315  4383 D EGL_emulation: eglMakeCurrent: 0x7fdd26fdf8c0: ver 3 0 (tinfo 0x7fdd11abea00)
+11-20 05:22:30.130  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:30.135  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008a34
+11-20 05:22:30.135  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008073
+11-20 05:22:30.135  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-20 05:22:30.301  4390  4390 I dex2oat : dex2oat took 428.202ms (threads: 2) arena alloc=5MB (5312032B) java alloc=750KB (768608B) native alloc=2MB (2213560B) free=4MB (4602184B)
+11-20 05:22:30.318  4394  4394 W dex2oat : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:30.318  4394  4394 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/DynamiteModulesA.apk --oat-fd=99 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000003/oat/x86_64/DynamiteModulesA.dex --compiler-filter=speed
+11-20 05:22:30.831  1646  1667 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +2s133ms
+11-20 05:22:30.856  4394  4394 I dex2oat : dex2oat took 538.096ms (threads: 2) arena alloc=5MB (5627704B) java alloc=969KB (992920B) native alloc=2MB (2902000B) free=6MB (6535184B)
+11-20 05:22:30.859  4315  4315 I Choreographer: Skipped 54 frames!  The application may be doing too much work on its main thread.
+11-20 05:22:30.867  1646  1667 I WindowManager: Destroying surface Surface(name=Starting com.coastlinecode.kidarmor) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-20 05:22:30.877  4397  4397 W dex2oat : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:30.877  4397  4397 I dex2oat : /system/bin/dex2oat --dex-file=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk --oat-fd=99 --oat-location=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/oat/x86_64/CronetDynamite.dex --compiler-filter=speed
+11-20 05:22:31.129  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:31.185  4397  4397 I dex2oat : dex2oat took 308.651ms (threads: 2) arena alloc=1181KB (1209664B) java alloc=385KB (394896B) native alloc=1283KB (1314424B) free=2MB (2879880B)
+11-20 05:22:31.331  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:31.422  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:31.438  1646  2289 I ActivityManager: Killing 3453:com.google.android.configupdater/u0a5 (adj 906): empty #17
+11-20 05:22:31.487  1646  2290 D ActivityManager: cleanUpApplicationRecord -- 3453
+11-20 05:22:31.487  4315  4362 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-20 05:22:31.491  4315  4362 I X509Util: Failed to validate the certificate chain, error: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+11-20 05:22:31.693  1646  1750 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-20 05:22:32.655  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:32.660  4315  4315 I Choreographer: Skipped 77 frames!  The application may be doing too much work on its main thread.
+11-20 05:22:32.876  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:32.952  1646  1675 I ActivityManager: Killing 2670:com.google.android.deskclock/u0a64 (adj 906): empty #17
+11-20 05:22:32.960  1646  3813 D ActivityManager: cleanUpApplicationRecord -- 2670
+11-20 05:22:32.996  1646  2291 I ActivityManager: Killing 3138:com.google.android.apps.messaging/u0a63 (adj 906): empty #17
+11-20 05:22:32.999  1646  1869 D ActivityManager: cleanUpApplicationRecord -- 3138
+11-20 05:22:33.048  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:33.066  3378  3398 W Babel   : bcq TOOK TOO LONG! (15037ms > 10000ms)
+11-20 05:22:33.687  4407  4407 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-20 05:22:33.693  1646  1646 I ActivityManager: Start proc 4407:com.google.android.apps.photos/u0a62 for service com.google.android.apps.photos/.mediamonitor.MediaMonitorJobSchedulerService
+11-20 05:22:33.701  4407  4407 W System  : ClassLoader referenced unknown path: /system/app/Photos/lib/x86
+11-20 05:22:33.803  1311  2582 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:33.803  1311  1320 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=2000 => granted (194 us)
+11-20 05:22:33.803  1311  1320 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:22:33.807  4432  4432 D         : HostConnection::get() New Host Connection established 0x7a191582d4e0, tid 4432
+11-20 05:22:33.830  1646  2204 I ActivityManager: Killing 3739:com.google.android.onetimeinitializer/u0a17 (adj 906): empty #17
+11-20 05:22:33.886  1646  1658 D ActivityManager: cleanUpApplicationRecord -- 3739
+11-20 05:22:34.934  1646  1869 D VoldConnector: SND -> {33 volume mkdirs /storage/emulated/0/Android/data/com.coastlinecode.kidarmor/cache/}
+11-20 05:22:34.936  1646  1692 D VoldConnector: RCV <- {200 33 Command succeeded}
+11-20 05:22:35.227  1767  2617 W Nearby  : Failed attempt #3 out of 3 for RestoreDeviceName [CONTEXT service_id=49 ]
+11-20 05:22:35.227  1767  2617 W Nearby  : java.lang.IllegalStateException: BluetoothAdapter not ready yet!
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at ajpy.d(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at ajpx.run(Unknown Source)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at bwuj.call(Unknown Source)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):2)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at bwuo.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):9)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at ajpw.run(Unknown Source)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at java.lang.Thread.run(Thread.java:761)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at sow.run(Unknown Source)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at sux.run(:com.google.android.gms@202414023@20.24.14 (040800-319035315):0)
+11-20 05:22:35.227  1767  2617 W Nearby  : 	at java.lang.Thread.run(Thread.java:761)
+11-20 05:22:35.424  4315  4448 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:36.892  4006  4449 I MS_RegisterService: RegisterService intent:Intent { act=register_intent_action flg=0x14 cmp=com.google.android.talk/com.google.android.libraries.matchstick.net.SilentRegisterService (has extras) } isPeriodic:false
+11-20 05:22:36.897  2359  2624 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: Unable to locate conscrypt_gmscore_jni in dalvik.system.PathClassLoader[DexPathList[[zip file "/system/framework/com.android.location.provider.jar", zip file "/system/framework/com.android.media.remotedisplay.jar", zip file "/system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk"],nativeLibraryDirectories=[/system/priv-app/PrebuiltGmsCore/lib/x86_64, /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk!/lib/x86_64, /system/lib, /vendor/lib, /system/lib, /vendor/lib]]]
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: java.lang.UnsatisfiedLinkError: dlopen failed: "/system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk!/lib/x86_64/libconscrypt_gmscore_jni.so" is 64-bit instead of 32-bit
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at java.lang.Runtime.loadLibrary0(Runtime.java:977)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at java.lang.System.loadLibrary(System.java:1530)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at ssl.b(:com.google.android.gms@202414023@20.24.14 (040800-319035315):63)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at com.google.android.gms.common.security.ProviderInstallerImpl.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):8)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at com.google.android.gms.common.security.ProviderInstallerImpl.insertProvider(:com.google.android.gms@202414023@20.24.14 (040800-319035315):3)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at java.lang.reflect.Method.invoke(Native Method)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at hnk.a(Unknown Source)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at com.google.android.libraries.matchstick.net.SilentRegisterService.onHandleIntent(SourceFile:216)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at android.app.IntentService$ServiceHandler.handleMessage(IntentService.java:68)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at android.os.Looper.loop(Looper.java:154)
+11-20 05:22:36.899  4006  4449 E GmsNativeLibraryLoader: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-20 05:22:36.899  4006  4449 E ProviderInstaller: Failed to install provider: null
+11-20 05:22:36.899  2359  2624 I Vision  : Checking for download completion for 94053 -- ocr
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: Google play services not available
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: fux
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at hnk.a(Unknown Source)
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at com.google.android.libraries.matchstick.net.SilentRegisterService.onHandleIntent(SourceFile:216)
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at android.app.IntentService$ServiceHandler.handleMessage(IntentService.java:68)
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at android.os.Looper.loop(Looper.java:154)
+11-20 05:22:36.901  4006  4449 E MS_RegisterService: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-20 05:22:36.904  4006  4449 W MS_WakeLockHelper: Call to release wakelock: register_service_start_wakelock, but not held.
+11-20 05:22:41.031  3696  3795 E FirebaseInstanceId: Token retrieval failed: INVALID_SENDER
+11-20 05:22:43.973  1311  2582 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:43.975  1311  2084 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:22:43.977  4455  4455 D         : HostConnection::get() New Host Connection established 0x7654fc62d4e0, tid 4455
+11-20 05:22:44.227  4458  4458 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:44.228  4458  4458 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:44.229  4458  4458 I art     : RelocateImage: /system/bin/patchoat --input-image-location=/system/framework/boot.art --output-image-file=/data/local/tmp/dalvik-cache/x86_64/system@framework@boot.art --instruction-set=x86_64 --base-offset-delta=14729216
+11-20 05:22:44.405  4458  4458 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:44.408  4458  4458 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:44.424  4458  4458 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:44.424  4458  4458 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:44.424  4458  4458 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:44.429  4458  4458 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:45.477  4458  4458 W AccessibilityNodeInfoDumper: Fetch time: 1ms
+11-20 05:22:45.487  1646  1869 W WindowManager: Attempted to remove non-existing token: android.os.Binder@bbe25
+11-20 05:22:45.494  4458  4458 D AndroidRuntime: Shutting down VM
+11-20 05:22:45.691  1646  1660 I ActivityManager: Killing 3111:com.google.process.gapps/u0a47 (adj 906): empty #17
+11-20 05:22:45.757  1646  2289 D ActivityManager: cleanUpApplicationRecord -- 3111
+11-20 05:22:46.904  2359  4475 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:46.904  2359  4475 I Vision  : Checking for download completion for 104058 -- ocr
+11-20 05:22:48.129  2359  2638 W ChimeraConfigurator: Error syncing flags: qoq: COMMIT_TIMEOUT
+11-20 05:22:48.129  2359  2638 I ChmraDebugLogger: [79] COMMIT_TIMEOUT
+11-20 05:22:48.133  2359  2638 I ChmraDebugLogger: [52] null
+11-20 05:22:48.144  2359  2638 I ChimeraConfigService: Scheduling checkin for one-off execution between [3300,43200] seconds from now (1795152168144)
+11-20 05:22:48.149  2359  2638 I ChimeraConfigurator: Starting update, reason: 4 urgentFeatures: vision.ocr:-1
+11-20 05:22:48.637  4477  4477 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:48.638  4477  4477 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:48.653  4477  4477 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:48.655  4477  4477 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:48.668  4477  4477 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:48.668  4477  4477 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:48.668  4477  4477 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:48.672  4477  4477 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:49.704  4477  4477 W AccessibilityNodeInfoDumper: Fetch time: 14ms
+11-20 05:22:49.704  1646  1657 W WindowManager: Attempted to remove non-existing token: android.os.Binder@2617a95
+11-20 05:22:49.707  4477  4477 D AndroidRuntime: Shutting down VM
+11-20 05:22:49.854  4490  4490 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:49.855  4490  4490 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:49.869  4490  4490 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:49.871  4490  4490 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:49.885  4490  4490 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:49.885  4490  4490 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:49.886  4490  4490 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:49.890  4490  4490 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:50.921  4490  4490 W AccessibilityNodeInfoDumper: Fetch time: 13ms
+11-20 05:22:50.922  1646  2922 W WindowManager: Attempted to remove non-existing token: android.os.Binder@ddeff9b
+11-20 05:22:50.925  4490  4490 D AndroidRuntime: Shutting down VM
+11-20 05:22:50.978  1311  1316 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:50.979  1311  1746 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:22:50.981  4505  4505 D         : HostConnection::get() New Host Connection established 0x71385322d4e0, tid 4505
+11-20 05:22:51.225  4509  4509 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:51.226  4509  4509 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:51.241  4509  4509 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:51.244  4509  4509 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:51.255  4509  4509 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:51.255  4509  4509 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:51.255  4509  4509 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:51.260  4509  4509 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:51.264  4509  4509 I Input   : injectMotionEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=120.0, y[0]=855.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=98415, downTime=98415, deviceId=0, source=0x1002 }
+11-20 05:22:51.268  4509  4509 I Input   : injectMotionEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=120.0, y[0]=855.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=98415, downTime=98415, deviceId=0, source=0x1002 }
+11-20 05:22:51.269  4509  4509 D AndroidRuntime: Shutting down VM
+11-20 05:22:51.332  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:51.454  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:53.398  4519  4519 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:53.399  4519  4519 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:53.413  4519  4519 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:53.415  4519  4519 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:53.428  4519  4519 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:53.428  4519  4519 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:53.428  4519  4519 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:53.432  4519  4519 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:53.708  2359  4530 I GmscoreIpa: how are you::
+11-20 05:22:53.717  1646  2289 I ActivityManager: Killing 3819:com.google.android.videos/u0a68 (adj 906): empty #17
+11-20 05:22:53.717  1646  2289 I ActivityManager: Killing 2853:com.google.android.calendar/u0a33 (adj 906): empty #18
+11-20 05:22:53.725  1646  1657 D ActivityManager: cleanUpApplicationRecord -- 2853
+11-20 05:22:53.757  1646  2145 D ActivityManager: cleanUpApplicationRecord -- 3819
+11-20 05:22:54.104  2359  2634 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.music componentName=null serviceId=36
+11-20 05:22:54.109  2359  2536 I Icing   : updateResources: need to parse acek{com.google.android.music}
+11-20 05:22:54.186  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:54.204  2359  2634 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.music componentName=null serviceId=36
+11-20 05:22:54.208  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:54.209  2359  2536 I Icing   : Indexing com.google.android.music-songs from com.google.android.music
+11-20 05:22:54.212  2359  2550 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=30
+11-20 05:22:54.222  2359  2550 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.music componentName=null serviceId=36
+11-20 05:22:54.233  2359  2550 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.music componentName=null serviceId=36
+11-20 05:22:54.243  2359  2536 I Icing   : Indexing done com.google.android.music-songs
+11-20 05:22:54.244  2359  2536 I Icing   : Indexing com.google.android.music-albums from com.google.android.music
+11-20 05:22:54.259  2359  2536 I Icing   : Indexing done com.google.android.music-albums
+11-20 05:22:54.259  2359  2536 I Icing   : Indexing com.google.android.music-artists from com.google.android.music
+11-20 05:22:54.277  2359  2536 I Icing   : Indexing done com.google.android.music-artists
+11-20 05:22:54.278  2359  2536 I Icing   : Indexing com.google.android.music-playlists from com.google.android.music
+11-20 05:22:54.293  2359  2536 I Icing   : Indexing done com.google.android.music-playlists
+11-20 05:22:54.296  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:54.300  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:54.301  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:54.305  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:54.306  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:54.311  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:54.312  2359  2536 W Icing   : No valid account for uploading user actions
+11-20 05:22:54.316  2359  2536 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+11-20 05:22:54.466  4519  4519 W AccessibilityNodeInfoDumper: Fetch time: 13ms
+11-20 05:22:54.466  1646  2290 W WindowManager: Attempted to remove non-existing token: android.os.Binder@2c2b11
+11-20 05:22:54.470  4519  4519 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.523  1311  1320 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:22:54.524  1311  2582 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:22:54.526  4537  4537 D         : HostConnection::get() New Host Connection established 0x7cec5522d4e0, tid 4537
+11-20 05:22:54.778  4540  4540 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:54.779  4540  4540 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:54.793  4540  4540 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:54.795  4540  4540 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:54.805  4540  4540 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:54.805  4540  4540 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:54.806  4540  4540 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:54.810  4540  4540 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:54.814  4540  4540 I Input   : injectMotionEvent: MotionEvent { action=ACTION_DOWN, actionButton=0, id[0]=0, x[0]=540.0, y[0]=1044.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=101965, downTime=101965, deviceId=0, source=0x1002 }
+11-20 05:22:54.816  4540  4540 I Input   : injectMotionEvent: MotionEvent { action=ACTION_UP, actionButton=0, id[0]=0, x[0]=540.0, y[0]=1044.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, eventTime=101965, downTime=101965, deviceId=0, source=0x1002 }
+11-20 05:22:54.819  4540  4540 D AndroidRuntime: Shutting down VM
+11-20 05:22:54.885  4315  4383 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-20 05:22:56.908  4006  4550 I MS_RegisterService: RegisterService intent:Intent { act=register_intent_action flg=0x14 cmp=com.google.android.talk/com.google.android.libraries.matchstick.net.SilentRegisterService (has extras) } isPeriodic:false
+11-20 05:22:56.910  2359  4530 I Vision  : Requesting optional module download of ocr.
+11-20 05:22:56.910  2359  4530 I Vision  : Checking for download completion for 114063 -- ocr
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: Unable to locate conscrypt_gmscore_jni in dalvik.system.PathClassLoader[DexPathList[[zip file "/system/framework/com.android.location.provider.jar", zip file "/system/framework/com.android.media.remotedisplay.jar", zip file "/system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk"],nativeLibraryDirectories=[/system/priv-app/PrebuiltGmsCore/lib/x86_64, /system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk!/lib/x86_64, /system/lib, /vendor/lib, /system/lib, /vendor/lib]]]
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: java.lang.UnsatisfiedLinkError: dlopen failed: "/system/priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk!/lib/x86_64/libconscrypt_gmscore_jni.so" is 64-bit instead of 32-bit
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at java.lang.Runtime.loadLibrary0(Runtime.java:977)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at java.lang.System.loadLibrary(System.java:1530)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at ssl.b(:com.google.android.gms@202414023@20.24.14 (040800-319035315):63)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at com.google.android.gms.common.security.ProviderInstallerImpl.a(:com.google.android.gms@202414023@20.24.14 (040800-319035315):8)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at com.google.android.gms.common.security.ProviderInstallerImpl.insertProvider(:com.google.android.gms@202414023@20.24.14 (040800-319035315):3)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at java.lang.reflect.Method.invoke(Native Method)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at hnk.a(Unknown Source)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at com.google.android.libraries.matchstick.net.SilentRegisterService.onHandleIntent(SourceFile:216)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at android.app.IntentService$ServiceHandler.handleMessage(IntentService.java:68)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at android.os.Looper.loop(Looper.java:154)
+11-20 05:22:56.912  4006  4550 E GmsNativeLibraryLoader: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-20 05:22:56.912  4006  4550 E ProviderInstaller: Failed to install provider: null
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: Google play services not available
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: fux
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at hnk.a(Unknown Source)
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at com.google.android.libraries.matchstick.net.SilentRegisterService.onHandleIntent(SourceFile:216)
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at android.app.IntentService$ServiceHandler.handleMessage(IntentService.java:68)
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at android.os.Looper.loop(Looper.java:154)
+11-20 05:22:56.912  4006  4550 E MS_RegisterService: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-20 05:22:56.913  4006  4550 W MS_WakeLockHelper: Call to release wakelock: register_service_start_wakelock, but not held.
+11-20 05:22:57.945  4551  4551 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.946  4551  4551 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:57.961  4551  4551 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:57.963  4551  4551 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:57.975  4551  4551 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:57.975  4551  4551 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:57.975  4551  4551 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:57.980  4551  4551 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:59.018  4551  4551 W AccessibilityNodeInfoDumper: Fetch time: 20ms
+11-20 05:22:59.019  1646  3562 W WindowManager: Attempted to remove non-existing token: android.os.Binder@6275eac
+11-20 05:22:59.022  4551  4551 D AndroidRuntime: Shutting down VM
+11-20 05:22:59.179  4564  4564 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:59.180  4564  4564 D AndroidRuntime: CheckJNI is OFF
+11-20 05:22:59.195  4564  4564 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-20 05:22:59.197  4564  4564 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-20 05:22:59.210  4564  4564 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-20 05:22:59.210  4564  4564 E android.os.Debug: failed to load memtrack module: -2
+11-20 05:22:59.210  4564  4564 I Radio-JNI: register_android_hardware_Radio DONE
+11-20 05:22:59.214  4564  4564 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:00.253  4315  4320 I art     : Do partial code cache collection, code=28KB, data=29KB
+11-20 05:23:00.254  4315  4320 I art     : After code cache collection, code=27KB, data=29KB
+11-20 05:23:00.254  4315  4320 I art     : Increasing code cache capacity to 128KB
+11-20 05:23:00.261  4564  4564 W AccessibilityNodeInfoDumper: Fetch time: 26ms
+11-20 05:23:00.261  1646  1675 W WindowManager: Attempted to remove non-existing token: android.os.Binder@9cd630a
+11-20 05:23:00.265  4564  4564 D AndroidRuntime: Shutting down VM
+11-20 05:23:00.321  1311  1746 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-20 05:23:00.323  1311  1320 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-20 05:23:00.324  4579  4579 D         : HostConnection::get() New Host Connection established 0x724eabe2d4e0, tid 4579
