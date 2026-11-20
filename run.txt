@@ -1,0 +1,172 @@
+Android API 31
+/tmp/report-card.png: 1 file pushed, 0 skipped. 93.0 MB/s (7965 bytes in 0.000s)
+/tmp/report-card.png: 1 file pushed, 0 skipped. 144.4 MB/s (7965 bytes in 0.000s)
+  ok   app opens and connects
+  ok   web view version  → Chrome/91.0.4472.114
+  ok   phone features load (native mode)
+  ok   child added
+    chose on-phone
+  ok   microphone permission prompt appears  → While using the app
+  ok   recording timer runs  → 00:19
+    after Stop, on screen: com.coastlinecode.kidarmor :: 
+  ok   recording saved on the phone  → {"type":"audio/webm","size":77143,"secs":20,"id":"f1795152190638n8j0e"}
+  ok   spoken test recording ready
+speech.webm: 1 file pushed, 0 skipped. 148.0 MB/s (46066 bytes in 0.000s)
+  ok   transcript writer available on this Android  → {"google":false,"supported":true,"api":31,"service":true,"onDevice":true}
+  ok   meeting saved from the recording  → "1795152206294"
+  ok   Write the transcript button shows for it
+    app says: Writing the transcript… 0%. It takes about as long as the recording itself, so keep KidArmor open.
+    service: 5s, Download tapped: false, Transcripts will be made on this phone only. | toasts:  | engine: kidarmor |  part0: 1 pieces, 11s; | phone engine error: none
+    heard: [00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every Friday our next meeting is on December fifth the ten in the morning.
+  ok   transcript written from the recording (speech service)  → [Recording started 11/20/2026, 5:23:00 AM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+    app says: Writing the transcript… 0%. It takes about as long as the recording itself, so keep KidArmor open.
+    phone: 5s, Download tapped: false, Transcripts will be made on this phone only. | toasts:  | engine: kidarmor |  part0: 1 pieces, 11s; | phone engine error: none
+    heard: [00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every Friday our next meeting is on December fifth the ten in the morning.
+  ok   transcript written from the recording (on this phone only)  → [Recording started 11/20/2026, 5:23:00 AM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+  ok   meeting notes made from it  → {"overview":"Meeting on Nov 20, 2026 at 5:23 AM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.","problems":[],"agreed":[{"text":"The school agreed to provide speech therapy two times a week.","t":"00:00"},{"text":"The teacher will send a progress report every Friday.","t":"00:00"}],"steps":[],"nextMeeting":{"text":"Our next meeting is on December fifth the t
+    picker: com.google.android.documentsui
+  ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+  ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+  FAIL PDF preview library loads  → pdf viewer failed: Unexpected token '{'
+  FAIL PDF binder is made and shows  → This phone can't show a preview of the PDF. Tap Download to save or share it.
+  ok   PDF file written for sharing  → -rw------- 1 u0_a145 u0_a145_cache 10663 2026-11-20 05:24 Case Binder - Ava Test - 2026-11-20.pdf
+  ok   Android share sheet opens  → android
+  ok   notification permission not needed on this Android
+  ok   notifications allowed  → granted
+    on screen after scheduling: com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTER
+  ok   app stays on screen while scheduling reminders  → com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTER
+  ok   meeting reminders scheduled with Android  → pending: 2
+---- phone log around reminders ----
+11-20 05:23:43.719  3822  3840 D EGL_emulation: app_time_stats: avg=1358.57ms min=98.15ms max=3856.99ms count=3
+11-20 05:23:44.475  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-20 05:23:44.475  3822  3822 D Capacitor/AppPlugin: No listeners found for event pause
+11-20 05:23:44.475  3822  3822 D Capacitor: App paused
+11-20 05:23:45.461  3822  3822 D Capacitor/AppPlugin: Firing change: false
+11-20 05:23:45.461  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-20 05:23:45.461  3822  3822 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-20 05:23:45.461  3822  3822 D Capacitor: App stopped
+11-20 05:23:45.462  3822  3822 D Capacitor: Saving instance state!
+11-20 05:23:57.354  3822  3822 D Capacitor: Unable to find a Capacitor plugin to handle requestCode, trying Cordova plugins 1799395940
+11-20 05:23:57.355  3822  3822 D Capacitor: App restarted
+11-20 05:23:57.355  3822  3822 D Capacitor: App started
+11-20 05:23:57.368  3822  3822 D Capacitor/AppPlugin: Firing change: true
+11-20 05:23:57.368  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-20 05:23:57.368  3822  3822 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-20 05:23:57.368  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-20 05:23:57.368  3822  3822 D Capacitor/AppPlugin: No listeners found for event resume
+11-20 05:23:57.378  3822  3822 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-20 05:23:57.378  3822  3822 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-20 05:23:57.381  3822  3822 D Capacitor: App resumed
+11-20 05:23:57.733  3822  3905 D EGL_emulation: eglCreateContext: 0x7523ecef4510: maj 3 min 0 rcv 3
+11-20 05:23:58.997  3822  3840 D EGL_emulation: app_time_stats: avg=253.60ms min=17.45ms max=968.46ms count=6
+11-20 05:23:59.383  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:23:59.384  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245287, pluginId: LocalNotifications, methodName: checkPermissions
+11-20 05:23:59.384  3822  3822 V Capacitor: callback: 39245287, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-20 05:23:59.385  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"display":"granted"}
+11-20 05:23:59.385  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:23:59.386  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245288, pluginId: LocalNotifications, methodName: getPending
+11-20 05:23:59.386  3822  3822 V Capacitor: callback: 39245288, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:23:59.387  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"notifications":[]}
+11-20 05:24:00.510  3822  3840 D EGL_emulation: app_time_stats: avg=123.58ms min=17.81ms max=1161.12ms count=12
+11-20 05:24:04.665  3822  3840 D EGL_emulation: app_time_stats: avg=4154.70ms min=4154.70ms max=4154.70ms count=1
+11-20 05:24:05.728  3822  3840 D EGL_emulation: app_time_stats: avg=354.17ms min=101.51ms max=783.03ms count=3
+11-20 05:24:08.168  3822  3840 D EGL_emulation: app_time_stats: avg=199.68ms min=23.44ms max=1629.41ms count=12
+11-20 05:24:50.794  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:24:50.795  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245289, pluginId: Filesystem, methodName: rmdir
+11-20 05:24:50.795  3822  3822 V Capacitor: callback: 39245289, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-out","directory":"CACHE","recursive":true}
+11-20 05:24:50.796  3822  3822 D Capacitor: Sending plugin error: {"save":false,"callbackId":"39245289","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-20 05:24:50.797  3822  3822 E Capacitor/Console: File: https://localhost/ - Line 331 - Msg: [object Object]
+11-20 05:24:50.798  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:24:50.799  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245290, pluginId: Filesystem, methodName: writeFile
+11-20 05:24:50.799  3822  3822 V Capacitor: callback: 39245290, pluginId: Filesystem, methodName: writeFile, methodData: {"path":"kidarmor-out\/Case Binder - Ava Test - 2026-11-20.pdf","data":"JVBERi0xLjcKJYGBgYEKCjcgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCA2MjAKPj4Kc3RyZWFtCnicnVTLalsxEN3rK7QuxJ0ZzUOCUqjte+mim8LdlS5KHn2QUFJK+\/ud0XViJ7FdbIwleTzSmXPmcZ9ggZRhUcwXlvzra4L8N336nCFfJfQVcqzKlC\/vdgyw52dssaJAvk3qD29PsX9LN+ljuk\/LyW\/Gx9Fev7++\/XP9+\/vll4vlz9urC4NWuYLVlhHzdJOI8\/ThEUk4G1Ge7tIbXnJjZhTiNY9CBARLi5WLWwuLn8h9BvcSobd5+pGmV2mY\/htEMyatJFpzgb1BaIU5CDR1eiCsYsX4JYhrq6EtxqL70AgAKkirmhEWshdPpC1EO6SAkYOBYuyeGFCytg8YmmNiicWeATcTYG0EdgDTH98F5Xc6WtF6Dj8TIyl++Rg\/5gUc5DfqcCK\/ygJYAY\/z24Ly4PzU4dYa4F5MhQrQat79q+cwr+pZNaxWjzCnus2srhRP5iqVWJVKOYTSuW5hgqsOKucwQm9Obzg0OcIIy2MuI4PFpSVlK57JMss8Z\/ZEnlZrbYj+yDGeW\/A5py8z6UXPOvpwOPh\/jJHiNeBBDsYebIvu3tgx7Fa9nJvXio8KKycq2awV5kYtt70CIspMoPREqQPxHIqfUFc09IHjAXRNI7whPKJstd9xTwxr\/G\/RTy3GlFt9JnZv7TlZd1uLG25Hf2n0Zo2OC5Lr7ul+gccxE8HMbzy8+WIGdWFrYMQoNHmImmy+s\/EeOoL6edQ19Zee1MgyXj55lJJBxdaaF\/kBVYEWUruwQXsn2JBg3aUZvY8i6+gB1Z5n3QT8KMFGdHxGaKa4QyUqqssXd1Zut566kJktUloc8Wmr\/wNxTKGqCmVuZHN0cmVhbQplbmRvYmoKCjkgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAxODQ1Cj4+CnN0cmVhbQp4nL1ZS2\/jRgy++1foXGDd4WM4M0BRYBPb7aGXtrkVPRT76AMbFFsU7d\/vR0qyFVly4my6MVZxJM0MyY+Pj9yPm5u7TdoSd2krBRfN3V+\/br789t2Hf979\/fubX17d\/Pnh7SsrSayymXaUu7v3G9bu7rsNdQkf6rJ2haS7u998laVk2+FDhUv7urv7Y3P3xWZ\/t\/l+83F+0A\/fbGibu383P\/2Mbd5ufJtk3f3kS67x7cPmx2GDmrG2+gYt1p9WT4Qxte7N\/fGOX8\/\/9F9+zQnbE0+++O\/fjicWpmzVuGhOrSbF0Zy1JWqWSlWhUIf6b+MTciumZeEaP104HUTSB6K9D9ECudT8cPFLWUKuSM7WFBbD6jPgjDszC+AkzcCK7cUcKvKLzbavUD5RLkRdXd45c+ysDJe4tdvSrNneyplTPI4pVX5ZULMSFdOScq0s2e0njq60I9quuT2AmfMKqiHeZ4W1mVUR0SaLuFJLzweWc6oQSnUJ19h5BLZpzokTHzjBhkmUUzGAfADcBAv6t\/0z4BZKLwv3WXRCbcncJl7gtj4L9WW4Q7zPCjchhIS5Ci\/CLVSfD3cpnOBO3PIS3rH1gHdWIyB7Y9kc6WINGFd8wxXvpCKGKgHMgf8zUFepL4s6H+O7R7p2y4E\/+1lBPcT7rKhrRiiijNoy6gpbHVHnK1FHVZCaxdIi6rH1GOU74J0jms+T92N6aEUKLanl1hGMv0gdjJ0FxFEHpI9ceOJSCYlECtxNkGjgHVRaEaScCmdzgcTf0r1hJd5hvHXb\/8Y\/+LT\/pQ0rK1aav4s9DtaTlGx7nBPO7LsX2BrPGC6Op37KZReX19ht7ykOT\/ZxThnOQJjgzcOVxiowU66sqCbrxkplmyisBTkPVvA5agDZDqETQUOdaSBxHz8h3z7WwNL2AF6smSfsJ7kq+4mtCbgQ0Yroucp29CnkkNJGgR1EmH5fZOlo9bAl92SQx7l3sbaWmNcMZsgNlrfWu1dzVyEoya7y6ABuJrOAfncCetWlZgY7uZbtAT+Mav3u+6N2qIjYfdfD5KscFtxppz1AjbDj80yfK6qVYod0wfQqbsIhxtIgXgvv3y2b\/ZKf5sbgfjj2gtk5b7kdzY5Mk3ufM6TCAEBgNvfZW1fdJfG4h7EO0\/h\/Ogweb8cY3kE3dyqHlvy0FcMvGvyxZigXsAVwQlvrhcDKoPvkJ4882PUmFFDkIETmOTV6rD1COp3vfL9+H83TwoOxl3qSc5kRKH5F+7eekgDdtiyoO0ssni6Xy9QFIcBy4W3Ju8v183OQ9\/n5eUh9MHUuo+MN8Ifj76eOGNLRc9zBQCMUWRhUfM0fGBvQREAd6VQLL74NE+XrvYFkvu\/9+n33hvMHD7zhEwjTWUFAg0KMbNu6upgitJOmS2bRnWb0FYruYq+LfOMCrSGqlshx7doCrbG2zSWvnryabDjdFL+K9zmvce9aPw6bVPZawSmhXNGySUpdFOzQ58Ny7bHgTpJykqprmRpnGm9NJmeOgxxgsMOHkMrng5zHzmUiRBh6qXrhXBEU5sm5C1kDUXvwOL1QBijI4YCK13fd+RtIszxGvlCUC+zofw9kLfdUs7SBwDlVoqBMGv2r9gXydD\/q+lhs+ryBUmU9gby2chv81EwlrZZQGCjp1sqZgfZR5xRHk1Mm8C5PaemBqJHS8E4OQTUUvvWaeEx82u8ysNqpOqPhaazXuNfvXXtjH0\/RqLJI0NhX1s1wIVytRnFpaK3aihW4NrTvcyvkM4k9gSuB18fYAdI5xUw9IXOq+aCj4J76eR8RvDmcg5vcDHq7u+WemIbuYS07c5nBHsfewBk2nutZJn\/ZTjS7VQoy2ckoaKyf3Jeiom+LptNPQRWQtdtnXesLFomWpZpTybpaJFBH5op+epEQMmfMopeKxNrJTy8S1\/LqfmCLlE0EztzWigSD7ywJ9twiUdBAcKoKi63mIhbdToOw2gsUCaxBzJBeyIHoHLZtUhDrEre8skrI06vEw4nX9G0InqLPk9N4wFMyUk67pr5cW9AbZ4JYtG4yarTVCeevPYf4X8oYcoBmQfBfEAf0AmF6EmeYJU4GKWHZsSsf0q28vlIU9GSKFFTrBW8iLds2oRw1ROFdAH0231kSa+wwY8ytQ9ZfdwSvwWWotMH1+440nMHX3IST3YjnjNd+zbtrgxdu6\/Pq9REI1AbTwvmX1NZoTKUXvh8b+X\/ZhEGmjXvfXodRvOj3LgQDHLzsTUskIsBnKq0f2X2ymvAylIpistYHuprgS1rnaiIpOMfQ+cTgagfTAgdjTfmCpcFVJklyYmj1tMExL1yUJpKBHBOZhj\/5iIqPc5FmNptF6jjHGRhd3MUaj+f9OOF4iuEv\/e8Aox8RdFRpaU7MTCBnHes41QPeSjHtijFOENEY0RqHQMOYZyyV6pMzCj\/M\/Zh3fJIj+HxlDCkPPraUh9nyP4aFh7sKZW5kc3RyZWFtCmVuZG9iagoKMTEgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAxMTE5Cj4+CnN0cmVhbQp4nL1WTY8jRQy996\/oM9I25SrbVSUhpO0kDQcuQG6IA2IXBJoRWoTg7\/Ps6mQ6SXdmwoGNNqmpz+dn+9mfuvHYhSHUPgyU7Cv3f\/7aff71x6e\/P\/71288\/vYtCrLFqyD2FQfrjL13k\/vhNR33Ah3rlPlMaAvXH5+4L3ispq8SglCWzTooZ\/FZNWNnpLlesaY62EgNWiu3OjBnSQ06aMKoZM9g36WHeU3PCKGCEOZzAvMxnZfT79yo5id2ZbFfOGGXbgfsMj+B+r
+11-20 05:24:50.801  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"uri":"file:///data/user/0/com.coastlinecode.kidarmor/cache/kidarmor-out/Case%20Binder%20-%20Ava%20Test%20-%202026-11-20.pdf"}
+11-20 05:24:50.802  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:24:50.803  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245291, pluginId: Share, methodName: share
+11-20 05:24:50.803  3822  3822 V Capacitor: callback: 39245291, pluginId: Share, methodName: share, methodData: {"title":"Case Binder - Ava Test - 2026-11-20.pdf","files":["file:\/\/\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/Case%20Binder%20-%20Ava%20Test%20-%202026-11-20.pdf"]}
+11-20 05:24:50.805  3822  3901 D CompatibilityChangeReporter: Compat change id reported: 160794467; UID 10145; state: ENABLED
+11-20 05:24:50.814  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-20 05:24:50.814  3822  3822 D Capacitor/AppPlugin: No listeners found for event pause
+11-20 05:24:50.814  3822  3822 D Capacitor: App paused
+11-20 05:24:56.974  3822  3822 D Capacitor: Unable to find a Capacitor plugin to handle requestCode, trying Cordova plugins 518272080
+11-20 05:24:56.976  3822  3822 D Capacitor: Sending plugin error: {"save":false,"callbackId":"39245291","pluginId":"Share","methodName":"share","success":false,"error":{"message":"Share canceled"}}
+11-20 05:24:56.977  3822  3822 D Capacitor/AppPlugin: Firing change: true
+11-20 05:24:56.977  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-20 05:24:56.977  3822  3822 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-20 05:24:56.977  3822  3822 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-20 05:24:56.977  3822  3822 D Capacitor/AppPlugin: No listeners found for event resume
+11-20 05:24:56.983  3822  3822 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-20 05:24:56.983  3822  3822 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-20 05:24:56.983  3822  3822 D Capacitor: App resumed
+11-20 05:24:56.984  3822  3822 E Capacitor/Console: File: https://localhost/ - Line 331 - Msg: [object Object]
+11-20 05:24:58.543  3822  3840 D EGL_emulation: app_time_stats: avg=50374.89ms min=50374.89ms max=50374.89ms count=1
+11-20 05:25:08.489  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:25:08.489  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245292, pluginId: LocalNotifications, methodName: checkPermissions
+11-20 05:25:08.489  3822  3822 V Capacitor: callback: 39245292, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-20 05:25:08.490  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"display":"granted"}
+11-20 05:25:08.490  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:25:08.491  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245293, pluginId: LocalNotifications, methodName: getPending
+11-20 05:25:08.491  3822  3822 V Capacitor: callback: 39245293, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:25:08.492  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"notifications":[]}
+11-20 05:25:08.494  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:25:08.494  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245294, pluginId: LocalNotifications, methodName: schedule
+11-20 05:25:08.494  3822  3822 V Capacitor: callback: 39245294, pluginId: LocalNotifications, methodName: schedule, methodData: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"2026-11-22T10:00:00.000Z","allowWhileIdle":true},"isExactNotification":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"2026-11-23T09:00:00.000Z","allowWhileIdle":true},"isExactNotification":false}]}
+11-20 05:25:08.508  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"notifications":[{"id":1000},{"id":1001}]}
+11-20 05:25:15.985  3822  3822 W Capacitor/Console: File: https://localhost/vendor/capacitor.js - Line 2 - Msg: Capacitor plugin "LocalNotifications" already registered. Cannot register plugins twice.
+11-20 05:25:15.985  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 350 - Msg: [object Object]
+11-20 05:25:15.985  3822  3822 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 39245295, pluginId: LocalNotifications, methodName: getPending
+11-20 05:25:15.985  3822  3822 V Capacitor: callback: 39245295, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:25:15.994  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 334 - Msg: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"Sun Nov 22 10:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"Mon Nov 23 09:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false}]}
+
+---- end ----
+  ok   a reminder notification shows on the phone
+  ok   app reopens after being closed
+  ok   records still there after reopening  → {"entries":2,"docs":1,"name":"Ava Test"} → {"entries":2,"docs":1,"name":"Ava Test"}
+  ok   recording still plays-ready after reopening  → 77143 bytes
+  ok   back button returns to Home from another screen  → add → home
+  ok   back button closes an open file
+  ok   back button on Home puts the app away without crashing  → pid 8909, on screen: com.google.android.apps.nexuslauncher
+Warning: Activity not started, its current task has been brought to the front
+---- reminder lines from the phone log ----
+11-20 05:22:17.366  3822  3822 D Capacitor: Registering plugin instance: LocalNotifications
+11-20 05:22:17.875  3822  3822 I Capacitor/Console: File: https://localhost/ - Line 4703 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+  ok   no app crashes
+  ok   no script errors in the app
+Android API 31: 31 passed, 2 failed
+ok   app opens and connects
+ok   web view version  → Chrome/91.0.4472.114
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:19
+ok   recording saved on the phone  → {"type":"audio/webm","size":77143,"secs":20,"id":"f1795152190638n8j0e"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"google":false,"supported":true,"api":31,"service":true,"onDevice":true}
+ok   meeting saved from the recording  → "1795152206294"
+ok   Write the transcript button shows for it
+ok   transcript written from the recording (speech service)  → [Recording started 11/20/2026, 5:23:00 AM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+ok   transcript written from the recording (on this phone only)  → [Recording started 11/20/2026, 5:23:00 AM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+ok   meeting notes made from it  → {"overview":"Meeting on Nov 20, 2026 at 5:23 AM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.","problems":[],"agreed":[{"text":"The school agreed to provide speech therapy two times a week.","t":"00:00"},{"text":"The teacher will send a progress report every 
+ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+FAIL PDF preview library loads  → pdf viewer failed: Unexpected token '{'
+FAIL PDF binder is made and shows  → This phone can't show a preview of the PDF. Tap Download to save or share it.
+ok   PDF file written for sharing  → -rw------- 1 u0_a145 u0_a145_cache 10663 2026-11-20 05:24 Case Binder - Ava Test - 2026-11-20.pdf
+ok   Android share sheet opens  → android
+ok   notification permission not needed on this Android
+ok   notifications allowed  → granted
+ok   app stays on screen while scheduling reminders  → com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note | Get updates from teachers | TAP A CATEGORY TO FILTE
+ok   meeting reminders scheduled with Android  → pending: 2
+ok   a reminder notification shows on the phone
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":2,"docs":1,"name":"Ava Test"} → {"entries":2,"docs":1,"name":"Ava Test"}
+ok   recording still plays-ready after reopening  → 77143 bytes
+ok   back button returns to Home from another screen  → add → home
+ok   back button closes an open file
+ok   back button on Home puts the app away without crashing  → pid 8909, on screen: com.google.android.apps.nexuslauncher
+ok   no app crashes
+ok   no script errors in the app
+
