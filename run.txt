@@ -1,0 +1,10 @@
+info phone  → Android API 34, x86_64, screen 2560x1600, WebView 113.0.5672.136
+ok   Welcome screen shows (agree box on screen)  → after 20 s
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:104: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  go = next((nd for nd in nodes(root) if nd.get("resource-id") == "agGo"), None) or find(root, r"^Continue")
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens the app  → KidArmor | KidArmor | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1 | Add your child and school, and set a PIN |
+ok   app still running  → pid 4614
+ok   no crashes
+ok   no script errors
+Store version on Android API 34 (2560x1600): 6 passed, 0 failed
