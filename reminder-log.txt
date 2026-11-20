@@ -1,0 +1,79 @@
+11-20 05:31:13.522  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100075, pluginId: LocalNotifications, methodName: checkPermissions
+11-20 05:31:13.522  4756  4756 V Capacitor: callback: 80100075, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-20 05:31:13.524  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"prompt"}
+11-20 05:31:14.662  4756  4777 D EGL_emulation: app_time_stats: avg=156.73ms min=16.77ms max=1421.51ms count=11
+11-20 05:31:19.133  4756  4756 I AssistStructure: Flattened final assist data: 16828 bytes, containing 1 windows, 24 views
+11-20 05:31:19.180  4756  4777 D EGL_emulation: app_time_stats: avg=4512.57ms min=4512.57ms max=4512.57ms count=1
+11-20 05:31:20.257  4756  4777 D EGL_emulation: app_time_stats: avg=358.98ms min=99.88ms max=767.08ms count=3
+11-20 05:31:20.363  4756  4756 W Capacitor/Console: File: https://localhost/vendor/pdf.worker.min.mjs - Line 25 - Msg: Warning: getOperatorList - ignoring errors during "GetOperatorList: page 0" task: "TypeError: o.transferToFixedLength is not a function".
+11-20 05:31:20.551  4756  4756 W Capacitor/Console: File: https://localhost/vendor/pdf.worker.min.mjs - Line 25 - Msg: Warning: getOperatorList - ignoring errors during "GetOperatorList: page 1" task: "TypeError: o.transferToFixedLength is not a function".
+11-20 05:31:21.166  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:21.169  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100076, pluginId: Filesystem, methodName: rmdir
+11-20 05:31:21.169  4756  4756 V Capacitor: callback: 80100076, pluginId: Filesystem, methodName: rmdir, methodData: {"path":"kidarmor-out","directory":"CACHE","recursive":true}
+11-20 05:31:21.171  4756  4756 D Capacitor: Sending plugin error: {"save":false,"callbackId":"80100076","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-20 05:31:21.173  4756  4756 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-20 05:31:21.174  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:21.178  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100077, pluginId: Filesystem, methodName: writeFile
+11-20 05:31:21.183  4756  4756 V Capacitor: callback: 80100077, pluginId: Filesystem, methodName: writeFile, methodData: {"path":"kidarmor-out\/Case Binder - Ava Test - 2026-11-20.pdf","data":"JVBERi0xLjcKJYGBgYEKCjcgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCA2MjAKPj4Kc3RyZWFtCnicnVTLalsxEN3rK7QuxJ0ZzUOCUqjte+mim8LdlS5KHn2QUFJK+\/ud0XViJ7FdbIwleTzSmXPmcZ9ggZRhUcwXlvzra4L8N336nCFfJfQVcqzKlC\/vdgyw52dssaJAvk3qD29PsX9LN+ljuk\/LyW\/Gx9Fev7++\/XP9+\/vll4vlz9urC4NWuYLVlhHzdJOI8\/ThEUk4G1Ge7tIbXnJjZhTiNY9CBARLi5WLWwuLn8h9BvcSobd5+pGmV2mY\/htEMyatJFpzgb1BaIU5CDR1eiCsYsX4JYhrq6EtxqL70AgAKkirmhEWshdPpC1EO6SAkYOBYuyeGFCytg8YmmNiicWeATcTYG0EdgDTH98F5Xc6WtF6Dj8TIyl++Rg\/5gUc5DfqcCK\/ygJYAY\/z24Ly4PzU4dYa4F5MhQrQat79q+cwr+pZNaxWjzCnus2srhRP5iqVWJVKOYTSuW5hgqsOKucwQm9Obzg0OcIIy2MuI4PFpSVlK57JMss8Z\/ZEnlZrbYj+yDGeW\/A5py8z6UXPOvpwOPh\/jJHiNeBBDsYebIvu3tgx7Fa9nJvXio8KKycq2awV5kYtt70CIspMoPREqQPxHIqfUFc09IHjAXRNI7whPKJstd9xTwxr\/G\/RTy3GlFt9JnZv7TlZd1uLG25Hf2n0Zo2OC5Lr7ul+gccxE8HMbzy8+WIGdWFrYMQoNHmImmy+s\/EeOoL6edQ19Zee1MgyXj55lJJBxdaaF\/kBVYEWUruwQXsn2JBg3aUZvY8i6+gB1Z5n3QT8KMFGdHxGaKa4QyUqqssXd1Zut566kJktUloc8Wmr\/wNxTKGqCmVuZHN0cmVhbQplbmRvYmoKCjkgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAxODQ2Cj4+CnN0cmVhbQp4nL1ZS4\/jRBC+51f4jEToenR1t4SQdiYJHLgAc0McEMtTO0KLEPx9virbicexM8nssBOtJ2O7u6vqq8dXte83dw+btCXu0lYKLpq7v37dfPbVz+\/++fnv33\/68dO7P9+9\/dRKEqtsph3l7uGXDWv38PWGuoQPdVm7QtI9PG4+z1Ky7fChwqV90T38sXn4ZLN\/2HyzeT8\/6NsvN7TN3b+b73\/ANm83vk2y7nHyJdf49m7z3bBBzVhbfYMW60+rJ8KYWvfT4\/GOX8\/\/9F9+zQnbE0+++O\/fjicWpmzVuGhOrSbF0Zy1JWqWSlWhUIf6b+MTciumZeEaXy+cDiLpE9F+CdECudT8cPFLWUKuSM7WFBbD6jPgjDszC+AkzcCK7cUcKvKLzbavUD5RLkRdXd45c+ysDJe4t\/vSrNneyplTPI8pVX5dULMSFdOScq0s2e0njq60I9quuT2BmfMKqiHeR4W1mVUR0SaLuFJLLweWc6oQSnUJ19h5BLZpzokTHzjBhkmUUzGAfADcBAv6t\/0L4BZKrwv3WXRCbcncJl7gtj4L9WW4Q7yPCjchhIS5Ci\/CLVRfDncpnOBO3PIS3rH1gHdWIyB7Z9kc6WINGFd8wxXvpCKGKgHMgf8LUFepr4s6H+O7R7p2y4E\/+1lBPcT7qKhrRiiijNoy6gpbHVHnG1FHVZCaxdIi6rH1GOU74J0jms+T93N6aEUKLanl1hGMv0gdjJ0FxFEHpI9ceOJSCYlECtxNkGjgHVRaEaScCmdzgcTf0r1hJd5hvHXf\/8Y\/+LT\/pQ0rK1aav4s9DtaTlGx7nBPO7LsX2BrPGC6Op37KZReXN9ht7ykOT\/ZxThnOQJjgzcONxiowU66sqCbrxkplmyisBTkPVvA5agDZDqETQUOdaSBxHz8h3z7WwNL2BF6smSfsq1yV\/cTWBFyIaEX0XGU7+hRySGmjwA4iTL8vsnS0etiSezLI49y7WFtLzGsGM+QGy1vr3au5qxCUZFd5dAA3k1lAvzsBvepSM4OdXMv2gB9GtX73\/VE7VETsvuth8lUOC+600x6gRtjxZabPFdVKsUO6YHoVN+EQY2kQr4X375bNfslPc2NwPxx7weyct9yOZkemyb3PGVJhACAwm\/vsvavuknjcw1iHafxfD4PH2zGGd9DNncqhJT9txfCLBn+uGcoFbAGc0NZ6IbAy6D75ySMPdr0JBRQ5CJF5To2ea4+QTuc7P67fR\/O08GDspa5yLjMCxa9o\/9ZTEqDblgV1Z4nF0+VymbogBFguvC15d7l+fg7yPj8\/D6kPps5ldLwB\/nD8\/dQRQzp6iTsYaIQiC4OKr\/kDYwOaCKgjnWrhxfdhony7N5DM931cv+\/ecP7giTd8AGE6KwhoUIiRbVtXF1OEdtJ0ySy604y+QtFd7HWRb1ygNUTVEjmuXVugNda2ueTVk1eTDae74lfxPucN7s0nG1cFU2WvFZwSyhUtm6TURcEOfT4st4YPuJOknKTqWqbGmcZbk8mZ4yAHGOzwIaTyW9VlIkQYeql64VwRFObJuQtZA1F78Di9UAYoyOGAitd33fkbSLM8Rr5QlAvs6H8PZC33VLO0gcA5VaKgTBr9q\/YF8nQ\/6vpYbPq8gVJlPYG8tXIb\/NRMJa2WUBgo6dbKmYH2UecUR5NTJvAuT2npiaiR0vBODkE1FL73mnhMfNrvMrDaqTqj4Wms17jX7117Yx9P0aiySNDYV9bNcCFcrUZxaWit2ooVuDa073Mr5DOJPYErgdfH2AHSOcVMPSFzqvmko+Ce+nkfEbw5nIOb3A16u7vlnpiG7mEtO3OZwR7H3sAZNp7rWSZ\/3U40u1UKMtnJKGisr+5LUdG3RdPpp6AKyNrts671FYtEy1LNqWRdLRKoI3NFP7xICJkzZtFLRWLt5GuLhCxPYp4d2CJlE4Ezt7UiweA7S4K9tEgUNBCcqsJiq7mIRbfTIKz2CkUCaxAzpBdyIDqHbZsUxLrELW+qEuIBf22VeDrxmr4NwVP0eXIaD3hKRsppt9SXWwt640wQi9ZNRo22OuH8tecQ\/0sZQw7QLAj+C+KAXiBMT+IMs8TJICUsO3blQ7qVNzeKgp5MkYJqveBNpGXbJpSjhii8C6DP5jtLYo0dZoy5dcj6647gNbgMlTa4ft+RhjP4mrtwsjvxnPHGr3l3a\/DCbX1evT4CgdpgWjj\/ktoajan0wvdjI\/8vmzDItHHv2+swihf93oVggIOXvWmJRAT4TKX1I7sPVhNehlJRTNb6QFcTfEnrXE0kBecYOp8Y3OxgWuBgrClfsDS4yiRJTgytnjY45oWL0kQykGMi0\/AnH1HxcS7SzGazSB3nOAOji7tY4\/G8Hycc1xj+0v8OMPoRQUeVlubEzARy1rGOUz3grRTTrhjjBBGNEa1xCDSMecZSqT45o\/DD3I95xyc5gs9XxpDy4GNLeZot\/wMeaIfFCmVuZHN0cmVhbQplbmRvYmoKCjExIDAgb2JqCjw8Ci9GaWx0ZXIgL0ZsYXRlRGVjb2RlCi9MZW5ndGggMTExOQo+PgpzdHJlYW0KeJy9Vk2P40QQvftX+Iy0prvro7ulFdI4ieHABcgNcUC7CwLNCC1C8Pd5Ve18Os5MODDRJHZ\/vnpV9ao+d+O+C0OofRgi2Vfu\/\/y1+\/KbT89\/f\/rrtw8\/v0sSWVPVkPsYBun3v3SJ+\/23XewDPrFX7nOkIcR+\/9K9561GZZUUNGbJrJNiBL9VCTMb3eSKOc3JZlLATLHVmTESdZdJCU81YwTrJt3Na2omPAU8YQw7MC7zXhn9\/K1KJrEzyVbljKdsK
+11-20 05:31:21.200  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"uri":"file:///data/user/0/com.coastlinecode.kidarmor/cache/kidarmor-out/Case%20Binder%20-%20Ava%20Test%20-%202026-11-20.pdf"}
+11-20 05:31:21.200  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:21.201  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100078, pluginId: Share, methodName: share
+11-20 05:31:21.201  4756  4756 V Capacitor: callback: 80100078, pluginId: Share, methodName: share, methodData: {"title":"Case Binder - Ava Test - 2026-11-20.pdf","files":["file:\/\/\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/Case%20Binder%20-%20Ava%20Test%20-%202026-11-20.pdf"]}
+11-20 05:31:21.206  4756  4836 D CompatibilityChangeReporter: Compat change id reported: 160794467; UID 10192; state: ENABLED
+11-20 05:31:21.221  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-20 05:31:21.221  4756  4756 D Capacitor/AppPlugin: No listeners found for event pause
+11-20 05:31:21.221  4756  4756 D Capacitor: App paused
+11-20 05:31:22.748  4756  4777 D EGL_emulation: app_time_stats: avg=206.97ms min=46.84ms max=1586.93ms count=12
+11-20 05:31:27.516  4756  4756 D Capacitor: Unable to find a Capacitor plugin to handle requestCode, trying Cordova plugins 94506908
+11-20 05:31:27.516  4756  4756 D Capacitor: Sending plugin error: {"save":false,"callbackId":"80100078","pluginId":"Share","methodName":"share","success":false,"error":{"message":"Share canceled"}}
+11-20 05:31:27.517  4756  4756 D Capacitor/AppPlugin: Firing change: true
+11-20 05:31:27.517  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-20 05:31:27.517  4756  4756 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-20 05:31:27.517  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-20 05:31:27.517  4756  4756 D Capacitor/AppPlugin: No listeners found for event resume
+11-20 05:31:27.528  4756  4756 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-20 05:31:27.528  4756  4756 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-20 05:31:27.528  4756  4756 D Capacitor: App resumed
+11-20 05:31:27.529  4756  4756 E Capacitor/Console: File:  - Line 330 - Msg: [object Object]
+11-20 05:31:29.054  4756  4777 D EGL_emulation: app_time_stats: avg=6305.76ms min=6305.76ms max=6305.76ms count=1
+11-20 05:31:33.621  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:33.622  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100079, pluginId: LocalNotifications, methodName: requestPermissions
+11-20 05:31:33.622  4756  4756 V Capacitor: callback: 80100079, pluginId: LocalNotifications, methodName: requestPermissions, methodData: {}
+11-20 05:31:33.629  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-20 05:31:33.629  4756  4756 D Capacitor/AppPlugin: No listeners found for event pause
+11-20 05:31:33.629  4756  4756 D Capacitor: App paused
+11-20 05:31:40.206  4756  4756 D Capacitor: Unable to find a Capacitor plugin to handle permission requestCode, trying Cordova plugins 380357937
+11-20 05:31:40.211  4756  4756 D Capacitor/AppPlugin: Firing change: true
+11-20 05:31:40.211  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-20 05:31:40.211  4756  4756 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-20 05:31:40.211  4756  4756 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-20 05:31:40.211  4756  4756 D Capacitor/AppPlugin: No listeners found for event resume
+11-20 05:31:40.217  4756  4756 V Capacitor/NativeBiometric: Notifying listeners for event biometryChange
+11-20 05:31:40.217  4756  4756 D Capacitor/NativeBiometric: No listeners found for event biometryChange
+11-20 05:31:40.217  4756  4756 D Capacitor: App resumed
+11-20 05:31:40.218  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-20 05:31:40.233  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:40.234  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100080, pluginId: LocalNotifications, methodName: checkPermissions
+11-20 05:31:40.234  4756  4756 V Capacitor: callback: 80100080, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-20 05:31:40.256  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-20 05:31:40.256  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:40.257  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100081, pluginId: LocalNotifications, methodName: getPending
+11-20 05:31:40.257  4756  4756 V Capacitor: callback: 80100081, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:31:40.270  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-20 05:31:44.627  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:44.628  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100082, pluginId: LocalNotifications, methodName: checkPermissions
+11-20 05:31:44.628  4756  4756 V Capacitor: callback: 80100082, pluginId: LocalNotifications, methodName: checkPermissions, methodData: {}
+11-20 05:31:44.630  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"display":"granted"}
+11-20 05:31:44.630  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:44.631  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100083, pluginId: LocalNotifications, methodName: getPending
+11-20 05:31:44.631  4756  4756 V Capacitor: callback: 80100083, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:31:44.633  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[]}
+11-20 05:31:44.636  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:44.637  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100084, pluginId: LocalNotifications, methodName: schedule
+11-20 05:31:44.637  4756  4756 V Capacitor: callback: 80100084, pluginId: LocalNotifications, methodName: schedule, methodData: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"2026-11-22T10:00:00.000Z","allowWhileIdle":true},"isExactNotification":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"2026-11-23T09:00:00.000Z","allowWhileIdle":true},"isExactNotification":false}]}
+11-20 05:31:44.651  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000},{"id":1001}]}
+11-20 05:31:52.445  4756  4756 W Capacitor/Console: File: https://localhost/vendor/capacitor.js - Line 2 - Msg: Capacitor plugin "LocalNotifications" already registered. Cannot register plugins twice.
+11-20 05:31:52.445  4756  4756 I Capacitor/Console: File:  - Line 349 - Msg: [object Object]
+11-20 05:31:52.446  4756  4756 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80100085, pluginId: LocalNotifications, methodName: getPending
+11-20 05:31:52.446  4756  4756 V Capacitor: callback: 80100085, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-20 05:31:52.454  4756  4756 I Capacitor/Console: File:  - Line 333 - Msg: {"notifications":[{"id":1000,"title":"IEP meeting in 1 day","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"Sun Nov 22 10:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false},{"id":1001,"title":"IEP meeting in 1 hour","body":"Mon, Nov 23 at 10:00 AM","schedule":{"at":"Mon Nov 23 09:00:00 UTC 2026","count":1,"repeats":false},"isExactNotification":false,"isExactMandatory":false}]}
