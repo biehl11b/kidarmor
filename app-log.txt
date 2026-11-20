@@ -1,0 +1,80 @@
+11-20 05:22:23.229  1745  1767 V installd: DexInv: --- END '/data/app/com.coastlinecode.kidarmor-JlZnyVf-YtAde9ZlTWkDQg==/base.apk' (success) ---
+11-20 05:22:25.137  6094  6094 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:25.144  6094  6094 I AndroidRuntime: Using default boot image
+11-20 05:22:25.144  6094  6094 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:25.575  6094  6094 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:25.575  6094  6094 W Monkey  : args: [-p, com.coastlinecode.kidarmor, -c, android.intent.category.LAUNCHER, 1]
+11-20 05:22:25.575  6094  6094 W Monkey  :  arg: "com.coastlinecode.kidarmor"
+11-20 05:22:25.575  6094  6094 W Monkey  : data="com.coastlinecode.kidarmor"
+11-20 05:22:25.732  1909  6037 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-20 05:22:26.450  6094  6094 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:26.462  1909  1942 I ActivityManager: Start proc 6155:com.coastlinecode.kidarmor/u0a146 for activity {com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-20 05:22:26.577  6155  6155 I chatty  : uid=10146(com.coastlinecode.kidarmor) identical 1 line
+11-20 05:22:26.971  6155  6155 I WebViewFactory: Loading com.google.android.webview version 74.0.3729.185 (code 373018568)
+11-20 05:22:27.380  6155  6155 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:27.406  1909  1942 I ActivityManager: Start proc 6187:com.google.android.webview:webview_service/u0a130 for service {com.google.android.webview/org.chromium.android_webview.services.VariationsSeedServer}
+11-20 05:22:27.437  6155  6155 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-20 05:22:26.710  6155  6155 W RenderThread: type=1400 audit(0.0:54): avc: denied { write } for name="property_service" dev="tmpfs" ino=7424 scontext=u:r:untrusted_app:s0:c146,c256,c512,c768 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=0 app=com.coastlinecode.kidarmor
+11-20 05:22:27.486  1909  1942 I ActivityManager: Start proc 6196:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0}
+11-20 05:22:27.562  6155  6155 E chromium: [ERROR:filesystem_posix.cc(89)] stat /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crashpad: No such file or directory (2)
+11-20 05:22:27.562  6155  6155 E chromium: [ERROR:filesystem_posix.cc(62)] mkdir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crashpad: No such file or directory (2)
+11-20 05:22:27.842  6155  6155 D Capacitor: Starting BridgeActivity
+11-20 05:22:27.912  2056  6121 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+11-20 05:22:27.920  2056  6121 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+11-20 05:22:28.046  6196  6233 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:28.103  2209  6130 I ChromeSync: [Sync,SyncIntentOperation] Handling the intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }.
+11-20 05:22:28.530  2209  6130 I ChromeSync: [Persistence,AffiliationManager] One of affiliation or grouping data for android://k4yaIeMpBZo2jNLObS1aguVPf_4eI-_EF0wbkO177HH0cIm3gZ4VeQU7d2FqUyCOm635rLyryvtn8CR2uBB04g==@com.coastlinecode.kidarmor/ was not found. Marking affiliation data as stale...
+11-20 05:22:28.695  6155  6252 I chatty  : uid=10146(com.coastlinecode.kidarmor) Chrome_InProcGp identical 2 lines
+11-20 05:22:29.280  6155  6252 I chatty  : uid=10146(com.coastlinecode.kidarmor) Chrome_InProcGp identical 2 lines
+11-20 05:22:29.626  1909  1936 I WindowManager: Screen frozen for +3s776ms due to Window{3c03f36 u0 com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-20 05:22:33.474  6155  6388 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:33.791  1909  1940 I ActivityTaskManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +3s865ms
+11-20 05:22:39.282  2868  6517 I WebViewFactory: Loading com.google.android.webview version 74.0.3729.185 (code 373018568)
+11-20 05:22:39.333  2868  6517 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-20 05:22:40.768  1909  2822 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.games.chimera.GamesSystemBroadcastReceiverProxy
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.gass.chimera.PackageChangeBroadcastReceiver
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-20 05:22:40.769  1909  1941 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-20 05:22:43.007  6618  6618 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:43.017  6618  6618 I AndroidRuntime: Using default boot image
+11-20 05:22:43.017  6618  6618 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:43.205  6618  6618 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:44.248  6618  6618 D AndroidRuntime: Shutting down VM
+11-20 05:22:47.357  6690  6690 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:47.358  6690  6690 I AndroidRuntime: Using default boot image
+11-20 05:22:47.358  6690  6690 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:47.409  6690  6690 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:48.473  6690  6690 D AndroidRuntime: Shutting down VM
+11-20 05:22:48.572  6708  6708 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:48.573  6708  6708 I AndroidRuntime: Using default boot image
+11-20 05:22:48.573  6708  6708 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:48.620  6708  6708 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:49.683  6708  6708 D AndroidRuntime: Shutting down VM
+11-20 05:22:49.952  6730  6730 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:49.953  6730  6730 I AndroidRuntime: Using default boot image
+11-20 05:22:49.953  6730  6730 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:49.999  6730  6730 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:50.008  6730  6730 D AndroidRuntime: Shutting down VM
+11-20 05:22:52.076  6742  6742 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:52.078  6742  6742 I AndroidRuntime: Using default boot image
+11-20 05:22:52.078  6742  6742 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:52.120  6742  6742 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:53.170  6742  6742 D AndroidRuntime: Shutting down VM
+11-20 05:22:53.437  6764  6764 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:53.439  6764  6764 I AndroidRuntime: Using default boot image
+11-20 05:22:53.439  6764  6764 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:53.484  6764  6764 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-20 05:22:53.495  6764  6764 D AndroidRuntime: Shutting down VM
+11-20 05:22:56.569  6777  6777 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:56.571  6777  6777 I AndroidRuntime: Using default boot image
+11-20 05:22:56.571  6777  6777 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:56.612  6777  6777 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:57.671  6777  6777 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.769  6795  6795 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:57.770  6795  6795 I AndroidRuntime: Using default boot image
+11-20 05:22:57.770  6795  6795 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:57.816  6795  6795 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:58.867  6795  6795 D AndroidRuntime: Shutting down VM
