@@ -1,0 +1,159 @@
+11-20 05:22:37.547   979   979 D CarrierSvcBindHelper: onPackageAdded: com.coastlinecode.kidarmor
+11-20 05:22:37.707  4180  4180 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:37.710  4180  4180 I AndroidRuntime: Using default boot image
+11-20 05:22:37.710  4180  4180 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:37.775   979   979 D CarrierSvcBindHelper: onPackageModified: com.coastlinecode.kidarmor
+11-20 05:22:37.936   979   979 D ImsResolver: maybeAddedImsService, packageName: com.coastlinecode.kidarmor
+11-20 05:22:37.937   979   979 D ImsResolver: maybeAddedImsService, packageName: com.coastlinecode.kidarmor
+11-20 05:22:37.965  4180  4180 D AndroidRuntime: Calling main entry com.android.commands.monkey.Monkey
+11-20 05:22:37.966  4180  4180 W Monkey  : args: [-p, com.coastlinecode.kidarmor, -c, android.intent.category.LAUNCHER, 1]
+11-20 05:22:37.967  4180  4180 W Monkey  :  arg: "com.coastlinecode.kidarmor"
+11-20 05:22:37.967  4180  4180 W Monkey  : data="com.coastlinecode.kidarmor"
+11-20 05:22:38.009   481  2462 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-20 05:22:38.065   481   512 I ActivityManager: Start proc 4257:com.coastlinecode.kidarmor/u0a174 for next-top-activity {com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-20 05:22:38.073  4257  4257 I necode.kidarmor: Using CollectorTypeCC GC.
+11-20 05:22:38.074  4257  4257 W necode.kidarmor: Unexpected CPU variant for x86: x86_64.
+11-20 05:22:38.074  4257  4257 W necode.kidarmor: Known variants: atom, sandybridge, silvermont, kabylake, default
+11-20 05:22:38.075  4180  4180 I AndroidRuntime: VM exiting with result code 0.
+11-20 05:22:38.145  4257  4257 D nativeloader: Configuring classloader-namespace for other apk /system_ext/framework/androidx.window.extensions.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/base.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.xxhdpi.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.coastlinecode.kidarmor
+11-20 05:22:38.146  4257  4257 D nativeloader: Configuring classloader-namespace for other apk /system_ext/framework/androidx.window.sidecar.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/base.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.xxhdpi.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.coastlinecode.kidarmor
+11-20 05:22:38.147  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.dm': No such file or directory
+11-20 05:22:38.147  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.dm': No such file or directory
+11-20 05:22:38.147  4257  4257 W necode.kidarmor: Entry not found
+11-20 05:22:38.147  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.dm': No such file or directory
+11-20 05:22:38.147  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.dm': No such file or directory
+11-20 05:22:38.147  4257  4257 W necode.kidarmor: Entry not found
+11-20 05:22:38.151  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.xxhdpi.dm': No such file or directory
+11-20 05:22:38.151  4257  4257 W ziparchive: Unable to open '/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.xxhdpi.dm': No such file or directory
+11-20 05:22:38.151  4257  4257 W necode.kidarmor: Entry not found
+11-20 05:22:38.152  4257  4257 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/base.apk:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.apk:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.apk:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/base.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.en.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFoVg==/com.coastlinecode.kidarmor-jhjLfGrNUrvjtuFiB4cMjw==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~BATO8Q25_mA1PYqhmCFo
+11-20 05:22:38.153  4257  4257 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-20 05:22:38.155   481  1299 D CoreBackPreview: Window{29c62c9 u0 Splash Screen com.coastlinecode.kidarmor}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@189810b, mPriority=0}
+11-20 05:22:38.212  4257  4257 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-20 05:22:38.212  4257  4257 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-20 05:22:38.303  4257  4257 V GraphicsEnvironment: ANGLE Developer option for 'com.coastlinecode.kidarmor' set to: 'default'
+11-20 05:22:38.309  4257  4257 V GraphicsEnvironment: ANGLE GameManagerService for com.coastlinecode.kidarmor: false
+11-20 05:22:38.682  4257  4257 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-20 05:22:38.685  4257  4257 W necode.kidarmor: Entry not found
+11-20 05:22:38.689  4257  4257 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-20 05:22:38.772  4257  4257 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-20 05:22:38.938  4257  4315 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new"
+11-20 05:22:38.938  4257  4315 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed"
+11-20 05:22:39.261  4257  4331 W chromium: [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+11-20 05:22:39.339   481   512 I ActivityManager: Start proc 4336:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0ai9000 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+11-20 05:22:39.435  4257  4346 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Default/HTTP Cache/Code Cache/js: No such file or directory (2)
+11-20 05:22:39.435  4257  4346 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-20 05:22:39.436  4257  4346 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Default/HTTP Cache/Code Cache/wasm: No such file or directory (2)
+11-20 05:22:39.436  4257  4346 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-20 05:22:39.479  4336  4336 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-20 05:22:39.506  4257  4257 D Capacitor: Starting BridgeActivity
+11-20 05:22:39.575   481   512 I ActivityManager: Start proc 4403:com.google.android.webview:webview_apk/u0a124 for service {com.google.android.webview/org.chromium.android_webview.nonembedded.AwComponentUpdateService}
+11-20 05:22:39.719   481  2489 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 Status: 7
+11-20 05:22:39.724   481  2061 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 Status: 7
+11-20 05:22:39.780   481  4414 D SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService
+11-20 05:22:39.780   481  4414 V SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.webkit.WebViewUpdateService took to complete: 0ms
+11-20 05:22:39.896   481  1298 D CoreBackPreview: Window{d7900 u0 com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@416818, mPriority=0}
+11-20 05:22:39.931  4403  4403 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:39.932  4403  4403 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:22:40.065  4403  4403 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:webview_apk
+11-20 05:22:40.731  4403  4469 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-541412337:48)
+11-20 05:22:40.762  4336  4438 E chromium: [ERROR:tile_manager.cc(826)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:40.764  4336  4438 E chromium: [ERROR:tile_manager.cc(826)] WARNING: tile memory limits exceeded, some content may not draw
+11-20 05:22:41.026  4403  4467 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-541412337:48)
+11-20 05:22:41.027  4403  4469 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-541412337:48)
+11-20 05:22:41.171  4403  4469 W cr_AWNetworkFetcherTask: 	at org.chromium.android_webview.nonembedded.NetworkFetcherTask.download(chromium-TrichromeWebViewGoogle6432.apk-stable-541412337:48)
+11-20 05:22:41.210   481   500 I ActivityTaskManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +3s135ms
+11-20 05:22:41.298  1468  1468 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.coastlinecode.kidarmor fieldId=2131296765 fieldName=null extras=null}, false)
+11-20 05:22:43.210   481   503 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{2f77aa3 u0 com.coastlinecode.kidarmor/.MainActivity} t9} state 2
+11-20 05:22:43.580   481  2492 W InputManager-JNI: Input channel object '29c62c9 Splash Screen com.coastlinecode.kidarmor (client)' was disposed without first being removed with the input manager!
+11-20 05:22:45.314  4257  4695 D ProfileInstaller: Installing profile for com.coastlinecode.kidarmor
+11-20 05:22:45.941  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.941  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.941  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.941  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.943  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.949  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.949  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.949  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.949  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.950  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.950  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.950  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.950  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.951  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.getEnabledCronetProviders(PG:5)
+11-20 05:22:45.951  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.createBuilderDelegate(PG:2)
+11-20 05:22:45.951  3145  3286 D StrictMode: 	at org.chromium.net.CronetEngine$Builder.<init>(PG:1)
+11-20 05:22:45.951  3145  3286 D StrictMode: 	at org.chromium.net.ExperimentalCronetEngine$Builder.<init>(PG:1)
+11-20 05:22:46.068  1554  1554 I AiAiEcho: EchoSearch: AppFetcherImpl is initialized with [19] apps [time=14, reason=com.coastlinecode.kidarmor is added]
+11-20 05:22:46.948  3145  4738 I cr_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@d6bc419
+11-20 05:22:50.609  1085  1097 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:22:54.800  5248  5248 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:22:54.816  5248  5248 I AndroidRuntime: Using default boot image
+11-20 05:22:54.816  5248  5248 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:22:55.016  5248  5248 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:22:56.179  5248  5248 D AndroidRuntime: Shutting down VM
+11-20 05:22:57.094  1065  3066 I HeterodyneSyncScheduler: Scheduling Phenotype for a PhenotypeSyncImmediately(6, org.chromium.net.cronet) one off with window [1, 2] in seconds [CONTEXT service_id=51 ]
+11-20 05:22:57.211  4992  4992 I HibernationPolicy: android.cameraextensions=Thu Jan 01 00:00:00 UTC 1970, com.google.android.apps.wallpaper.nexus=Thu Jan 01 00:00:00 UTC 1970, com.android.localtransport=Fri Nov 20 05:22:12 UTC 2026, com.google.android.apps.nexuslauncher=Fri Nov 20 05:22:51 UTC 2026, com.google.android.nearby.halfsheet=Thu Jan 01 00:00:00 UTC 1970, com.android.carrierdefaultapp=Thu Jan 01 00:00:00 UTC 1970, com.android.theme.font.notoserifsource=Thu Jan 01 00:00:00 UTC 1970, com.android.proxyhandler=Thu Jan 01 00:00:00 UTC 1970, com.google.android.safetycenter.resources=Thu Jan 01 00:00:00 UTC 1970, com.android.internal.display.cutout.emulation.waterfall=Thu Jan 01 00:00:00 UTC 1970, com.android.intentresolver=Thu Jan 01 00:00:00 UTC 1970, com.google.android.connectivity.resources=Thu Jan 01 00:00:00 UTC 1970, com.android.providers.contacts.auto_generated_rro_product__=Thu Jan 01 00:00:00 UTC 1970, com.google.android.feedback=Thu Jan 01 00:00:00 UTC 1970, com.google.android.printservice.recommendation=Thu Jan 01 00:00:00 UTC 1970, com.android.managedprovisioning=Fri Nov 20 05:22:10 UTC 2026, com.android.soundpicker=Thu Jan 01 00:00:00 UTC 1970, com.google.android.documentsui=Fri Nov 20 05:22:32 UTC 2026, com.android.systemui.emulation.pixel_3a_xl=Thu Jan 01 00:00:00 UTC 1970, com.android.systemui.emulation.pixel_6_pro=Thu Jan 01 00:00:00 UTC 1970, com.android.systemui.emulation.pixel_7_pro=Thu Jan 01 00:00:00 UTC 1970, com.google.mainline.telemetry=Thu Jan 01 00:00:00 UTC 1970, com.google.android.systemui.gxoverlay=Thu Jan 01 00:00:00 UTC 1970, com.android.carrierconfig.auto_generated_rro_product__=Thu Jan 01 00:00:00 UTC 1970, com.android.emulator.multidisplay=Fri Nov 20 05:22:32 UTC 2026, com.android.providers.partnerbookmarks=Thu Jan 01 00:00:00 UTC 1970, com.android.wallpaper.livepicker=Thu Jan 01 00:00:00 UTC 1970, com.coastlinecode.kidarmor=Fri Nov 20 05:22:38 UTC 2026, com.android.providers.telephony.auto_generated_rro_product__=Thu Jan 01 00:00:00 UTC 1970, com.android.phone.auto_generated_rro_vendor__=Thu Jan 01 00:00:00 UTC 1970, com.google.mainline.adservices=Thu Jan 01 00:00:00 UTC 1970, com.android.imsserviceentitlement=Thu Jan 01 00:00:00 UTC 1970, com.google.android.sdksetup=Fri Nov 20 05:22:12 UTC 2026, com.android.internal.emulation.pixel_2_xl=Thu Jan 01 00:00:00 UTC 1970, com.android.internal.emulation.pixel_3_xl=Thu Jan 01 00:00:00 UTC 1970, com.android.internal.emulation.pixel_4_xl=Thu Jan 01 00:00:00 UTC 1970, com.android.storagemanager=Thu Jan 01 00:00:00 UTC 1970, com.android.bookmarkprovider=Thu Jan 01 00:00:00 UTC 1970, com.google.android.overlay.pixelconfigcommon=Thu Jan 01 00:00:00 UTC 1970, com.android.settings=Fri Nov 20 05:22:32 UTC 2026, com.android.systemui.emulation.pixel_3a=Thu Jan 01 00:00:00 UTC 1970, com.android.systemui.emulation.pixel_4a=Thu Jan 01 00:00:00 UTC 1970, com.android.systemui.emulation.pixel_6a=Thu Jan 01 00:00:00 UTC 1970, com.google.android.settings.intelligence=Fri Nov 20 05:22:31 UTC 2026, com.google.android.uwb.resources=Thu Jan 01 00:00:00 UTC 1970, com.android.cts.ctsshim=Thu Jan 01 00:00:00 UTC 1970, com.google.android.wifi.resources=Thu Jan 01 00:00:00 UTC 1970, com.android.remoteprovisioner=Fri Nov 20 05:22:45 UTC 2026, com.google.android.wifi.dialog=Thu Jan 01 00:00:00 UTC 1970, com.android.vpndialogs=Thu Jan 01 00:00:00 UTC 1970, com.google.android.apps.wallpaper=Fri Nov 20 05:22:13 UTC 2026, com.google.android.odad=Thu Jan 01 00:00:00 UTC 1970, com.android.phone=Fri Nov 20 05:22:05 UTC 2026, com.android.shell=Thu Jan 01 00:00:00 UTC 1970, com.android.wallpaperbackup=Thu Jan 01 00:00:00 UTC 1970, com.android.providers.blockednumber=Thu Jan 01 00:00:00 UTC 1970, com.android.settings.auto_generated_rro_product__=Thu Jan 01 00:00:00 UTC 1970, com.android.providers.userdictionary=Thu Jan 01 00:00:00 UTC 1970, com.android.emergency=Fri Nov 20 05:22:51 UTC 2026, com.android.internal.systemui.navbar.gestural=Thu Jan 01 00:00:00 UTC 1970, com.android.location.fused=Fri Nov 20 05:22:05 UTC 2026, com.android.systemui=Fri Nov 
+11-20 05:23:00.258  5398  5398 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:00.274  5398  5398 I AndroidRuntime: Using default boot image
+11-20 05:23:00.274  5398  5398 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:00.535  5398  5398 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:01.750  5398  5398 D AndroidRuntime: Shutting down VM
+11-20 05:23:02.712  4638  4638 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:02.717  5474  5474 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:02.721  5474  5474 I AndroidRuntime: Using default boot image
+11-20 05:23:02.721  5474  5474 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:02.893  5474  5474 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:03.040  5484  5484 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.228  5530  5530 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.423  5548  5548 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.748  5611  5611 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.867  5629  5629 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.982  5648  5648 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:03.990  5474  5474 D AndroidRuntime: Shutting down VM
+11-20 05:23:04.003  5474  5667 I AndroidRuntime: NOTE: attach of thread 'binder:5474_3' failed
+11-20 05:23:04.452  5701  5701 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:04.575  5719  5719 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:04.693  5738  5738 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:04.813  5755  5755 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:04.907  5779  5779 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.022  5799  5799 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.098  5818  5818 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.264  5836  5836 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.512  5856  5856 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.736  5877  5877 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.860  5894  5894 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:05.940  5910  5910 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:07.541  5938  5938 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:07.560  5938  5938 I AndroidRuntime: Using default boot image
+11-20 05:23:07.560  5938  5938 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:07.747  5938  5938 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:08.859  5938  5938 D AndroidRuntime: Shutting down VM
+11-20 05:23:10.372   481  1770 D ContentCapturePerUserService: Notified activity assist data for activity: Token{f79a9d2 ActivityRecord{2f77aa3 u0 com.coastlinecode.kidarmor/.MainActivity} t9}} without a session Id
+11-20 05:23:11.719  6017  6017 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:23:11.722  6017  6017 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/lib/x86_64:/data/app/~~5CFQSHxs4BLuape9rSudWw==/com.google.android.webview-4RzB3hgckl8Bk8HrwFgaAA==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~Pwqq-ZpjK_dZYJ43L4DIew==/com.google.android.trichromelibrary_541412337-wV7AkP-D8nnQUdaPFChk9A==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.webview
+11-20 05:23:11.735  6017  6017 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview
+11-20 05:23:12.177  1085  5103 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:23:13.048  1085  1101 D PrefCtrlListHelper: Could not find Context-only controller for pref: com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController
+11-20 05:23:13.289  6095  6095 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:13.312  6095  6095 I AndroidRuntime: Using default boot image
+11-20 05:23:13.312  6095  6095 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:13.527  6095  6095 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:14.629  6095  6095 D AndroidRuntime: Shutting down VM
+11-20 05:23:15.136  6124  6124 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:15.341  6149  6149 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:15.413  6202  6202 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:15.664  6257  6257 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-20 05:23:15.676  6257  6257 I AndroidRuntime: Using default boot image
+11-20 05:23:15.676  6257  6257 I AndroidRuntime: Leaving lock profiling enabled
+11-20 05:23:15.799  6257  6257 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-20 05:23:16.122  6356  6356 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:16.346  6407  6407 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-20 05:23:16.903  6257  6257 D AndroidRuntime: Shutting down VM
