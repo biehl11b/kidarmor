@@ -1855,8 +1855,8 @@ async function stopRecording(){REC.stopping=true;clearInterval(REC.timer);clearI
   const parts=REC.segments.length?REC.segments:[{blob:new Blob([],{type:type.split(";")[0]}),type}];REC.paused=false;
   try{const e=await saveMeetingFromRecording({blob:parts[0].blob,type:parts[0].type,extra:parts.slice(1),t0:REC.t0,secs,lines:REC.lines,interim:REC.interim,announcedAt:REC.announcedAt,meet:REC.meet});
     clearRecDraft();
-    if(window.KA_STT_AFTER&&!e.transcript){const s2=document.querySelector(".sheet");if(s2)s2.innerHTML=`<p class="note" style="text-align:center;padding:30px 0" id="txProg">Recording saved. Writing the transcript… A long meeting can take a few minutes. Keep KidArmor open.</p>`;
-      try{await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=typeof p==="string"?`Recording saved. ${p}`:`Recording saved. Writing the transcript… ${Math.round(p*100)}%`})}catch(err){setTimeout(()=>toast(txErrMsg(err)),400)}}
+    if(window.KA_STT_AFTER&&!e.transcript){const s2=document.querySelector(".sheet");if(s2)s2.innerHTML=`<p class="note" style="text-align:center;padding:30px 0" id="txProg">Recording saved. Writing the transcript… It takes about as long as the recording itself, so keep KidArmor open.</p>`;
+      try{await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=typeof p==="string"?`Recording saved. ${p}`:`Recording saved. Writing the transcript… ${Math.round(p*100)}%. It takes about as long as the recording itself, so keep KidArmor open.`})}catch(err){setTimeout(()=>toast(txErrMsg(err)),400)}}
     closeSheet();filter="all";show("home");showSavedMeeting(e)}
   catch(e){closeSheet();toast("Couldn't save the recording. Free up space on your device and try again.")}}
 
@@ -2107,8 +2107,8 @@ async function addTranscript(e,onProgress){const parts=[];for(const m of e.recor
   e.transcript=[`[Recording started ${new Date(t0).toLocaleString()}${e.announcedAt?"; I announced the recording":""}]`,...lines].join("\n");
   e.summary=notes.summary;e.summaryDesc=notes.desc;if(keep){e.desc=notes.desc;e.agreed=notes.agreed;e.actions=notes.actions}save();return lines.length}
 async function writeTranscriptAgain(id){const e=state.entries.find(x=>x.id===id);if(!e||!window.KA_TRANSCRIBE_AFTER)return;
-  openSheet(`<h3>Writing the transcript</h3><p class="note" id="txProg">The phone is listening to the recording. A long meeting can take a few minutes. Keep KidArmor open.</p>`);
-  try{const n=await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=typeof p==="string"?p:`Writing the transcript… ${Math.round(p*100)}%`});closeSheet();
+  openSheet(`<h3>Writing the transcript</h3><p class="note" id="txProg">The phone is listening to the recording. It takes about as long as the recording itself, so keep KidArmor open.</p>`);
+  try{const n=await addTranscript(e,p=>{const el=$("#txProg");if(el)el.textContent=typeof p==="string"?p:`Writing the transcript… ${Math.round(p*100)}%. It takes about as long as the recording itself, so keep KidArmor open.`});closeSheet();
     if(!n){toast("KidArmor couldn't make out any words in this recording. You can still listen to it.");return}try{renderHome()}catch(_){}showSavedMeeting(e)}
   catch(err){closeSheet();toast(txErrMsg(err))}}
 document.addEventListener("click",ev=>{const b=ev.target.closest&&ev.target.closest("[data-txagain]");if(!b)return;ev.preventDefault();ev.stopPropagation();writeTranscriptAgain(b.dataset.txagain)},true);
