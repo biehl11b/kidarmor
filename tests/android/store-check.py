@@ -146,12 +146,40 @@ time.sleep(2)
 still = adb("shell", "pidof", PKG).strip()
 log("ok" if still else "FAIL", "app still running", f"pid {still}" if still else "not running")
 
+# Open it from scratch several more times (like a reviewer closing and reopening it): it must come up every time.
+COLD = int(os.environ.get("KA_COLD_STARTS", "5"))
+times = []
+for i in range(COLD):
+    adb("shell", "am", "force-stop", PKG); time.sleep(2)
+    t1 = time.time()
+    adb("shell", "am", "start", "-W", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity")
+    shown = None
+    while time.time() < t1 + 45:
+        r = dump()
+        if find(r, r"Let's set up KidArmor|Welcome to KidArmor|KidArmor is locked|Language") is not None: shown = time.time() - t1; break
+        if find(r, r"isn't responding") is not None:
+            w = find(r, r"^\s*Wait\s*$") or find(r, r"Wait")
+            if w is not None: adb("shell", "input", "tap", *map(str, center(w)))
+        time.sleep(0.5)
+    times.append(shown)
+    if shown is None:
+        snap(f"cold-{i+1}-blank")
+        lcx = adb("logcat", "-d", "-v", "time", timeout=120) or ""
+        print(f"---- cold start {i+1} stayed blank; phone log (filtered) ----")
+        print("\n".join([l for l in lcx.splitlines() if re.search(r"chromium|cr_|Capacitor|WebView|AndroidRuntime|kidarmor|ActivityTaskManager|ActivityManager|Console", l)][-150:]))
+        print("---- end ----", flush=True)
+okc = [t for t in times if t is not None]
+log("ok" if len(okc) == COLD else "FAIL", f"opens every time ({COLD} more cold starts)", ", ".join(f"{t:.1f}s" if t is not None else "BLANK" for t in times))
+if okc: log("info", "cold start, slowest / typical", f"{max(okc):.1f} s / {sorted(okc)[len(okc)//2]:.1f} s")
+
 lc = adb("logcat", "-d", timeout=120); open(f"{OUT}/logcat-full.txt", "w").write(lc)
 app = [l for l in lc.splitlines() if re.search(r"Capacitor|chromium|Console|KidArmor|AndroidRuntime|FATAL|kidarmor|WebView|DEBUG  ", l)]
 open(f"{OUT}/app-log.txt", "w").write("\n".join(app))
-crash = [l for l in lc.splitlines() if re.search(r"FATAL EXCEPTION|ANR in com.coastlinecode|signal \d+ \(SIG", l)]
+L = lc.splitlines()
+# only KidArmor's own crashes count (the test tool's UiAutomation can crash on a slow virtual tablet)
+crash = [L[i] for i, l in enumerate(L) if ("FATAL EXCEPTION" in l and any("Process: com.coastlinecode" in x for x in L[i:i+4])) or re.search(r"ANR in com.coastlinecode|Fatal signal \d+ \(SIG.*kidarmor", l)]
 log("ok" if not crash else "FAIL", "no crashes", "; ".join(crash)[:300])
-jserr = [l for l in app if re.search(r"Uncaught|TypeError|ReferenceError|SyntaxError", l)]
+jserr = [l for l in app if re.search(r"Console|chromium", l) and re.search(r"Uncaught|TypeError|ReferenceError|SyntaxError", l)]
 log("ok" if not jserr else "FAIL", "no script errors", "; ".join(jserr)[:300])
 
 head = f"Store version on Android API {sdk} ({size}): {sum(1 for l in lines if l.startswith('ok'))} passed, {fails} failed"
