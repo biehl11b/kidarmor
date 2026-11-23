@@ -1,0 +1,15 @@
+name: Fetch pdf.js legacy build
+on: { workflow_dispatch: {} }
+permissions: { contents: write }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          npm pack pdfjs-dist@6.2.108
+          tar xzf pdfjs-dist-6.2.108.tgz
+          mkdir out && cp package/legacy/build/pdf.min.mjs out/pdf.legacy.min.mjs && cp package/legacy/build/pdf.worker.min.mjs out/pdf.worker.legacy.min.mjs
+          cp package/build/pdf.min.mjs out/check-modern.mjs
+          ls -la out; sha256sum out/*
+          cd out && git init -q && git checkout -q -b vendor-pdfjs-legacy && git add . && git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "pdf.js 6.2.108 legacy build"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" vendor-pdfjs-legacy
