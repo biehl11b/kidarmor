@@ -158,7 +158,11 @@ times = []
 for i in range(COLD):
     adb("shell", "am", "force-stop", PKG); time.sleep(2)
     t1 = time.time()
-    adb("shell", "am", "start", "-W", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity")
+    st = adb("shell", "am", "start", "-W", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity", timeout=90) or ""
+    if not adb("shell", "pidof", PKG).strip():
+        # the open command didn't reach the test phone (it happens when the virtual phone is busy): send it again
+        log("info", f"cold start {i+1}: open command didn't start the app; sending it again", st.strip().replace("\n", " ")[:160])
+        adb("shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1"); time.sleep(2)
     shown = None
     while time.time() < t1 + 45:
         r = dump()
@@ -170,6 +174,8 @@ for i in range(COLD):
     times.append(shown)
     if shown is None:
         snap(f"cold-{i+1}-blank")
+        top = re.search(r"(mResumedActivity|topResumedActivity)[^\n]*", adb("shell", "dumpsys", "activity", "activities") or "")
+        log("info", f"cold start {i+1} screen", ("in front: " + (top.group(0).strip()[:120] if top else "?")) + " | pid " + (adb("shell", "pidof", PKG).strip() or "none") + " | text: " + (screen_text(dump()) or "blank")[:200])
         lcx = adb("logcat", "-d", "-v", "time", timeout=120) or ""
         print(f"---- cold start {i+1} stayed blank; phone log (filtered) ----")
         print("\n".join([l for l in lcx.splitlines() if re.search(r"chromium|cr_|Capacitor|WebView|AndroidRuntime|kidarmor|ActivityTaskManager|ActivityManager|Console", l)][-150:]))
@@ -180,7 +186,8 @@ FRESH = int(os.environ.get("KA_FRESH_INSTALLS", "3"))
 ftimes = []
 for i in range(FRESH):
     adb("uninstall", PKG, timeout=120)
-    subprocess.run(["java", "-jar", "bundletool.jar", "install-apks", "--apks=ka.apks"], capture_output=True, timeout=300)
+    try: subprocess.run(["java", "-jar", "bundletool.jar", "install-apks", "--apks=ka.apks"], capture_output=True, timeout=600)
+    except Exception as e: log("info", "reinstall took too long on the test phone; skipping the rest of the fresh installs", str(e)[:120]); break
     time.sleep(2); adb("logcat", "-c")
     t1 = time.time()
     adb("shell", "am", "start", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity")
