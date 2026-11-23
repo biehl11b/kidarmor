@@ -52,13 +52,16 @@ public class MainActivity extends BridgeActivity {
         main.postDelayed(() -> {
             checking = false;
             try {
-                if (bridge == null || isFinishing()) return;
+                if (bridge == null || isFinishing()) { Log.w("KA_LIFE", "page check: no bridge"); return; }
                 final WebView wv = bridge.getWebView();
-                if (wv == null) return;
+                if (wv == null) { Log.w("KA_LIFE", "page check: no web view"); return; }
+                Log.i("KA_LIFE", "page check: url=" + wv.getUrl() + " progress=" + wv.getProgress() + " size=" + wv.getWidth() + "x" + wv.getHeight()
+                    + " shown=" + wv.isShown() + " attached=" + wv.isAttachedToWindow() + " parent=" + (wv.getParent() != null) + " content=" + (findViewById(android.R.id.content) != null ? ((android.view.ViewGroup) findViewById(android.R.id.content)).getChildCount() : -1));
                 wv.evaluateJavascript(
                     "(function(){try{if(document.readyState==='loading')return 'loading';"
                         + "return document.querySelector('nav.tabs')?'ok':'empty'}catch(e){return 'error'}})()",
                     v -> {
+                        Log.i("KA_LIFE", "page check result: " + v);
                         if ("\"ok\"".equals(v)) return;
                         if ("\"loading\"".equals(v)) { Log.i("KA_LIFE", "page still loading"); checkPageSoon(5000); return; }
                         reloads++;

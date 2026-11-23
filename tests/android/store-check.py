@@ -124,6 +124,12 @@ else:
     log("FAIL", "Welcome screen shows (agree box on screen)", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
     # show what the phone was doing, right in the job log (the results files can be hard to reach)
     phone_log("first open stayed blank")
+    print("---- what's on the blank screen (view classes) ----")
+    for nd in nodes(root): print(nd.get("class"), nd.get("bounds"), nd.get("package"), (nd.get("text") or "")[:40])
+    print("---- end ----", flush=True)
+    time.sleep(20)  # give the app's own safety net time to run, then look again
+    r2 = dump(); log("ok" if agree_box(r2) is not None else "info", "first open, 20 s later", screen_text(r2)[:160] or "still blank")
+    print("\n".join(l for l in (adb("logcat", "-d", "-s", "KA_LIFE:*", timeout=60) or "").splitlines()), flush=True)
     print("---- window/activity ----"); print((adb("shell", "dumpsys", "activity", "top") or "")[:3000]); print("---- end ----", flush=True)
 snap("3-welcome")
 life = [l for l in (adb("logcat", "-d", "-s", "KA_LIFE:*", timeout=60) or "").splitlines() if "KA_LIFE" in l]
