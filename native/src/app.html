@@ -1457,7 +1457,7 @@ function coJoin(prefill,from){const sh=openSheet(`<h3>Join the other parent's ca
     const s2=openSheet(`<h3>Paired</h3><p>Now ask ${esc(from||"the other parent")} to tap <b>Send my latest</b> and send you the file.</p><p class="note">When it arrives, open KidArmor, go to <b>Child</b> and tap <b>Add the other parent's latest</b>, then choose the file.</p>
       <label class="upload" for="cjFile"><b>I have the file</b>Choose it now<input type="file" id="cjFile"></label><button class="btn ghost" id="cjDone" type="button">Done</button>`);
     s2.querySelector("#cjDone").onclick=closeSheet;s2.querySelector("#cjFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;closeSheet();await coReceive(await f.text());renderCo()}}}
-function renderCo(){const el=$("#coBody");if(!el)return;const c=state,first=(c.child.name||"your child").split(" ")[0];
+function renderCo(){const el=$("#coBody");if(!el)return;const c=state,first=c.child.name?c.child.name.split(" ")[0]:"your child";
   if(c.example){el.innerHTML=`<p class="note">Both parents can keep ${esc(first)}'s case on their own phones and send each other what they add. Start your own case file to use this.</p>`;return}
   if(c.readOnly){el.innerHTML=`<p class="note">This case was shared with you to read. It can't be shared from here.</p>`;return}
   el.innerHTML=(c.co?`<p class="note">Shared with ${esc(c.co.with||"the other parent")}${c.co.sentAt?` · you last sent ${esc(fmt(c.co.sentAt.slice(0,10)))}`:""}${c.co.gotAt?` · last received ${esc(fmt(c.co.gotAt.slice(0,10)))}`:""}.</p>

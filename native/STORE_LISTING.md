@@ -58,7 +58,12 @@ RECORD MEETINGS
 STAY ON TOP OF MEETINGS
 • Schedule meetings with two reminders you choose
 • Add them to your phone's calendar
+• Get ready for each meeting: what's happened since the last one, your goals, your concerns in your own words, questions built from your records and a printable meeting plan
 • A Record button appears when it's time
+
+DEADLINES
+• When you ask for school records or an evaluation, KidArmor tracks the deadline under federal law and reminds you before it's due
+• Links to your state's own special education office for its timelines
 
 REPORTS FOR DOCTORS AND COUNSELORS
 • Keep dated report cards, progress reports and test scores
@@ -66,11 +71,13 @@ REPORTS FOR DOCTORS AND COUNSELORS
 • One tap makes a PDF in date order for a doctor, psychiatrist or counselor
 
 LETTERS AND SHARING
-• Letters and email summaries filled in from your record
+• Letters and email summaries filled in from your record: report bullying, ask for a safety plan, the plan isn't being followed, ask for an evaluation or records, meeting recaps and follow-ups when the school hasn't answered
+• Choose which entries go into each letter
 • A PDF case binder with entries, photos, documents and transcripts
 • Open your case on a computer with a locked link and code
 • Share with your attorney, advocate, counselor, doctor or tutor: you choose which parts they see, and send updates later (your private notes stay private)
 • Teachers can send you updates with a link, no app needed
+• Share with the other parent: pair your phones once with a QR code, then send each other what you add. Nothing goes through a server
 
 RESOURCES
 • Your state's parent center and protection and advocacy agency, with tap-to-call and website buttons, in every state
@@ -80,6 +87,12 @@ PRIVATE BY DESIGN
 • Lock with a PIN and Face ID or fingerprint
 • Encrypted backups you control, to move to a new phone
 • Up to 5 children
+
+EASY TO USE
+• Works with VoiceOver and TalkBack
+• Larger text: follows your iPhone's text size, or choose a size in the app
+• Respects Reduce Motion
+• See a made-up example family before you start
 
 HELP WHEN YOU NEED IT
 • Email, call or text us from the app. We never see your records.
