@@ -1564,9 +1564,11 @@ function coJoin(prefill,from){const sh=openSheet(`<h3>Join the other parent's ca
     const s2=openSheet(`<h3>Paired</h3><p>Now ask ${esc(from||"the other parent")} to tap <b>Send my latest</b> and send you the file.</p><p class="note">When it arrives, open KidArmor, go to <b>Child</b> and tap <b>Add the other parent's latest</b>, then choose the file.</p>
       <label class="upload" for="cjFile"><b>I have the file</b>Choose it now<input type="file" id="cjFile"></label>${CO_FIND}<button class="btn ghost" id="cjDone" type="button">Done</button>`);
     s2.querySelector("#cjDone").onclick=closeSheet;s2.querySelector("#cjFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;closeSheet();await coReceive(await f.text());renderCo()}}}
+// Each phone shows only its own steps (App Store rules don't allow naming other phone platforms in the app); the website shows both.
+const CO_PLAT=/iP(hone|ad|od)/.test(navigator.userAgent)?"ios":/Android/i.test(navigator.userAgent)?"android":"";
 const CO_FIND=`<details class="cofind"><summary>Can't find the file?</summary>
-  <p><b>iPhone</b></p><ol><li>Sent by text: tap the file, tap the Share button, then <b>Save to Files</b>.</li><li>Sent by email: press and hold the file, then <b>Save to Files</b>.</li><li>Sent by AirDrop: it's already in the <b>Files</b> app, in <b>Downloads</b>.</li></ol>
-  <p><b>Android</b></p><ol><li>Sent by text or email: tap the file and choose <b>Download</b> or <b>Save</b>. It goes to <b>Downloads</b>.</li></ol>
+${CO_PLAT==="android"?"":`${CO_PLAT?"":"<p><b>iPhone</b></p>"}<ol><li>Sent by text: tap the file, tap the Share button, then <b>Save to Files</b>.</li><li>Sent by email: press and hold the file, then <b>Save to Files</b>.</li><li>Sent by AirDrop: it's already in the <b>Files</b> app, in <b>Downloads</b>.</li></ol>`}
+${CO_PLAT==="ios"?"":`${CO_PLAT?"":"<p><b>Android</b></p>"}<ol><li>Sent by text or email: tap the file and choose <b>Download</b> or <b>Save</b>. It goes to <b>Downloads</b>.</li></ol>`}
   <p>Then in KidArmor tap <b>Add the other parent's latest</b> and pick the file (look in <b>Recents</b> or <b>Downloads</b>). Its name starts with <b>KidArmor</b>.</p></details>`;
 const CO_HOW=`<ol class="cohow"><li>You each keep the case on your own phone.</li><li>When you add something, tap <b>Send my latest</b> and send the file to the other parent.</li><li>When they send you theirs, tap <b>Add the other parent's latest</b> and pick the file. KidArmor puts the two together.</li></ol>`;
 function coUnsent(c){if(!c||!c.co)return 0;const since=c.co.sentAt||c.co.since||"";let n=0;
@@ -3403,7 +3405,7 @@ function sttSheet(after){const old=$(".legalview");if(old)old.remove();const cur
       <button class="btn ${cur==="service"?"primary":"light"} wide" type="button" data-stt="service">${cur==="service"?`✓ Using ${SPEECH_CO} speech`:`Use ${SPEECH_CO} speech`}</button></div>
     <p class="note">You can change this anytime in the Child tab, under More settings, then Transcripts.</p>
     ${cur?`<button class="btn ghost" type="button" data-sttclose>Close</button>`:""}</div>`;
-  w.querySelectorAll("[data-stt]").forEach(b=>b.onclick=()=>{try{localStorage.setItem(STTKEY,b.dataset.stt)}catch(e){}w.remove();renderStt();toast(b.dataset.stt==="phone"?"Transcripts will be made on this phone only.":"Transcripts will use Apple's or Google's speech service.");after&&after()});
+  w.querySelectorAll("[data-stt]").forEach(b=>b.onclick=()=>{try{localStorage.setItem(STTKEY,b.dataset.stt)}catch(e){}w.remove();renderStt();toast(b.dataset.stt==="phone"?"Transcripts will be made on this phone only.":(isIOS?"Transcripts will use Apple's speech service.":/Android/i.test(navigator.userAgent)?"Transcripts will use Google's speech service.":"Transcripts will use Apple's or Google's speech service."));after&&after()});
   const c=w.querySelector("[data-sttclose]");if(c)c.onclick=()=>w.remove();document.body.appendChild(w)}
 function renderStt(){const el=$("#sttNow");if(!el)return;const m=sttMode();el.textContent=m==="phone"?"Now: on this phone only. The sound never leaves your phone.":m==="service"?`Now: ${SPEECH_CO} speech service. On some phones, the sound goes to ${SPEECH_CO} to make the text.`:"Not chosen yet. KidArmor will ask the first time you record or talk."}
 $("#sttChange").onclick=()=>sttSheet();renderStt();

@@ -70,10 +70,15 @@ log("info", "phone", f"Android API {sdk}, {abi}, screen {size}, WebView {m.group
 
 pid = adb("shell", "pidof", PKG).strip()
 adb("logcat", "-c")
-adb("shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1")
+# Cold start, timed the way a person sees it: tap the icon -> first frame (Android's own number),
+# then -> KidArmor's first screen on screen (checked as fast as the phone can read its screen, ~1-2 s each).
 t0 = time.time()
-time.sleep(5); snap("1-after-5s")
-time.sleep(10); snap("2-after-15s")
+st = adb("shell", "am", "start", "-W", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity")
+m = re.search(r"TotalTime:\s*(\d+)", st or "")
+log("info", "first frame on screen (Android's launch time)", (m.group(1) + " ms") if m else (st or "?").strip()[:200])
+top = adb("shell", "dumpsys", "activity", "activities") or ""
+mt = re.search(r"(mResumedActivity|topResumedActivity|ResumedActivity)[^\n]*", top)
+log("info", "app in front", mt.group(0).strip()[:160] if mt else "?")
 
 def agree_box(root):
     for nd in nodes(root):
@@ -89,6 +94,11 @@ while time.time() < end:
     if n is not None: break
     # the virtual tablet's own home screen sometimes freezes ("Pixel Launcher isn't responding"):
     # that's the test phone, not KidArmor. Tap Wait, bring KidArmor back and keep checking.
+    # Same if the phone's home screen is in front: say so (it's in the results) and reopen KidArmor.
+    if anr < 3 and find(root, r"Predicted app|Google Lens|Voice search") is not None:
+        anr += 1; ra = re.search(r"ResumedActivity[^\n]*", adb("shell", "dumpsys", "activity", "activities") or "")
+        log("info", "home screen was in front; reopening KidArmor", ra.group(0).strip()[:160] if ra else "")
+        adb("shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1"); time.sleep(3); continue
     d = find(root, r"isn't responding")
     if d is not None and anr < 3:
         anr += 1; w = find(root, r"^\s*Wait\s*$") or find(root, r"Wait")
@@ -96,10 +106,12 @@ while time.time() < end:
         else: adb("shell", "input", "keyevent", "KEYCODE_BACK")
         time.sleep(2); adb("shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1")
         log("info", "the test phone's home screen froze; tapped Wait and reopened KidArmor", f"time {anr}")
-    time.sleep(3)
+    time.sleep(0.5)
 dump("welcome")
 if n is not None:
-    log("ok", "Welcome screen shows (agree box on screen)", f"after {int(time.time() - t0)} s")
+    secs = time.time() - t0
+    log("ok", "Welcome screen shows (agree box on screen)", f"after {secs:.1f} s from tapping the icon (test phones are slower than real ones)")
+    log("ok" if secs <= 20 else "FAIL", "loads in a reasonable time", f"{secs:.1f} s")
 else:
     upd = find(root, r"update|WebView")
     log("FAIL", "Welcome screen shows (agree box on screen)", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
