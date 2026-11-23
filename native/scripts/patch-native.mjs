@@ -57,6 +57,8 @@ function patchAndroid() {
   s = s.replace(/android:allowBackup="true"/, 'android:allowBackup="false"');
   if (!s.includes("android:allowBackup=")) s = s.replace("<application", '<application android:allowBackup="false"');
   if (!s.includes("android:dataExtractionRules=")) s = s.replace("<application", '<application android:dataExtractionRules="@xml/data_extraction_rules" android:fullBackupContent="false"');
+  // Start the phone's web viewer before the first screen (see android-src/KidArmorApp.java)
+  if (!s.includes('android:name=".KidArmorApp"')) s = s.replace("<application", '<application android:name=".KidArmorApp"');
   const xmlDir = path.join(root, "android/app/src/main/res/xml"); fs.mkdirSync(xmlDir, { recursive: true });
   fs.writeFileSync(path.join(xmlDir, "data_extraction_rules.xml"), `<?xml version="1.0" encoding="utf-8"?>\n<data-extraction-rules>\n  <cloud-backup><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></cloud-backup>\n  <device-transfer><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></device-transfer>\n</data-extraction-rules>\n`);
   // Keep the screen running through any settings change (text size, dark mode, language, rotation, a second screen)
@@ -71,6 +73,7 @@ function patchAndroid() {
   // KidArmor's own plugin: writes the meeting transcript from the saved recording (see android-src/)
   const javaDir = path.join(root, "android/app/src/main/java/com/coastlinecode/kidarmor");
   fs.copyFileSync(path.join(root, "android-src/KaTranscribePlugin.java"), path.join(javaDir, "KaTranscribePlugin.java"));
+  fs.copyFileSync(path.join(root, "android-src/KidArmorApp.java"), path.join(javaDir, "KidArmorApp.java"));
   const ma = path.join(javaDir, "MainActivity.java"); let m = fs.readFileSync(ma, "utf8");
   if (!m.includes("KaTranscribePlugin")) {
     if (!m.includes("import android.os.Bundle;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.os.Bundle;");
