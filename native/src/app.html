@@ -25,81 +25,81 @@
   --k-incident:#e47a68; --k-missed:#c08ee0; --k-comm:#78aeea; --k-meeting:#7cc28f;
   --low:#79b886; --med:#e3ad4a; --high:#e47a68; --warn-bg:#33290f; --warn-ink:#f1d48f; --scrim:rgba(0,0,0,.9); color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:calc(17px*var(--ts,1));line-height:1.5}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
 .wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
 header .in{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.lock{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--low);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer;font-family:var(--body)}
+.brand{font-family:var(--display);font-weight:800;font-size:calc(21px*var(--ts,1));letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.lock{display:inline-flex;align-items:center;gap:6px;font-size:calc(12px*var(--ts,1));font-weight:700;color:var(--low);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer;font-family:var(--body)}
 .lock svg{width:14px;height:14px}
 h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
-h2{font-size:26px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
-h3{font-size:18px;font-weight:600}
+h2{font-size:calc(26px*var(--ts,1));font-weight:800;letter-spacing:-.01em;line-height:1.15}
+h3{font-size:calc(18px*var(--ts,1));font-weight:600}
 .view{display:flex;flex-direction:column;gap:16px;padding-top:20px}
 .lede{color:var(--muted);margin:0;max-width:60ch}
-.eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+.eyebrow{font-size:calc(12px*var(--ts,1));font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
 .welcome{background:var(--accent);color:var(--accent-ink);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
 .welcome p{margin:0}
 .welcome .btn{background:var(--accent-ink);color:var(--accent);align-self:flex-start}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
-label,.flabel{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
-label small,.flabel small{font-weight:400;color:var(--muted);font-size:14px}
-input,select,textarea{font:inherit;font-size:17px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;width:100%;min-width:0}
+label,.flabel{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:calc(15px*var(--ts,1))}
+label small,.flabel small{font-weight:400;color:var(--muted);font-size:calc(14px*var(--ts,1))}
+input,select,textarea{font:inherit;font-size:calc(17px*var(--ts,1));color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;width:100%;min-width:0}
 select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
-select.big{font-weight:700;font-size:18px;border:2px solid var(--kc,var(--accent));background-color:var(--surface)}
+select.big{font-weight:700;font-size:calc(18px*var(--ts,1));border:2px solid var(--kc,var(--accent));background-color:var(--surface)}
 textarea{min-height:110px;resize:vertical}
 input[type=checkbox]{width:22px;height:22px;accent-color:var(--accent);flex:none}
 .check{flex-direction:row;align-items:center;gap:10px}
 input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.hint{font-size:14px;color:var(--muted);margin:-6px 0 0}
+.hint{font-size:calc(14px*var(--ts,1));color:var(--muted);margin:-6px 0 0}
 details.more{border-top:1px solid var(--line);padding-top:12px}
 details.more>summary{cursor:pointer;font-weight:700;color:var(--accent);list-style:none;display:flex;align-items:center;gap:8px;padding:4px 0}
 details.more>summary::-webkit-details-marker{display:none}
-details.more>summary::before{content:"+";font-size:20px;line-height:1;width:20px;text-align:center}
+details.more>summary::before{content:"+";font-size:calc(20px*var(--ts,1));line-height:1;width:20px;text-align:center}
 details.more[open]>summary::before{content:"–"}
 details.more .inner{display:flex;flex-direction:column;gap:14px;padding-top:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:15px;cursor:pointer}
+.chip{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:calc(15px*var(--ts,1));cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .sev{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.sev button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:12px 6px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.sev button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:12px 6px;font:inherit;font-size:calc(15px*var(--ts,1));font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .sev button i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .sev button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.btn{font:inherit;font-weight:700;border-radius:12px;padding:14px 18px;border:1px solid transparent;cursor:pointer;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn{font:inherit;font-weight:700;border-radius:12px;padding:14px 18px;border:1px solid transparent;cursor:pointer;font-size:calc(16px*var(--ts,1));display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.light{background:var(--accent-soft);color:var(--accent)}
 .btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-.btn.small{padding:8px 12px;font-size:14px;border-radius:10px}
+.btn.small{padding:8px 12px;font-size:calc(14px*var(--ts,1));border-radius:10px}
 .btn.danger{background:transparent;border-color:var(--high);color:var(--high)}
 .btn.wide{width:100%}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.upload{border:2px dashed var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;cursor:pointer;color:var(--muted);font-weight:600;font-size:15px}
-.upload b{color:var(--accent);font-size:16px}
+.upload{border:2px dashed var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;cursor:pointer;color:var(--muted);font-weight:600;font-size:calc(15px*var(--ts,1))}
+.upload b{color:var(--accent);font-size:calc(16px*var(--ts,1))}
 .upload input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .upload:focus-within{outline:2px solid var(--accent);outline-offset:2px}
 .files{display:flex;gap:10px;flex-wrap:wrap}
-.file{position:relative;width:84px;display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;font-family:inherit;text-align:left}
+.file{position:relative;width:84px;display:flex;flex-direction:column;gap:4px;font-size:calc(12px*var(--ts,1));color:var(--muted);background:none;border:0;padding:0;cursor:pointer;font-family:inherit;text-align:left}
 .file .pv{width:84px;height:84px;border-radius:10px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .file .pv img{width:100%;height:100%;object-fit:cover}
 .file .pv svg{width:34px;height:34px;color:var(--high)}
 .file .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.file .rm{position:absolute;top:-8px;right:-8px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);border:2px solid var(--surface);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.file .rm{position:absolute;top:-8px;right:-8px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);border:2px solid var(--surface);font-size:calc(15px*var(--ts,1));line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:0;border-top:4px solid var(--kc)}
 button.stat{font:inherit;color:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px}
 button.stat[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--kc);background:var(--bg)}
 button.stat[aria-pressed="true"] span::after{content:" · showing";color:var(--kc);font-weight:700}
 a.btn{text-decoration:none}
-.toline{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--bg);border-radius:10px;padding:10px 12px;font-family:var(--mono);font-size:14px;min-width:0}
+.toline{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--bg);border-radius:10px;padding:10px 12px;font-family:var(--mono);font-size:calc(14px*var(--ts,1));min-width:0}
 .toline span{overflow-wrap:anywhere;min-width:0;user-select:all}
-.showing{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:15px;color:var(--muted)}
+.showing{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:calc(15px*var(--ts,1));color:var(--muted)}
 .showing b{color:var(--ink)}
-.stat b{font-family:var(--display);font-size:24px;display:block;font-variant-numeric:tabular-nums;line-height:1.1}
-.stat span{font-size:12px;color:var(--muted);line-height:1.2;display:block}
+.stat b{font-family:var(--display);font-size:calc(24px*var(--ts,1));display:block;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:calc(12px*var(--ts,1));color:var(--muted);line-height:1.2;display:block}
 .attn{display:flex;flex-direction:column;gap:8px}
-.attn div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.attn div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:calc(15px*var(--ts,1));display:flex;gap:10px;align-items:flex-start}
 .attn div::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;margin-top:8px;background:var(--dot,var(--med))}
 .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .timeline{display:flex;flex-direction:column;gap:10px}
@@ -107,16 +107,16 @@ details.inc{background:var(--surface);border:1px solid var(--line);border-left:5
 details.inc>summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
 details.inc>summary::-webkit-details-marker{display:none}
 .inc .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
-.date{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--kc)}
-.clamp{margin:0;color:var(--muted);font-size:15px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.date{font-family:var(--mono);font-size:calc(13px*var(--ts,1));color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{font-size:calc(12px*var(--ts,1));font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--kc)}
+.clamp{margin:0;color:var(--muted);font-size:calc(15px*var(--ts,1));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
 details.inc[open] .clamp{display:none}
 .inc .sub{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:2px}
 .inc .body{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
 .inc .body p{margin:0;overflow-wrap:anywhere}
-.meta{font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:3px;overflow-wrap:anywhere}
+.meta{font-size:calc(15px*var(--ts,1));color:var(--muted);display:flex;flex-direction:column;gap:3px;overflow-wrap:anywhere}
 .meta b{color:var(--ink);font-weight:600}
-.status{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.status{display:inline-block;font-size:calc(12px*var(--ts,1));font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
 .status.warn{background:var(--warn-bg);color:var(--warn-ink)}
 .status.plain{background:var(--bg);color:var(--muted)}
 .empty{text-align:center;color:var(--muted);padding:28px 12px;border:1px dashed var(--line);border-radius:12px}
@@ -124,28 +124,28 @@ details.inc[open] .clamp{display:none}
 .list .it{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);min-width:0}
 .list .it:last-child{border-bottom:0}
 .list .it>span{min-width:0;overflow-wrap:anywhere}
-.count{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:999px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.count{font-family:var(--mono);font-size:calc(12px*var(--ts,1));padding:3px 8px;border-radius:999px;background:var(--bg);color:var(--muted);white-space:nowrap}
 .count.hot{background:var(--warn-bg);color:var(--warn-ink)}
-.x{background:none;border:0;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:6px 10px}
+.x{background:none;border:0;color:var(--muted);font-size:calc(22px*var(--ts,1));line-height:1;cursor:pointer;padding:6px 10px}
 .doc{display:flex;gap:12px;align-items:center;background:none;border:0;padding:0;font:inherit;color:var(--ink);text-align:left;cursor:pointer;min-width:0}
 .doc .pv{width:48px;height:48px;border-radius:8px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
 .doc .pv img{width:100%;height:100%;object-fit:cover}
 .doc .pv svg{width:24px;height:24px;color:var(--muted)}
-.letter{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;white-space:pre-wrap;font-size:15px;line-height:1.6;overflow-wrap:anywhere;min-width:0}
-.note{font-size:14px;color:var(--muted);margin:0}
+.letter{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;white-space:pre-wrap;font-size:calc(15px*var(--ts,1));line-height:1.6;overflow-wrap:anywhere;min-width:0}
+.note{font-size:calc(14px*var(--ts,1));color:var(--muted);margin:0}
 .privacy{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
-.privacy li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.privacy li{display:flex;gap:10px;align-items:flex-start;font-size:calc(15px*var(--ts,1))}
 .privacy li svg{flex:none;width:20px;height:20px;color:var(--low);margin-top:2px}
 .meter{height:8px;border-radius:99px;background:var(--bg);overflow:hidden}
 .meter i{display:block;height:100%;background:var(--accent);border-radius:99px}
 nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(4px,env(safe-area-inset-left,0px));padding-right:max(4px,env(safe-area-inset-right,0px))}
 nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(7,1fr);align-items:end}
-nav.tabs button{background:none;border:0;font:inherit;font-size:12px;font-weight:600;color:var(--muted);padding:9px 2px 11px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+nav.tabs button{background:none;border:0;font:inherit;font-size:calc(12px*var(--ts,1));font-weight:600;color:var(--muted);padding:9px 2px 11px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
 nav.tabs button[aria-current="page"]{color:var(--accent)}
 nav.tabs svg{width:24px;height:24px}
 nav.tabs .addtab span.fab{width:54px;height:54px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;margin-top:-22px;box-shadow:0 4px 14px rgba(0,0,0,.18);border:3px solid var(--surface)}
 nav.tabs .addtab span.fab svg{width:26px;height:26px}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:600;z-index:30;max-width:90vw;text-align:center}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:999px;font-size:calc(15px*var(--ts,1));font-weight:600;z-index:30;max-width:90vw;text-align:center}
 .viewer{position:fixed;inset:0;z-index:40;background:var(--scrim);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .viewer .vbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:#fff}
 .viewer .vbar span{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
@@ -154,88 +154,91 @@ nav.tabs .addtab span.fab svg{width:26px;height:26px}
 .viewer img,.viewer canvas{max-width:100%;height:auto;border-radius:6px;background:#fff}
 .viewer .vmsg{color:#fff;margin:auto;text-align:center;max-width:32ch}
 @media (max-width:440px){.row{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media (prefers-reduced-motion:no-preference){details.inc,.btn{transition:box-shadow .15s,transform .1s}.btn:active{transform:scale(.98)}}
 [hidden]{display:none!important}
 .res{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
 .res .rtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.res h3{font-size:17px}
+.res h3{font-size:calc(17px*var(--ts,1))}
 .res .note{margin:0}
-.rtag{flex:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:3px 9px}
-.rlink{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;text-decoration:none;font-size:15px;min-width:0}
+.rtag{flex:none;font-size:calc(11px*var(--ts,1));font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:3px 9px}
+.rlink{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;text-decoration:none;font-size:calc(15px*var(--ts,1));min-width:0}
 .rlink span{overflow-wrap:anywhere}
 .rlink>*{min-width:0}.rlink small{overflow-wrap:anywhere;word-break:break-word}
 #permList .it>span:first-child{min-width:0;flex:1 1 auto}#permList .it .actions{flex-shrink:0}#permList .btn.small{padding-left:10px;padding-right:10px}
 .rlink svg,.rphone svg{width:18px;height:18px;flex:none;color:var(--muted)}
-.rphone{display:flex;align-items:center;gap:8px;font-size:15px;flex-wrap:wrap}
-.rphone .num{font-family:var(--mono);color:var(--ink);text-decoration:none;font-size:14px;user-select:all;overflow-wrap:anywhere}
+.rphone{display:flex;align-items:center;gap:8px;font-size:calc(15px*var(--ts,1));flex-wrap:wrap}
+.rphone .num{font-family:var(--mono);color:var(--ink);text-decoration:none;font-size:calc(14px*var(--ts,1));user-select:all;overflow-wrap:anywhere}
 .rphone small{color:var(--muted)}
 .rphone .btn{margin-left:auto}
-.tips{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.tips{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:calc(15px*var(--ts,1))}
 .steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:st}
-.steps li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45}
-.steps li::before{counter-increment:st;content:counter(st);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
-.welcome ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px}
-nav.tabs button{font-size:10px;letter-spacing:-.01em}
+.steps li{display:flex;gap:12px;align-items:flex-start;font-size:calc(15px*var(--ts,1));line-height:1.45}
+.steps li::before{counter-increment:st;content:counter(st);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:calc(14px*var(--ts,1))}
+.welcome ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:calc(15px*var(--ts,1))}
+nav.tabs button{font-size:calc(10px*var(--ts,1));letter-spacing:-.01em}
 .tbox{background:var(--bg);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
-.tbox b{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.tbox pre{margin:0;white-space:pre-wrap;font-family:var(--body);font-size:14px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;max-height:14em;overflow:auto}
+.tbox b{font-size:calc(12px*var(--ts,1));text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tbox pre{margin:0;white-space:pre-wrap;font-family:var(--body);font-size:calc(14px*var(--ts,1));line-height:1.5;color:var(--ink);overflow-wrap:anywhere;max-height:14em;overflow:auto}
 .tbox.open pre{max-height:none}
-.say{background:var(--warn-bg);color:var(--ink);border-radius:12px;padding:14px;font-size:17px;line-height:1.45;font-weight:600}
-.say small{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--warn-ink);margin-bottom:4px}
+.say{background:var(--warn-bg);color:var(--ink);border-radius:12px;padding:14px;font-size:calc(17px*var(--ts,1));line-height:1.45;font-weight:600}
+.say small{display:block;font-size:calc(12px*var(--ts,1));font-weight:800;letter-spacing:.06em;color:var(--warn-ink);margin-bottom:4px}
 .viewer audio{width:min(100%,520px);margin:auto}
-.banner{background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 14px;font-size:15px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.banner{background:var(--warn-bg);color:var(--warn-ink);border-radius:12px;padding:12px 14px;font-size:calc(15px*var(--ts,1));display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .banner.info{background:var(--accent-soft);color:var(--accent)}
 .banner.ok{background:color-mix(in srgb,var(--low) 16%,var(--surface));color:var(--ink)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.linkbtn{background:none;border:0;padding:4px 0;font:inherit;font-weight:700;color:var(--accent);cursor:pointer;text-align:left;font-size:15px;align-self:flex-start}
+.linkbtn{background:none;border:0;padding:4px 0;font:inherit;font-weight:700;color:var(--accent);cursor:pointer;text-align:left;font-size:calc(15px*var(--ts,1));align-self:flex-start}
 .linkbtn small{font-weight:400;color:var(--muted);margin-left:6px}
-.pnote{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:15px;color:var(--muted)}
-.pnote b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.pnote{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:calc(15px*var(--ts,1));color:var(--muted)}
+.pnote b{display:block;font-size:calc(12px*var(--ts,1));text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .sheetwrap{position:fixed;inset:0;z-index:45;background:rgba(10,16,22,.45);display:flex;align-items:flex-end;justify-content:center}
 .sheet{background:var(--surface);color:var(--ink);width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding-block:18px calc(18px + env(safe-area-inset-bottom,0px));padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:12px}
-.calm{background:color-mix(in srgb,var(--low) 14%,var(--surface));border-radius:12px;padding:14px;font-size:16px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.calm{background:color-mix(in srgb,var(--low) 14%,var(--surface));border-radius:12px;padding:14px;font-size:calc(16px*var(--ts,1));line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
 .kid{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
 .kid:last-child{border-bottom:0}
 .kid b{display:block}
 .sumblock{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
-.sumblock h4{margin:0;font-size:18px}.sumblock h5{margin:6px 0 0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sumblock h4{margin:0;font-size:calc(18px*var(--ts,1))}.sumblock h5{margin:6px 0 0;font-size:calc(13px*var(--ts,1));letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .sumblock p{margin:0;line-height:1.45}.sumblock ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.4}
-.sumblock .tm{color:var(--muted);font-size:13px;white-space:nowrap}
+.sumblock .tm{color:var(--muted);font-size:calc(13px*var(--ts,1));white-space:nowrap}
 .txtab summary{cursor:pointer;font-weight:700;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);list-style:none;display:flex;justify-content:space-between}
 .txtab summary::after{content:"▾"}.txtab[open] summary::after{content:"▴"}.txtab[open] summary{margin-bottom:8px}
 .wizard{position:fixed;inset:0;z-index:55;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .wzin{max-width:560px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-left,0px)) 40px;display:flex;flex-direction:column;gap:14px}
-.wzhead{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);padding-top:env(safe-area-inset-top,0px)}.wzhead b{font-size:18px;color:var(--ink)}
+.wzhead{display:flex;justify-content:space-between;align-items:center;font-size:calc(14px*var(--ts,1));color:var(--muted);padding-top:env(safe-area-inset-top,0px)}.wzhead b{font-size:calc(18px*var(--ts,1));color:var(--ink)}
 .wzbar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}.wzbar i{display:block;height:100%;background:var(--accent);transition:width .2s}
 .wzin h2{margin:6px 0 0}.wzin .err{color:var(--high);margin:0}
 .recbar{position:fixed;left:8px;right:8px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:7;max-width:620px;margin:0 auto;background:var(--high);color:#fff;border-radius:14px;padding:8px 10px 8px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .quietask{position:fixed;inset:0;z-index:58;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}.quietask .qin{background:var(--surface);border-radius:16px;padding:18px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:10px}.quietask h3{margin:0}
 .res.demo{border:2px dashed var(--accent)}
-.recbar b{font-variant-numeric:tabular-nums;font-size:17px}.recbar span#recBarMsg{flex:1;font-weight:600}.recbar .rdot{width:12px;height:12px;border-radius:50%;background:#fff;animation:rpulse 1.2s infinite}
+.recbar b{font-variant-numeric:tabular-nums;font-size:calc(17px*var(--ts,1))}.recbar span#recBarMsg{flex:1;font-weight:600}.recbar .rdot{width:12px;height:12px;border-radius:50%;background:#fff;animation:rpulse 1.2s infinite}
 .recbar.paused{background:var(--med)}.recbar.paused .rdot{animation:none;opacity:.6}
 @keyframes rpulse{50%{opacity:.25}}
 body.recording main.wrap{padding-bottom:150px}
 body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
-.rlink{display:inline-flex!important;align-items:center;gap:8px;align-self:flex-start;background:var(--accent-soft,color-mix(in srgb,var(--accent) 12%,var(--surface)));color:var(--accent)!important;font-weight:700;text-decoration:none!important;padding:10px 14px;border-radius:10px}.rlink small{font-weight:500;opacity:.8;font-size:13px}
+.rlink{display:inline-flex!important;align-items:center;gap:8px;align-self:flex-start;background:var(--accent-soft,color-mix(in srgb,var(--accent) 12%,var(--surface)));color:var(--accent)!important;font-weight:700;text-decoration:none!important;padding:10px 14px;border-radius:10px}.rlink small{font-weight:500;opacity:.8;font-size:calc(13px*var(--ts,1))}
 .bioface{color:var(--accent);display:flex;justify-content:center}
 .upcoming{display:flex;flex-direction:column;gap:8px}
 .upm{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--k-meeting);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
 .upm.live{border-color:var(--k-meeting);box-shadow:0 0 0 2px color-mix(in srgb,var(--k-meeting) 30%,transparent)}
-.upm b{font-size:17px}.upm .meta2{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.upm b{font-size:calc(17px*var(--ts,1))}.upm .meta2{display:block;font-size:calc(14px*var(--ts,1));color:var(--muted);margin-top:2px}
 .upm .actions{display:flex;flex-wrap:wrap}
-.prepl{margin:4px 0 0;padding-left:18px;font-size:15px}.prepl li{margin:3px 0}
+.lpick{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0}.lpick legend{font-weight:700;font-size:calc(14px*var(--ts,1));padding:0 4px}.lpick label{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;margin:6px 0}.lpick input{width:22px;height:22px;flex:none}
+.tsrow{display:flex;flex-wrap:wrap;gap:8px}.tsrow .btn{flex:1 1 auto;min-width:0}.tsrow .btn[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.prepl{margin:4px 0 0;padding-left:18px;font-size:calc(15px*var(--ts,1))}.prepl li{margin:3px 0}
 .prepq{align-items:flex-start!important;margin:8px 0;font-weight:400}.prepq input{width:22px;height:22px;flex:none;margin-top:1px}
-.kid .meta2{font-size:13px;color:var(--muted)}
-.codebox{font-family:var(--mono);font-size:26px;letter-spacing:.12em;text-align:center;background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:14px;user-select:all;overflow-wrap:anywhere}
+.kid .meta2{font-size:calc(13px*var(--ts,1));color:var(--muted)}
+.codebox{font-family:var(--mono);font-size:calc(26px*var(--ts,1));letter-spacing:.12em;text-align:center;background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:14px;user-select:all;overflow-wrap:anywhere}
 .agreescreen,.legalview{position:fixed;inset:0;z-index:57;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}.legalview{z-index:58}
 .agreescreen .wzin{padding-top:max(28px,env(safe-area-inset-top,0px))}.agshield{width:72px;height:72px;border-radius:20px;background:var(--accent);display:flex;align-items:center;justify-content:center}
 #agGo:disabled{opacity:.45;cursor:not-allowed}.check.agree{align-items:flex-start;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}.check.agree a{color:var(--accent)}
-.lvhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:env(safe-area-inset-top,0px)}.lvhead b{font-family:var(--display);font-size:20px}
-.sttopt{gap:10px}.sttopt h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pc{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}.pc li{padding-left:24px;position:relative}.pc li.pro:before{content:"+";position:absolute;left:4px;font-weight:800;color:var(--low)}.pc li.con:before{content:"−";position:absolute;left:4px;font-weight:800;color:var(--high)}
-.legaltext{font-size:15px;line-height:1.55}.legaltext p{margin:0 0 12px}.legaltext ul{margin:0 0 12px;padding-left:20px}.legaltext li{margin-bottom:6px}
+.lvhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:env(safe-area-inset-top,0px)}.lvhead b{font-family:var(--display);font-size:calc(20px*var(--ts,1))}
+.sttopt{gap:10px}.sttopt h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pc{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:calc(15px*var(--ts,1))}.pc li{padding-left:24px;position:relative}.pc li.pro:before{content:"+";position:absolute;left:4px;font-weight:800;color:var(--low)}.pc li.con:before{content:"−";position:absolute;left:4px;font-weight:800;color:var(--high)}
+.legaltext{font-size:calc(15px*var(--ts,1));line-height:1.55}.legaltext p{margin:0 0 12px}.legaltext ul{margin:0 0 12px;padding-left:20px}.legaltext li{margin-bottom:6px}
 .lockscreen{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .lockscreen .shield{width:84px;height:84px;border-radius:24px;background:var(--accent);display:flex;align-items:center;justify-content:center}
-.lockscreen input{max-width:220px;text-align:center;font-size:24px;letter-spacing:.3em}
+.lockscreen input{max-width:220px;text-align:center;font-size:calc(24px*var(--ts,1));letter-spacing:.3em}
 .viewer .vbar .vdl{background:var(--accent);color:var(--accent-ink);margin-right:6px}
 @media (max-width:440px){.pair{grid-template-columns:1fr}}
 </style>
@@ -354,12 +357,13 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
     <div class="panel">
       <label for="l-kind">What do you want to send?<select id="l-kind" class="big">
         <optgroup label="Quick analysis"><option value="analysis">Case analysis & summary</option></optgroup>
-        <optgroup label="Bullying"><option value="bully">Report bullying</option></optgroup>
+        <optgroup label="Bullying"><option value="bully">Report bullying</option><option value="safety">Ask for a safety plan</option></optgroup>
         <optgroup label="IEP / 504"><option value="accom">The plan isn't being followed</option><option value="eval">Ask for an evaluation</option></optgroup>
-        <optgroup label="Any issue"><option value="recap">Recap of a meeting</option><option value="meet">Ask for a meeting</option><option value="records">Ask for school records</option><option value="binder">Case summary for an advocate or lawyer</option></optgroup>
+        <optgroup label="Any issue"><option value="recap">Recap of a meeting</option><option value="meet">Ask for a meeting</option><option value="records">Ask for school records</option><option value="followup">Follow up: no answer yet</option><option value="binder">Case summary for an advocate or lawyer</option></optgroup>
       </select></label>
       <label for="l-scope" id="l-scopeWrap" hidden>Cover<select id="l-scope"><option value="all">Everything</option><option value="incident">Bullying only</option><option value="missed">IEP / 504 only</option><option value="recent">Last 30 days</option></select></label>
       <label for="l-meeting" id="l-meetingWrap" hidden>Which meeting?<select id="l-meeting"></select></label>
+      <fieldset id="l-pickWrap" class="lpick" hidden><legend>Include in the letter</legend><div id="l-pick"></div></fieldset>
       <label for="l-extra" id="l-extraWrap" hidden><span id="l-extraLabel">Details</span><textarea id="l-extra"></textarea></label>
       <label for="l-days" id="l-daysWrap">Ask for an answer within<select id="l-days"><option value="5">5 school days</option><option value="10" selected>10 school days</option><option value="15">15 school days</option></select></label>
       <label for="l-to">Send to<select id="l-to"></select></label>
@@ -493,6 +497,10 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
       <button class="btn light" id="sttChange" type="button">Choose how transcripts are made</button>
       <p class="note" style="margin:0">Recordings and transcripts are always saved only on this phone.</p>
     </div>
+    <div class="panel" id="textPanel"><h3>Text size</h3>
+      <div class="tsrow" role="group" aria-label="Text size" id="tsRow"></div>
+      <p class="note" id="tsNote">Makes the words in KidArmor bigger. Letters and PDFs aren't affected.</p>
+    </div>
     <div class="panel" id="permPanel"><h3>Permissions</h3>
       <div class="list" id="permList"></div>
       <p class="note" id="permHow"></p>
@@ -565,6 +573,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 /* ---------- helpers ---------- */
 const KEY="papertrail.v3";
 const $=s=>document.querySelector(s);
+const clip=(s,n)=>{s=String(s||"").replace(/\s+/g," ").trim();return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,"")+"…":s};
 const esc=s=>String((s==null?"":s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const iso=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*6e4);return z.toISOString().slice(0,10)};
 const today=()=>iso(new Date());
@@ -985,8 +994,20 @@ function recipients(){const c=state.child,p=state.plan;return[
   {id:"me",label:"Myself (keep a copy)",email:c.myemail,name:""},
   {id:"other",label:"Someone else",email:"",name:""}]}
 function currentRecipient(){const r=recipients().find(x=>x.id===$("#l-to").value)||recipients()[0];if(r.id==="other")r.email=$("#l-other").value.trim();return r}
-function subjectOf(k){const c=state.child,n=c.name||"my child";return({analysis:`Case summary for ${n} — ${fmtLong(new Date())}`,bully:`Formal report of bullying — ${n}`,accom:`${planName()} not being followed — ${n}`,eval:`Request for evaluation — ${n}`,meet:`Meeting request — ${n}`,records:`Request for education records — ${n}`,binder:`Case summary — ${n}`,
+function subjectOf(k){const c=state.child,n=c.name||"my child";return({analysis:`Case summary for ${n} — ${fmtLong(new Date())}`,bully:`Formal report of bullying — ${n}`,safety:`Request for a safety plan — ${n}`,followup:`Follow-up: waiting for a response — ${n}`,accom:`${planName()} not being followed — ${n}`,eval:`Request for evaluation — ${n}`,meet:`Meeting request — ${n}`,records:`Request for education records — ${n}`,binder:`Case summary — ${n}`,
   recap:(()=>{const m=state.entries.find(e=>e.id===$("#l-meeting").value);return`Summary of our ${m?fmt(m.date)+" ":""}meeting — ${n}`})()})[k]}
+/* which logged entries go into a letter (all by default; the parent can uncheck any) */
+const letterSkip={};
+function letterCands(k){const t=today();
+  if(k==="bully"||k==="safety")return state.entries.filter(e=>e.kind==="incident").sort(byDate);
+  if(k==="accom")return state.entries.filter(e=>e.kind==="missed").sort(byDate);
+  if(k==="followup")return state.entries.filter(e=>(e.kind==="comm"&&e.followup&&!e.resolved&&e.followup<t)||((e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response))).sort(byDate);
+  return null}
+const picked=k=>{const L=letterCands(k)||[],skip=letterSkip[k==="safety"?"bully":k]||[];return L.filter(e=>!skip.includes(e.id))};
+function renderPick(k){const w=$("#l-pickWrap"),L=letterCands(k);w.hidden=!L||!L.length;if(w.hidden)return;const skip=letterSkip[k==="safety"?"bully":k]||[];
+  $("#l-pick").innerHTML=L.map(e=>`<label><input type="checkbox" data-lpick="${e.id}"${skip.includes(e.id)?"":" checked"}><span>${esc(fmt(e.date))} · ${esc(clip(titleOf(e),70))}</span></label>`).join("")}
+document.addEventListener("change",e=>{const b=e.target.closest("[data-lpick]");if(!b)return;const k0=$("#l-kind").value,k=k0==="safety"?"bully":k0;
+  letterSkip[k]=[...document.querySelectorAll("[data-lpick]")].filter(x=>!x.checked).map(x=>x.dataset.lpick);$("#letter").textContent=LET[k0]();updateEmail()});
 const LET={
   analysis(){const a=analyze($("#l-scope").value),r=currentRecipient(),c=state.child,scopeName={all:"",incident:" (bullying only)",missed:" (IEP / 504 only)",recent:" (last 30 days)"}[$("#l-scope").value];
     const hello=r.id==="me"?"":`${r.name?"Hi "+r.name.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.)\s*/,m=>m)+",":"Hello,"}\n\n`;
@@ -1005,7 +1026,7 @@ ${a.E.slice(-6).reverse().map(recentLine).join("\n")||"- none"}
 ${r.id==="me"?"":`
 I have dates, details, photos and documents for each of these and can share them on request.${r.id==="adv"?"":" I would appreciate a reply by "+due()+"."}
 ${sign()}`}`},
-  accom(){const p=state.plan,M=state.entries.filter(e=>e.kind==="missed").sort(byDate);
+  accom(){const p=state.plan,M=picked("accom");
     return head(`${planName()} not being followed`,1)+`
 I am writing because ${first()}'s ${planName()}${p.start?", dated "+fmt(p.start)+",":""} is not being followed.${p.accoms.length?` The plan includes these accommodations and services:
 
@@ -1023,7 +1044,7 @@ I am asking the school to:
 
 Please send me a written response by ${due()}.
 `+sign()},
-  bully(){const L=state.entries.filter(e=>e.kind==="incident").sort(byDate);
+  bully(){const L=picked("bully");
     return head("Formal written report of bullying")+`
 I am writing to formally report repeated bullying of my child, ${state.child.name||"[child's name]"}. Please treat this letter as my written report under the school's and district's anti-bullying policy. Below is a dated record of ${L.length} incident${L.length===1?"":"s"}${L.length?" between "+fmt(L[0].date)+" and "+fmt(L[L.length-1].date):""}.
 
@@ -1036,6 +1057,28 @@ I am asking the school to:
 4. Place a copy of this letter in ${first()}'s student file.
 
 Please confirm you received this letter and send a written response by ${due()}. I would also like a copy of the district's bullying policy and complaint procedure, including how to appeal.
+`+sign()},
+  safety(){const L=picked("safety"),places=[...new Set(L.map(e=>(e.place||"").trim()).filter(Boolean))],who=[...new Set(L.map(e=>(e.involved||"").trim()).filter(x=>!isNone(x)))];
+    return head("Request for a written safety plan")+`
+I am asking the school to put a written safety plan in place for my child, ${state.child.name||"[child's name]"}. ${L.length?`I have reported ${L.length===1?"a bullying incident":L.length+" bullying incidents"}${L.length>1?" between "+fmt(L[0].date)+" and "+fmt(L[L.length-1].date):" on "+fmt(L[0].date)}, and I am worried about ${first()}'s safety at school.`:"I am worried about "+first()+"'s safety at school."}
+
+${L.length?L.map((e,i)=>entryBlock(e,i+1)).join("\n\n")+"\n\n":""}I am asking that the safety plan include:
+1. Adult supervision ${places.length?"in the places where this has happened: "+places.join("; "):"in the places where this has happened"}.
+2. Steps to keep ${first()} apart from ${who.length?"the students involved ("+who.join("; ")+")":"the students involved"} where possible, without ${first()} losing class time or activities.
+3. A trusted adult at school ${first()} can go to right away, and a simple way for ${first()} to report problems.
+4. Regular check-ins with ${first()}, and updates to me.
+5. A date to review the plan together to see if it is working.
+
+Please send me the written safety plan, or a time to meet about it, by ${due()}. Please also place a copy of this letter in ${first()}'s student file.
+`+sign()},
+  followup(){const L=picked("followup"),t=today();
+    return head("Follow-up: waiting for a response")+`
+I am following up because I have not received a response to the item${L.length===1?"":"s"} below.${L.length?"":" [Choose the items above, or describe what you're waiting on.]"}
+
+${L.map((e,i)=>e.kind==="comm"?`${i+1}. On ${fmt(e.date)} I contacted ${e.withwho||"the school"}${e.method?" by "+e.method.toLowerCase():""}${e.subject?' ("'+e.subject+'")':""}. ${clip(e.desc,300)} I expected a reply by ${fmt(e.followup)}.`
+      :`${i+1}. On ${fmt(e.repdate||e.date)} I reported ${e.kind==="missed"?"that "+first()+"'s "+planName()+" was not followed":"a bullying incident"} (from ${fmt(e.date)}) to ${e.reported}. ${clip(e.desc,240)}`).join("\n\n")}
+
+Please reply in writing by ${due()} and let me know what has been done or what the next step is. If someone else should handle this, please let me know who.
 `+sign()},
   recap(){const m=state.entries.find(e=>e.id===$("#l-meeting").value);if(!m)return"Log a meeting first. Then come back here and the recap letter will fill in.";
     return head(`Summary of our ${fmt(m.date)} meeting`,1)+`
@@ -1129,7 +1172,7 @@ function renderLetter(){renderTo();const k=$("#l-kind").value,meetings=state.ent
   $("#l-extraWrap").hidden=!EXTRA[k];if(EXTRA[k]){$("#l-extraLabel").textContent=EXTRA[k][0];$("#l-extra").placeholder=EXTRA[k][1]}
   $("#l-scopeWrap").hidden=k!=="analysis";$("#letterBinder").hidden=!(k==="analysis"||k==="binder");
   $("#l-daysWrap").hidden=k==="binder"||(k==="analysis"&&["adv","me"].includes($("#l-to").value));
-  $("#letter").textContent=LET[k]();updateEmail()}
+  renderPick(k);$("#letter").textContent=LET[k]();updateEmail()}
 function defaultCc(){const k=$("#l-kind").value,r=$("#l-to").value;$("#l-cc").value=["accom","recap","meet","eval"].includes(k)&&r==="principal"&&state.plan.cmemail?state.plan.cmemail:""}
 $("#l-cc").oninput=updateEmail;$("#l-bcc").onchange=updateEmail;
 $("#l-kind").onchange=()=>{$("#l-extra").value="";renderLetter();defaultCc();updateEmail()};$("#l-scope").onchange=renderLetter;
@@ -1835,7 +1878,7 @@ document.addEventListener("visibilitychange",()=>{if(!REC.active||REC.stopping)r
   else if(!REC.paused&&SR){try{REC.sr&&REC.sr.start()}catch(e){}}});
 window.addEventListener("beforeunload",e=>{if(REC.active&&!REC.stopping){e.preventDefault();e.returnValue=""}});
 function renderRecording(){const sh=document.querySelector(".sheet");if(!sh)return;
-  sh.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><span style="width:14px;height:14px;border-radius:50%;background:var(--high);flex:none"></span><b id="recTime" style="font-family:var(--display);font-size:34px;font-variant-numeric:tabular-nums">00:00</b><span class="note">Recording${SR?" + transcript":""}</span></div>
+  sh.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><span style="width:14px;height:14px;border-radius:50%;background:var(--high);flex:none"></span><b id="recTime" style="font-family:var(--display);font-size:calc(34px*var(--ts,1));font-variant-numeric:tabular-nums">00:00</b><span class="note">Recording${SR?" + transcript":""}</span></div>
     ${REC.paused?`<div class="banner"><span><b>Paused.</b> Your phone stopped the microphone while you were in another app. Everything before that is saved.</span><button class="btn small primary" id="recResume" type="button">Resume</button></div>`:""}
     <div id="recSay">${REC.announcedAt?`<div class="banner ok">You announced the recording at ${new Date(REC.announcedAt).toLocaleTimeString([], {hour:"numeric",minute:"2-digit"})}.</div>`:`<div class="say"><small>SAY THIS NOW</small>“${esc(ANNOUNCE)}”</div><button class="btn primary wide" id="recTold" type="button" style="margin-top:10px">I told everyone</button>`}</div>
     <div class="eyebrow">Live transcript</div><div class="tbox"><pre id="recText" style="max-height:40vh"></pre></div>
@@ -2217,7 +2260,6 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-umr],[data
   else if(b.dataset.uml){kind="meeting";resetForm();Object.assign(vals,{date:m.date,mtype:MTYPES.includes(m.mtype)?m.mtype:"Other",attendees:m.who||""});vals._fromUpcoming=m.id;drawForm(true);show("add")}
   else if(b.dataset.ume){if(meetStart(m).getTime()+(m.minutes||60)*60000+36e5<Date.now()){state.upcoming=state.upcoming.filter(x=>x.id!==id);save();renderHome();toast("Removed")}else openSchedule(id)}});
 /* ---------- get ready for a meeting: a one-page plan built from the parent's own records ---------- */
-const clip=(s,n)=>{s=String(s||"").replace(/\s+/g," ").trim();return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,"")+"…":s};
 const listDates=a=>{const d=a.map(e=>fmt(e.date));return d.length<3?d.join(" and "):d.slice(0,-1).join(", ")+" and "+d[d.length-1]};
 const kidFirst=()=>(state.child.name||"").split(" ")[0]||"my child";
 function prepData(m){const t=today(),day=m.date||t;
@@ -2335,6 +2377,18 @@ function askNotify(fromSchedule){try{if(!window.Notification||Notification.permi
 const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 const SPEECH_CO=isIOS?"Apple":/Android/i.test(navigator.userAgent)?"Google":"Apple or Google";
 async function permState(name){try{if(!navigator.permissions||!navigator.permissions.query)return"unknown";const r=await navigator.permissions.query({name});return r.state}catch(e){return"unknown"}}
+/* ---------- text size: follows the iPhone's text size, or the parent picks one here ---------- */
+const TS_KEY="kidarmor.textsize",TS_OPTS=[["auto","Match my phone"],["1","Standard"],["1.2","Large"],["1.4","Larger"],["1.7","Largest"]];
+function phoneTextScale(){if(!isIOS)return 1;try{const p=document.createElement("span");p.style.cssText="font:-apple-system-body;position:absolute;visibility:hidden";p.textContent="x";document.body.appendChild(p);const f=parseFloat(getComputedStyle(p).fontSize)||17;p.remove();return Math.min(1.9,Math.max(1,f/17))}catch(e){return 1}}
+function textSizePref(){try{return localStorage.getItem(TS_KEY)||"auto"}catch(e){return"auto"}}
+function setTextSize(z,keep){if(!keep){try{localStorage.setItem(TS_KEY,String(z))}catch(e){}}const v=String(z)==="auto"?phoneTextScale():(+z||1);
+  document.documentElement.style.setProperty("--ts",String(v));document.documentElement.classList.toggle("bigtext",v>1.05);renderTextSize()}
+function renderTextSize(){const r=$("#tsRow");if(!r)return;const cur=textSizePref(),opts=isIOS?TS_OPTS:TS_OPTS.filter(o=>o[0]!=="auto");const sel=!isIOS&&cur==="auto"?"1":cur;
+  r.innerHTML=opts.map(([v,l])=>`<button class="btn small light" type="button" data-ts="${v}" aria-pressed="${v===sel}">${l}</button>`).join("");
+  const n=$("#tsNote");if(n)n.textContent=isIOS?"Match my phone follows the text size in your iPhone's Settings → Accessibility → Display & Text Size. Letters and PDFs aren't affected.":"Makes the words in KidArmor bigger. Letters and PDFs aren't affected."}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-ts]");if(b)setTextSize(b.dataset.ts)});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&textSizePref()==="auto")setTextSize("auto",true)});
+setTextSize(textSizePref(),true);
 async function renderPerms(){const el=$("#permList");if(!el)return;const framed=(()=>{try{return window.self!==window.top}catch(e){return true}})();
   const mic=framed?"blocked-here":await permState("microphone");
   const notif=framed?"blocked-here":window.Notification?Notification.permission==="default"?"prompt":Notification.permission:"unsupported";
@@ -2424,7 +2478,7 @@ function pendingLink(){const m=(location.hash||"").match(/^#open=([A-Za-z0-9_-]+
 function promptOpenLink(){const data=pendingLink();if(!data)return;
   const sh=openSheet(`<h3>Open a KidArmor case</h3>
     <p class="note">Type the code that came with this link.</p>
-    <label for="olCode">Code<input id="olCode" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX" style="font-size:22px;letter-spacing:.08em;text-transform:uppercase"></label>
+    <label for="olCode">Code<input id="olCode" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX" style="font-size:calc(22px*var(--ts,1));letter-spacing:.08em;text-transform:uppercase"></label>
     <p class="note" id="olErr" role="alert" style="color:var(--high)"></p>
     <button class="btn primary wide" id="olGo" type="button">Open the case</button>
     <button class="btn ghost" id="olCancel" type="button">Cancel</button>`);
