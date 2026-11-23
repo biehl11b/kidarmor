@@ -1303,7 +1303,7 @@ $("#copyLetter").onclick=()=>{const t=$("#letter").textContent,k=$("#l-kind").va
 
 /* ---------- CHILD & PRIVACY ---------- */
 const S={child:"name",grade:"grade",school:"school",district:"district",to:"to",totitle:"totitle",toemail:"toemail",parent:"parent",contact:"contact",myemail:"myemail",adv:"adv",advemail:"advemail"};
-async function renderMe(){if(!renderMe.keepMore)closeMore();renderMe.keepMore=false;renderBackupNudge();renderCo();for(const k in S)$("#s-"+k).value=state.child[S[k]]||"";
+async function renderMe(){if(window.__kaOpenMore)openMore();else if(!renderMe.keepMore)closeMore();renderMe.keepMore=false;renderBackupNudge();renderCo();for(const k in S)$("#s-"+k).value=state.child[S[k]]||"";
   const ss=$("#s-state");if(ss.options.length<3)ss.innerHTML=`<option value="">Choose your state</option>`+STATES.map(([c,n])=>`<option value="${c}">${n}</option>`).join("");ss.value=myState();
   const ak=$("#addKid");if(ak){const n=realKids().length;ak.disabled=n>=MAXKIDS;ak.textContent=n>=MAXKIDS?`You have ${MAXKIDS} children (the most KidArmor holds)`:"+ Add another child"}renderKids();renderLock();renderPerms();$("#shDone").hidden=true;$("#sharePanel").querySelector("#shMake").disabled=!!(state.example||state.readOnly);renderShares();try{renderLegal()}catch(e){}
   try{const est=await navigator.storage.estimate();const mb=(est.usage||0)/1048576;$("#storageLabel").textContent=`Space used on this phone: ${mb<1?mb.toFixed(2):mb.toFixed(1)} MB`;$("#storageBar").style.width=Math.max(2,Math.min(100,mb/200*100))+"%"}

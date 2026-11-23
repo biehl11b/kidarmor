@@ -12,9 +12,9 @@ ok("reminder shows once there are records and no backup",await p.isVisible("#bkN
 await p.screenshot({path:__dirname+"/v17-nudge.png"});
 await p.click("#bkLater");ok("Later hides it for a week",!(await p.isVisible("#bkNudge"))&&await p.evaluate(()=>root.backupSnooze>Date.now()+6*864e5));
 await p.evaluate(()=>{root.backupSnooze=0;save();show("home")});await p.click("#bkNow");
-ok("Back up now opens the backup section",await p.isVisible("#backupPanel")&&/haven't made a backup/.test(await p.textContent("#bkLast")));
+ok("Back up now opens the backup section",await p.isVisible("#backupPanel")&&/haven.t saved a copy/.test(await p.textContent("#bkLast")));
 await p.fill("#bk1","long passphrase");await p.fill("#bk2","long passphrase");const dl=p.waitForEvent("download");await p.click("#bkMake");await dl;await p.waitForTimeout(300);
-ok("after a backup: date shown, reminder gone",/Last backup:/.test(await p.textContent("#bkLast"))&&await p.evaluate(()=>{show("home");return document.querySelector("#bkNudge").hidden}));
+ok("after a backup: date shown, reminder gone",/Last copy saved:/.test(await p.textContent("#bkLast"))&&await p.evaluate(()=>{show("home");return document.querySelector("#bkNudge").hidden}));
 await p.evaluate(()=>{root.lastBackupAt=new Date(Date.now()-31*864e5).toISOString();save();show("home")});
-ok("reminds again after 30 days",/31 days since your last backup/.test(await p.textContent("#bkNudge")));
+ok("reminds again after 30 days",/31 days since you last saved a copy/.test(await p.textContent("#bkNudge")));
 ok("no script errors",errs.length===0,errs.join("|"));await b.close()})().catch(e=>{console.log("  FAIL",e.message);process.exit(1)});

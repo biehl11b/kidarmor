@@ -3,7 +3,7 @@ const html=fs.readFileSync(__dirname+"/../native/src/app.html","utf8");
 const page_='<!doctype html><html><head><meta charset="utf-8"><style>[hidden]{display:none!important}</style></head><body>'+html+"</body></html>";
 const ok=(n,c,x="")=>{console.log((c?"  ok   ":"  FAIL ")+n+(x?"  → "+x:""));if(!c)process.exitCode=1};
 (async()=>{const b=await chromium.launch();const ctx=await b.newContext({viewport:{width:390,height:844}});
-const p=await ctx.newPage();await p.addInitScript(()=>{window.__kaSkipWizard=true});const errs=[];p.on("pageerror",e=>errs.push(e.message));
+const p=await ctx.newPage();await p.addInitScript(()=>{window.__kaSkipWizard=true;window.__kaOpenMore=true});const errs=[];p.on("pageerror",e=>errs.push(e.message));
 const reqs=[];p.on("request",r=>reqs.push(r.url()));
 await p.route("https://kidarmor.example/**",r=>{const u=r.request().url();if(u.endsWith("/"))return r.fulfill({body:page_,contentType:"text/html"});if(/fonts\.css$/.test(u))return r.fulfill({body:"",contentType:"text/css"});const m=u.match(/vendor\/([\w.-]+)$/);if(m&&fs.existsSync(__dirname+"/../vendor/"+m[1]))return r.fulfill({body:fs.readFileSync(__dirname+"/../vendor/"+m[1]),contentType:"application/javascript"});return r.fulfill({status:404,body:""})});
 await p.goto("https://kidarmor.example/");
@@ -54,7 +54,7 @@ ok("share saved with the code",await p.evaluate(()=>state.shares.length===1&&sta
 await p.click("#plDone");await p.waitForTimeout(150);
 ok("shared list shows Send an update",/Send an update/.test(await p.textContent("#shList")));
 // open on the professional's side
-const q=await ctx.newPage();await q.addInitScript(()=>{window.__kaSkipWizard=true;window.__kaSkipTerms=true});
+const q=await ctx.newPage();await q.addInitScript(()=>{window.__kaSkipWizard=true;window.__kaOpenMore=true;window.__kaSkipTerms=true});
 await q.route("https://kidarmor.example/**",r=>{const u=r.request().url();if(u.split("#")[0].endsWith("/"))return r.fulfill({body:page_,contentType:"text/html"});return r.fulfill({status:404,body:""})});
 const hash=url.slice(url.indexOf("#"));await q.goto("https://kidarmor.example/"+hash);await q.waitForSelector("#olCode");await q.fill("#olCode",code);await q.click("#olGo");await q.waitForTimeout(800);
 const got=await q.evaluate(()=>({kinds:state.entries.map(e=>e.kind).sort().join(","),ro:state.readOnly,health:(state.health||[]).length,plan:state.plan.type||"",note:JSON.stringify(state).includes("SECRET"),codes:JSON.stringify(state).includes("\"code\""),secs:state.shareSections}));

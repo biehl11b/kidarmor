@@ -2,7 +2,7 @@ const { chromium } = require("playwright");const fs=require("fs");
 const html=fs.readFileSync(__dirname+"/../native/src/app.html","utf8");
 const page_='<!doctype html><html><head><meta charset="utf-8"><style>[hidden]{display:none!important}</style></head><body>'+html+"</body></html>";
 const ok=(n,c,x="")=>{console.log((c?"  ok   ":"  FAIL ")+n+(x?"  → "+x:""));if(!c)process.exitCode=1};
-(async()=>{const b=await chromium.launch();const ctx=await b.newContext({viewport:{width:390,height:844}});const p=await ctx.newPage();await p.addInitScript(()=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true});const errs=[];p.on("pageerror",e=>errs.push(e.message));
+(async()=>{const b=await chromium.launch();const ctx=await b.newContext({viewport:{width:390,height:844}});const p=await ctx.newPage();await p.addInitScript(()=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true;window.__kaOpenMore=true});const errs=[];p.on("pageerror",e=>errs.push(e.message));
 const cdp=await ctx.newCDPSession(p);await cdp.send("WebAuthn.enable");
 const {authenticatorId}=await cdp.send("WebAuthn.addVirtualAuthenticator",{options:{protocol:"ctap2",transport:"internal",hasResidentKey:true,hasUserVerification:true,isUserVerified:true,automaticPresenceSimulation:true}});
 await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));
@@ -30,7 +30,7 @@ ok("5 wrong PINs → 30 second wait",/30 seconds/.test(await p.textContent("#loc
 await p.fill("#lockPin","2468");await p.click("#lockGo");await p.waitForTimeout(300);ok("even right PIN waits",await p.isVisible(".lockscreen"));
 ok("no script errors",errs.length===0,errs.join("|"));
 // iframe: explains instead
-const p2=await ctx.newPage();await p2.addInitScript(()=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true});await p2.route("https://host.example/",r=>r.fulfill({body:'<iframe src="https://kidarmor.example/" width=390 height=800></iframe>',contentType:"text/html"}));
+const p2=await ctx.newPage();await p2.addInitScript(()=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true;window.__kaOpenMore=true});await p2.route("https://host.example/",r=>r.fulfill({body:'<iframe src="https://kidarmor.example/" width=390 height=800></iframe>',contentType:"text/html"}));
 await p2.route("https://kidarmor.example/",r=>r.fulfill({body:page_,contentType:"text/html"}));await p2.goto("https://host.example/");
 const f=p2.frames()[1];const sup=await f.evaluate(()=>bioSupported());ok("inside the Claude link it isn't offered (PIN only)",sup===false);
 await b.close()})().catch(e=>{console.log("  FAIL",e.message);process.exit(1)});

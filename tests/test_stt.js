@@ -3,7 +3,7 @@ const html=fs.readFileSync(__dirname+"/../native/src/app.html","utf8");
 const page_='<!doctype html><html><head><meta charset="utf-8"><style>[hidden]{display:none!important}</style></head><body>'+html+"</body></html>";
 const ok=(n,c,x="")=>{console.log((c?"  ok   ":"  FAIL ")+n+(x?"  → "+x:""));if(!c)process.exitCode=1};
 async function open(b,local){const ctx=await b.newContext({viewport:{width:390,height:844},permissions:["microphone"]});const p=await ctx.newPage();
-  await p.addInitScript(([local])=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true;window.__srStarts=[];
+  await p.addInitScript(([local])=>{window.__kaSkipTerms=true;window.__kaSkipWizard=true;window.__kaOpenMore=true;window.__srStarts=[];
     function FakeSR(){this.continuous=false;this.interimResults=false;this.lang="en-US"}
     if(local)FakeSR.prototype.processLocally=false;
     FakeSR.prototype.start=function(){window.__srStarts.push({processLocally:this.processLocally})};FakeSR.prototype.stop=function(){this.onend&&this.onend()};FakeSR.prototype.abort=FakeSR.prototype.stop;
