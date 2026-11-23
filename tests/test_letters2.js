@@ -1,0 +1,33 @@
+// Letter builder: pick which entries go in, safety plan letter, follow-up letter.
+const { chromium } = require("playwright");
+const fs = require("fs"), path = require("path");
+const html = fs.readFileSync(path.join(__dirname, "../native/src/app.html"), "utf8");
+const page_ = `<!doctype html><html lang=en><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"></head><body>${html}</body></html>`;
+(async () => {
+  const browser = await chromium.launch(); const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await page.addInitScript(() => { window.__kaNoMic = true; window.__kaSkipTerms = true; window.__kaSkipWizard = true });
+  const errors = []; page.on("pageerror", e => errors.push(e.message));
+  await page.route("https://demo.local/**", r => r.fulfill({ body: page_, contentType: "text/html" }));
+  await page.route("https://fonts.googleapis.com/**", r => r.fulfill({ body: "", contentType: "text/css" }));
+  const ok = (n, c, x = "") => { console.log((c ? "  ok   " : "  FAIL ") + n + (x ? "  → " + x : "")); if (!c) process.exitCode = 1 };
+  await page.goto("https://demo.local/"); await page.click("#seeExample"); await page.waitForTimeout(200);
+  await page.evaluate(() => show("letters"));
+  await page.selectOption("#l-kind", "bully"); await page.waitForTimeout(100);
+  ok("bullying letter shows a list to pick from", await page.locator("[data-lpick]").count() === 3);
+  ok("all 3 incidents in the letter", /record of 3 incidents/.test(await page.locator("#letter").innerText()));
+  await page.locator("[data-lpick]").first().uncheck(); await page.waitForTimeout(100);
+  const t = await page.locator("#letter").innerText();
+  ok("unchecking one leaves 2", /record of 2 incidents/.test(t) && !/School bus/.test(t));
+  ok("email link carries the change", !/School%20bus/.test(await page.getAttribute("#emailBtn", "href")));
+  await page.selectOption("#l-kind", "safety"); await page.waitForTimeout(100);
+  const s = await page.locator("#letter").innerText();
+  ok("safety plan letter uses the same picks and real places", /2 bullying incidents/.test(s) && /Cafeteria/.test(s) && /Group chat/.test(s) && /safety plan/.test(s), s.slice(0, 200));
+  await page.selectOption("#l-kind", "followup"); await page.waitForTimeout(100);
+  const f = await page.locator("#letter").innerText();
+  ok("follow-up letter lists unanswered items", /Mr\. Daniels/.test(f) && /haven't|have not received/.test(f), f.slice(0, 300));
+  ok("follow-up subject", /Follow-up/.test(decodeURIComponent(await page.getAttribute("#emailBtn", "href"))));
+  await page.selectOption("#l-kind", "recap"); await page.waitForTimeout(100);
+  ok("pick list hidden for recap", await page.locator("#l-pickWrap").isHidden());
+  ok("no script errors", !errors.length, errors.join("; "));
+  await browser.close();
+})();
