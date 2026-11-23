@@ -45,8 +45,18 @@ async function main() {
   let go = await find(`type == "XCUIElementTypeButton" AND label == "Continue"`, 10000);
   const en = go ? await go.isEnabled() : false; log(en ? "ok" : "FAIL", "checking the box turns on Continue", go ? (en ? "enabled" : "still off") : "no Continue button");
   if (go) { await go.click(); await sleep(2500) }
-  const setup = await find(`label CONTAINS "set up KidArmor"`, 30000); shot("6-after-continue");
-  log(setup ? "ok" : "FAIL", "Continue opens setup");
+  const intro = await find(`label CONTAINS "how KidArmor works"`, 30000); shot("6-after-continue");
+  log(intro ? "ok" : "FAIL", "Continue opens the 'how it works' intro");
+  const tourBtn = await find(`type == "XCUIElementTypeButton" AND label == "Show me how it works"`, 8000);
+  if (tourBtn) { await tourBtn.click(); await sleep(2500);
+    const t1 = await find(`label CONTAINS[c] "step 1 of 6"`, 15000); shot("6b-tour"); log(t1 ? "ok" : "FAIL", "'Show me how it works' starts the tour");
+    const nx = await find(`type == "XCUIElementTypeButton" AND label == "Next"`, 5000); if (nx) { await nx.click(); await sleep(2000) }
+    const t2 = await find(`label CONTAINS[c] "step 2 of 6"`, 10000); log(t2 ? "ok" : "FAIL", "the tour's Next button works");
+    const bk = await find(`type == "XCUIElementTypeButton" AND label == "Back"`, 5000); if (bk) { await bk.click(); await sleep(1500) }
+    const sk = await find(`type == "XCUIElementTypeButton" AND label == "Skip the tour"`, 8000); if (sk) { await sk.click(); await sleep(2500) }
+  } else log("FAIL", "intro offers 'Show me how it works'");
+  const setup = await find(`label CONTAINS "set up KidArmor"`, 30000); shot("6c-setup");
+  log(setup ? "ok" : "FAIL", "skipping the tour opens setup");
   if (/iPad/i.test(DEVICE)) { // App Review often uses an iPad; the iPhone-only app runs there in a phone-size window
     try { await d.setOrientation("LANDSCAPE"); await sleep(2500); shot("7-landscape"); await d.setOrientation("PORTRAIT"); await sleep(2000) } catch (e) { log("info", "rotate", e.message) }
     const s2 = await find(`label CONTAINS "set up KidArmor"`, 10000); log(s2 ? "ok" : "FAIL", "still fine after rotating");

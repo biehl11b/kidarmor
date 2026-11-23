@@ -141,25 +141,26 @@ if n is not None:
         snap("4-box-checked")
         if go is not None:
             adb("shell", "input", "tap", *map(str, center(go))); time.sleep(3)
-            root, nxt = wait_for(r"how KidArmor works|set up KidArmor|Step 1 of", 30, "after-continue")
+            root, nxt = wait_for(r"how KidArmor works|set up KidArmor|Step 1 of 4", 30, "after-continue")
+            time.sleep(1); root = dump()
             gone = not any(nd.get("resource-id") == "agGo" for nd in nodes(root))
             log("ok" if (nxt is not None and gone) else "FAIL", "Continue opens the app", screen_text(root)[:200])
             snap("5-after-continue")
             # the intro: "Show me how it works" starts the tour on the example family; "Skip the tour" goes to setup
-            tour = find(root, r"^Show me how it works$")
+            tour = find(root, r"^\s*Show me how it works\s*$")
             if tour is not None:
                 adb("shell", "input", "tap", *map(str, center(tour))); time.sleep(2)
                 root, st = wait_for(r"(?i)step 1 of 6", 20, "tour-1")
                 log("ok" if st is not None else "FAIL", "'Show me how it works' starts the tour", screen_text(root)[:160])
-                nx = find(root, r"^Next$")
+                nx = find(root, r"^\s*Next\s*$")
                 if nx is not None:
                     adb("shell", "input", "tap", *map(str, center(nx))); time.sleep(2)
                     root, st2 = wait_for(r"(?i)step 2 of 6", 15, "tour-2")
                     log("ok" if st2 is not None else "FAIL", "the tour's Next button works", screen_text(root)[:160])
-                    bk = find(root, r"^Back$")
+                    bk = find(root, r"^\s*Back\s*$")
                     if bk is not None: adb("shell", "input", "tap", *map(str, center(bk))); time.sleep(2)
                     root = dump()
-                sk = find(root, r"^Skip the tour$")
+                sk = find(root, r"^\s*Skip the tour\s*$")
                 if sk is not None:
                     adb("shell", "input", "tap", *map(str, center(sk))); time.sleep(2)
                     root, wz = wait_for(r"set up KidArmor|Step 1 of 4|Your name", 20, "after-tour")
