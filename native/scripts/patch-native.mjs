@@ -59,6 +59,14 @@ function patchAndroid() {
   if (!s.includes("android:dataExtractionRules=")) s = s.replace("<application", '<application android:dataExtractionRules="@xml/data_extraction_rules" android:fullBackupContent="false"');
   const xmlDir = path.join(root, "android/app/src/main/res/xml"); fs.mkdirSync(xmlDir, { recursive: true });
   fs.writeFileSync(path.join(xmlDir, "data_extraction_rules.xml"), `<?xml version="1.0" encoding="utf-8"?>\n<data-extraction-rules>\n  <cloud-backup><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></cloud-backup>\n  <device-transfer><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></device-transfer>\n</data-extraction-rules>\n`);
+  // Keep the screen running through any settings change (text size, dark mode, language, rotation, a second screen)
+  // instead of restarting it; a restart during start-up can leave the page blank.
+  const CFG = "orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|locale|layoutDirection|uiMode|navigation|density|fontScale|touchscreen|mcc|mnc|colorMode|fontWeightAdjustment|grammaticalGender";
+  s = s.replace(/<activity\b[^>]*>/g, tag => {
+    if (!/android:name="[^"]*MainActivity"/.test(tag)) return tag;
+    return /android:configChanges=/.test(tag) ? tag.replace(/android:configChanges="[^"]*"/, `android:configChanges="${CFG}"`) : tag.replace("<activity", `<activity android:configChanges="${CFG}"`);
+  });
+  if (!s.includes(`android:configChanges="${CFG}"`)) throw new Error("Couldn't set configChanges on MainActivity");
   fs.writeFileSync(f, s); console.log("Android manifest patched");
   // KidArmor's own plugin: writes the meeting transcript from the saved recording (see android-src/)
   const javaDir = path.join(root, "android/app/src/main/java/com/coastlinecode/kidarmor");
@@ -66,7 +74,9 @@ function patchAndroid() {
   const ma = path.join(javaDir, "MainActivity.java"); let m = fs.readFileSync(ma, "utf8");
   if (!m.includes("KaTranscribePlugin")) {
     if (!m.includes("import android.os.Bundle;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.os.Bundle;");
-    m = m.replace(/public class MainActivity extends BridgeActivity\s*\{\s*\}/, "public class MainActivity extends BridgeActivity {\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        registerPlugin(KaTranscribePlugin.class);\n        super.onCreate(savedInstanceState);\n    }\n}");
+    if (!m.includes("import android.util.Log;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.util.Log;\nimport android.content.res.Configuration;");
+    // KA_LIFE lines show in the phone log even in the store version, so a start-up problem can be traced.
+    m = m.replace(/public class MainActivity extends BridgeActivity\s*\{\s*\}/, "public class MainActivity extends BridgeActivity {\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        Log.i(\"KA_LIFE\", \"onCreate restored=\" + (savedInstanceState != null));\n        registerPlugin(KaTranscribePlugin.class);\n        super.onCreate(savedInstanceState);\n    }\n    @Override\n    public void onConfigurationChanged(Configuration c) {\n        Log.i(\"KA_LIFE\", \"configuration changed (handled, no restart)\");\n        super.onConfigurationChanged(c);\n    }\n    @Override\n    public void onDestroy() {\n        Log.i(\"KA_LIFE\", \"onDestroy finishing=\" + isFinishing() + \" changingConfig=\" + isChangingConfigurations());\n        super.onDestroy();\n    }\n}");
     if (!m.includes("KaTranscribePlugin")) throw new Error("Couldn't add KaTranscribePlugin to MainActivity:\n" + m);
     fs.writeFileSync(ma, m);
   }

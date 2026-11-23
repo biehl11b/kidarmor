@@ -91,7 +91,7 @@ def phone_log(title):
     lcx = adb("logcat", "-d", "-v", "time", timeout=120) or ""
     pk = (adb("shell", "pidof", PKG) or "").split()
     noise = re.compile(r"RuntimeInit uid 2000|Using default boot image|Leaving lock profiling|Shutting down VM|uiautomator|UiAutomation|Accessibility")
-    keep = [l for l in lcx.splitlines() if not noise.search(l) and (re.search(r"chromium|cr_|Capacitor|WebView|webview|kidarmor|KidArmor|Console|SplashScreen|Displayed|AndroidRuntime|FATAL|ANR", l) or any(f"({x})" in l or f"( {x})" in l for x in pk))]
+    keep = [l for l in lcx.splitlines() if not noise.search(l) and (re.search(r"KA_LIFE|chromium|cr_|Capacitor|WebView|webview|kidarmor|KidArmor|Console|SplashScreen|Displayed|AndroidRuntime|FATAL|ANR|wm_|am_", l) or any(f"({x})" in l or f"( {x})" in l for x in pk))]
     print(f"---- {title}: phone log (filtered) ----"); print("\n".join(keep[-400:])); print("---- end ----", flush=True)
 
 end = time.time() + 90; root = n = None
@@ -126,6 +126,8 @@ else:
     phone_log("first open stayed blank")
     print("---- window/activity ----"); print((adb("shell", "dumpsys", "activity", "top") or "")[:3000]); print("---- end ----", flush=True)
 snap("3-welcome")
+life = [l for l in (adb("logcat", "-d", "-s", "KA_LIFE:*", timeout=60) or "").splitlines() if "KA_LIFE" in l]
+log("info", "screen start-ups during first open", " / ".join(x.split("KA_LIFE")[-1].strip(" :()0123456789") for x in life)[:300] or "none logged")
 
 if n is not None:
     box = n
