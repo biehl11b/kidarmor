@@ -200,8 +200,13 @@ async function main() {
     await js(`show("home");return 1`); await sleep(500); await click("#homeAdd"); await sleep(800);
     const where1 = await js(`return current`); sh("input keyevent 4"); await sleep(1200);
     ok("back button returns to Home from another screen", await js(`return current`) === "home", where1 + " → " + await js(`return current`));
-    await js(`openViewer({name:"x.pdf",inline:true,thumb:""});return 1`); await sleep(500); sh("input keyevent 4"); await sleep(800);
-    ok("back button closes an open file", await js(`return !document.querySelector(".viewer")`));
+    // the virtual phone's own home screen sometimes shows "isn't responding"; a back press then closes that box instead
+    let closed = false, tries = 0;
+    while (!closed && tries < 2) { tries++; clearSystemDialog(); await sleep(500);
+      await js(`if(!document.querySelector(".viewer"))openViewer({name:"x.pdf",inline:true,thumb:""});return 1`); await sleep(800);
+      const sys = clearSystemDialog(); if (sys) await sleep(800);
+      sh("input keyevent 4"); await sleep(1500); closed = await js(`return !document.querySelector(".viewer")`) }
+    ok("back button closes an open file", closed, tries > 1 ? "on the second try (the test phone's own dialog took the first press)" : "");
     sh("input keyevent 4"); await sleep(1500); const p = pid();
     ok("back button on Home puts the app away without crashing", !!p && topPkg() !== PKG, "pid " + p + ", on screen: " + topPkg());
     sh(`am start -n ${PKG}/.MainActivity`); await sleep(2000);
