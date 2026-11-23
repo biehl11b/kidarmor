@@ -105,8 +105,8 @@
     if(a.target==="_blank"){e.preventDefault();window.location.href=a.href}},true);
   /* links from teachers and the computer: kidarmor://open#upd=... */
   APP.addListener("appUrlOpen",function(d){var u=(d&&d.url)||"";var i=u.indexOf("#");if(i<0)return;var h=u.slice(i);
-    /* only teacher updates and shared-case links may arrive from outside the app; never move links */
-    if(/^#(upd|open)=[A-Za-z0-9_.-]{1,60000}$/.test(h)){location.hash=h}});
+    /* only teacher updates, shared-case links and co-parent pairing codes may arrive from outside the app; never move links */
+    if(/^#(upd|open)=[A-Za-z0-9_.-]{1,60000}$/.test(h)||/^#pair=[A-Za-z0-9]{12}(\.[A-Za-z0-9%._-]{0,90})?$/.test(h)){location.hash=h}});
   /* Android back button */
   APP.addListener("backButton",function(){
     var v=document.querySelector(".viewer");if(v){try{closeViewer()}catch(e){}return}

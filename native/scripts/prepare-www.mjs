@@ -18,7 +18,7 @@ const finalHtml = html.replace("__CSP__", CSP.replace("script-src 'self' 'unsafe
 fs.writeFileSync(path.join(root, "www/index.html"), finalHtml);
 console.log("CSP script hashes:", hashes.length);
 // PDF libraries come from the site's own vendor folder (no CDN download)
-for (const file of ["pdf-lib.min.js", "pdf.min.mjs", "pdf.worker.min.mjs"]) {
+for (const file of ["pdf-lib.min.js", "pdf.min.mjs", "pdf.worker.min.mjs", "qrcode.min.js"]) {
   fs.copyFileSync(path.join(root, "../vendor", file), path.join(root, "www/vendor", file));
 }
 // Fonts are bundled with the app (no requests to Google Fonts)

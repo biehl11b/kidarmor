@@ -37,8 +37,8 @@ const bad = `<meta http-equiv=refresh content='0;url=https://evil.example/'><i i
   // lock screen hides the records from screen readers
   await p.evaluate(() => { localStorage.setItem("kidarmor.pin", JSON.stringify({ s: "AAAAAAAAAAAAAAAAAAAAAA==", h: "x", i: 1000 })); showLock() });
   await p.waitForTimeout(200);
-  const snap = JSON.stringify(await p.accessibility.snapshot({ interestingOnly: true }));
-  ok("records behind the lock screen are hidden from screen readers", /locked/i.test(snap) && !/Evil/.test(snap));
+  const cdp = await p.context().newCDPSession(p); const ax = await cdp.send("Accessibility.getFullAXTree"); const snap = ax.nodes.filter(n => !n.ignored).map(n => (n.name && n.name.value) || "").join(" | ");
+  ok("records behind the lock screen are hidden from screen readers", /locked/i.test(snap) && !/Evil/.test(snap), snap.slice(0, 400));
   await p.evaluate(async () => { document.querySelector(".lockscreen")?.remove(); document.querySelectorAll("body>*").forEach(x => x.inert = false); const h = await pinHash("2468"); localStorage.setItem("kidarmor.pin", JSON.stringify({ s: h.s, h: h.h, i: 600000 })); showLock() });
   await p.fill("#lockPin", "2468"); await p.click("#lockGo"); await p.waitForSelector(".lockscreen", { state: "detached", timeout: 8000 });
   ok("the right PIN unlocks and the app works again", await p.evaluate(() => [...document.body.children].every(x => !x.inert)) && await p.isEnabled("nav.tabs button[data-v=me]"));
