@@ -47,7 +47,9 @@ function patchAndroid() {
   const perms = ["RECORD_AUDIO", "MODIFY_AUDIO_SETTINGS", "POST_NOTIFICATIONS", "USE_BIOMETRIC", "CAMERA", "WAKE_LOCK"];
   // Calendar events are added through the phone's own "new event" screen, which needs no calendar permission.
   if (!s.includes("xmlns:tools=")) s = s.replace("<manifest ", '<manifest xmlns:tools="http://schemas.android.com/tools" ');
-  const drop = ["READ_CALENDAR", "WRITE_CALENDAR"].filter(p => !s.includes(`android.permission.${p}" tools:node="remove"`)).map(p => `    <uses-permission android:name="android.permission.${p}" tools:node="remove" />`).join("\n");
+  // Reminders are scheduled as inexact (isExactNotification:false), so drop the exact-alarm permission the
+  // notifications plugin adds; Google Play only allows it for alarm-clock and calendar apps.
+  const drop = ["READ_CALENDAR", "WRITE_CALENDAR", "SCHEDULE_EXACT_ALARM", "USE_EXACT_ALARM"].filter(p => !s.includes(`android.permission.${p}" tools:node="remove"`)).map(p => `    <uses-permission android:name="android.permission.${p}" tools:node="remove" />`).join("\n");
   const permXml = perms.filter(p => !s.includes(`android.permission.${p}"`)).map(p => `    <uses-permission android:name="android.permission.${p}" />`).join("\n");
   s = s.replace(/<\/manifest>\s*$/, `${permXml}\n${drop}\n    <queries>\n        <intent><action android:name="android.speech.RecognitionService" /></intent>\n    </queries>\n</manifest>\n`);
   if (!s.includes('android:scheme="kidarmor"')) s = s.replace("</intent-filter>", `</intent-filter>\n            <intent-filter>\n                <action android:name="android.intent.action.VIEW" />\n                <category android:name="android.intent.category.DEFAULT" />\n                <category android:name="android.intent.category.BROWSABLE" />\n                <data android:scheme="kidarmor" />\n            </intent-filter>`);

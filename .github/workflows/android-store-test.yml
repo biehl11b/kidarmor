@@ -54,7 +54,11 @@ jobs:
             || curl -sfL -o bundletool.jar https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar
           java -jar bundletool.jar version
           java -jar bundletool.jar dump manifest --bundle=KidArmor-store.aab | head -5 >> store/bundle.txt
-      - name: Enable virtual phone support
+          # Google Play policy: these permissions need a special declaration KidArmor doesn't qualify for.
+          java -jar bundletool.jar dump manifest --bundle=KidArmor-store.aab > manifest.xml
+          grep -o 'android.permission\.[A-Z_]*' manifest.xml | sort -u | tee -a store/bundle.txt
+          if grep -E 'permission\.(SCHEDULE_EXACT_ALARM|USE_EXACT_ALARM|READ_MEDIA_IMAGES|READ_MEDIA_VIDEO|MANAGE_EXTERNAL_STORAGE|ACCESS_BACKGROUND_LOCATION|QUERY_ALL_PACKAGES|READ_CALENDAR|WRITE_CALENDAR|READ_CONTACTS|READ_SMS|READ_CALL_LOG|REQUEST_INSTALL_PACKAGES)"' manifest.xml | grep -v 'tools:node="remove"'; then
+            echo "::error::The bundle asks for a permission Google Play restricts"; exit 1; fi virtual phone support
         if: steps.want.outputs.go == '1'
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
