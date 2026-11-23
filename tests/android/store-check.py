@@ -141,10 +141,31 @@ if n is not None:
         snap("4-box-checked")
         if go is not None:
             adb("shell", "input", "tap", *map(str, center(go))); time.sleep(3)
-            root, nxt = wait_for(r"set up KidArmor|Step 1 of", 30, "after-continue")
+            root, nxt = wait_for(r"how KidArmor works|set up KidArmor|Step 1 of", 30, "after-continue")
             gone = not any(nd.get("resource-id") == "agGo" for nd in nodes(root))
             log("ok" if (nxt is not None and gone) else "FAIL", "Continue opens the app", screen_text(root)[:200])
             snap("5-after-continue")
+            # the intro: "Show me how it works" starts the tour on the example family; "Skip the tour" goes to setup
+            tour = find(root, r"^Show me how it works$")
+            if tour is not None:
+                adb("shell", "input", "tap", *map(str, center(tour))); time.sleep(2)
+                root, st = wait_for(r"(?i)step 1 of 6", 20, "tour-1")
+                log("ok" if st is not None else "FAIL", "'Show me how it works' starts the tour", screen_text(root)[:160])
+                nx = find(root, r"^Next$")
+                if nx is not None:
+                    adb("shell", "input", "tap", *map(str, center(nx))); time.sleep(2)
+                    root, st2 = wait_for(r"(?i)step 2 of 6", 15, "tour-2")
+                    log("ok" if st2 is not None else "FAIL", "the tour's Next button works", screen_text(root)[:160])
+                    bk = find(root, r"^Back$")
+                    if bk is not None: adb("shell", "input", "tap", *map(str, center(bk))); time.sleep(2)
+                    root = dump()
+                sk = find(root, r"^Skip the tour$")
+                if sk is not None:
+                    adb("shell", "input", "tap", *map(str, center(sk))); time.sleep(2)
+                    root, wz = wait_for(r"set up KidArmor|Step 1 of 4|Your name", 20, "after-tour")
+                    log("ok" if wz is not None else "FAIL", "skipping the tour goes to setup", screen_text(root)[:160])
+            else:
+                log("FAIL", "intro offers 'Show me how it works'", screen_text(root)[:200])
     else:
         log("FAIL", "agree checkbox found", screen_text(root)[:200])
 
@@ -166,7 +187,7 @@ for i in range(COLD):
     shown = None
     while time.time() < t1 + 45:
         r = dump()
-        if find(r, r"Let's set up KidArmor|Welcome to KidArmor|KidArmor is locked|Language") is not None: shown = time.time() - t1; break
+        if find(r, r"Let's set up KidArmor|Welcome to KidArmor|KidArmor is locked|Language|how KidArmor works") is not None: shown = time.time() - t1; break
         if find(r, r"isn't responding") is not None:
             w = find(r, r"^\s*Wait\s*$") or find(r, r"Wait")
             if w is not None: adb("shell", "input", "tap", *map(str, center(w)))

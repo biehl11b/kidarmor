@@ -5,7 +5,7 @@ const ok=(n,c,x="")=>{console.log((c?"  ok   ":"  FAIL ")+n+(x?"  → "+x:""));i
 (async()=>{const b=await chromium.launch({args:["--use-fake-ui-for-media-stream","--use-fake-device-for-media-stream"]});const ctx=await b.newContext({viewport:{width:390,height:844},permissions:["microphone"]});
 const p=await ctx.newPage();const errs=[];p.on("pageerror",e=>errs.push(e.message));await p.addInitScript(()=>{window.__kaSkipTerms=true;try{localStorage.getItem('kidarmor.stt')||localStorage.setItem('kidarmor.stt','service')}catch(e){}});
 await p.route("https://fonts.googleapis.com/**",r=>r.fulfill({body:"",contentType:"text/css"}));await p.route("https://kidarmor.example/**",r=>r.fulfill({body:page_,contentType:"text/html"}));
-await p.goto("https://kidarmor.example/");await p.waitForSelector(".wizard #wzName");ok("first open goes straight to setup",true);
+await p.goto("https://kidarmor.example/");await p.waitForSelector(".introscreen #inSetup");ok("first open shows the intro",true);await p.click("#inSetup");await p.waitForSelector(".wizard #wzName");ok("Set up my child goes to setup",true);
 await p.click("#wzNext");ok("name/email/state required",/name/.test(await p.textContent("#wzErr")));
 await p.fill("#wzName","Joshua Biehl");await p.fill("#wzEmail","josh@example.com");await p.fill("#wzPhone","228-555-0100");
 await p.click("#wzNext");ok("state is required",/state/.test(await p.textContent("#wzErr")));
