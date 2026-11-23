@@ -74,15 +74,8 @@ function patchAndroid() {
   const javaDir = path.join(root, "android/app/src/main/java/com/coastlinecode/kidarmor");
   fs.copyFileSync(path.join(root, "android-src/KaTranscribePlugin.java"), path.join(javaDir, "KaTranscribePlugin.java"));
   fs.copyFileSync(path.join(root, "android-src/KidArmorApp.java"), path.join(javaDir, "KidArmorApp.java"));
-  const ma = path.join(javaDir, "MainActivity.java"); let m = fs.readFileSync(ma, "utf8");
-  if (!m.includes("KaTranscribePlugin")) {
-    if (!m.includes("import android.os.Bundle;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.os.Bundle;");
-    if (!m.includes("import android.util.Log;")) m = m.replace(/(package [^;]+;)/, "$1\nimport android.util.Log;\nimport android.content.res.Configuration;");
-    // KA_LIFE lines show in the phone log even in the store version, so a start-up problem can be traced.
-    m = m.replace(/public class MainActivity extends BridgeActivity\s*\{\s*\}/, "public class MainActivity extends BridgeActivity {\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        Log.i(\"KA_LIFE\", \"onCreate restored=\" + (savedInstanceState != null));\n        registerPlugin(KaTranscribePlugin.class);\n        super.onCreate(savedInstanceState);\n    }\n    @Override\n    public void onConfigurationChanged(Configuration c) {\n        Log.i(\"KA_LIFE\", \"configuration changed (handled, no restart)\");\n        super.onConfigurationChanged(c);\n    }\n    @Override\n    public void onDestroy() {\n        Log.i(\"KA_LIFE\", \"onDestroy finishing=\" + isFinishing() + \" changingConfig=\" + isChangingConfigurations());\n        super.onDestroy();\n    }\n}");
-    if (!m.includes("KaTranscribePlugin")) throw new Error("Couldn't add KaTranscribePlugin to MainActivity:\n" + m);
-    fs.writeFileSync(ma, m);
-  }
+  // KidArmor's own screen: registers the speech plugin, logs start-up, and reloads the page if it ever comes up blank
+  fs.copyFileSync(path.join(root, "android-src/MainActivity.java"), path.join(javaDir, "MainActivity.java"));
   console.log("KaTranscribe plugin added");
   // KidArmor's own speech engine (Vosk). These versions are built for 16 KB memory pages (Google Play requires it).
   const bg = path.join(root, "android/app/build.gradle"); let g = fs.readFileSync(bg, "utf8");
