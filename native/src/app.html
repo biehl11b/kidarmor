@@ -740,7 +740,7 @@ function switchTo(i){save();root.active=i;state=root.cases[i];filter="all";query
 let toastT;function toast(m){let t=$(".toast");if(!t){t=document.createElement("div");t.className="toast";t.setAttribute("role","status");document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 function startFresh(){state=blank();save();renderWho()}
 function openExample(){if(state.example){show("home");return}save();const ex=migrate(JSON.parse(JSON.stringify(SAMPLE)));root.cases.push(ex);root.active=root.cases.length-1;state=ex;renderWho();show("home");toast("This is a made-up family. Nothing here is real.")}
-function leaveExample(){root.cases=root.cases.filter(c=>!c.example);if(!root.cases.length)root.cases=[blank()];root.active=0;state=root.cases[0];save();renderWho();show("home")}
+function leaveExample(){root.cases=root.cases.filter(c=>!c.example);if(!root.cases.length)root.cases=[blank()];root.active=0;state=root.cases[0];save();renderWho();show("home");if(needsWizard())setTimeout(openWizard,200)}
 const accomText=id=>(state.plan.accoms.find(a=>a.id===id)||{}).text||"an accommodation in the plan";
 const first=()=>(state.child.name||"my child").split(" ")[0];
 const planName=()=>state.plan.type||"plan";
@@ -2499,7 +2499,7 @@ function renderStateResources(){const c=myState()||"MS",ms=$("#resMS"),gen=$("#r
 /* ---------- first sign-in: everything KidArmor needs, up to 5 children ---------- */
 const MAXKIDS=5;
 const realKids=()=>root.cases.filter(c=>!c.readOnly&&!c.example);
-function needsWizard(){if(window.__kaSkipWizard)return false;if(root.profile&&root.profile.state)return false;if(root.cases.length&&root.cases.every(c=>c.readOnly))return false;return true}
+function needsWizard(){if(window.__kaSkipWizard||state.example)return false;if(root.profile&&root.profile.state)return false;if(root.cases.length&&root.cases.every(c=>c.readOnly))return false;return true}
 function openWizard(){if($(".wizard"))return;const w=document.createElement("div");w.className="wizard";document.body.appendChild(w);
   const first=realKids().find(c=>c.child.parent||c.child.myemail)||{child:{}};
   const P=root.profile||{name:first.child.parent||"",email:first.child.myemail||"",phone:first.child.contact||"",state:""};
