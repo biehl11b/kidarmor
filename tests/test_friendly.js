@@ -46,6 +46,15 @@ const ok = (n, c, x = "") => { console.log((c ? "  ok   " : "  FAIL ") + n + (x 
     for (const wd of ["binder", "encrypted backup", "passphrase", "pairing code"]) if (new RegExp(wd, "i").test(t)) jargon.push(v + ": " + wd);
   }
   ok("no jargon on the main screens (binder, encrypted backup, passphrase, pairing code)", !jargon.length, jargon.join(", "));
+  // a phone browser filling the search box with a saved email mustn't hide the case
+  await page.evaluate(() => leaveExample()); await page.waitForTimeout(400);
+  await page.evaluate(() => { document.querySelectorAll(".wizard").forEach(x => x.remove()); const c = migrate({ child: { name: "Libby Test", school: "Hancock" }, plan: { accoms: [] }, entries: [], docs: [] }); root.cases = [c]; root.active = 0; state = c; save(); show("home"); const q = document.querySelector("#search"); q.value = "info@coastlinecode.com"; q.dispatchEvent(new Event("input")); q.blur() });
+  await page.evaluate(() => clearAutofill()); await page.waitForTimeout(200);
+  ok("a search box filled in by the browser is cleared", await page.evaluate(() => document.querySelector("#search").value === "" && query === ""));
+  ok("search box asks browsers not to fill it", (await page.getAttribute("#search", "autocomplete")) === "off");
+  ok("an empty case offers the example family", await page.locator("#timeline [data-see-example]").isVisible());
+  await page.click("#timeline [data-see-example]"); await page.waitForTimeout(300);
+  ok("...and it opens", await page.locator("#exampleBar").isVisible());
   ok("no script errors", !errors.length, errors.join("; "));
   await browser.close();
 })();
