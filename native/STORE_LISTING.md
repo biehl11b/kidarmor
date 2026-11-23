@@ -116,11 +116,14 @@ Answer **None** to every content question, including medical or treatment inform
 
 ## Apple: Notes for the reviewer (App Review Information)
 
-KidArmor needs no login. On first open, tick "I have read and agree" and tap Continue. Then enter any parent name, email and state, add a child, and set any 4-digit PIN.
-To try the main features: tap Record a meeting. The first time, KidArmor asks how to make transcripts (on this phone only, or Apple's speech service); either choice works. Tap Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. On the Child tab, "Share with my professional" makes a locked link and code that a parent sends to their own attorney or counselor; nothing is uploaded to us. Tap Schedule a meeting to add a meeting with two reminders. All data is stored only on the device; there is no account or server.
+KidArmor needs no login, account or server. On first open, tick "I have read and agree" and tap Continue. Setup screen 1 offers language and bigger text (optional), then enter any parent name, email and state, add a child, and set any 4-digit PIN (for example 1234). If the app later says "KidArmor is locked", type that PIN.
+To see the app filled in without typing, tap "See an example family first" during setup.
+To try the main features: tap Record a meeting. The first time, KidArmor asks how to make transcripts (on this phone only, or Apple's speech service); either choice works. Tap Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. On an upcoming meeting, "Get ready" makes a one-page meeting prep sheet. The Letters tab fills in letters from the record. Deadlines (Plan tab) shows federal IEP/504 timelines with reminders.
+Sharing with the other parent (Child tab, optional) needs a second iPhone: phone 1 shows a QR code, phone 2 scans it with the Camera app, then the parents send each other a locked file through Messages, Mail or AirDrop. Nothing goes through a server. Everything else works on one phone.
+"Share with my professional" makes a locked link and code that a parent sends to their own attorney or counselor; nothing is uploaded to us.
 Name and email are asked for only to fill in the parent's own letters and emails; they stay on the phone and are never sent to us.
-Features that use the phone itself: microphone recording with on-device or Apple speech transcription, Face ID / passcode lock, local notifications for meeting reminders, the system "New Event" calendar screen, the camera for photos of school documents, and the share sheet for letters, PDFs and encrypted backups.
-Advertising: the Resources tab can show a short list of local professionals (for example, special-education attorneys) who pay to be listed. Each is labeled "Paid listing". There are no ad networks, no tracking and no pop-up ads.
+Features that use the phone itself: microphone recording with on-device or Apple speech transcription, Face ID / passcode lock, local notifications for meeting and deadline reminders, the system "New Event" calendar screen, the camera for photos of school documents, and the share sheet for letters, PDFs, co-parent files and encrypted backups.
+Advertising: the Resources tab can show local professionals (for example, special-education attorneys) who pay to be listed, each labeled "Paid listing". There may be none listed yet. There are no ad networks, no tracking and no pop-up ads.
 Demo account: not needed.
 
 ## Apple: Export compliance

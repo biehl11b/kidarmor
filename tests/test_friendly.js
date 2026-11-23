@@ -22,6 +22,10 @@ const ok = (n, c, x = "") => { console.log((c ? "  ok   " : "  FAIL ") + n + (x 
   ok("Bigger shows as chosen", (await page.getAttribute('.wizard [data-ts="1.4"]', "aria-pressed")) === "true" && (await page.getAttribute('.wizard [data-ts="1"]', "aria-pressed")) === "false");
   await page.click('.wizard [data-lang="en"]'); await page.waitForTimeout(300);
   ok("tapping the language already showing doesn't restart setup", await page.locator(".wizard").isVisible() && await page.evaluate(() => localStorage.getItem("kidarmor.lang") === "en"));
+  await page.click("#wzExample"); await page.waitForTimeout(400);
+  ok("setup screen 1 offers the example family, and it opens", await page.locator(".wizard").count() === 0 && await page.locator("#exampleBar").isVisible() && await page.evaluate(() => !!state.example));
+  await page.click("#leaveExample"); await page.waitForTimeout(500);
+  ok("leaving the example brings setup back", await page.locator(".wizard").isVisible() && await page.evaluate(() => !root.cases.some(c => c.example)));
   await page.reload(); await page.waitForTimeout(500);
   ok("the bigger size is remembered", await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--ts").trim() === "1.4"));
   await page.evaluate(() => { document.querySelectorAll(".wizard").forEach(x => x.remove()); setTextSize(1); openExample(); show("me") }); await page.waitForTimeout(300);

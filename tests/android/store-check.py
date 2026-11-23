@@ -115,6 +115,12 @@ if n is not None:
 else:
     upd = find(root, r"update|WebView")
     log("FAIL", "Welcome screen shows (agree box on screen)", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
+    # show what the phone was doing, right in the job log (the results files can be hard to reach)
+    lc1 = adb("logcat", "-d", "-v", "time", timeout=120) or ""
+    pidk = adb("shell", "pidof", PKG).strip()
+    keep = [l for l in lc1.splitlines() if re.search(r"chromium|cr_|Capacitor|WebView|AndroidRuntime|kidarmor|ActivityTaskManager|ActivityManager|SplashScreen|Console", l) or (pidk and f"({pidk.split()[0] if pidk else ''})" in l)]
+    print("---- phone log around start-up (filtered) ----"); print("\n".join(keep[-150:])); print("---- end phone log ----", flush=True)
+    print("---- window/activity ----"); print((adb("shell", "dumpsys", "activity", "top") or "")[:3000]); print("---- end ----", flush=True)
 snap("3-welcome")
 
 if n is not None:
