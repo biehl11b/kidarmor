@@ -223,6 +223,8 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 .upm.live{border-color:var(--k-meeting);box-shadow:0 0 0 2px color-mix(in srgb,var(--k-meeting) 30%,transparent)}
 .upm b{font-size:17px}.upm .meta2{display:block;font-size:14px;color:var(--muted);margin-top:2px}
 .upm .actions{display:flex;flex-wrap:wrap}
+.prepl{margin:4px 0 0;padding-left:18px;font-size:15px}.prepl li{margin:3px 0}
+.prepq{align-items:flex-start!important;margin:8px 0;font-weight:400}.prepq input{width:22px;height:22px;flex:none;margin-top:1px}
 .kid .meta2{font-size:13px;color:var(--muted)}
 .codebox{font-family:var(--mono);font-size:26px;letter-spacing:.12em;text-align:center;background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:14px;user-select:all;overflow-wrap:anywhere}
 .agreescreen,.legalview{position:fixed;inset:0;z-index:57;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}.legalview{z-index:58}
@@ -252,7 +254,9 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
       <p>A private, organized record of what happens at school. Everything stays on this phone.</p>
       <ol class="steps"><li><span>Add your child and school, and set a PIN</span></li><li><span>Log what happens, record meetings and save school emails</span></li><li><span>Send letters and a PDF case binder when you need them</span></li></ol>
       <button class="btn primary" id="startOwn">Add my child</button>
+      <button class="btn light" id="seeExample" type="button">See an example family first</button>
     </div>
+    <div class="banner info" id="exampleBar" hidden><span><b>This is a made-up example family.</b> Look around as much as you like. Nothing here is real.</span><button class="btn small primary" id="leaveExample" type="button">Leave the example</button></div>
     <label for="kidSwitch" id="kidSwitchWrap" hidden>Showing<select id="kidSwitch"></select></label>
     <div class="banner info" id="roBanner" hidden></div>
     <div><h2 id="homeTitle">Case file</h2><p class="lede" id="homeSub">Everything that's happened with the school, newest first.</p></div>
@@ -677,6 +681,7 @@ const ORDER=["incident","missed","comm","meeting"];
 
 /* ---------- sample + storage ---------- */
 const SAMPLE={example:true,
+  upcoming:[{id:"u1",mtype:"504 meeting",title:"504 plan check-in",date:daysAhead(9),time:"15:30",minutes:60,place:"Harbor Middle School, front office",link:"",who:"Mr. Daniels (504 coordinator), Mrs. Owens, Mr. Grant",rem1:1440,rem2:60,fired:[]}],
   child:{name:"Jordan Miles",grade:"7",school:"Harbor Middle School",district:"Coastal County School District",to:"Dr. Karen Pruitt",totitle:"Principal",toemail:"kpruitt@harborms.example.org",parent:"Alex Miles",contact:"(228) 555-0142",myemail:"alex.miles@example.com",adv:"Dana Reyes, special education advocate",advemail:"dana@reyesadvocacy.example.com"},
   plan:{type:"504 plan",start:daysAgo(160),review:daysAhead(41),reeval:daysAhead(400),cm:"Mr. Tom Daniels, school counselor / 504 coordinator",cmemail:"tdaniels@harborms.example.org",
     accoms:[{id:"a1",text:"Extended time (1.5x) on tests and quizzes"},{id:"a2",text:"Preferential seating near the teacher"},{id:"a3",text:"Short breaks during long assignments"},{id:"a4",text:"Copy of class notes provided"}]},
@@ -710,7 +715,7 @@ function scrub(o,depth){if(depth>12||o===null||typeof o!=="object")return o;
     if(v&&typeof v==="object")scrub(v,depth+1)}
   return o}
 /* fields that must be text: anything else (numbers, objects) becomes text or empty, so bad data can't crash the app */
-const TEXT_KEYS=new Set(["name","school","grade","parent","myemail","contact","teacher","district","desc","title","place","involved","witnesses","injury","reported","response","classname","staff","impact","direction","emailFrom","emailTo","emailCc","subject","attendees","agreed","actions","withwho","method","transcript","parentNote","originalDesc","summaryDesc","what","note","grades","text","type","file","kind","accom","vtype","mtype","who","sharedBy","sharedAt","caseId","updateId"]);
+const TEXT_KEYS=new Set(["name","school","grade","parent","myemail","contact","teacher","district","desc","title","place","involved","witnesses","injury","reported","response","classname","staff","impact","direction","emailFrom","emailTo","emailCc","subject","attendees","agreed","actions","withwho","method","transcript","parentNote","originalDesc","summaryDesc","what","note","grades","text","type","file","kind","accom","vtype","mtype","who","sharedBy","sharedAt","caseId","updateId","goals","concerns","myq"]);
 function coerce(o,depth){if(depth>12||!o||typeof o!=="object")return;if(Array.isArray(o)){o.forEach(x=>coerce(x,depth+1));return}
   for(const k of Object.keys(o)){const v=o[k];if(TEXT_KEYS.has(k)&&v!=null&&typeof v!=="string"&&typeof v!=="object")o[k]=String(v);else if(TEXT_KEYS.has(k)&&v&&typeof v==="object"&&k!=="text")o[k]="";else if(v&&typeof v==="object")coerce(v,depth+1)}}
 function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);coerce(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
@@ -734,6 +739,8 @@ function save(){root.cases[root.active]=state;try{localStorage.setItem(ROOTKEY,J
 function switchTo(i){save();root.active=i;state=root.cases[i];filter="all";query="";const se=$("#search");if(se)se.value="";save();renderWho()}
 let toastT;function toast(m){let t=$(".toast");if(!t){t=document.createElement("div");t.className="toast";t.setAttribute("role","status");document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 function startFresh(){state=blank();save();renderWho()}
+function openExample(){if(state.example){show("home");return}save();const ex=migrate(JSON.parse(JSON.stringify(SAMPLE)));root.cases.push(ex);root.active=root.cases.length-1;state=ex;renderWho();show("home");toast("This is a made-up family. Nothing here is real.")}
+function leaveExample(){root.cases=root.cases.filter(c=>!c.example);if(!root.cases.length)root.cases=[blank()];root.active=0;state=root.cases[0];save();renderWho();show("home")}
 const accomText=id=>(state.plan.accoms.find(a=>a.id===id)||{}).text||"an accommodation in the plan";
 const first=()=>(state.child.name||"my child").split(" ")[0];
 const planName=()=>state.plan.type||"plan";
@@ -749,6 +756,8 @@ $("#homeAdd").onclick=()=>{if(state.readOnly)return;if(editing)resetForm();show(
 $("#lockPill").onclick=()=>{show("me");setTimeout(()=>$("#privacyPanel").scrollIntoView({behavior:"smooth",block:"start"}),50)};
 function renderWho(){const c=state.child;$("#homeTitle").textContent=c.name?`${c.name.split(" ")[0]}'s case file`:"Case file";
   $("#homeSub").textContent=c.school?`${c.grade?"Grade "+c.grade+" · ":""}${c.school}`:"Everything that's happened with the school, newest first."}
+$("#seeExample").onclick=openExample;$("#leaveExample").onclick=leaveExample;
+if(/^#example$/.test(location.hash||""))setTimeout(()=>{try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}openExample()},0);
 $("#startOwn").onclick=()=>{if(state.example)startFresh();show("me");setTimeout(()=>{try{$("#s-child").focus()}catch(e){}},80);toast("Add your child's info, then tap Save.")};
 
 /* ---------- HOME ---------- */
@@ -758,12 +767,12 @@ function needsAttention(){const t=today(),out=[];
     if(e.kind==="comm"&&e.followup&&!e.resolved&&e.followup<t)out.push([`You haven't heard back from ${e.withwho}. Follow-up was due ${fmt(e.followup)}.`,"var(--high)"]);
     if((e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response))out.push([`No answer from the school about the ${e.kind==="missed"?"IEP / 504":KINDS[e.kind].short.toLowerCase()} issue on ${fmt(e.date)}.`,"var(--med)"]);
     if(e.kind==="meeting"&&!e.recapSent&&e.agreed)out.push([`Send a recap letter for the ${fmt(e.date)} meeting so promises are in writing.`,"var(--accent)"]);});
-  upcomingList().forEach(m=>{const h=(meetStart(m)-Date.now())/36e5;if(h>-1&&h<=168)out.unshift([`${m.title||m.mtype} ${h<24&&h>0?"is coming up":"on"} ${fmtWhen(m)}. Tap Record this meeting when it starts.`,"var(--k-meeting)"])});
+  upcomingList().forEach(m=>{const h=(meetStart(m)-Date.now())/36e5;if(h>-1&&h<=168)out.unshift([`${m.title||m.mtype} ${h<24&&h>0?"is coming up":"on"} ${fmtWhen(m)}. ${m.prep&&m.prep.savedAt?"Look over your meeting plan, then t":"Tap Get ready to make your meeting plan, and t"}ap Record this meeting when it starts.`,"var(--k-meeting)"])});
   const unrep=state.entries.filter(e=>(e.kind==="incident"||e.kind==="missed")&&isNone(e.reported)).length;
   if(unrep)out.push([`${unrep} ${unrep===1?"issue hasn't":"issues haven't"} been reported to the school yet.`,"var(--med)"]);
   [["review","Annual review"],["reeval","Re-evaluation"]].forEach(([k,n])=>{const d=state.plan[k];if(d){const days=Math.round((new Date(d)-new Date(t))/864e5);if(days>=0&&days<=60)out.push([`${n} is coming up on ${fmt(d)}.`,"var(--k-meeting)"])}});
   return out}
-function renderHome(){renderWho();$("#welcome").hidden=!!(state.readOnly||state.child.name||state.entries.length);renderUpcoming();renderBackupNudge();const E=state.entries;
+function renderHome(){renderWho();$("#welcome").hidden=!!(state.readOnly||state.child.name||state.entries.length);$("#exampleBar").hidden=!state.example;renderUpcoming();renderBackupNudge();const E=state.entries;
   $("#kidSwitchWrap").hidden=root.cases.length<2;$("#kidSwitch").innerHTML=root.cases.map((c,i)=>`<option value="${i}">${esc(c.child.name||"Unnamed child")}${c.readOnly?" (shared, read-only)":c.example?" (sample)":""}</option>`).join("");$("#kidSwitch").value=String(root.active);
   $("#roBanner").hidden=!state.readOnly;if(state.readOnly)$("#roBanner").textContent=state.fromPhone?`Copy from your phone, made ${state.sharedAt?fmt(state.sharedAt.slice(0,10)):""}. Read it, write letters, send emails and make the binder here. To add or change entries, use your phone, then send a new link.`:`Shared with you by ${state.sharedBy||"a parent"}${state.sharedAt?" on "+fmt(state.sharedAt.slice(0,10)):""}.${Array.isArray(state.shareSections)&&state.shareSections.length?" Includes: "+cleanSecs(state.shareSections).map(secLabel).join(", ")+".":""} You can read it, make a binder and write summaries, but not change it.`;
   $("#homeAdd").hidden=!!state.readOnly;$("#quickRow").hidden=!!state.readOnly;$("#quickRow2").hidden=!!state.readOnly;$("#homeNote").hidden=!!state.readOnly;$("#homeInvite").hidden=!!state.readOnly;
@@ -2197,14 +2206,119 @@ function renderUpcoming(){const el=$("#upcoming");if(!el)return;const L=upcoming
       <span class="meta2">${past?"This meeting has passed.":rems?"Reminders: "+esc(rems):"No reminders"}${m.calAddedAt?" · in your calendar":""}</span></div>
       <div class="actions" style="gap:6px">${past?`<button class="btn small primary" data-uml="${m.id}" type="button">Log what happened</button>`:`<button class="btn small ${live?"primary":"light"}" data-umr="${m.id}" type="button">Record this meeting</button>`}
       ${j&&!past?`<a class="btn small light" href="${esc(j)}" target="_blank" rel="noopener">${j.startsWith("facetime:")?"FaceTime":"Join call"}</a>`:""}
+      ${past?"":`<button class="btn small light" data-ump="${m.id}" type="button">${m.prep&&m.prep.savedAt?"My meeting plan":"Get ready"}</button>`}
       ${past?"":`<button class="btn small ghost" data-umc="${m.id}" type="button">${m.calAddedAt?"Add to calendar again":"Add to calendar"}</button>`}
       <button class="btn small ghost" data-ume="${m.id}" type="button">${past?"Remove":"Edit"}</button></div></div>`}).join("")}
-document.addEventListener("click",e=>{const b=e.target.closest("[data-umr],[data-umc],[data-ume],[data-uml]");if(!b||!b.closest("#upcoming"))return;
-  const id=b.dataset.umr||b.dataset.umc||b.dataset.ume||b.dataset.uml,m=(state.upcoming||[]).find(x=>x.id===id);if(!m)return;
+document.addEventListener("click",e=>{const b=e.target.closest("[data-umr],[data-umc],[data-ume],[data-uml],[data-ump]");if(!b||!b.closest("#upcoming"))return;
+  const id=b.dataset.umr||b.dataset.umc||b.dataset.ume||b.dataset.uml||b.dataset.ump,m=(state.upcoming||[]).find(x=>x.id===id);if(!m)return;
+  if(b.dataset.ump){openPrep(id);return}
   if(b.dataset.umr)openRecorder(id);
   else if(b.dataset.umc)addToCalendar(m);
   else if(b.dataset.uml){kind="meeting";resetForm();Object.assign(vals,{date:m.date,mtype:MTYPES.includes(m.mtype)?m.mtype:"Other",attendees:m.who||""});vals._fromUpcoming=m.id;drawForm(true);show("add")}
   else if(b.dataset.ume){if(meetStart(m).getTime()+(m.minutes||60)*60000+36e5<Date.now()){state.upcoming=state.upcoming.filter(x=>x.id!==id);save();renderHome();toast("Removed")}else openSchedule(id)}});
+/* ---------- get ready for a meeting: a one-page plan built from the parent's own records ---------- */
+const clip=(s,n)=>{s=String(s||"").replace(/\s+/g," ").trim();return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,"")+"…":s};
+const listDates=a=>{const d=a.map(e=>fmt(e.date));return d.length<3?d.join(" and "):d.slice(0,-1).join(", ")+" and "+d[d.length-1]};
+const kidFirst=()=>(state.child.name||"").split(" ")[0]||"my child";
+function prepData(m){const t=today(),day=m.date||t;
+  const lastMeet=state.entries.filter(e=>e.kind==="meeting"&&e.date<day).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+  const since=lastMeet?lastMeet.date:(state.plan.start&&state.plan.start<day?state.plan.start:iso(new Date(new Date(day).getTime()-90*864e5)));
+  const E=state.entries.filter(e=>e!==lastMeet&&e.date&&e.date>=since&&e.date<=day).sort((a,b)=>a.date.localeCompare(b.date));
+  const inc=E.filter(e=>e.kind==="incident"),mis=E.filter(e=>e.kind==="missed"),com=E.filter(e=>e.kind==="comm");
+  /* patterns over the whole plan year (or since the last meeting if there's no plan date) */
+  const from=state.plan.start&&state.plan.start<since?state.plan.start:since;
+  const misAll=state.entries.filter(e=>e.kind==="missed"&&e.date>=from&&e.date<=day),incAll=state.entries.filter(e=>e.kind==="incident"&&e.date>=from&&e.date<=day);
+  const byAccom={};misAll.filter(e=>e.vtype===ACC).forEach(e=>{(byAccom[e.accom||"?"]=byAccom[e.accom||"?"]||[]).push(e)});
+  const waiting=state.entries.filter(e=>e.kind==="comm"&&e.followup&&!e.resolved&&e.followup<t);
+  const noAnswer=state.entries.filter(e=>(e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response)&&e.date>=since);
+  const promised=lastMeet?String(lastMeet.agreed||"").split("\n").map(s=>s.trim()).filter(Boolean):[];
+  const isIEP=/IEP/i.test(m.mtype||"")||/IEP/i.test(state.plan.type||""),kid=kidFirst();
+  /* suggested questions: each one comes from something in the records */
+  const Q=[];const q=(k,s)=>Q.push({k,t:s});
+  Object.keys(byAccom).forEach(id=>{const L=byAccom[id];q("acc-"+id,`The plan says "${accomText(id)}". It wasn't provided on ${listDates(L)}. How will the school make sure it's given every time?`)});
+  if(misAll.some(e=>e.vtype==="Teacher didn't know about the plan"))q("aware",`How are ${kid}'s teachers told about the plan, and how will I know every teacher has a copy?`);
+  mis.filter(e=>e.vtype!==ACC&&e.vtype!=="Teacher didn't know about the plan").forEach(e=>q("mis-"+e.id,`On ${fmt(e.date)}: ${clip(e.vtype||"the plan wasn't followed",80)}. What will be done so it doesn't happen again?`));
+  if(incAll.length){const ser=incAll.filter(e=>e.sev==="high"),one=incAll.length===1;q("safe",`${one?`There was ${ser.length?"a serious":"a"} bullying incident on ${fmt(incAll[0].date)}`:`There have been ${incAll.length} bullying incidents (${listDates(incAll)})${ser.length?`, including a serious one on ${fmt(ser[ser.length-1].date)}`:""}`}. What has the school done, and what is the plan to keep ${kid} safe?`)}
+  noAnswer.forEach(e=>q("ans-"+e.id,`I reported the ${e.kind==="missed"?"IEP / 504 problem":"incident"} on ${fmt(e.date)} to ${clip(e.reported,40)}. I haven't received an answer. Can we go over it today?`));
+  waiting.forEach(e=>q("wait-"+e.id,`I contacted ${clip(e.withwho,40)} on ${fmt(e.date)} about "${clip(e.subject||e.desc,70)}" and haven't heard back. Can we get an answer today?`));
+  promised.forEach((p,i)=>q("prom-"+i,`At the ${fmt(lastMeet.date)} meeting, the school agreed: "${clip(p,110)}". Has this been done?`));
+  q("data",isIEP?`How is ${kid} doing on each IEP goal? Can I see the progress data?`:`How does the school check that each accommodation is actually being given?`);
+  q("next","Before we finish: what are the next steps, who is responsible for each one, and by when?");
+  /* a starting draft of the parent's concerns, in plain words, from the records */
+  const C=[];
+  if(Object.keys(byAccom).length)C.push(`I'm concerned that ${kid}'s plan isn't being followed consistently. Since ${fmt(from)}, ${Object.keys(byAccom).map(id=>`"${accomText(id)}" wasn't provided ${byAccom[id].length===1?"once":byAccom[id].length+" times"}`).join("; ")}.`);
+  const impacts=misAll.map(e=>e.impact).filter(x=>!isNone(x));if(impacts.length)C.push(`This has affected ${kid}'s school work (for example: ${(t=>t.charAt(0).toLowerCase()+t.slice(1))(clip(impacts[impacts.length-1],90).replace(/[.…]$/,""))}).`);
+  if(incAll.length)C.push(`I'm also concerned about ${kid}'s safety and well-being at school. There ${incAll.length===1?"has been 1 bullying incident":"have been "+incAll.length+" bullying incidents"} since ${fmt(from)}${incAll.some(e=>!isNone(e.injury))?", and "+kid+" was hurt":""}.`);
+  if(noAnswer.length||waiting.length)C.push(`Some of my questions to the school are still waiting for an answer.`);
+  C.push(`I want to work with the school so ${kid} gets the support in the plan and can do well.`);
+  return{since,lastMeet,E,inc,mis,com,byAccom,waiting,noAnswer,promised,isIEP,Q,concernsDraft:C.join(" ")}}
+const PREP_CHECK=[["draft","Ask for a draft of the plan and any new reports a few days before the meeting"],["who","Ask who will be there, and ask for the teachers who matter most to attend"],["support","Decide if you'll bring someone: a spouse, friend or advocate"],
+  ["record","If you'll record: tell the school in writing at least a day before, then announce it at the start (KidArmor gives you the words)"],["copies","Bring this plan and copies of your notes, or have KidArmor open"],["sign","Remember: you can take the plan home to read before you sign anything"],["recap","After the meeting, send a recap email so promises are in writing (KidArmor writes it)"]];
+function recNoticeMail(m){const c=state.child,to=state.plan.cmemail||c.toemail||"",kid=c.name||"my child";
+  const body=`Hello,\n\nI'm writing to let you know ahead of time that I plan to make an audio recording of the ${m.title||m.mtype} for ${kid} on ${fmtWhen(m)}, so I have an accurate record of what we discuss. I'll also mention it at the start of the meeting.\n\nPlease let me know if the school needs anything else from me before then.\n\nThank you,\n${c.parent||""}${c.contact?"\n"+c.contact:""}`;
+  return`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(`Recording the ${m.title||m.mtype} on ${m.date}`)}&body=${encodeURIComponent(body)}`}
+function openPrep(id){const m=(state.upcoming||[]).find(x=>x.id===id);if(!m)return;
+  const P=m.prep=m.prep||{goals:"",concerns:"",myq:"",picked:null,done:[]},D=prepData(m);
+  if(!Array.isArray(P.picked))P.picked=D.Q.map(x=>x.k);if(!Array.isArray(P.done))P.done=[];
+  const nInc=D.inc.length,nMis=D.mis.length,nCom=D.com.length;
+  const lines=D.E.map(e=>`<li><b>${esc(fmt(e.date))}</b> · ${esc(KINDS[e.kind].short)}: ${esc(clip(e.kind==="missed"&&e.vtype===ACC?accomText(e.accom)+" not provided"+(e.classname?" ("+e.classname+")":""):e.desc,110))}</li>`).join("");
+  const sh=openSheet(`<h3>Get ready: ${esc(m.title||m.mtype)}</h3><p class="note">${esc(fmtWhen(m))}${m.place?" · "+esc(m.place):""}</p>
+    <div class="eyebrow" style="margin-top:14px">Since ${D.lastMeet?"the last meeting ("+esc(fmt(D.lastMeet.date))+")":esc(fmt(D.since))}</div>
+    <p style="margin:0 0 6px">${nInc} bullying ${nInc===1?"incident":"incidents"} · ${nMis} IEP / 504 ${nMis===1?"problem":"problems"} · ${nCom} ${nCom===1?"contact":"contacts"} with the school</p>
+    ${lines?`<ul class="prepl">${lines}</ul>`:`<p class="note">Nothing logged in this time. You can still use the questions and checklist below.</p>`}
+    <div class="eyebrow" style="margin-top:14px">What I want from this meeting</div>
+    <textarea id="ppGoals" aria-label="What I want from this meeting" rows="3" placeholder="For example: every teacher gets the plan; a safety plan for lunch and the bus; a retake for the math test">${esc(P.goals)}</textarea>
+    <div class="eyebrow" style="margin-top:14px">My concerns, in my words</div>
+    <p class="note">The school has to consider a parent's concerns when it writes the plan. You can read this out loud or hand it over.</p>
+    <textarea id="ppConc" aria-label="My concerns" rows="5" placeholder="What worries you most, in a few sentences">${esc(P.concerns)}</textarea>
+    <button class="btn small light" id="ppDraft" type="button">${P.concerns?"Start over from my records":"Start it for me from my records"}</button>
+    <div class="eyebrow" style="margin-top:14px">Questions to ask</div>
+    <p class="note">Suggested from your records. Uncheck any you don't want.</p>
+    ${D.Q.map(x=>`<label class="check prepq"><input type="checkbox" data-pq="${esc(x.k)}"${P.picked.includes(x.k)?" checked":""}><span>${esc(x.t)}</span></label>`).join("")}
+    <label for="ppMy">My own questions (one per line)<textarea id="ppMy" rows="3">${esc(P.myq)}</textarea></label>
+    <div class="eyebrow" style="margin-top:14px">Before the meeting</div>
+    ${PREP_CHECK.map(([k,t])=>`<label class="check prepq"><input type="checkbox" data-pc="${k}"${P.done.includes(k)?" checked":""}><span>${esc(t)}</span></label>`).join("")}
+    <p class="note" style="margin-top:8px">${consentText()} This isn't legal advice.</p>
+    <a class="btn small light" id="ppTell" href="${esc(recNoticeMail(m))}">Email the school that I'll record</a>
+    <p class="note" style="margin-top:10px">This is a parent's planning sheet, not legal advice.</p>
+    <button class="btn primary wide" id="ppPdf" type="button">Save and make a page to print or share</button>
+    <button class="btn light wide" id="ppSave" type="button">Save</button>
+    <button class="btn ghost" id="ppClose" type="button">Close</button>`);
+  const read=()=>{const g=s=>sh.querySelector(s).value.trim();P.goals=g("#ppGoals");P.concerns=g("#ppConc");P.myq=g("#ppMy");
+    P.picked=[...sh.querySelectorAll("[data-pq]")].filter(x=>x.checked).map(x=>x.dataset.pq);P.done=[...sh.querySelectorAll("[data-pc]")].filter(x=>x.checked).map(x=>x.dataset.pc);P.savedAt=new Date().toISOString();save()};
+  sh.querySelector("#ppDraft").onclick=()=>{const c=sh.querySelector("#ppConc");c.value=D.concernsDraft;c.focus();toast("Read it over and change anything so it sounds like you.")};
+  sh.querySelector("#ppSave").onclick=()=>{read();closeSheet();renderHome();toast("Meeting plan saved")};
+  sh.querySelector("#ppClose").onclick=()=>{read();closeSheet();renderHome()};
+  sh.querySelector("#ppPdf").onclick=async e=>{read();const b=e.currentTarget;b.disabled=true;toast("Making your meeting plan…");
+    try{const bytes=await buildPrepPdf(m,D);const name=`Meeting plan - ${(state.child.name||"Student").replace(/[^\w ]+/g,"").trim()} - ${m.date}.pdf`;
+      closeSheet();renderHome();openViewer({name,blob:new Blob([bytes],{type:"application/pdf"}),type:"application/pdf",download:true})}
+    catch(err){toast("Couldn't make the page. Check your connection and try again.")}finally{b.disabled=false}}}
+async function buildPrepPdf(m,D){await loadScript(PDFLIBSRC());const{PDFDocument,StandardFonts,rgb}=window.PDFLib;const P=m.prep||{};
+  const doc=await PDFDocument.create();doc.setTitle(`Meeting plan - ${state.child.name||"Student"}`);doc.setCreator("KidArmor");
+  const F=await doc.embedFont(StandardFonts.Helvetica),FB=await doc.embedFont(StandardFonts.HelveticaBold);
+  const W=612,H=792,M=54,INK=rgb(.09,.13,.17),MUT=rgb(.36,.41,.46),ACCN=rgb(.12,.37,.45),LINE=rgb(.85,.87,.9);
+  let page,y;const newPage=()=>{page=doc.addPage([W,H]);y=H-M};const ensure=h=>{if(y-h<M+20)newPage()};
+  const wrap=(t,font,size,width)=>{const out=[];pdfClean(t).split("\n").forEach(par=>{let cur="";par.split(/\s+/).filter(Boolean).forEach(w=>{const t2=cur?cur+" "+w:w;if(font.widthOfTextAtSize(t2,size)>width&&cur){out.push(cur);cur=w}else cur=t2});out.push(cur)});return out};
+  const text=(t,o={})=>{const size=o.size||10.5,font=o.font||F,color=o.color||INK,ind=o.indent||0;for(const l of wrap(t,font,size,W-2*M-ind)){ensure(size+4);if(l)page.drawText(l,{x:M+ind,y:y-size,size,font,color});y-=size*1.38}y-=(o.gap==null?3:o.gap)};
+  const h2=t=>{ensure(50);y-=8;page.drawText(pdfClean(t),{x:M,y:y-13,size:13,font:FB,color:ACCN});y-=19;page.drawLine({start:{x:M,y},end:{x:W-M,y},thickness:1,color:LINE});y-=8};
+  const box=t=>{ensure(16);page.drawRectangle({x:M+2,y:y-10,width:8,height:8,borderColor:MUT,borderWidth:.8});text(t,{indent:16,gap:4})};
+  newPage();const c=state.child;
+  page.drawText("MEETING PLAN",{x:M,y:y-10,size:10,font:FB,color:ACCN});y-=18;
+  text(`${m.title||m.mtype}${c.name?" for "+c.name:""}`,{font:FB,size:18,gap:2});
+  text([fmtWhen(m),m.place].filter(Boolean).join("  ·  "),{color:MUT,gap:1});if(m.who)text("Expected: "+m.who,{color:MUT,gap:1});
+  text(`Prepared by ${c.parent||"the parent"} on ${fmtLong(new Date())}`,{color:MUT,size:9.5,gap:6});
+  if(P.goals){h2("What I want from this meeting");P.goals.split("\n").filter(Boolean).forEach(g=>text("•  "+g.replace(/^[-•*]\s*/,""),{indent:4}))}
+  if(P.concerns){h2("My concerns");text(P.concerns)}
+  h2(`What has happened since ${D.lastMeet?"the last meeting on "+fmt(D.lastMeet.date):fmt(D.since)}`);
+  text(`${D.inc.length} bullying ${D.inc.length===1?"incident":"incidents"}  ·  ${D.mis.length} IEP / 504 ${D.mis.length===1?"problem":"problems"}  ·  ${D.com.length} ${D.com.length===1?"contact":"contacts"} with the school`,{font:FB,gap:5});
+  D.E.forEach(e=>text(`${fmt(e.date)}  ·  ${KINDS[e.kind].short}:  ${clip(e.kind==="missed"&&e.vtype===ACC?accomText(e.accom)+" not provided"+(e.classname?" ("+e.classname+")":"")+(e.desc?". "+e.desc:""):e.desc,220)}`,{indent:4,size:10}));
+  if(!D.E.length)text("Nothing logged in this time.",{color:MUT});
+  if(D.promised.length){text("Promised at the last meeting:",{font:FB,size:10.5,gap:2});D.promised.forEach(p=>box(p))}
+  const qs=D.Q.filter(x=>(P.picked||[]).includes(x.k)).map(x=>x.t).concat(String(P.myq||"").split("\n").map(s=>s.trim()).filter(Boolean));
+  if(qs.length){h2("Questions to ask");qs.forEach((t,i)=>{text(`${i+1}.  ${t}`,{indent:4,gap:2});ensure(14);page.drawLine({start:{x:M+20,y:y-8},end:{x:W-M,y:y-8},thickness:.5,color:LINE});y-=16})}
+  h2("Notes and next steps");text("Who will do what, and by when:",{color:MUT,size:9.5});for(let i=0;i<6;i++){ensure(22);y-=20;page.drawLine({start:{x:M,y},end:{x:W-M,y},thickness:.5,color:LINE})}
+  const pages=doc.getPages();pages.forEach((pg,i)=>{const t=`KidArmor meeting plan  ·  ${pdfClean(c.name||"Student")}  ·  A parent's planning sheet, not legal advice  ·  Page ${i+1} of ${pages.length}`;pg.drawText(t,{x:(W-F.widthOfTextAtSize(t,8))/2,y:24,size:8,font:F,color:MUT})});
+  return await doc.save()}
 /* reminders while KidArmor is open (the phone calendar covers the rest) */
 function notifyNow(title,body){let shown=false;
   try{if(window.Notification&&Notification.permission==="granted"){new Notification(title,{body,tag:title});shown=true}}catch(e){}
@@ -2212,7 +2326,7 @@ function notifyNow(title,body){let shown=false;
 function checkReminders(){const now=Date.now();let changed=false;
   for(const c of root.cases)for(const m of(c.upcoming||[])){if(m.doneEntry)continue;m.fired=m.fired||[];const s=meetStart(m).getTime();
     for(const r of[m.rem1,m.rem2]){if(r==null)continue;const at=s-r*60000;if(now>=at&&now<at+3*36e5&&!m.fired.includes(r)){m.fired.push(r);changed=true;
-      notifyNow(`${m.title||m.mtype}${r?" in "+remLabel(r).replace(" before",""):" is starting"}`,`${fmtWhen(m)}${m.place?" · "+m.place:""}`)}}}
+      notifyNow(`${m.title||m.mtype}${r?" in "+remLabel(r).replace(" before",""):" is starting"}`,`${fmtWhen(m)}${m.place?" · "+m.place:""}${r>=720?". Open KidArmor and tap Get ready to go over your meeting plan.":""}`)}}}
   if(changed){try{localStorage.setItem(ROOTKEY,JSON.stringify(root))}catch(e){}if(current==="home")renderUpcoming()}}
 setInterval(checkReminders,30000);
 function askNotify(fromSchedule){try{if(!window.Notification||Notification.permission!=="default"||window.self!==window.top)return;Notification.requestPermission().then(()=>renderPerms()).catch(()=>{})}catch(e){}}
@@ -2342,7 +2456,9 @@ const ALL_PARTY=["CA","FL","IL","MD","MA","MT","NH","PA","WA"],MIXED_PARTY=["CT"
 const PARTNERS={};
 const stateName=c=>(STATES.find(s=>s[0]===c)||[,""])[1];
 const myState=()=>(root.profile&&root.profile.state)||"";
-function consentText(){const c=myState(),n=stateName(c)||"Your state";
+function consentText(){return consentCore()+" "+noticeText()}
+function noticeText(){return myState()==="CA"?"<b>California law also requires you to tell the school at least 24 hours before an IEP meeting that you'll record it.</b>":"Many school districts also ask parents to say ahead of time that they'll record an IEP or 504 meeting, so it's best to tell the school in writing at least a day before."}
+function consentCore(){const c=myState(),n=stateName(c)||"Your state";
   if(ALL_PARTY.includes(c))return`<b>${n} requires everyone's permission to record.</b> Read the announcement and wait for everyone to agree. If anyone says no, don't record.`;
   if(MIXED_PARTY.includes(c))return`<b>${n}'s rules depend on whether the meeting is in person or by phone.</b> To be safe, read the announcement and get everyone's OK before recording.`;
   if(c)return`${n} lets you record a conversation you're part of. Districts may have their own rules, and telling everyone at the start is the safest practice.`;
