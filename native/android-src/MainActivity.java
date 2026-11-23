@@ -69,6 +69,11 @@ public class MainActivity extends BridgeActivity {
             if (w <= 0 || h <= 0) return;
             final Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
             PixelCopy.request(getWindow(), bm, result -> {
+                if (result == PixelCopy.ERROR_SOURCE_NO_DATA) {
+                    // the screen never drew a single frame (seen on Android 10 after the start-up restart)
+                    bm.recycle(); stuck("screen never drew");
+                    return;
+                }
                 if (result != PixelCopy.SUCCESS) { Log.w("KA_LIFE", "screen check: couldn't read screen (" + result + ")"); return; }
                 int[][] pts = {{w / 10, h / 4}, {w * 9 / 10, h / 4}, {w / 10, h * 3 / 4}, {w * 9 / 10, h * 3 / 4}, {w / 2, h / 5}};
                 int splash = 0;
@@ -76,13 +81,23 @@ public class MainActivity extends BridgeActivity {
                 bm.recycle();
                 Log.i("KA_LIFE", "screen check: " + splash + " of " + pts.length + " spots look like the launch screen");
                 if (splash < pts.length) return;
-                reloads++;
-                if (reloads == 1) { Log.w("KA_LIFE", "page loaded but not drawn; loading it again"); bridge.reload(); checkPageSoon(5000); }
-                else { Log.w("KA_LIFE", "page still not drawn; rebuilding the screen"); recreate(); }
+                stuck("still showing the launch screen");
             }, main);
         } catch (Throwable t) {
             Log.w("KA_LIFE", "screen check failed: " + t);
         }
+    }
+
+    /** The page is loaded but the phone isn't showing it: rebuild the screen, and if that doesn't do it, reopen the app's screen fresh. */
+    private void stuck(String why) {
+        reloads++;
+        if (reloads == 1) { Log.w("KA_LIFE", why + "; rebuilding the screen"); recreate(); }
+        else if (reloads == 2) {
+            Log.w("KA_LIFE", why + "; opening the screen fresh");
+            android.content.Intent i = new android.content.Intent(this, MainActivity.class);
+            i.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i); finish();
+        } else Log.w("KA_LIFE", why + "; giving up after " + reloads + " tries");
     }
 
     private static boolean near(int c, int rgb) {
@@ -110,7 +125,7 @@ public class MainActivity extends BridgeActivity {
                         + "return document.querySelector('nav.tabs')?'ok':'empty'}catch(e){return 'error'}})()",
                     v -> {
                         Log.i("KA_LIFE", "page check result: " + v);
-                        if ("\"ok\"".equals(v)) { checkDrawn(wv); return; }
+                        if ("\"ok\"".equals(v)) { if (restored) checkDrawn(wv); return; }
                         if ("\"loading\"".equals(v)) { Log.i("KA_LIFE", "page still loading"); checkPageSoon(5000); return; }
                         reloads++;
                         Log.w("KA_LIFE", "page didn't come up (" + v + ", shown=" + wv.isShown() + "); loading it again");
