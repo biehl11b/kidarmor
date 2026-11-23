@@ -127,6 +127,9 @@ else:
     print("---- what's on the blank screen (view classes) ----")
     for nd in nodes(root): print(nd.get("class"), nd.get("bounds"), nd.get("package"), (nd.get("text") or "")[:40])
     print("---- end ----", flush=True)
+    import base64
+    png = subprocess.run(["adb", "exec-out", "screencap", "-p"], capture_output=True, timeout=60).stdout
+    print(f"---- blank screen picture ({len(png)} bytes, base64) ----"); print(base64.b64encode(png).decode()); print("---- end picture ----", flush=True)
     time.sleep(20)  # give the app's own safety net time to run, then look again
     r2 = dump(); log("ok" if agree_box(r2) is not None else "info", "first open, 20 s later", screen_text(r2)[:160] or "still blank")
     print("\n".join(l for l in (adb("logcat", "-d", "-s", "KA_LIFE:*", timeout=60) or "").splitlines()), flush=True)
