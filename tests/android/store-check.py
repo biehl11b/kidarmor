@@ -83,9 +83,19 @@ def agree_box(root):
             if y2 - y1 > 20 and y2 <= (H or 99999): return nd
     return None
 end = time.time() + 90; root = n = None
+anr = 0
 while time.time() < end:
     root = dump(); n = agree_box(root)
     if n is not None: break
+    # the virtual tablet's own home screen sometimes freezes ("Pixel Launcher isn't responding"):
+    # that's the test phone, not KidArmor. Tap Wait, bring KidArmor back and keep checking.
+    d = find(root, r"isn't responding")
+    if d is not None and anr < 3:
+        anr += 1; w = find(root, r"^\s*Wait\s*$") or find(root, r"Wait")
+        if w is not None: adb("shell", "input", "tap", *map(str, center(w)))
+        else: adb("shell", "input", "keyevent", "KEYCODE_BACK")
+        time.sleep(2); adb("shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1")
+        log("info", "the test phone's home screen froze; tapped Wait and reopened KidArmor", f"time {anr}")
     time.sleep(3)
 dump("welcome")
 if n is not None:
