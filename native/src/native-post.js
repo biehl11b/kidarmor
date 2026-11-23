@@ -51,6 +51,8 @@
     var list=[],id=1000,now=Date.now();
     root.cases.forEach(function(c){if(c.readOnly||c.example)return;(c.upcoming||[]).forEach(function(m){if(m.doneEntry)return;[m.rem1,m.rem2].forEach(function(r){if(r==null)return;
       var at=new Date(meetStart(m).getTime()-r*60000);if(at.getTime()>now+5000&&id<199000)list.push({id:id++,title:(m.title||m.mtype)+(r?" in "+remLabel(r).replace(" before",""):" is starting"),body:fmtWhen(m)+(m.place?" · "+m.place:""),schedule:{at:at,allowWhileIdle:true},isExactNotification:false})})})});
+    root.cases.forEach(function(c){if(c.readOnly||c.example)return;(c.deadlines||[]).forEach(function(x){if(x.done||typeof DL==="undefined"||!DL[x.dk])return;[3,0].forEach(function(k){
+      var at=new Date(x.due+"T09:00:00");at.setDate(at.getDate()-k);if(at.getTime()>now+5000&&id<199000)list.push({id:id++,title:DL[x.dk].what+(c.child.name?" ("+c.child.name.split(" ")[0]+")":""),body:DL[x.dk].due.charAt(0).toUpperCase()+DL[x.dk].due.slice(1)+(k?" in 3 days":" today")+". Open KidArmor to see what to do.",schedule:{at:at,allowWhileIdle:true},isExactNotification:false})})})});
     if(list.length)await LN.schedule({notifications:list})}catch(e){}}
   var _save=window.save;window.save=function(){var r=_save.apply(this,arguments);clearTimeout(syncT);syncT=setTimeout(syncReminders,1500);return r};
   window.askNotify=function(){if(N.permission==="default")N.requestPermission().then(function(){try{renderPerms()}catch(e){}})};

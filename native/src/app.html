@@ -224,6 +224,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 .upm.live{border-color:var(--k-meeting);box-shadow:0 0 0 2px color-mix(in srgb,var(--k-meeting) 30%,transparent)}
 .upm b{font-size:calc(17px*var(--ts,1))}.upm .meta2{display:block;font-size:calc(14px*var(--ts,1));color:var(--muted);margin-top:2px}
 .upm .actions{display:flex;flex-wrap:wrap}
+.dl{border:1px solid var(--line);border-left:4px solid var(--k-meeting);border-radius:12px;padding:12px;margin:8px 0}.dl.soon{border-left-color:var(--med)}.dl.late{border-left-color:var(--high)}.dl .meta2{display:block;color:var(--muted);font-size:calc(14px*var(--ts,1));margin:2px 0 6px}
 .lpick{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0}.lpick legend{font-weight:700;font-size:calc(14px*var(--ts,1));padding:0 4px}.lpick label{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;margin:6px 0}.lpick input{width:22px;height:22px;flex:none}
 .tsrow{display:flex;flex-wrap:wrap;gap:8px}.tsrow .btn{flex:1 1 auto;min-width:0}.tsrow .btn[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
 .prepl{margin:4px 0 0;padding-left:18px;font-size:calc(15px*var(--ts,1))}.prepl li{margin:3px 0}
@@ -321,6 +322,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
   </section>
   <section class="view" id="v-plan" hidden>
     <div><h2>Plan & documents</h2><p class="lede">What the school agreed to provide, important dates, and copies of every document.</p></div>
+    <div class="panel" id="dlPanel" hidden><h3>Deadlines the school has to meet</h3><div id="dlList"></div><p class="note" id="dlState"></p></div>
     <div class="panel">
       <h3>Documents</h3>
       <div class="list" id="docList"></div>
@@ -729,7 +731,7 @@ function coerce(o,depth){if(depth>12||!o||typeof o!=="object")return;if(Array.is
   for(const k of Object.keys(o)){const v=o[k];if(TEXT_KEYS.has(k)&&v!=null&&typeof v!=="string"&&typeof v!=="object")o[k]=String(v);else if(TEXT_KEYS.has(k)&&v&&typeof v==="object"&&k!=="text")o[k]="";else if(v&&typeof v==="object")coerce(v,depth+1)}}
 function migrate(s){if(!s||typeof s!=="object")s={};scrub(s,0);coerce(s,0);s.child=(s.child&&typeof s.child==="object")?s.child:{};
   if(Array.isArray(s.entries))s.entries=s.entries.filter(e=>e&&typeof e==="object"&&typeof e.kind==="string"&&Object.prototype.hasOwnProperty.call(KINDS,e.kind));
-  for(const k of ["reports","health","docs","entries"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
+  for(const k of ["reports","health","docs","entries","deadlines","upcoming"])if(s[k]!=null&&!Array.isArray(s[k]))s[k]=[];
   for(const list of [s.entries,s.docs,s.reports])(list||[]).forEach(x=>{if(x&&typeof x==="object"){for(const fk of ["files","recordings"]){if(x[fk]!=null&&!Array.isArray(x[fk]))x[fk]=[];(x[fk]||[]).forEach(f=>{if(f&&typeof f==="object"){f.name=String((f.name==null?"File":f.name));f.type=typeof f.type==="string"?f.type:"application/octet-stream"}});if(x[fk])x[fk]=x[fk].filter(f=>f&&typeof f==="object")}}});
   s.reports=s.reports||[];s.health=s.health||[];s.plan=s.plan||{accoms:[]};s.plan.accoms=s.plan.accoms||[];s.docs=(s.docs||[]).map(d=>({files:[],...d,files:d.files||(d.thumb?[{inline:true,thumb:d.thumb,name:d.file||d.name,type:"image/jpeg"}]:[])}));
   s.entries=(s.entries||[]).map(e=>{const n={...e,files:e.files||[]};if(e.photos&&e.photos.length){n.files=n.files.concat(e.photos.map((p,i)=>({inline:true,thumb:p,name:"Photo "+(i+1),type:"image/jpeg"})))}delete n.photos;if(n.kind==="missed"&&!n.vtype)n.vtype=ACC;if(n.onPhone!=null)n.onPhone=(typeof n.onPhone==="object")?{files:Math.max(0,+n.onPhone.files|0),recs:Math.max(0,+n.onPhone.recs|0),...(n.onPhone.where==="preview"?{where:"preview"}:{})}:undefined;return n});
@@ -777,6 +779,7 @@ function needsAttention(){const t=today(),out=[];
     if((e.kind==="incident"||e.kind==="missed")&&!isNone(e.reported)&&isNone(e.response))out.push([`No answer from the school about the ${e.kind==="missed"?"IEP / 504":KINDS[e.kind].short.toLowerCase()} issue on ${fmt(e.date)}.`,"var(--med)"]);
     if(e.kind==="meeting"&&!e.recapSent&&e.agreed)out.push([`Send a recap letter for the ${fmt(e.date)} meeting so promises are in writing.`,"var(--accent)"]);});
   upcomingList().forEach(m=>{const h=(meetStart(m)-Date.now())/36e5;if(h>-1&&h<=168)out.unshift([`${m.title||m.mtype} ${h<24&&h>0?"is coming up":"on"} ${fmtWhen(m)}. ${m.prep&&m.prep.savedAt?"Look over your meeting plan, then t":"Tap Get ready to make your meeting plan, and t"}ap Record this meeting when it starts.`,"var(--k-meeting)"])});
+  deadlineAttention(out);
   const unrep=state.entries.filter(e=>(e.kind==="incident"||e.kind==="missed")&&isNone(e.reported)).length;
   if(unrep)out.push([`${unrep} ${unrep===1?"issue hasn't":"issues haven't"} been reported to the school yet.`,"var(--med)"]);
   [["review","Annual review"],["reeval","Re-evaluation"]].forEach(([k,n])=>{const d=state.plan[k];if(d){const days=Math.round((new Date(d)-new Date(t))/864e5);if(days>=0&&days<=60)out.push([`${n} is coming up on ${fmt(d)}.`,"var(--k-meeting)"])}});
@@ -904,7 +907,7 @@ $("#entryForm").onsubmit=e=>{e.preventDefault();readFields();
   toast(was?"Changes saved":"Saved to your case file");editing=null;filter="all";query="";$("#search").value="";resetForm();show("home")};
 
 /* ---------- PLAN ---------- */
-function renderPlan(){const p=state.plan;$("#p-type").value=p.type||"";$("#p-start").value=p.start||"";$("#p-review").value=p.review||"";$("#p-reeval").value=p.reeval||"";$("#p-cm").value=p.cm||"";$("#p-cmemail").value=p.cmemail||"";
+function renderPlan(){renderDeadlines();const p=state.plan;$("#p-type").value=p.type||"";$("#p-start").value=p.start||"";$("#p-review").value=p.review||"";$("#p-reeval").value=p.reeval||"";$("#p-cm").value=p.cm||"";$("#p-cmemail").value=p.cmemail||"";
   const miss=id=>state.entries.filter(e=>e.kind==="missed"&&e.accom===id).length;
   $("#accomList").innerHTML=p.accoms.length?p.accoms.map(a=>{const n=miss(a.id);return`<div class="it"><span>${esc(a.text)}</span><span class="actions" style="gap:4px;flex-wrap:nowrap"><span class="count${n?" hot":""}">${n} missed</span><button class="x" data-ra="${a.id}" type="button" aria-label="Remove ${esc(a.text)}">×</button></span></div>`}).join(""):`<p class="note">None added yet.</p>`;
   const D=[...state.docs].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
@@ -1071,12 +1074,16 @@ ${L.length?L.map((e,i)=>entryBlock(e,i+1)).join("\n\n")+"\n\n":""}I am asking th
 
 Please send me the written safety plan, or a time to meet about it, by ${due()}. Please also place a copy of this letter in ${first()}'s student file.
 `+sign()},
-  followup(){const L=picked("followup"),t=today();
+  followup(){const L=picked("followup"),t=today(),DLL=openDeadlines().filter(x=>daysTo(x.due)<0),n0=L.length;
+    const dlLine=(x,i)=>`${n0+i+1}. `+({records:`On ${fmt(x.date)} I asked in writing to see ${first()}'s education records. Under federal law (FERPA and IDEA), the school had up to 45 days, until ${fmt(x.due)}, and must provide special education records before any IEP meeting.`,
+      evalreq:`On ${fmt(x.date)} I asked in writing for ${first()} to be evaluated. I have not received a consent form or a written answer.`,
+      eval:`On ${fmt(x.date)} I signed consent for ${first()}'s evaluation. Under federal law (IDEA), the evaluation was due within 60 days, by ${fmt(x.due)}, unless our state sets a different timeline.`,
+      iep:`${first()} was found eligible on ${fmt(x.date)}. Under federal law (IDEA), the IEP meeting was due within 30 days, by ${fmt(x.due)}.`})[x.dk];
     return head("Follow-up: waiting for a response")+`
-I am following up because I have not received a response to the item${L.length===1?"":"s"} below.${L.length?"":" [Choose the items above, or describe what you're waiting on.]"}
+I am following up because I have not received a response to the item${L.length+DLL.length===1?"":"s"} below.${L.length||DLL.length?"":" [Choose the items above, or describe what you're waiting on.]"}
 
 ${L.map((e,i)=>e.kind==="comm"?`${i+1}. On ${fmt(e.date)} I contacted ${e.withwho||"the school"}${e.method?" by "+e.method.toLowerCase():""}${e.subject?' ("'+e.subject+'")':""}. ${clip(e.desc,300)} I expected a reply by ${fmt(e.followup)}.`
-      :`${i+1}. On ${fmt(e.repdate||e.date)} I reported ${e.kind==="missed"?"that "+first()+"'s "+planName()+" was not followed":"a bullying incident"} (from ${fmt(e.date)}) to ${e.reported}. ${clip(e.desc,240)}`).join("\n\n")}
+      :`${i+1}. On ${fmt(e.repdate||e.date)} I reported ${e.kind==="missed"?"that "+first()+"'s "+planName()+" was not followed":"a bullying incident"} (from ${fmt(e.date)}) to ${e.reported}. ${clip(e.desc,240)}`).concat(DLL.map(dlLine)).join("\n\n")}
 
 Please reply in writing by ${due()} and let me know what has been done or what the next step is. If someone else should handle this, please let me know who.
 `+sign()},
@@ -1178,9 +1185,10 @@ $("#l-cc").oninput=updateEmail;$("#l-bcc").onchange=updateEmail;
 $("#l-kind").onchange=()=>{$("#l-extra").value="";renderLetter();defaultCc();updateEmail()};$("#l-scope").onchange=renderLetter;
 $("#l-to").onchange=()=>{letterTo=$("#l-to").value;renderLetter();defaultCc();updateEmail()};$("#l-other").oninput=updateEmail;
 $("#copyAddr").onclick=()=>{const a=$("#l-toaddr").textContent;navigator.clipboard.writeText(a).then(()=>toast("Email address copied")).catch(()=>{const r=document.createRange();r.selectNodeContents($("#l-toaddr"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Address selected. Use your phone's Copy button.")})};
-$("#emailBtn").onclick=()=>{toast("Opening your email app…");const k=$("#l-kind").value;if(k==="recap"&&!state.example&&!state.readOnly){const m=state.entries.find(e=>e.id===$("#l-meeting").value);if(m&&!m.recapSent){m.recapSent=true;save()}}};$("#l-meeting").onchange=renderLetter;$("#l-days").onchange=renderLetter;$("#l-extra").oninput=renderLetter;
+function letterSent(k){if(k==="records")setTimeout(()=>addDeadline("records"),2600);if(k==="eval")setTimeout(()=>addDeadline("evalreq"),2600)}
+$("#emailBtn").onclick=()=>{toast("Opening your email app…");const k=$("#l-kind").value;letterSent(k);if(k==="recap"&&!state.example&&!state.readOnly){const m=state.entries.find(e=>e.id===$("#l-meeting").value);if(m&&!m.recapSent){m.recapSent=true;save()}}};$("#l-meeting").onchange=renderLetter;$("#l-days").onchange=renderLetter;$("#l-extra").oninput=renderLetter;
 $("#copyLetter").onclick=()=>{const t=$("#letter").textContent,k=$("#l-kind").value;
-  navigator.clipboard.writeText(t).then(()=>{toast(k==="binder"||k==="analysis"?"Summary copied":"Copied. Paste it into an email to the school.");
+  navigator.clipboard.writeText(t).then(()=>{toast(k==="binder"||k==="analysis"?"Summary copied":"Copied. Paste it into an email to the school.");letterSent(k);
     if(k==="recap"&&!state.example&&!state.readOnly){const m=state.entries.find(e=>e.id===$("#l-meeting").value);if(m&&!m.recapSent){m.recapSent=true;save()}}})
   .catch(()=>{const r=document.createRange();r.selectNodeContents($("#letter"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Text selected. Use your phone's Copy button.")})};
 
@@ -2296,6 +2304,44 @@ function prepData(m){const t=today(),day=m.date||t;
   return{since,lastMeet,E,inc,mis,com,byAccom,waiting,noAnswer,promised,isIEP,Q,concernsDraft:C.join(" ")}}
 const PREP_CHECK=[["draft","Ask for a draft of the plan and any new reports a few days before the meeting"],["who","Ask who will be there, and ask for the teachers who matter most to attend"],["support","Decide if you'll bring someone: a spouse, friend or advocate"],
   ["record","If you'll record: tell the school in writing at least a day before, then announce it at the start (KidArmor gives you the words)"],["copies","Bring this plan and copies of your notes, or have KidArmor open"],["sign","Remember: you can take the plan home to read before you sign anything"],["recap","After the meeting, send a recap email so promises are in writing (KidArmor writes it)"]];
+/* ---------- deadlines the school has to meet (federal rules; the state's official office is linked for its own timelines) ---------- */
+const DL={
+  records:{days:45,what:"School records",rule:"Federal law gives the school up to 45 days to let you see your child's records, and for special education records, before any IEP meeting.",due:"records are due"},
+  evalreq:{days:14,what:"Evaluation request",rule:"The evaluation clock starts when you sign the school's consent form, not when you ask. If you haven't received a consent form or a written answer, follow up.",due:"follow up if you haven't heard back"},
+  eval:{days:60,what:"Evaluation",rule:"Federal law says the evaluation must be done within 60 days of the school receiving your signed consent, unless your state sets its own timeline.",due:"evaluation is due"},
+  iep:{days:30,what:"First IEP meeting",rule:"Federal law says the school must hold an IEP meeting within 30 days after deciding your child is eligible.",due:"IEP meeting is due"}};
+const addDays=(d,n)=>iso(new Date(new Date(d+"T12:00:00").getTime()+n*864e5));
+function addDeadline(dk,from,quiet){if(state.example||state.readOnly)return null;state.deadlines=state.deadlines||[];from=from||today();
+  if(state.deadlines.some(x=>x.dk===dk&&x.date===from&&!x.done))return null;
+  const x={id:"dl"+Date.now().toString(36),dk,date:from,due:addDays(from,DL[dk].days),fired:[]};state.deadlines.push(x);save();
+  if(!quiet)toast(`${DL[dk].what}: KidArmor will remind you on ${fmt(x.due)}.`);return x}
+const openDeadlines=()=>(state.deadlines||[]).filter(x=>!x.done&&DL[x.dk]).sort((a,b)=>a.due.localeCompare(b.due));
+const daysTo=d=>Math.round((new Date(d+"T12:00:00")-new Date(today()+"T12:00:00"))/864e5);
+function officeLink(){const c=myState(),R=(RESDATA.states||{})[c]||{};return R.doe&&R.doe.url?{url:R.doe.url,name:R.doe.name||stateName(c)+" special education office"}:null}
+function renderDeadlines(){const el=$("#dlList");if(!el)return;const L=openDeadlines(),o=officeLink();
+  $("#dlPanel").hidden=!L.length&&!(state.deadlines||[]).length;if($("#dlPanel").hidden)return;
+  el.innerHTML=L.length?L.map(x=>{const D=DL[x.dk],n=daysTo(x.due);
+    return`<div class="dl${n<0?" late":n<=7?" soon":""}"><b>${esc(D.what)}</b><span class="meta2">${n<0?`Past due since ${esc(fmt(x.due))}`:n===0?"Due today":`${esc(fmt(x.due))}: ${n} day${n===1?"":"s"} left`} · started ${esc(fmt(x.date))}</span>
+      <p class="note">${esc(D.rule)}</p>
+      <div class="actions" style="gap:6px;flex-wrap:wrap">${x.dk==="evalreq"?`<button class="btn small primary" type="button" data-dlc="${x.id}">I signed the consent form</button>`:""}${x.dk==="eval"&&/IEP/i.test(state.plan.type||"IEP")?`<button class="btn small light" type="button" data-dli="${x.id}">My child was found eligible</button>`:""}
+      ${n<=0?`<button class="btn small light" type="button" data-dlf="${x.id}">Write a follow-up letter</button>`:""}<button class="btn small ghost" type="button" data-dld="${x.id}">Done</button></div></div>`}).join(""):`<p class="note">No open deadlines.</p>`;
+  $("#dlState").innerHTML=o?`Your state may set shorter timelines. Check with the <a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.name)}</a>. This isn't legal advice.`:"Your state may set shorter timelines. Check your state's special education office (Resources tab). This isn't legal advice."}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-dlc],[data-dli],[data-dlf],[data-dld]");if(!b)return;
+  const id=b.dataset.dlc||b.dataset.dli||b.dataset.dlf||b.dataset.dld,x=(state.deadlines||[]).find(y=>y.id===id);if(!x)return;
+  if(b.dataset.dlc||b.dataset.dli){askDate(b.dataset.dlc?"What date did you sign the consent form?":"What date was your child found eligible?",d=>{x.done=true;addDeadline(b.dataset.dlc?"eval":"iep",d);renderDeadlines();renderHome()});return}
+  else if(b.dataset.dlf){show("letters");$("#l-kind").value="followup";renderLetter();return}
+  else{x.done=true;save()}
+  save();renderDeadlines()});
+function askDate(q,done){const sh=openSheet(`<h3>${esc(q)}</h3><label for="adDate">Date<input type="date" id="adDate" value="${today()}" max="${today()}"></label>
+    <p class="note" id="adErr" role="alert" style="color:var(--high)"></p><button class="btn primary wide" id="adOk" type="button">Save</button><button class="btn ghost" id="adNo" type="button">Cancel</button>`);
+  sh.querySelector("#adNo").onclick=closeSheet;sh.querySelector("#adOk").onclick=()=>{const v=sh.querySelector("#adDate").value;if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){sh.querySelector("#adErr").textContent="Please pick a date.";return}closeSheet();done(v)}}
+function deadlineAttention(out){openDeadlines().forEach(x=>{const n=daysTo(x.due),D=DL[x.dk];
+  if(n<0)out.push([`${D.what}: the deadline passed on ${fmt(x.due)}. You can send a follow-up letter.`,"var(--high)"]);
+  else if(n<=7)out.push([`${D.what}: ${D.due} ${n===0?"today":"on "+fmt(x.due)}.`,"var(--med)"])})}
+function checkDeadlines(){if(document.documentElement.classList.contains("native"))return;/* the phone app schedules these as real notifications */let ch=false;for(const c of root.cases)for(const x of(c.deadlines||[])){if(x.done||!DL[x.dk])continue;x.fired=x.fired||[];const n=daysTo(x.due);
+  for(const k of[3,0])if(n<=k&&n>=k-2&&!x.fired.includes(k)){x.fired.push(k);ch=true;notifyNow(`${DL[x.dk].what}${c.child.name?" ("+c.child.name.split(" ")[0]+")":""}`,`${DL[x.dk].due[0].toUpperCase()+DL[x.dk].due.slice(1)} ${k===0?"today":"in 3 days"}. Open KidArmor to see what to do.`)}}
+  if(ch){try{localStorage.setItem(ROOTKEY,JSON.stringify(root))}catch(e){}}}
+setInterval(checkDeadlines,60000);setTimeout(checkDeadlines,4000);
 function recNoticeMail(m){const c=state.child,to=state.plan.cmemail||c.toemail||"",kid=c.name||"my child";
   const body=`Hello,\n\nI'm writing to let you know ahead of time that I plan to make an audio recording of the ${m.title||m.mtype} for ${kid} on ${fmtWhen(m)}, so I have an accurate record of what we discuss. I'll also mention it at the start of the meeting.\n\nPlease let me know if the school needs anything else from me before then.\n\nThank you,\n${c.parent||""}${c.contact?"\n"+c.contact:""}`;
   return`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(`Recording the ${m.title||m.mtype} on ${m.date}`)}&body=${encodeURIComponent(body)}`}
