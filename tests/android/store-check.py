@@ -87,6 +87,13 @@ def agree_box(root):
             H = int((size.split("x") + ["0", "0"])[1] or 0)
             if y2 - y1 > 20 and y2 <= (H or 99999): return nd
     return None
+def phone_log(title):
+    lcx = adb("logcat", "-d", "-v", "time", timeout=120) or ""
+    pk = (adb("shell", "pidof", PKG) or "").split()
+    noise = re.compile(r"RuntimeInit uid 2000|Using default boot image|Leaving lock profiling|Shutting down VM|uiautomator|UiAutomation|Accessibility")
+    keep = [l for l in lcx.splitlines() if not noise.search(l) and (re.search(r"chromium|cr_|Capacitor|WebView|webview|kidarmor|KidArmor|Console|SplashScreen|Displayed|AndroidRuntime|FATAL|ANR", l) or any(f"({x})" in l or f"( {x})" in l for x in pk))]
+    print(f"---- {title}: phone log (filtered) ----"); print("\n".join(keep[-400:])); print("---- end ----", flush=True)
+
 end = time.time() + 90; root = n = None
 anr = 0
 while time.time() < end:
@@ -116,10 +123,7 @@ else:
     upd = find(root, r"update|WebView")
     log("FAIL", "Welcome screen shows (agree box on screen)", ("WebView update page: " if upd is not None else "") + (screen_text(root) or "blank screen"))
     # show what the phone was doing, right in the job log (the results files can be hard to reach)
-    lc1 = adb("logcat", "-d", "-v", "time", timeout=120) or ""
-    pidk = adb("shell", "pidof", PKG).strip()
-    keep = [l for l in lc1.splitlines() if re.search(r"chromium|cr_|Capacitor|WebView|AndroidRuntime|kidarmor|ActivityTaskManager|ActivityManager|SplashScreen|Console", l) or (pidk and f"({pidk.split()[0] if pidk else ''})" in l)]
-    print("---- phone log around start-up (filtered) ----"); print("\n".join(keep[-150:])); print("---- end phone log ----", flush=True)
+    phone_log("first open stayed blank")
     print("---- window/activity ----"); print((adb("shell", "dumpsys", "activity", "top") or "")[:3000]); print("---- end ----", flush=True)
 snap("3-welcome")
 
@@ -168,6 +172,30 @@ for i in range(COLD):
         print(f"---- cold start {i+1} stayed blank; phone log (filtered) ----")
         print("\n".join([l for l in lcx.splitlines() if re.search(r"chromium|cr_|Capacitor|WebView|AndroidRuntime|kidarmor|ActivityTaskManager|ActivityManager|Console", l)][-150:]))
         print("---- end ----", flush=True)
+# Fresh installs: uninstall and install again the way Play does, then open for the first time. Repeated,
+# because a first open is what a reviewer sees.
+FRESH = int(os.environ.get("KA_FRESH_INSTALLS", "3"))
+ftimes = []
+for i in range(FRESH):
+    adb("uninstall", PKG, timeout=120)
+    subprocess.run(["java", "-jar", "bundletool.jar", "install-apks", "--apks=ka.apks"], capture_output=True, timeout=300)
+    time.sleep(2); adb("logcat", "-c")
+    t1 = time.time()
+    adb("shell", "am", "start", "-a", "android.intent.action.MAIN", "-c", "android.intent.category.LAUNCHER", "-n", PKG + "/.MainActivity")
+    shown = None
+    while time.time() < t1 + 90:
+        r = dump()
+        if agree_box(r) is not None: shown = time.time() - t1; break
+        if find(r, r"isn't responding") is not None:
+            w = find(r, r"^\s*Wait\s*$") or find(r, r"Wait")
+            if w is not None: adb("shell", "input", "tap", *map(str, center(w)))
+        time.sleep(0.5)
+    ftimes.append(shown)
+    if shown is None:
+        snap(f"fresh-{i+1}-blank"); phone_log(f"fresh install {i+1} stayed blank")
+        print("---- top activity ----"); print((adb("shell", "dumpsys", "activity", "top") or "")[:1500]); print("---- end ----", flush=True)
+log("ok" if all(t is not None for t in ftimes) else "FAIL", f"first open after a fresh install, {FRESH} more times", ", ".join(f"{t:.1f}s" if t is not None else "BLANK" for t in ftimes))
+
 okc = [t for t in times if t is not None]
 log("ok" if len(okc) == COLD else "FAIL", f"opens every time ({COLD} more cold starts)", ", ".join(f"{t:.1f}s" if t is not None else "BLANK" for t in times))
 if okc: log("info", "cold start, slowest / typical", f"{max(okc):.1f} s / {sorted(okc)[len(okc)//2]:.1f} s")
