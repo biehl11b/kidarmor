@@ -69,6 +69,12 @@ const crashes = xc("simctl", "spawn", UDID, "log", "show", "--last", "15m", "--s
 fs.writeFileSync(`${OUT}/app-faults.txt`, crashes);
 const reports = (() => { try { return execFileSync("bash", ["-c", `ls ~/Library/Logs/DiagnosticReports 2>/dev/null | grep -iE '^App[-_.]' || true`], { encoding: "utf8" }).trim() } catch (e) { return "" } })();
 log(reports ? "FAIL" : "ok", "no crash reports", reports);
+// print small copies of the iPad pictures into the job log so they can be looked at without downloading files
+if (/iPad/i.test(DEVICE)) for (const n of ["2-after-15s", "3-welcome", "6b-tour", "6c-setup", "7-landscape"]) {
+  const f = `${OUT}/${n}.png`; if (!fs.existsSync(f)) continue;
+  try { execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "60", "-Z", "900", f, "--out", `${OUT}/${n}.small.jpg`], { stdio: "ignore" });
+    console.log(`---- picture ${n} (base64 jpeg) ----`); console.log(fs.readFileSync(`${OUT}/${n}.small.jpg`).toString("base64")); console.log("---- end picture ----") } catch (e) { console.log("picture failed", n, e.message) }
+}
 const head = `${DEVICE} (store build): ${lines.filter(l => l.startsWith("ok")).length} passed, ${fails} failed`;
 fs.writeFileSync(`${OUT}/summary.txt`, head + "\n" + lines.join("\n") + "\n"); console.log(head);
 process.exit(0);
