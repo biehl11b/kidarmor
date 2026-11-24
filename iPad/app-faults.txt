@@ -1,0 +1,7 @@
+Timestamp               Ty Process[PID:TID]
+2026-11-24 21:37:13.297 F  App[24374:11e62] [com.apple.WebKit:Process] Networking process (0x11208c190) took 3.223177 seconds to launch
+2026-11-24 21:37:13.984 F  App[24374:11e62] [com.apple.WebKit:Process] WebContent process (0x1120f80c0) took 3.755848 seconds to launch
+2026-11-24 21:37:42.986 E  App[24374:11e62] [com.apple.WebKit:Process] 0x1120f80c0 - [PID=24531] WebProcessProxy::didClose: (web process 0 crash)
+2026-11-24 21:42:30.171 F  App[33915:17fab] [com.apple.WebKit:Process] GPU process (0x1101381e0) took 1.709234 seconds to launch
+2026-11-24 21:42:30.172 F  App[33915:17fab] [com.apple.WebKit:Process] WebContent process (0x11010c0c0) took 1.758705 seconds to launch
+2026-11-24 21:42:30.174 F  App[33915:17fab] [com.apple.WebKit:Process] Networking process (0x11008c190) took 1.912566 seconds to launch

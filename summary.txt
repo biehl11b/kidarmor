@@ -1,0 +1,39 @@
+== App Store build checks
+info version  → 1.0 (1), min iOS 15.0, devices Array{1}
+info NSMicrophoneUsageDescription present (app code doesn't seem to use it)
+info NSCameraUsageDescription present (app code doesn't seem to use it)
+info NSPhotoLibraryUsageDescription present (app code doesn't seem to use it)
+info NSSpeechRecognitionUsageDescription present (app code doesn't seem to use it)
+ok   purpose text for Face ID (NSFaceIDUsageDescription)
+ok   purpose text for calendar (older iOS) (NSCalendarsUsageDescription)
+ok   purpose text for calendar full access (NSCalendarsFullAccessUsageDescription)
+ok   purpose text for calendar add-only (NSCalendarsWriteOnlyAccessUsageDescription)
+ok   purpose text for reminders (older iOS) (NSRemindersUsageDescription)
+ok   purpose text for reminders (NSRemindersFullAccessUsageDescription)
+ok   no background modes (none are used)
+info export compliance key ITSAppUsesNonExemptEncryption  → false
+info UIRequiresFullScreen not set (iPad multitasking sizes must work)
+info orientations iPhone  → Array { UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight}
+info orientations iPad  → Array { UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight}
+ok   launch screen  → LaunchScreen
+info privacy manifests in the app  → 3
+ok   app's own privacy manifest is inside the app
+ok   required-reason API declared: NSPrivacyAccessedAPICategoryFileTimestamp
+ok   app icon 1024px has no transparency
+ok   compiled icons/images (Assets.car)
+ok   no test helper in the store build
+ok   no unsafe-eval in the store build
+ok   web inspector off in the store build
+info app size  →  16M
+== store/iPad/summary.txt
+iPad Pro (12.9-inch) (3rd generation) (store build): 2 passed, 6 failed
+info device  → iPad Pro (12.9-inch) (3rd generation) iOS 26.5, window 1024x1366
+FAIL Welcome screen with the agree box shows  → not seen
+info Terms of Use link not found by label  → skipped link check
+FAIL checking the box turns on Continue  → no Continue button
+FAIL Continue opens the 'how it works' intro
+FAIL intro offers 'Show me how it works'
+FAIL skipping the tour opens setup
+FAIL still fine after rotating
+ok   app still running at the end  → state 4
+ok   no crash reports
