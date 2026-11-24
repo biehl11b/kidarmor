@@ -101,6 +101,73 @@ KidArmor helps you organize facts. It isn't legal advice. Recording laws vary by
 
 ---
 
+## Apple App Store: ready-to-paste listing (November 24, 2026)
+
+- **Name:** KidArmor
+- **Subtitle (30 max):** IEP, 504 & school records  *(25)*
+- **Promotional text (170 max):** Walk into IEP and 504 meetings prepared. Keep a dated record of what happens at school, get a one-page meeting plan and send letters, all private on your phone.
+- **Keywords (100 max):** IEP,504 plan,special education,bullying,school meeting,parent,advocate,accommodations,notes,record
+- **Category:** Primary Productivity, secondary Education
+- **Price:** USD 1.99 (one-time). Enroll in the App Store Small Business Program (15%).
+- **Availability:** United States
+- **Copyright:** 2026 Coastline Code LLC
+- **Support URL:** https://coastlinecode.com/kidarmor/  ·  **Marketing URL:** https://coastlinecode.com/kidarmor/  ·  **Privacy policy URL:** https://kidarmor.coastlinecode.com/privacy.html
+- **License agreement:** Apple's standard EULA (our Terms are linked inside the app)
+- **Screenshots (6.9" iPhone, 1320 x 2868):** `native/store/screenshots/iphone-6.9/kidarmor-iphone-1..6.png`, in that order. Apple scales these for smaller iPhones. iPhone only, so no iPad screenshots.
+
+### Description (Apple)
+
+KidArmor helps parents keep a clear, dated record of their child's school life, so you can work with the school from the same set of facts and walk into every meeting prepared.
+
+Everything stays on your phone. No account, no sign-up, no tracking and no pop-up ads.
+
+GET STARTED IN MINUTES
+• A short tour shows how it works using a made-up example family
+• Large, simple buttons, in English or Spanish
+
+KEEP THE RECORD
+• Write down bullying, IEP and 504 concerns, calls and emails with the school, and meetings, each dated
+• Add photos and documents to any entry
+• Talk instead of type
+• Save school emails without copying and pasting
+• Write or say a note when you're upset, and KidArmor helps you turn it into a calm, factual version you can send
+• See open follow-ups and accommodations that need attention
+
+GET READY FOR MEETINGS
+• Schedule IEP and 504 meetings with reminders and add them to your calendar
+• Tap Get ready for a one-page meeting plan: what's happened since the last meeting, what everyone agreed to, your goals and concerns in your own words, and questions to ask
+• Bring it on your phone or as a PDF
+
+RECORD MEETINGS
+• Record school meetings, with a reminder to tell everyone it's being recorded
+• Live transcript while the meeting happens
+• When you stop, KidArmor saves a summary with the main points, what was agreed and next steps, plus the full transcript
+
+DEADLINES
+• When you ask for school records or an evaluation, KidArmor tracks the federal timeline and reminds you before it's due
+
+LETTERS AND SHARING
+• Letters and emails filled in from your record: report bullying, ask for a safety plan, ask for an evaluation or records, meeting recaps and friendly follow-ups
+• A PDF of everything, with entries, photos, documents and transcripts
+• Share with the other parent: pair your phones once with a QR code, then send each other updates
+• Share chosen parts with your advocate, attorney, counselor, doctor or tutor (your private notes stay private)
+• Teachers can send you updates with a link, no app needed
+
+REPORTS AND RESOURCES
+• Keep report cards, progress reports and test scores, and make a PDF for a doctor or counselor
+• Your state's parent center and advocacy agency, with tap-to-call
+• Local professionals, clearly labeled as paid listings
+
+PRIVATE AND EASY TO USE
+• Lock with a PIN and Face ID
+• Encrypted backups you control, to move to a new phone
+• Works with VoiceOver, follows your iPhone's text size and respects Reduce Motion
+• Up to 5 children
+
+KidArmor helps you organize facts. It isn't legal advice. Recording laws vary by state; always tell everyone when you're recording.
+
+---
+
 ## Apple: App Privacy ("nutrition label")
 
 Choose **Data Not Collected**. KidArmor has no account, no analytics, no ad networks and no tracking; everything the parent enters stays on the device.
@@ -116,8 +183,7 @@ Answer **None** to every content question, including medical or treatment inform
 
 ## Apple: Notes for the reviewer (App Review Information)
 
-KidArmor needs no login, account or server. On first open, tick "I have read and agree" and tap Continue. Setup screen 1 offers language and bigger text (optional), then enter any parent name, email and state, add a child, and set any 4-digit PIN (for example 1234). If the app later says "KidArmor is locked", type that PIN.
-To see the app filled in without typing, tap "See an example family first" during setup.
+KidArmor needs no login, account or server. On first open, tick "I have read and agree" and tap Continue. The next screen offers "Show me how it works" (a short guided tour of a made-up example family, already filled in) or "Set up my child". Setup screen 1 offers language and bigger text (optional), then enter any parent name, email and state, add a child, and set any 4-digit PIN (for example 1234). If the app later says "KidArmor is locked", type that PIN. The tour is also in Child tab > Help.
 To try the main features: tap Record a meeting. The first time, KidArmor asks how to make transcripts (on this phone only, or Apple's speech service); either choice works. Tap Start recording, speak for a few seconds and tap Stop recording. A summary and transcript are saved automatically. On an upcoming meeting, "Get ready" makes a one-page meeting prep sheet. The Letters tab fills in letters from the record. Deadlines (Plan tab) shows federal IEP/504 timelines with reminders.
 Sharing with the other parent (Child tab, optional) needs a second iPhone: phone 1 shows a QR code, phone 2 scans it with the Camera app, then the parents send each other a locked file through Messages, Mail or AirDrop. Nothing goes through a server. Everything else works on one phone.
 "Share with my professional" makes a locked link and code that a parent sends to their own attorney or counselor; nothing is uploaded to us.
