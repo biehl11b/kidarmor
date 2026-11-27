@@ -59,7 +59,14 @@ function patchAndroid() {
   if (!s.includes("android:dataExtractionRules=")) s = s.replace("<application", '<application android:dataExtractionRules="@xml/data_extraction_rules" android:fullBackupContent="false"');
   // Start the phone's web viewer before the first screen (see android-src/KidArmorApp.java)
   if (!s.includes('android:name=".KidArmorApp"')) s = s.replace("<application", '<application android:name=".KidArmorApp"');
+  // Older phones (Android 7.0) lack some newer public root certificates, so the one-time speech download failed there.
+  // Trust the phone's own list plus these well-known public roots (copied into res/raw below).
+  if (!s.includes("android:networkSecurityConfig=")) s = s.replace("<application", '<application android:networkSecurityConfig="@xml/network_security_config"');
   const xmlDir = path.join(root, "android/app/src/main/res/xml"); fs.mkdirSync(xmlDir, { recursive: true });
+  const rawDir = path.join(root, "android/app/src/main/res/raw"); fs.mkdirSync(rawDir, { recursive: true });
+  const roots = fs.readdirSync(path.join(root, "android-src/roots")).filter(n => n.endsWith(".pem"));
+  for (const n of roots) fs.copyFileSync(path.join(root, "android-src/roots", n), path.join(rawDir, "ka_root_" + n.replace(/\.pem$/, "")));
+  fs.writeFileSync(path.join(xmlDir, "network_security_config.xml"), `<?xml version="1.0" encoding="utf-8"?>\n<network-security-config>\n  <base-config cleartextTrafficPermitted="false">\n    <trust-anchors>\n      <certificates src="system" />\n` + roots.map(n => `      <certificates src="@raw/ka_root_${n.replace(/\.pem$/, "")}" />\n`).join("") + `    </trust-anchors>\n  </base-config>\n</network-security-config>\n`);
   fs.writeFileSync(path.join(xmlDir, "data_extraction_rules.xml"), `<?xml version="1.0" encoding="utf-8"?>\n<data-extraction-rules>\n  <cloud-backup><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></cloud-backup>\n  <device-transfer><exclude domain="root" path="." /><exclude domain="database" path="." /><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /><exclude domain="external" path="." /></device-transfer>\n</data-extraction-rules>\n`);
   // Keep the screen running through any settings change (text size, dark mode, language, rotation, a second screen)
   // instead of restarting it; a restart during start-up can leave the page blank.
