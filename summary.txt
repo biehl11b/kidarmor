@@ -1,0 +1,19 @@
+Android API 30: 16 passed, 0 failed
+ok   app opens and connects
+ok   web view version  → Chrome/83.0.4103.106
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → While using the app
+ok   recording timer runs  → 00:22
+ok   recording saved on the phone  → {"type":"audio/webm","size":90374,"secs":23,"id":"f1795807672310dkh88"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"google":false,"supported":true,"api":30,"service":true,"onDevice":false}
+ok   meeting saved from the recording  → "1795807688144"
+ok   Write the transcript button shows for it
+ok   transcript written from the recording (speech service)  → [Recording started 11/27/2026, 7:27:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agree to provide speech therapy two times a week the teacher will send a progress report every 
+ok   transcript written from the recording (on this phone only)  → [Recording started 11/27/2026, 7:27:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agree to provide speech therapy two times a week the teacher will send a progress report every 
+ok   meeting notes made from it  → {"overview":"Meeting on Nov 27, 2026 at 7:27 PM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.","problems":[],"agreed":[{"text":"The school agree to provide speech therapy two times a week.","t":"00:00"},{"text":"The teacher will send a progress report every F
+ok   no app crashes
+ok   no script errors in the app
