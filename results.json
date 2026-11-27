@@ -1,0 +1,86 @@
+{
+ "api": 25,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/69.0.3497.100"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "microphone permission prompt appears",
+   "pass": true,
+   "detail": "ALLOW"
+  },
+  {
+   "name": "recording timer runs",
+   "pass": true,
+   "detail": "00:19"
+  },
+  {
+   "name": "recording saved on the phone",
+   "pass": true,
+   "detail": "{\"type\":\"audio/webm\",\"size\":129057,\"secs\":20,\"id\":\"f1795808406097rufd8\"}"
+  },
+  {
+   "name": "spoken test recording ready",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript writer available on this Android",
+   "pass": true,
+   "detail": "{\"google\":false,\"supported\":true,\"api\":25,\"service\":true,\"onDevice\":false}"
+  },
+  {
+   "name": "meeting saved from the recording",
+   "pass": true,
+   "detail": "\"1795808419601\""
+  },
+  {
+   "name": "Write the transcript button shows for it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "transcript written from the recording (speech service)",
+   "pass": true,
+   "detail": "[Recording started 11/27/2026, 7:40:00 PM; I announced the recording]\n[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every"
+  },
+  {
+   "name": "transcript written from the recording (on this phone only)",
+   "pass": true,
+   "detail": "[Recording started 11/27/2026, 7:40:00 PM; I announced the recording]\n[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every"
+  },
+  {
+   "name": "meeting notes made from it",
+   "pass": true,
+   "detail": "{\"overview\":\"Meeting on Nov 27, 2026 at 7:40 PM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.\",\"problems\":[],\"agreed\":[{\"text\":\"The school agreed to provide speech therapy two times a week.\",\"t\":\"00:00\"},{\"text\":\"The teacher will send a progress report every "
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

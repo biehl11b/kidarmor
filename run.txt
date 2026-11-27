@@ -1,0 +1,84 @@
+Android API 25
+/tmp/report-card.png: 1 file pushed, 0 skipped. 101.4 MB/s (7965 bytes in 0.000s)
+/tmp/report-card.png: 1 file pushed, 0 skipped. 105.7 MB/s (7965 bytes in 0.000s)
+Error while accessing provider:media
+java.lang.UnsupportedOperationException: Unsupported call: scan_volume
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:167)
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:135)
+	at android.content.ContentProviderProxy.call(ContentProviderNative.java:646)
+	at com.android.commands.content.Content$CallCommand.onExecute(Content.java:508)
+	at com.android.commands.content.Content$Command.execute(Content.java:418)
+	at com.android.commands.content.Content.main(Content.java:623)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:262)
+  ok   app opens and connects
+  ok   web view version  → Chrome/69.0.3497.100
+  ok   phone features load (native mode)
+  ok   child added
+    chose on-phone
+  ok   microphone permission prompt appears  → ALLOW
+  ok   recording timer runs  → 00:19
+    after Stop, on screen: com.coastlinecode.kidarmor :: KidArmor | KidArmor | Only on this phone | Ava's case file | Everything that's happened with the school, newest first. | Log something new | Record a meeting | Schedule a meeting | Save an email | Write or say a note
+  ok   recording saved on the phone  → {"type":"audio/webm","size":129057,"secs":20,"id":"f1795808406097rufd8"}
+  ok   spoken test recording ready
+speech.webm: 1 file pushed, 0 skipped. 239.1 MB/s (46022 bytes in 0.000s)
+  ok   transcript writer available on this Android  → {"google":false,"supported":true,"api":25,"service":true,"onDevice":false}
+  ok   meeting saved from the recording  → "1795808419601"
+  ok   Write the transcript button shows for it
+    app says: The phone is listening to the recording. It takes about as long as the recording itself, so keep KidArmor open.
+    service: 4s, Download tapped: false, Transcripts will be made on this phone only. | toasts:  | engine: kidarmor |  part0: 1 pieces, 11s; | phone engine error: none
+    heard: [00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every Friday our next meeting this on December fifth the ten in the morning.
+  ok   transcript written from the recording (speech service)  → [Recording started 11/27/2026, 7:40:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+    app says: The phone is listening to the recording. It takes about as long as the recording itself, so keep KidArmor open.
+    phone: 4s, Download tapped: false, Transcripts will be made on this phone only. | toasts:  | engine: kidarmor |  part0: 1 pieces, 11s; | phone engine error: none
+    heard: [00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every Friday our next meeting this on December fifth the ten in the morning.
+  ok   transcript written from the recording (on this phone only)  → [Recording started 11/27/2026, 7:40:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+  ok   meeting notes made from it  → {"overview":"Meeting on Nov 27, 2026 at 7:40 PM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.","problems":[],"agreed":[{"text":"The school agreed to provide speech therapy two times a week.","t":"00:00"},{"text":"The teacher will send a progress report every Friday.","t":"00:00"}],"steps":[],"nextMeeting":{"text":"Our next meeting this on December fifth the
+---- reminder lines from the phone log ----
+11-27 19:39:16.906  4480  4480 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:39:17.479  4480  4480 I Capacitor/Console: File: https://localhost/ - Line 5235 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-27 19:39:20.482  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 10050461, pluginId: LocalNotifications, methodName: getPending
+11-27 19:39:20.482  4480  4551 V Capacitor: callback: 10050461, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:39:22.497  4480  4480 D Capacitor: Sending plugin error: {"save":false,"callbackId":"10050462","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-27 19:39:22.498  4480  4480 D Capacitor: Sending plugin error: {"save":false,"callbackId":"10050463","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-tx\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-27 19:39:26.912  4480  4480 I Capacitor/Console: File: https://localhost/ - Line 5235 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-27 19:39:29.742  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234692, pluginId: LocalNotifications, methodName: getPending
+11-27 19:39:29.742  4480  4551 V Capacitor: callback: 61234692, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:39:31.841  4480  4480 D Capacitor: Sending plugin error: {"save":false,"callbackId":"61234695","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-27 19:39:31.841  4480  4480 D Capacitor: Sending plugin error: {"save":false,"callbackId":"61234696","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-tx\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-27 19:39:33.967  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234698, pluginId: LocalNotifications, methodName: getPending
+11-27 19:39:33.967  4480  4551 V Capacitor: callback: 61234698, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:40:07.687  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234704, pluginId: LocalNotifications, methodName: getPending
+11-27 19:40:07.687  4480  4551 V Capacitor: callback: 61234704, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:40:22.052  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234714, pluginId: LocalNotifications, methodName: getPending
+11-27 19:40:22.052  4480  4551 V Capacitor: callback: 61234714, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:40:25.750  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234718, pluginId: LocalNotifications, methodName: getPending
+11-27 19:40:25.750  4480  4551 V Capacitor: callback: 61234718, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:40:27.313  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234724, pluginId: LocalNotifications, methodName: getPending
+11-27 19:40:27.313  4480  4551 V Capacitor: callback: 61234724, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-27 19:40:30.568  4480  4551 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 61234728, pluginId: LocalNotifications, methodName: getPending
+11-27 19:40:30.568  4480  4551 V Capacitor: callback: 61234728, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+  ok   no app crashes
+  ok   no script errors in the app
+Android API 25: 16 passed, 0 failed
+ok   app opens and connects
+ok   web view version  → Chrome/69.0.3497.100
+ok   phone features load (native mode)
+ok   child added
+ok   microphone permission prompt appears  → ALLOW
+ok   recording timer runs  → 00:19
+ok   recording saved on the phone  → {"type":"audio/webm","size":129057,"secs":20,"id":"f1795808406097rufd8"}
+ok   spoken test recording ready
+ok   transcript writer available on this Android  → {"google":false,"supported":true,"api":25,"service":true,"onDevice":false}
+ok   meeting saved from the recording  → "1795808419601"
+ok   Write the transcript button shows for it
+ok   transcript written from the recording (speech service)  → [Recording started 11/27/2026, 7:40:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+ok   transcript written from the recording (on this phone only)  → [Recording started 11/27/2026, 7:40:00 PM; I announced the recording]
+[00:00] Thank you for meeting with us today the school agreed to provide speech therapy two times a week the teacher will send a progress report every
+ok   meeting notes made from it  → {"overview":"Meeting on Nov 27, 2026 at 7:40 PM, about 1 minute. Talked about speech therapy. Everyone was told it was being recorded.","problems":[],"agreed":[{"text":"The school agreed to provide speech therapy two times a week.","t":"00:00"},{"text":"The teacher will send a progress report every 
+ok   no app crashes
+ok   no script errors in the app
+
