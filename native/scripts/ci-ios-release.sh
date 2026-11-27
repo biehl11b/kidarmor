@@ -28,8 +28,10 @@ read -r -a T < .xcode-target
 cd ios/App
 xcodebuild "${T[@]}" -scheme App -configuration Release -destination 'generic/platform=iOS' \
   -archivePath "$RUNNER_TEMP/KidArmor.xcarchive" archive \
-  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic \
-  MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$BUILD" "${AUTH[@]}" -quiet
+  DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CODE_SIGNING_ALLOWED=NO \
+  MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$BUILD" -quiet
+# The archive is built unsigned: signing it here would need a development profile, which needs a registered test device.
+# The export step below signs it for the App Store (distribution certificate + App Store profile, no devices needed).
 cat > "$RUNNER_TEMP/export.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
