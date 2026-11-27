@@ -37,7 +37,7 @@ jobs:
         run: gh release download android-test -p KidArmor-test.apk -R "$GITHUB_REPOSITORY" && ls -la KidArmor-test.apk
       - name: Make a spoken test recording
         run: |
-          sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          sudo apt-get update -qq >/dev/null && sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
           TEXT="Thank you for meeting with us today. The school agreed to provide speech therapy two times a week. The teacher will send a progress report every Friday. Our next meeting is on December fifth at ten in the morning."
           # a natural-sounding voice (Piper), like a real person in a meeting; the robotic voice is the fallback
           ( pip install -q piper-tts 2>&1 | tail -3 \
