@@ -6,6 +6,7 @@ on:
     inputs:
       only: { description: "Run only these steps (record,transcribe,photo,pdf,remind,restart,back). Blank = all", required: false, default: "" }
       long: { description: "Use a ~10 minute IEP meeting recording for the transcript test", required: false, default: "" }
+      apis: { description: "Android API levels as a JSON list, e.g. [24,29]. Blank = [31,34,36]", required: false, default: "" }
   push:
     branches: [main]
     paths: ["tests/android/**", ".github/workflows/android-phone-test.yml"]
@@ -25,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api: [31, 34, 36]
+        api: ${{ fromJSON(inputs.apis || '[31,34,36]') }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { persist-credentials: false }
