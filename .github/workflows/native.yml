@@ -89,7 +89,7 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-        run: bash scripts/ci-ios-release.sh 2>&1 | tee -a build-ios.log
+        run: set -o pipefail; bash scripts/ci-ios-release.sh 2>&1 | tee -a build-ios.log
       - name: Save log
         if: always()
         env:
