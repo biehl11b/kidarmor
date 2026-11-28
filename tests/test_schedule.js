@@ -100,6 +100,11 @@ const FIX = path.join(__dirname, "fixtures/schedules");
   ok("a reader problem is reported quickly with a friendly note", quick, Math.round((Date.now() - tb) / 1000) + " s");
   await bad.close();
 
+  // 4c. the plain (non-SIMD) engine used for the retry also works
+  const rows2 = await page.evaluate(async (b64) => { const b = Uint8Array.from(atob(b64), c => c.charCodeAt(0)); const r = await readScheduleOnce(new Blob([b], { type: "image/png" }), null, true); return r.rows.length }, fs.readFileSync(path.join(FIX, "portal.png")).toString("base64"));
+  ok("the plain backup engine reads the schedule too", rows2 === 7, rows2 + " classes");
+  ok("older phones get the file-reading fallback", await page.evaluate(async () => { const f = Blob.prototype.arrayBuffer; delete Blob.prototype.arrayBuffer; Object.defineProperty(Blob.prototype, "arrayBuffer", { value: undefined, configurable: true, writable: true }); Blob.prototype.arrayBuffer = function () { return new Response(this).arrayBuffer() }; const n = (await new Blob(["abc"]).arrayBuffer()).byteLength; Blob.prototype.arrayBuffer = f; return n === 3 }));
+
   // 5. Spanish
   const es = await browser.newPage({ viewport: { width: 400, height: 860 } });
   await es.addInitScript(() => { window.__kaNoMic = true; window.__kaSkipTerms = true; window.__kaSkipWizard = true; window.__kaSkipIntro = true; localStorage.setItem("kidarmor.lang", "es") });
