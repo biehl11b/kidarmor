@@ -1,0 +1,291 @@
+{
+ "device": "iPhone 15",
+ "ios": "26.2",
+ "results": [
+  {
+   "name": "quick: test helper started in the app",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "quick: app answers",
+   "pass": true,
+   "detail": "2"
+  },
+  {
+   "name": "quick: inside the app",
+   "pass": true,
+   "info": true,
+   "detail": "{\"native\":true,\"show\":\"function\",\"state\":\"object\",\"errs\":[]}"
+  },
+  {
+   "name": "quick: Documents",
+   "pass": true,
+   "info": true,
+   "detail": "[\"ka-rpc\",\"ka-rpc/alive.json\"]"
+  },
+  {
+   "name": "app opens and its screen loads",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+  },
+  {
+   "name": "first screen",
+   "pass": true,
+   "info": true,
+   "detail": "Welcome to KidArmor\nKidArmor helps you keep your own records organized. It is not legal advice.\nWhat you save stays on t"
+  },
+  {
+   "name": "first-open: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "first-open: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "home: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "home: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "add: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "add: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "plan: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "plan: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "letters: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "letters: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "reports: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "reports: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "res: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "res: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "me: nothing wider than the screen",
+   "pass": true,
+   "detail": "screen 393x852, page 393 wide "
+  },
+  {
+   "name": "me: buttons clear of the notch and home bar",
+   "pass": true,
+   "detail": "safe top 59, bottom 34 "
+  },
+  {
+   "name": "recording formats this iPhone supports",
+   "pass": true,
+   "info": true,
+   "detail": "audio/mp4:true audio/webm:true audio/webm;codecs=opus:true"
+  },
+  {
+   "name": "recording (needs a real iPhone microphone)",
+   "pass": true,
+   "info": true,
+   "detail": "timer \"\"; on screen: Child & privacy\nYour child's info fills in the letters.\nYour children\nEach child has their own case file, plan and documents.\nAva Test · showing\n0 entries\nRemov"
+  },
+  {
+   "name": "photo tap",
+   "pass": true,
+   "info": true,
+   "detail": "tapped spot"
+  },
+  {
+   "name": "page after picking",
+   "pass": true,
+   "info": true,
+   "detail": "{\"docs\":1,\"errs\":[],\"file\":0}"
+  },
+  {
+   "name": "photo picker opens and a photo can be picked",
+   "pass": true,
+   "detail": "picker opened; saved: true"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": true,
+   "detail": "{\"name\":\"Report card\",\"type\":\"image/jpeg\",\"readBytes\":4127524}"
+  },
+  {
+   "name": "notification permission prompt appears",
+   "pass": true,
+   "detail": "Allow"
+  },
+  {
+   "name": "notifications allowed",
+   "pass": true,
+   "detail": "granted"
+  },
+  {
+   "name": "meeting reminders scheduled with the iPhone",
+   "pass": true,
+   "detail": "pending: 2"
+  },
+  {
+   "name": "calendar screen opens with the meeting",
+   "pass": true,
+   "detail": "New Event"
+  },
+  {
+   "name": "calendar save button",
+   "pass": true,
+   "info": true,
+   "detail": "tapped Done"
+  },
+  {
+   "name": "meeting added to the iPhone calendar",
+   "pass": true,
+   "detail": "true "
+  },
+  {
+   "name": "Face ID available to the app",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "Face ID turns on",
+   "pass": true,
+   "detail": "on"
+  },
+  {
+   "name": "Face ID unlocks the app",
+   "pass": true,
+   "detail": "true"
+  },
+  {
+   "name": "Face ID retry screen",
+   "pass": true,
+   "info": true,
+   "detail": "tapped spot"
+  },
+  {
+   "name": "a face that doesn't match is refused",
+   "pass": true,
+   "detail": "false"
+  },
+  {
+   "name": "schedule reader works on this phone",
+   "pass": true,
+   "detail": "{\"secs\":3,\"rows\":[\"Homeroom/Mrs. Ladner\",\"Reading/Mrs. Ladner\",\"Math/Mr. Cuevas\",\"Writing/Mrs. Ladner\",\"Science/Ms. Taylor\",\"Social Studies/Ms. Taylor\",\"Art Music/Mrs. Fields\",\"PE/Coach Peterson\"]}"
+  },
+  {
+   "name": "schedule photo is read on the phone",
+   "pass": true,
+   "detail": "3 s: Homeroom/Mrs. Ladner; Reading/Mrs. Ladner; Math/Mr. Cuevas; Writing/Mrs. Ladner; Science/Ms. Taylor; Social Studies/Ms. Taylor; Art Music/Mrs. Fields; PE/Coach Peterson  | \n\nYour schedule picture. Tap to open it.\nFound 8 classes. Check the list, fix anything that's off, then tap \"Save schedule\""
+  },
+  {
+   "name": "reading the schedule takes under 2 minutes",
+   "pass": true,
+   "detail": "3 s"
+  },
+  {
+   "name": "classes show up in the forms",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "QR code library loads",
+   "pass": true,
+   "detail": "ok"
+  },
+  {
+   "name": "PDF preview library loads",
+   "pass": true,
+   "detail": "pdf viewer loaded"
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": true,
+   "detail": "no viewer"
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": true,
+   "detail": "Case Binder - Ava Test - 2026-11-28.pdf"
+  },
+  {
+   "name": "iPhone share sheet opens",
+   "pass": true,
+   "detail": "Copy"
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": true,
+   "detail": "{\"entries\":0,\"docs\":1,\"name\":\"Ava Test\"} → {\"entries\":0,\"docs\":1,\"name\":\"Ava Test\"}"
+  },
+  {
+   "name": "app still running at the end",
+   "pass": true,
+   "detail": "state 4"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

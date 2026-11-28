@@ -1,0 +1,25 @@
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBXCAXClientProxy.m:182:12: warning: implicit conversion from nullable pointer 'id<FBXCAccessibilityElement> _Nullable' to non-nullable pointer type 'id<FBXCAccessibilityElement> _Nonnull' [-Wnullable-to-nonnull-conversion]
+  182 |     return self.cachedSystemApplication;
+      |            ^
+1 warning generated.
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBScreen.m:22:13: warning: cast from 'void (*)(void)' to 'NSArray<XCUIScreen *> *(*)(__strong id, SEL, NSError *__autoreleasing *)' converts to incompatible function type [-Wcast-function-type-strict]
+   22 |     return ((NSArray<XCUIScreen *> *(*)(id, SEL, NSError **))objc_msgSend)(device, selector, error);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBScreen.m:69:27: warning: cast from 'void (*)(void)' to 'XCUIScreen *(*)(__strong id, SEL, long long, NSError *__autoreleasing *)' converts to incompatible function type [-Wcast-function-type-strict]
+   69 |     XCUIScreen *screen = ((XCUIScreen *(*)(id, SEL, long long, NSError **))objc_msgSend)(
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBXCAXClientProxy.m:182:12: warning: implicit conversion from nullable pointer 'id<FBXCAccessibilityElement> _Nullable' to non-nullable pointer type 'id<FBXCAccessibilityElement> _Nonnull' [-Wnullable-to-nonnull-conversion]
+  182 |     return self.cachedSystemApplication;
+      |            ^
+1 warning generated.
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBScreen.m:22:13: warning: cast from 'void (*)(void)' to 'NSArray<XCUIScreen *> *(*)(__strong id, SEL, NSError *__autoreleasing *)' converts to incompatible function type [-Wcast-function-type-strict]
+   22 |     return ((NSArray<XCUIScreen *> *(*)(id, SEL, NSError **))objc_msgSend)(device, selector, error);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgentLib/Utilities/FBScreen.m:69:27: warning: cast from 'void (*)(void)' to 'XCUIScreen *(*)(__strong id, SEL, long long, NSError *__autoreleasing *)' converts to incompatible function type [-Wcast-function-type-strict]
+   69 |     XCUIScreen *screen = ((XCUIScreen *(*)(id, SEL, long long, NSError **))objc_msgSend)(
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+warning: The value for NSLocationAlwaysAndWhenInUseUsageDescription must be a non-empty string. (in target 'WebDriverAgentRunner' from project 'WebDriverAgent')
+warning: The value for NSLocationWhenInUseUsageDescription must be a non-empty string. (in target 'WebDriverAgentRunner' from project 'WebDriverAgent')
+warning: The value for NSLocationAlwaysUsageDescription must be a non-empty string. (in target 'WebDriverAgentRunner' from project 'WebDriverAgent')
