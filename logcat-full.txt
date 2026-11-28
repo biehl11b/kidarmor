@@ -1,0 +1,451 @@
+--------- beginning of system
+11-28 05:09:32.047  1653  4513 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+--------- beginning of main
+11-28 05:09:32.048  1653  4513 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.048  1653  4513 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.048  1653  4513 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.048  1653  4513 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:32.048  1653  4513 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:32.048  1653  4513 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:32.050  1653  1715 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.050  1653  1715 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.050  1653  1715 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.051  1653  1715 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:32.051  1653  1715 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:32.051  1653  1715 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:32.053  1653  1715 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:32.064  1653  2017 I ActivityManager: Start proc 6545:com.coastlinecode.kidarmor/u0a80 for activity com.coastlinecode.kidarmor/.MainActivity
+11-28 05:09:32.066  6545  6545 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:32.077  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.077  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.077  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.097  6545  6545 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-28 05:09:32.111  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-28 05:09:32.113  6545  6545 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.113  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.113  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.113  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.113  6545  6545 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-28 05:09:32.114  6545  6545 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-28 05:09:32.114  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-28 05:09:32.114  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-28 05:09:32.114  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.115  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.115  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.115  6545  6545 I zygote64: 
+11-28 05:09:32.115  6545  6545 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.115  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.115  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.116  6545  6545 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.116  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.116  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.116  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.117  6545  6545 I zygote64: 
+11-28 05:09:32.117  6545  6545 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-28 05:09:32.117  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.117  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.120  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.120  6545  6545 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:93)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.classForName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:453)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getWebViewProviderClass(java.lang.ClassLoader) (WebViewFactory.java:150)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:417)
+11-28 05:09:32.120  6545  6545 I zygote64:   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:211)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1259)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1118)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5791)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.-wrap1(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1661)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:105)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-28 05:09:32.120  6545  6545 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6541)
+11-28 05:09:32.120  6545  6545 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:32.121  6545  6545 I zygote64:   at void com.android.internal.os.Zygote$MethodAndArgsCaller.run() (Zygote.java:240)
+11-28 05:09:32.121  6545  6545 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:767)
+11-28 05:09:32.121  6545  6545 I zygote64: 
+11-28 05:09:32.135  6545  6545 I cr_LibraryLoader: Time to load native libraries: 2 ms (timestamps 5087-5089)
+11-28 05:09:32.161  2541  2664 E ContentStoreEUAS: Failed to commit the deferred actions
+11-28 05:09:32.165  6545  6545 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:09:32.165  6545  6545 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-28 05:09:32.166  1813  2035 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.166  1813  2035 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.166  1813  2035 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.167  1813  2035 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:32.174  2477  2619 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+11-28 05:09:32.179  6545  6567 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-28 05:09:32.179  6545  6567 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-28 05:09:32.193  6545  6568 W cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.android.chrome, sandboxed = true
+11-28 05:09:32.196  2541  2790 D EGL_emulation: eglMakeCurrent: 0xdab06500: ver 3 0 (tinfo 0xdab03ae0)
+11-28 05:09:32.196  2477  2619 D EGL_emulation: eglMakeCurrent: 0x75cadc23c640: ver 3 0 (tinfo 0x75cadc20dca0)
+11-28 05:09:32.198  6545  6545 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-28 05:09:32.200  1653  1663 I zygote64: NativeAllocBackground concurrent copying GC freed 14266(1223KB) AllocSpace objects, 7(140KB) LOS objects, 41% free, 8MB/14MB, paused 468us total 101.913ms
+11-28 05:09:32.203  6545  6545 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(194)
+11-28 05:09:32.203  6545  6545 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(192)
+11-28 05:09:32.203  6545  6545 W ResourceType: Failure getting entry for 0x7f1204b0 (t=17 e=1200) (error -75)
+11-28 05:09:32.227  6577  6577 E /system/bin/webview_zygote32: failed to make and chown /acct/uid_99008: Permission denied
+11-28 05:09:32.227  6577  6577 E Zygote  : createProcessGroup(99008, 0) failed: Permission denied
+11-28 05:09:32.228  6577  6577 W /system/bin/webview_zygote32: Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:32.232  1653  2379 I ActivityManager: Start proc 6577:com.android.chrome:sandboxed_process0/u0i8 for webview_service com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0
+11-28 05:09:32.245  6545  6545 I KA_LIFE : web viewer ready before the first screen
+11-28 05:09:32.257  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.257  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.257  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.272  6577  6577 I SamplingProfilerIntegration: Profiling disabled.
+11-28 05:09:32.273  6545  6545 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:32.277  6545  6545 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-28 05:09:32.277  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.277  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.277  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.282  6545  6545 W ResourceType: For resource 0x7f13021c, entry index(540) is beyond type entryCount(220)
+11-28 05:09:32.282  6545  6545 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:32.282  6545  6545 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:32.282  6545  6545 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:32.283  6545  6545 I KA_LIFE : onCreate restored=false
+11-28 05:09:32.289  6599  6599 E asset   : setgid: Operation not permitted
+11-28 05:09:32.299  6577  6577 I cr_ChildProcessService: Creating new ChildProcessService pid=6577
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130149, entry index(329) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:32.303  6545  6545 W ResourceType: For resource 0x7f130149, entry index(329) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 I chatty  : uid=10080(u0_a80) com.coastlinecode.kidarmor identical 2 lines
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.305  6545  6545 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:32.306  6545  6545 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:32.306  6545  6545 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:32.306  6545  6545 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:32.306  6545  6545 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:32.306  6545  6545 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 I chatty  : uid=10080(u0_a80) com.coastlinecode.kidarmor identical 2 lines
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:32.307  6545  6545 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:32.308  6545  6545 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 I chatty  : uid=10080(u0_a80) com.coastlinecode.kidarmor identical 2 lines
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:32.310  6545  6545 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:32.312  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.312  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.312  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130149, entry index(329) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.313  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.313  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f13021c, entry index(540) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:32.313  6545  6545 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: For resource 0x7f130149, entry index(329) is beyond type entryCount(220)
+11-28 05:09:32.314  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.314  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.314  6545  6545 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.339  6545  6545 D Capacitor: Starting BridgeActivity
+11-28 05:09:32.351  6561  6561 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 I chatty  : uid=10080(u0_a80) com.coastlinecode.kidarmor identical 2 lines
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:32.373  6545  6545 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:32.374  6545  6545 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:32.410  6545  6576 W cr_media: Requires BLUETOOTH permission
+11-28 05:09:32.420  6561  6561 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:32.421  1400  1425 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-28 05:09:32.422  6545  6610 D OpenGLRenderer: HWUI GL Pipeline
+11-28 05:09:32.429  6545  6609 D         : HostConnection::get() New Host Connection established 0x75cad7f89420, tid 6609
+11-28 05:09:32.431  6545  6609 D EGL_emulation: eglCreateContext: 0x75cacc83ae40: maj 3 min 0 rcv 3
+11-28 05:09:32.432  6545  6609 D EGL_emulation: eglMakeCurrent: 0x75cacc83ae40: ver 3 0 (tinfo 0x75cacc90d940)
+11-28 05:09:32.448  6545  6610 I OpenGLRenderer: Initialized EGL, version 1.4
+11-28 05:09:32.448  6545  6610 D OpenGLRenderer: Swap behavior 1
+11-28 05:09:32.448  6545  6610 D         : HostConnection::get() New Host Connection established 0x75cadc22f200, tid 6610
+11-28 05:09:32.449  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-28 05:09:32.449  6545  6610 D EGL_emulation: eglCreateContext: 0x75cadc258da0: maj 3 min 0 rcv 3
+11-28 05:09:32.450  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-28 05:09:32.450  6545  6610 D EGL_emulation: eglMakeCurrent: 0x75cadc258da0: ver 3 0 (tinfo 0x75cadc321aa0)
+11-28 05:09:32.451  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8298496
+11-28 05:09:32.472  6545  6550 I zygote64: Do partial code cache collection, code=29KB, data=20KB
+11-28 05:09:32.484  6577  6600 I cr_LibraryLoader: Time to load native libraries: 0 ms (timestamps 5438-5438)
+11-28 05:09:32.484  6577  6600 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:09:32.484  6577  6600 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-28 05:09:32.490  6577  6600 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:32.491  6577  6600 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:32.492  6577  6600 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:32.493  6561  6561 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:32.499  6545  6550 I zygote64: After code cache collection, code=29KB, data=20KB
+11-28 05:09:32.499  6545  6550 I zygote64: Increasing code cache capacity to 128KB
+11-28 05:09:32.529  6545  6609 I VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+11-28 05:09:32.536  6545  6609 W cr_MediaCodecUtil: HW encoder for video/avc is not available on this device.
+11-28 05:09:32.545  6545  6564 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-28 05:09:32.584  6545  6609 D EGL_emulation: eglCreateContext: 0x75cacd1b05e0: maj 3 min 0 rcv 3
+11-28 05:09:32.585  6545  6609 D EGL_emulation: eglMakeCurrent: 0x75cacd1b05e0: ver 3 0 (tinfo 0x75cacc90d940)
+11-28 05:09:32.843  6545  6610 D EGL_emulation: eglMakeCurrent: 0x75cadc258da0: ver 3 0 (tinfo 0x75cadc321aa0)
+11-28 05:09:32.930  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:32.931  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:33.471  6545  6545 I Choreographer: Skipped 36 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:33.473  1653  1686 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s419ms
+11-28 05:09:33.534  1813  2126 D EGL_emulation: eglMakeCurrent: 0x75cadc23a400: ver 3 0 (tinfo 0x75cadc20dac0)
+11-28 05:09:33.550  1400  1400 W SurfaceFlinger: couldn't log to binary event log: overflow.
+11-28 05:09:33.602  2541  2664 I PBSessionCacheImpl: Deleted sessionId[86677901862] from persistence.
+11-28 05:09:33.613  2541  2541 W SearchService: Abort, client detached.
+11-28 05:09:33.615  2541  2541 E WorkerRegistryImpl: getWorker() is called after WorkerRegistry disposal.
+11-28 05:09:33.615  2541  2541 E WorkerRegistryImpl: getWorker() is called after WorkerRegistry disposal.
+11-28 05:09:33.652  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:33.652  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:33.658  1778  6635 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-28 05:09:33.658  1778  6635 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-28 05:09:33.665  1778  5439 I LogUtils: [Places]: ?: PlacesBleScanner stop() [CONTEXT service_id=253 ]
+11-28 05:09:33.665  1778  1778 I BeaconBle: Scan : No clients left, canceling alarm. [CONTEXT service_id=111 ]
+11-28 05:09:33.665  1778  1778 I BeaconBle: Scan canceled successfully. [CONTEXT service_id=111 ]
+11-28 05:09:33.668  1778  5439 I PlacesLogger: [PlaceInferenceEngine]: [anon] Changed inference mode: 0 [CONTEXT service_id=253 ]
+11-28 05:09:33.686  1778  6635 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-28 05:09:33.687  1778  6462 I LogUtils: [Places]: ?: Couldn't find platform key file. [CONTEXT service_id=253 ]
+11-28 05:09:33.702  1778  1778 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_BY_PENDING_INTENT pendingIntent=PendingIntent[creatorPackage=com.google.android.gms], packageName=com.google.android.gms]
+11-28 05:09:34.288  6545  6545 I Choreographer: Skipped 47 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:34.341  6545  6583 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+11-28 05:09:34.399  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:34.399  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:34.554  6561  6561 W AccessibilityNodeInfoDumper: Fetch time: 6ms
+11-28 05:09:34.557  1653  2445 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@b3936bb
+11-28 05:09:34.566  6561  6561 D AndroidRuntime: Shutting down VM
+11-28 05:09:34.570  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:34.924  6545  6610 I chatty  : uid=10080(u0_a80) RenderThread identical 14 lines
+11-28 05:09:34.924  6545  6610 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:35.204  6641  6641 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:35.232  6641  6641 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:35.242  6641  6641 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:35.555  1653  1775 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-28 05:09:36.258  6545  6550 I zygote64: Do partial code cache collection, code=60KB, data=42KB
+11-28 05:09:36.259  6545  6550 I zygote64: After code cache collection, code=60KB, data=42KB
+11-28 05:09:36.259  6545  6550 I zygote64: Increasing code cache capacity to 256KB
+11-28 05:09:36.264  6641  6641 I app_process: Deoptimizing java.lang.String com.android.uiautomator.core.AccessibilityNodeInfoDumper.stripInvalidXMLChars(java.lang.CharSequence) due to JIT inline cache
+11-28 05:09:36.284  6641  6641 W AccessibilityNodeInfoDumper: Fetch time: 22ms
+11-28 05:09:36.285  1653  4513 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@928d249
+11-28 05:09:36.291  6641  6641 D AndroidRuntime: Shutting down VM
+11-28 05:09:36.296  1653  1669 E memtrack: Couldn't load memtrack module
+11-28 05:09:36.296  1653  1669 W android.os.Debug: failed to get memory consumption info: -1
+11-28 05:09:36.301  1653  1669 E memtrack: Couldn't load memtrack module
+11-28 05:09:36.301  1653  1669 W android.os.Debug: failed to get memory consumption info: -1
