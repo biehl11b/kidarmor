@@ -88,6 +88,16 @@ const FIX = path.join(__dirname, "fixtures/schedules");
   ok("a picture with nothing on it says so kindly", /Couldn't read the classes/.test(await page.locator("#schedBody").innerText()));
   ok("the saved class list is kept after a failed read", R4.length === (await page.evaluate(() => state.child.schedule.length)));
 
+  // 4b. if the reader can't start (a file is missing), parents hear right away instead of waiting
+  const bad = await browser.newPage({ viewport: { width: 400, height: 860 } });
+  await bad.addInitScript(() => { window.__kaNoMic = true; window.__kaSkipTerms = true; window.__kaSkipWizard = true; window.__kaSkipIntro = true });
+  await bad.route("https://demo.local/**", r => { const u = new URL(r.request().url()).pathname; if (/eng\.traineddata/.test(u)) return r.fulfill({ status: 404, body: "" }); if (u.startsWith("/vendor/")) return r.fulfill({ path: path.join(__dirname, "..", u), contentType: "application/javascript" }); return r.fulfill({ body: page_, contentType: "text/html" }) });
+  await bad.goto("https://demo.local/"); await bad.waitForTimeout(300); await bad.evaluate(() => { state.child.name = "Ava"; save(); show("me") });
+  const tb = Date.now(); await bad.setInputFiles("#schedPhoto", path.join(FIX, "portal.png"));
+  const quick = await bad.waitForFunction(() => /Couldn't read this picture/.test(document.querySelector("#schedBody").innerText), null, { timeout: 30000 }).then(() => true, () => false);
+  ok("a reader problem is reported quickly with a friendly note", quick, Math.round((Date.now() - tb) / 1000) + " s");
+  await bad.close();
+
   // 5. Spanish
   const es = await browser.newPage({ viewport: { width: 400, height: 860 } });
   await es.addInitScript(() => { window.__kaNoMic = true; window.__kaSkipTerms = true; window.__kaSkipWizard = true; window.__kaSkipIntro = true; localStorage.setItem("kidarmor.lang", "es") });
