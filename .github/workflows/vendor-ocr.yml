@@ -1,0 +1,21 @@
+name: Fetch on-phone text reader (tesseract.js)
+on: { workflow_dispatch: {} }
+permissions: { contents: write }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set -euxo pipefail
+          npm pack tesseract.js@5.1.1 tesseract.js-core@5.1.1 @tesseract.js-data/eng@1.0.0
+          ls
+          mkdir a b c out
+          tar xzf tesseract.js-5.1.1.tgz -C a; tar xzf tesseract.js-core-5.1.1.tgz -C b; tar xzf tesseract.js-data-eng-1.0.0.tgz -C c
+          ls a/package/dist b/package c/package c/package/* | head -80
+          cp a/package/dist/tesseract.min.js a/package/dist/worker.min.js out/
+          cp a/package/LICENSE.md out/tesseract.js-LICENSE.md 2>/dev/null || cp a/package/LICENSE out/tesseract.js-LICENSE.md
+          for f in tesseract-core-lstm.wasm.js tesseract-core-lstm.wasm tesseract-core-simd-lstm.wasm.js tesseract-core-simd-lstm.wasm; do cp b/package/$f out/; done
+          cp c/package/4.0.0_best_int/eng.traineddata.gz out/
+          ls -la out; sha256sum out/*
+          cd out && git init -q && git checkout -q -b vendor-ocr && git add . && git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "tesseract.js 5.1.1 + core + eng data"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" vendor-ocr
