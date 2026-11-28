@@ -1,0 +1,24 @@
+info phone  → Android API 34, x86_64, screen 2560x1600, WebView 113.0.5672.136
+info first frame on screen (Android's launch time)  → 4975 ms
+info app in front  → topResumedActivity=ActivityRecord{fc1404d u0 com.coastlinecode.kidarmor/.MainActivity t8}
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:111: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  anr += 1; w = find(root, r"^\s*Wait\s*$") or find(root, r"Wait")
+info the test phone's home screen froze; tapped Wait and reopened KidArmor  → time 1
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:111: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  anr += 1; w = find(root, r"^\s*Wait\s*$") or find(root, r"Wait")
+info the test phone's home screen froze; tapped Wait and reopened KidArmor  → time 2
+ok   Welcome screen shows (agree box on screen)  → after 26.1 s from tapping the icon (test phones are slower than real ones)
+FAIL loads in a reasonable time  → 26.1 s
+info screen start-ups during first open  → web viewer ready before the first screen / onCreate restored=false / page check: url=https://localhost/ progress=100 size=2560x1432 shown=true attached=true parent=true content= / page check result: "ok"
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:147: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  go = next((nd for nd in nodes(root) if nd.get("resource-id") == "agGo"), None) or find(root, r"^Continue")
+FAIL checking the box turns on Continue  → still off
+FAIL Continue opens the app  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1 | Add your child and school, and set a 
+FAIL intro offers 'Show me how it works'  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1 | Add your child and school, and set a 
+ok   app still running  → pid 4662
+ok   first open after a fresh install, 3 more times  → 11.0s, 5.4s, 5.2s
+ok   opens every time (5 more cold starts)  → 5.7s, 4.9s, 4.8s, 5.2s, 5.8s
+info cold start, slowest / typical  → 5.8 s / 5.2 s
+ok   no crashes
+ok   no script errors
+Store version on Android API 34 (2560x1600): 6 passed, 4 failed
