@@ -1,0 +1,19 @@
+info phone  → Android API 29, x86_64, screen 1080x2280, WebView 74.0.3729.185
+info first frame on screen (Android's launch time)  → 8838 ms
+info app in front  → mResumedActivity: ActivityRecord{f2cd177 u0 com.coastlinecode.kidarmor/.MainActivity t6}
+ok   Welcome screen shows (agree box on screen)  → after 16.9 s from tapping the icon (test phones are slower than real ones)
+ok   loads in a reasonable time  → 16.9 s
+info screen start-ups during first open  → web viewer ready before the first screen / onCreate restored=false / onDestroy finishing=false changingConfig=true / onCreate restored=true / settings before restart: {1.0 310mcc260mnc [en_US] ldltr sw392dp w392dp h750dp 440dpi nrml long port finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:147: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  go = next((nd for nd in nodes(root) if nd.get("resource-id") == "agGo"), None) or find(root, r"^Continue")
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens the app  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1Add your child and school, and set a PIN
+ok   'Show me how it works' starts the tour  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   the tour's Next button works  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   app still running  → pid 6126
+ok   first open after a fresh install, 3 more times  → 5.4s, 5.2s, 5.1s
+ok   opens every time (5 more cold starts)  → 7.6s, 6.7s, 5.3s, 4.3s, 5.5s
+info cold start, slowest / typical  → 7.6 s / 5.5 s
+ok   no crashes
+ok   no script errors
+Store version on Android API 29 (1080x2280): 11 passed, 0 failed

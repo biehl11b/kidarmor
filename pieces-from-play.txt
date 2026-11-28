@@ -1,0 +1,10 @@
+Archive:  ka.apks
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+      349  1981-01-01 01:01   toc.pb
+    41306  1981-01-01 01:01   splits/base-en.apk
+ 20113345  1981-01-01 01:01   splits/base-master.apk
+ 10490283  1981-01-01 01:01   splits/base-x86_64.apk
+  1544985  1981-01-01 01:01   splits/base-xxhdpi.apk
+---------                     -------
+ 32190268                     5 files

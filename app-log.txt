@@ -1,0 +1,36 @@
+11-28 05:11:15.413  1764  1764 V installd: DexInv: --- END '/data/app/com.coastlinecode.kidarmor-H8IpkEGmkAGtyhcYrxV-lw==/base.apk' (success) ---
+11-28 05:11:15.435  1912  3885 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+11-28 05:11:15.439  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-28 05:11:15.439  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.games.chimera.GamesSystemBroadcastReceiverProxy
+11-28 05:11:15.439  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.gass.chimera.PackageChangeBroadcastReceiver
+11-28 05:11:15.440  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+11-28 05:11:15.440  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-28 05:11:15.440  1912  1944 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-28 05:11:15.469  2059  8255 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+11-28 05:11:15.482  2059  8255 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+11-28 05:11:15.508  2208  8497 I ChromeSync: [Sync,SyncIntentOperation] Handling the intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.coastlinecode.kidarmor flg=0x4000010 cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }.
+11-28 05:11:16.352  2208  8497 I ChromeSync: [Persistence,AffiliationManager] One of affiliation or grouping data for android://y78v_axYnHgWiOyyxCsA-vCes_bfFjCwqh56s3v45YrfdBJSGQAqy4SsdBSgeYKxshZBTqLXvBWfqR5nauGCKw==@com.coastlinecode.kidarmor/ was not found. Marking affiliation data as stale...
+11-28 05:11:17.492  1912  4442 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-28 05:11:17.511  1912  1945 I ActivityManager: Start proc 8515:com.coastlinecode.kidarmor/u0a149 for activity {com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-28 05:11:17.556  8515  8515 I chatty  : uid=10149(com.coastlinecode.kidarmor) identical 1 line
+11-28 05:11:17.653  8515  8515 I WebViewFactory: Loading com.google.android.webview version 74.0.3729.185 (code 373018568)
+11-28 05:11:17.694  8515  8515 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:11:17.711  8515  8515 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-28 05:11:17.754  8515  8515 E chromium: [ERROR:filesystem_posix.cc(89)] stat /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crashpad: No such file or directory (2)
+11-28 05:11:17.754  8515  8515 E chromium: [ERROR:filesystem_posix.cc(62)] mkdir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crashpad: No such file or directory (2)
+11-28 05:11:17.830  1912  1945 I ActivityManager: Start proc 8548:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0i8 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0}
+11-28 05:11:17.965  8532  8532 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:11:17.966  8532  8532 I AndroidRuntime: Using default boot image
+11-28 05:11:17.967  8532  8532 I AndroidRuntime: Leaving lock profiling enabled
+11-28 05:11:18.053  8515  8515 D Capacitor: Starting BridgeActivity
+11-28 05:11:17.990  8515  8515 W RenderThread: type=1400 audit(0.0:242): avc: denied { write } for name="property_service" dev="tmpfs" ino=264 scontext=u:r:untrusted_app:s0:c149,c256,c512,c768 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=0 app=com.coastlinecode.kidarmor
+11-28 05:11:18.168  8532  8532 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:11:18.284  8548  8568 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:11:18.647  8515  8586 I chatty  : uid=10149(com.coastlinecode.kidarmor) Chrome_InProcGp identical 4 lines
+11-28 05:11:19.975  8532  8532 D AndroidRuntime: Shutting down VM
+11-28 05:11:20.092  1912  1943 I ActivityTaskManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +2s266ms
+11-28 05:11:20.960  8620  8620 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:11:20.972  8620  8620 I AndroidRuntime: Using default boot image
+11-28 05:11:20.972  8620  8620 I AndroidRuntime: Leaving lock profiling enabled
+11-28 05:11:21.050  8620  8620 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:11:22.367  8620  8620 D AndroidRuntime: Shutting down VM
