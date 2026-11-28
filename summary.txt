@@ -1,0 +1,17 @@
+Store version on Android API 24 (1080x1920): 11 passed, 0 failed
+info phone  → Android API 24, x86_64, screen 1080x1920, WebView ?
+info first frame on screen (Android's launch time)  → 1916 ms
+info app in front  → mResumedActivity: ActivityRecord{3fb5019 u0 com.coastlinecode.kidarmor/.MainActivity t5}
+ok   Welcome screen shows (agree box on screen)  → after 9.7 s from tapping the icon (test phones are slower than real ones)
+ok   loads in a reasonable time  → 9.7 s
+info screen start-ups during first open  → web viewer ready before the first screen / onCreate restored=false
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens the app  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1Add your child and school, and set a PIN
+ok   'Show me how it works' starts the tour  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   the tour's Next button works  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   app still running  → pid 4346
+ok   first open after a fresh install, 3 more times  → 4.1s, 4.1s, 4.0s
+ok   opens every time (5 more cold starts)  → 6.5s, 5.5s, 5.4s, 3.2s, 4.0s
+info cold start, slowest / typical  → 6.5 s / 5.4 s
+ok   no crashes
+ok   no script errors

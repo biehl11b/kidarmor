@@ -1,0 +1,29 @@
+11-28 05:09:15.521  5979  5979 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:15.522  5979  5979 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:15.551  5979  5979 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-28 05:09:15.555  1646  1904 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000 on display 0
+11-28 05:09:15.563  5979  5979 D AndroidRuntime: Shutting down VM
+11-28 05:09:15.576  1646  2096 I ActivityManager: Start proc 5989:com.coastlinecode.kidarmor/u0a81 for activity com.coastlinecode.kidarmor/.MainActivity
+11-28 05:09:15.637  5989  5989 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-28 05:09:15.659  5989  5989 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-28 05:09:15.659  5989  5989 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:15.688  5989  5989 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:09:15.704  5989  6011 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-28 05:09:15.704  5989  6011 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-28 05:09:15.716  5989  5989 I cr_BrowserStartup: Initializing chromium process, singleProcess=true
+11-28 05:09:15.879  5989  5989 D Capacitor: Starting BridgeActivity
+11-28 05:09:15.899  6003  6003 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:15.900  6003  6003 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:15.937  6003  6003 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:16.139  5989  6008 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-28 05:09:17.224  1646  1667 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s659ms
+11-28 05:09:17.236  6003  6003 D AndroidRuntime: Shutting down VM
+11-28 05:09:17.251  1646  1667 I WindowManager: Destroying surface Surface(name=Starting com.coastlinecode.kidarmor) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-28 05:09:17.901  6059  6059 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:17.902  6059  6059 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:17.941  6059  6059 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:19.373  6059  6059 D AndroidRuntime: Shutting down VM

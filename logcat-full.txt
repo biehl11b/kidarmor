@@ -1,0 +1,364 @@
+--------- beginning of main
+11-28 05:09:15.521  5979  5979 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:15.522  5979  5979 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:15.535  5979  5979 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:15.537  5979  5979 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-28 05:09:15.546  5979  5979 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-28 05:09:15.546  5979  5979 E android.os.Debug: failed to load memtrack module: -2
+11-28 05:09:15.547  5979  5979 I Radio-JNI: register_android_hardware_Radio DONE
+11-28 05:09:15.551  5979  5979 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+--------- beginning of system
+11-28 05:09:15.555  1646  1904 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000 on display 0
+11-28 05:09:15.556  1646  1904 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.556  1646  1904 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.556  1646  1904 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.556  1646  1904 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:15.556  1646  1904 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:15.556  1646  1904 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:15.557  1646  1667 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:15.563  5979  5979 D AndroidRuntime: Shutting down VM
+11-28 05:09:15.572  5989  5989 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:15.576  1646  2096 I ActivityManager: Start proc 5989:com.coastlinecode.kidarmor/u0a81 for activity com.coastlinecode.kidarmor/.MainActivity
+11-28 05:09:15.592  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.592  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.592  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.636  5989  5989 W System  : ClassLoader referenced unknown path: /system/app/Chrome/lib/x86_64
+11-28 05:09:15.637  5989  5989 I WebViewFactory: Loading com.android.chrome version 69.0.3497.100 (code 349710067)
+11-28 05:09:15.659  5989  5989 I art     : Rejecting re-init on previously-failed class java.lang.Class<uJ>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/webkit/TracingController;
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.Class.classForName!(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:400)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-28 05:09:15.659  5989  5989 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1246)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1024)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5361)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.app.ActivityThread.-wrap2(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1528)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.os.Looper.loop() (Looper.java:154)
+11-28 05:09:15.659  5989  5989 I art     :   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)
+11-28 05:09:15.659  5989  5989 I art     : Caused by: java.lang.ClassNotFoundException: Didn't find class "android.webkit.TracingController" on path: DexPathList[[zip file "/system/app/Chrome/Chrome.apk"],nativeLibraryDirectories=[/system/app/Chrome/lib/x86_64, /system/app/Chrome/Chrome.apk!/lib/x86_64, /system/lib64, /vendor/lib64, /system/lib64, /vendor/lib64]]
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:56)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:380)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.Class.classForName!(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:-2)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader) (Class.java:400)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.Class android.webkit.WebViewFactory.getProviderClass() (WebViewFactory.java:349)
+11-28 05:09:15.659  5989  5989 I art     :   at android.webkit.WebViewFactoryProvider android.webkit.WebViewFactory.getProvider() (WebViewFactory.java:194)
+11-28 05:09:15.659  5989  5989 I art     :   at java.lang.String android.webkit.WebSettings.getDefaultUserAgent(android.content.Context) (WebSettings.java:1246)
+11-28 05:09:15.659  5989  5989 I art     :   at void com.coastlinecode.kidarmor.KidArmorApp.onCreate() (KidArmorApp.java:21)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.app.Instrumentation.callApplicationOnCreate(android.app.Application) (Instrumentation.java:1024)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.app.ActivityThread.handleBindApplication(android.app.ActivityThread$AppBindData) (ActivityThread.java:5361)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.app.ActivityThread.-wrap2(android.app.ActivityThread, android.app.ActivityThread$AppBindData) (ActivityThread.java:-1)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1528)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.os.Looper.loop() (Looper.java:154)
+11-28 05:09:15.660  5989  5989 I art     :   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)
+11-28 05:09:15.660  5989  5989 I art     :   at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-28 05:09:15.660  5989  5989 I art     :   at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)
+11-28 05:09:15.660  5989  5989 I art     :   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)
+11-28 05:09:15.660  5989  5989 I art     : 
+11-28 05:09:15.661  1311  1319 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-28 05:09:15.668  5989  5989 I cr_LibraryLoader: Time to load native libraries: 2 ms (timestamps 1016-1018)
+11-28 05:09:15.677  1817  1817 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.677  1817  1817 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.678  1817  1817 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.681  1817  1817 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:15.688  5989  5989 I chromium: [INFO:library_loader_hooks.cc(36)] Chromium logging enabled: level = 0, default verbosity = 0
+11-28 05:09:15.689  5989  5989 I cr_LibraryLoader: Expected native library version number "69.0.3497.100", actual native library version number "69.0.3497.100"
+11-28 05:09:15.704  5989  6011 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new (No such file or directory)
+11-28 05:09:15.704  5989  6011 E cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed": /data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed (No such file or directory)
+11-28 05:09:15.716  5989  5989 I cr_BrowserStartup: Initializing chromium process, singleProcess=true
+11-28 05:09:15.716  5989  6011 W System  : ClassLoader referenced unknown path: 
+11-28 05:09:15.716  5989  6011 W System  : ClassLoader referenced unknown path: /system/app/Chrome/lib/x86_64
+11-28 05:09:15.719  5989  5989 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(194)
+11-28 05:09:15.719  5989  5989 W ResourceType: For resource 0x7f1204b0, entry index(1200) is beyond type entryCount(192)
+11-28 05:09:15.719  5989  5989 W ResourceType: Failure getting entry for 0x7f1204b0 (t=17 e=1200) (error -75)
+11-28 05:09:15.747  5989  5989 I KA_LIFE : web viewer ready before the first screen
+11-28 05:09:15.775  2421  2536 D EGL_emulation: eglMakeCurrent: 0x791d316a77a0: ver 3 0 (tinfo 0x791d31754500)
+11-28 05:09:15.784  1646  1657 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowManagerService.tryStartExitingAnimation:3024 com.android.server.wm.WindowManagerService.relayoutWindow:2904 com.android.server.wm.Session.relayout:224 android.view.IWindowSession$Stub.onTransact:286 com.android.server.wm.Session.onTransact:145 
+11-28 05:09:15.796  5989  5989 W ResourceType: For resource 0x7f1200c1, entry index(193) is beyond type entryCount(192)
+11-28 05:09:15.798  5989  5989 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-28 05:09:15.798  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.798  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.798  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.799  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.799  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.799  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.800  5989  5989 W ResourceType: For resource 0x7f13021c, entry index(540) is beyond type entryCount(220)
+11-28 05:09:15.800  5989  5989 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:15.801  5989  5989 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:15.801  5989  5989 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:15.801  5989  5989 I KA_LIFE : onCreate restored=false
+11-28 05:09:15.812  5989  5989 W art     : Before Android 4.1, method android.graphics.PorterDuffColorFilter androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130147, entry index(327) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:15.815  5989  5989 W ResourceType: For resource 0x7f130147, entry index(327) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:15.817  5989  5989 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:15.818  5989  5989 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:15.826  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.826  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.826  5989  5989 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:15.826  5989  5989 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:15.827  5989  5989 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:15.830  5989  5989 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.834  5989  5989 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:15.835  5989  5989 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:15.837  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.837  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.837  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.838  5989  5989 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:15.838  5989  5989 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:15.838  5989  5989 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:15.838  5989  5989 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:15.838  5989  5989 W ResourceType: For resource 0x7f130147, entry index(327) is beyond type entryCount(220)
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 192, previously 194
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 234, previously 237
+11-28 05:09:15.839  5989  5989 W ResourceType: ResTable_typeSpec entry count inconsistent: given 220, previously 1121
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f13021c, entry index(540) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130276, entry index(630) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130277, entry index(631) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130123, entry index(291) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130217, entry index(535) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130223, entry index(547) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f13021d, entry index(541) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f13013e, entry index(318) is beyond type entryCount(220)
+11-28 05:09:15.840  5989  5989 W ResourceType: For resource 0x7f130147, entry index(327) is beyond type entryCount(220)
+11-28 05:09:15.879  5989  5989 D Capacitor: Starting BridgeActivity
+11-28 05:09:15.899  6003  6003 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:15.900  6003  6003 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:15.917  6003  6003 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:15.919  6003  6003 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130303, entry index(771) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130305, entry index(773) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130309, entry index(777) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130307, entry index(775) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130317, entry index(791) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302ee, entry index(750) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f0, entry index(752) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f13027a, entry index(634) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130315, entry index(789) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f1, entry index(753) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f130280, entry index(640) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f2, entry index(754) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f6, entry index(758) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f1302f9, entry index(761) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f13027f, entry index(639) is beyond type entryCount(220)
+11-28 05:09:15.926  5989  5989 W ResourceType: For resource 0x7f13031b, entry index(795) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130300, entry index(768) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130301, entry index(769) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130318, entry index(792) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130319, entry index(793) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130210, entry index(528) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130314, entry index(788) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130316, entry index(790) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130327, entry index(807) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1302ff, entry index(767) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1302fd, entry index(765) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130198, entry index(408) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1301af, entry index(431) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1301c2, entry index(450) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1301ab, entry index(427) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f1301ac, entry index(428) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f130330, entry index(816) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f13032f, entry index(815) is beyond type entryCount(220)
+11-28 05:09:15.927  5989  5989 W ResourceType: For resource 0x7f0800eb, entry index(235) is beyond type entryCount(234)
+11-28 05:09:15.930  6003  6003 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-28 05:09:15.930  6003  6003 E android.os.Debug: failed to load memtrack module: -2
+11-28 05:09:15.930  6003  6003 I Radio-JNI: register_android_hardware_Radio DONE
+11-28 05:09:15.937  6003  6003 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:15.955  5989  6019 W cr_media: Requires BLUETOOTH permission
+11-28 05:09:15.966  5989  6043 E libEGL  : validate_display:99 error 3008 (EGL_BAD_DISPLAY)
+11-28 05:09:15.969  5989  6043 D         : HostConnection::get() New Host Connection established 0x791d3601be40, tid 6043
+11-28 05:09:15.983  5989  6043 D EGL_emulation: eglCreateContext: 0x791d360c2a80: maj 3 min 0 rcv 3
+11-28 05:09:15.983  5989  6043 D EGL_emulation: eglMakeCurrent: 0x791d360c2a80: ver 3 0 (tinfo 0x791d36104bc0)
+11-28 05:09:15.985  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-28 05:09:15.985  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-28 05:09:15.996  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x000087fe
+11-28 05:09:16.012  1311  1749 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-28 05:09:16.033  5989  5989 D         : HostConnection::get() New Host Connection established 0x791d31610e60, tid 5989
+11-28 05:09:16.047  5989  6043 I VideoCapabilities: Unsupported profile 4 for video/mp4v-es
+11-28 05:09:16.048  5989  6043 W cr_MediaCodecUtil: HW encoder for video/avc is not available on this device.
+11-28 05:09:16.059  5989  6043 D EGL_emulation: eglCreateContext: 0x791d2083d4a0: maj 3 min 0 rcv 3
+11-28 05:09:16.059  5989  6043 D EGL_emulation: eglMakeCurrent: 0x791d2083d4a0: ver 3 0 (tinfo 0x791d36104bc0)
+11-28 05:09:16.059  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-28 05:09:16.059  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-28 05:09:16.064  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008a34
+11-28 05:09:16.064  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008073
+11-28 05:09:16.064  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-28 05:09:16.070  5989  6049 I OpenGLRenderer: Initialized EGL, version 1.4
+11-28 05:09:16.070  5989  6049 D OpenGLRenderer: Swap behavior 1
+11-28 05:09:16.071  5989  6049 D         : HostConnection::get() New Host Connection established 0x791d3601c500, tid 6049
+11-28 05:09:16.090  5989  6049 D EGL_emulation: eglCreateContext: 0x791d360c4240: maj 3 min 0 rcv 3
+11-28 05:09:16.094  5989  6049 D EGL_emulation: eglMakeCurrent: 0x791d360c4240: ver 3 0 (tinfo 0x791d361c2700)
+11-28 05:09:16.095  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008cdf
+11-28 05:09:16.098  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008824
+11-28 05:09:16.129  5989  6043 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-28 05:09:16.139  5989  6008 W cr_CrashFileManager: /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Crash Reports does not exist or is not a directory
+11-28 05:09:16.402  5989  6049 D EGL_emulation: eglMakeCurrent: 0x791d360c4240: ver 3 0 (tinfo 0x791d361c2700)
+11-28 05:09:16.562  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:16.804  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008a34
+11-28 05:09:16.805  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x00008073
+11-28 05:09:16.805  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000088ff
+11-28 05:09:17.215  5989  5989 I Choreographer: Skipped 47 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:17.224  1646  1667 I ActivityManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s659ms
+11-28 05:09:17.229  6003  6003 W AccessibilityNodeInfoDumper: Fetch time: 1ms
+11-28 05:09:17.229  1646  1658 W WindowManager: Attempted to remove non-existing token: android.os.Binder@40a53dd
+11-28 05:09:17.236  6003  6003 D AndroidRuntime: Shutting down VM
+11-28 05:09:17.251  1646  1667 I WindowManager: Destroying surface Surface(name=Starting com.coastlinecode.kidarmor) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-28 05:09:17.394  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:17.892  5989  6021 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+11-28 05:09:17.901  6059  6059 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:17.902  6059  6059 D AndroidRuntime: CheckJNI is OFF
+11-28 05:09:17.921  6059  6059 W art     : Unexpected CPU variant for X86 using defaults: x86_64
+11-28 05:09:17.923  6059  6059 D ICU     : No timezone override file found: /data/local/tmp/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-28 05:09:17.937  6059  6059 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-28 05:09:17.937  6059  6059 E android.os.Debug: failed to load memtrack module: -2
+11-28 05:09:17.937  6059  6059 I Radio-JNI: register_android_hardware_Radio DONE
+11-28 05:09:17.941  6059  6059 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:18.124  5989  5989 I Choreographer: Skipped 52 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:18.199  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.327  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.365  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.403  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.427  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.478  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.515  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.555  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.560  1646  1750 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-28 05:09:18.599  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.636  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:18.658  5989  6049 E eglCodecCommon: glUtilsParamSize: unknow param 0x000085b5
+11-28 05:09:19.369  6059  6059 W AccessibilityNodeInfoDumper: Fetch time: 15ms
+11-28 05:09:19.370  1646  2281 W WindowManager: Attempted to remove non-existing token: android.os.Binder@fde9e67
+11-28 05:09:19.373  6059  6059 D AndroidRuntime: Shutting down VM
