@@ -78,7 +78,6 @@
 "Allow notifications": "Permitir notificaciones",
 "Also in the phone app": "También en la app del teléfono",
 "An accommodation wasn't provided": "No se dio una adaptación",
-"An email, phone call, note home, or conversation at pickup.": "Un correo, una llamada, una nota a casa o una conversación a la hora de recogerlo.",
 "Android": "Android",
 "Annual 504 review": "Revisión anual del 504",
 "Any issue": "Cualquier asunto",
@@ -194,7 +193,6 @@
 "Delaware": "Delaware",
 "Delete": "Borrar",
 "Details": "Detalles",
-"Did you tell the school? Who?": "¿Le avisó a la escuela? ¿A quién?",
 "Disability Rights Mississippi": "Disability Rights Mississippi",
 "Disability research, training and family resources, with an office on the Gulf Coast.": "Investigación, capacitación y recursos para familias sobre discapacidad, con oficina en la Costa del Golfo.",
 "Discipline meeting": "Reunión de disciplina",
@@ -683,7 +681,6 @@
 "TEAAM": "TEAAM",
 "Take a picture of a paper document or choose a file": "Tome una foto de un documento en papel o elija un archivo",
 "Talk instead of type when logging what happened": "Hable en vez de escribir cuando anote lo que pasó",
-"Talked with the school": "Hablé con la escuela",
 "Talking isn't available right now. Use the microphone on your keyboard instead.": "Hablar no está disponible ahora. Use el micrófono de su teclado.",
 "Tap": "Toque",
 "Tap \"Start my case file\" on the Case tab first. These are examples.": "Primero toque \"Empezar mi expediente\" en la pestaña Caso. Estos son ejemplos.",
@@ -732,7 +729,6 @@
 "Therapist": "Terapeuta",
 "There's nothing to back up yet. The sample case isn't included.": "Todavía no hay nada que respaldar. El caso de ejemplo no se incluye.",
 "There's nothing to save yet. The example family isn't included.": "Todavía no hay nada que guardar. La familia de ejemplo no se incluye.",
-"These are templates to help you organize facts, not legal advice. Rights and deadlines vary by state. After you send a letter, log it as \"Talked with the school\" so the date is on record.": "Estos son modelos para ayudarle a organizar los hechos, no asesoría legal. Los derechos y plazos cambian según el estado. Después de enviar una carta, anótela como \"Hablé con la escuela\" para que la fecha quede registrada.",
 "These tips and the links above are for information. They aren't legal advice; rights and deadlines vary by state.": "Estos consejos y los enlaces de arriba son informativos. No son asesoría legal; los derechos y plazos cambian según el estado.",
 "They choose what to send. KidArmor starts with:": "Ellos eligen qué enviar. KidArmor empieza con:",
 "They send you a": "Le envían un",
@@ -950,5 +946,9 @@
 "Record the meeting (tell everyone first). When you stop, KidArmor saves a summary and the transcript.": "Grabe la reunión (avise a todos primero). Cuando termine, KidArmor guarda un resumen y la transcripción.",
 "Letters fill themselves in from your record: report bullying, ask for a safety plan, ask for records, or follow up when no one answers.": "Las cartas se llenan solas con su registro: reportar acoso, pedir un plan de seguridad, pedir expedientes o dar seguimiento cuando nadie responde.",
 "When you ask the school for records or an evaluation, KidArmor counts down the school's legal deadline and reminds you.": "Cuando pide a la escuela expedientes o una evaluación, KidArmor cuenta la fecha límite legal de la escuela y le avisa.",
-"Share the case with the other parent, phone to phone. You each keep a copy and send each other updates.": "Comparta el caso con el otro padre o madre, de teléfono a teléfono. Cada uno guarda una copia y se envían las novedades."
+"Share the case with the other parent, phone to phone. You each keep a copy and send each other updates.": "Comparta el caso con el otro padre o madre, de teléfono a teléfono. Cada uno guarda una copia y se envían las novedades.",
+"Who did you tell? (Start with the classroom teacher)": "¿A quién le avisó? (Empiece con el maestro del salón)",
+"Talked with the teacher or school": "Hablé con el maestro o la escuela",
+"An email, phone call, note home, or conversation at pickup. Start with the classroom teacher, then the counselor, then the principal.": "Un correo, una llamada, una nota a casa o una conversación a la hora de recogerlo. Empiece con el maestro del salón, luego el consejero y después el director.",
+"These are templates to help you organize facts, not legal advice. Rights and deadlines vary by state. After you send a letter, log it as \"Talked with the teacher or school\" so the date is on record.": "Estos son modelos para ayudarle a organizar los hechos, no asesoría legal. Los derechos y plazos cambian según el estado. Después de enviar una carta, anótela como \"Hablé con el maestro o la escuela\" para que la fecha quede registrada."
 }
