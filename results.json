@@ -1,0 +1,96 @@
+{
+ "api": 26,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/69.0.3497.100"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "Android file picker opens and shows the photo",
+   "pass": true,
+   "detail": "com.coastlinecode.kidarmor"
+  },
+  {
+   "name": "photo saved with the case",
+   "pass": true,
+   "detail": "{\"name\":\"Report card\",\"type\":\"image/png\",\"size\":7965,\"pickedSize\":7965,\"readBytes\":7965,\"err\":\"\"}"
+  },
+  {
+   "name": "schedule reader works on this phone",
+   "pass": true,
+   "detail": "{\"secs\":16,\"rows\":[\"Homeroom/Mrs. Ladner\",\"Reading/Mrs. Ladner\",\"Math/Mr. Cuevas\",\"Wing/Mrs. Ladner\",\"Science/Ms. Taylor\",\"Social Studies/Ms. Taylor\",\"Art Music/Mrs. Fields\",\"PE/Coach Peterson\"]}"
+  },
+  {
+   "name": "schedule photo screen (skipped: this old web viewer can't take a test file; the reader check above covers it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "reading the schedule takes under 2 minutes",
+   "pass": true,
+   "detail": "17 s"
+  },
+  {
+   "name": "QR code library loads",
+   "pass": true,
+   "detail": "ok"
+  },
+  {
+   "name": "PDF preview library loads",
+   "pass": false,
+   "detail": "pdf viewer failed: Unexpected token ."
+  },
+  {
+   "name": "PDF binder is made and shows",
+   "pass": false,
+   "detail": "This phone can't show a preview of the PDF. Tap Download to save or share it."
+  },
+  {
+   "name": "PDF file written for sharing",
+   "pass": true,
+   "detail": "-rw------- 1 u0_a77 u0_a77_cache 8231 2026-11-28 04:56 Case Binder - Ava Test - 2026-11-28.pdf"
+  },
+  {
+   "name": "Android share sheet opens",
+   "pass": true,
+   "detail": "android"
+  },
+  {
+   "name": "app reopens after being closed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "records still there after reopening",
+   "pass": true,
+   "detail": "{\"entries\":0,\"docs\":1,\"name\":\"Ava Test\"} → {\"entries\":0,\"docs\":1,\"name\":\"Ava Test\"}"
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

@@ -1,0 +1,19 @@
+Android API 26: 16 passed, 2 failed
+ok   app opens and connects
+ok   web view version  → Chrome/69.0.3497.100
+ok   phone features load (native mode)
+ok   child added
+ok   Android file picker opens and shows the photo  → com.coastlinecode.kidarmor
+ok   photo saved with the case  → {"name":"Report card","type":"image/png","size":7965,"pickedSize":7965,"readBytes":7965,"err":""}
+ok   schedule reader works on this phone  → {"secs":16,"rows":["Homeroom/Mrs. Ladner","Reading/Mrs. Ladner","Math/Mr. Cuevas","Wing/Mrs. Ladner","Science/Ms. Taylor","Social Studies/Ms. Taylor","Art Music/Mrs. Fields","PE/Coach Peterson"]}
+ok   schedule photo screen (skipped: this old web viewer can't take a test file; the reader check above covers it)
+ok   reading the schedule takes under 2 minutes  → 17 s
+ok   QR code library loads  → ok
+FAIL PDF preview library loads  → pdf viewer failed: Unexpected token .
+FAIL PDF binder is made and shows  → This phone can't show a preview of the PDF. Tap Download to save or share it.
+ok   PDF file written for sharing  → -rw------- 1 u0_a77 u0_a77_cache 8231 2026-11-28 04:56 Case Binder - Ava Test - 2026-11-28.pdf
+ok   Android share sheet opens  → android
+ok   app reopens after being closed
+ok   records still there after reopening  → {"entries":0,"docs":1,"name":"Ava Test"} → {"entries":0,"docs":1,"name":"Ava Test"}
+ok   no app crashes
+ok   no script errors in the app
