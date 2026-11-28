@@ -1,0 +1,227 @@
+++ ls -d /Applications/Xcode_26.0.1.app /Applications/Xcode_26.0.app /Applications/Xcode_26.1.1.app /Applications/Xcode_26.1.app /Applications/Xcode_26.2.0.app /Applications/Xcode_26.2.app /Applications/Xcode_26.3.0.app /Applications/Xcode_26.3.app /Applications/Xcode_26.4.1.app /Applications/Xcode_26.4.app /Applications/Xcode_26.5.0.app /Applications/Xcode_26.5.app /Applications/Xcode_26.6.0.app /Applications/Xcode_26.6.app
+++ sort -V
+++ tail -1
++ XC=/Applications/Xcode_26.6.0.app
++ '[' -n /Applications/Xcode_26.6.0.app ']'
++ sudo xcode-select -s /Applications/Xcode_26.6.0.app
++ node -v
+v22.23.5
++ xcodebuild -version
+Xcode 26.6
+Build version 17F113
+++ xcodebuild -version
+++ awk 'NR==1{print $2}'
+++ cut -d. -f1
++ XV=26
++ '[' 26 -lt 26 ']'
+++ cat plugins.txt
++ npm install --no-audit --no-fund --legacy-peer-deps @capacitor/core@8.6.0 @capacitor/cli@8.6.0 @capacitor/ios@8.6.0 @capacitor/android@8.6.0 @capacitor/app@8.1.2 @capacitor/filesystem@8.1.5 @capacitor/share@8.0.3 @capacitor/local-notifications@8.3.1 @capacitor/splash-screen@8.0.2 @capacitor/status-bar@8.0.4 @capacitor-community/speech-recognition@7.0.1 @capgo/capacitor-native-biometric@8.9.1 @ebarooni/capacitor-calendar@8.10.0 @capacitor/assets@4.0.0 @capacitor-community/in-app-review@8.0.0
+
+added 163 packages in 11s
++ npm ls --depth=0
+kidarmor-native@1.0.0 /Users/runner/work/kidarmor/kidarmor/native
+├── @capacitor-community/in-app-review@8.0.0
+├── @capacitor-community/speech-recognition@7.0.1
+├── @capacitor/android@8.6.0
+├── @capacitor/app@8.1.2
+├── @capacitor/assets@4.0.0
+├── @capacitor/cli@8.6.0
+├── @capacitor/core@8.6.0
+├── @capacitor/filesystem@8.1.5
+├── @capacitor/ios@8.6.0
+├── @capacitor/local-notifications@8.3.1
+├── @capacitor/share@8.0.3
+├── @capacitor/splash-screen@8.0.2
+├── @capacitor/status-bar@8.0.4
+├── @capgo/capacitor-native-biometric@8.9.1
+├── @ebarooni/capacitor-calendar@8.10.0
+├── @emnapi/runtime@1.11.3 extraneous
+└── @img/sharp-wasm32@0.35.5 extraneous
+
++ node scripts/patch-speech.mjs
+patched: ios/Plugin/Plugin.swift
+patched: android/src/main/java/com/getcapacitor/community/speechrecognition/SpeechRecognition.java
++ node scripts/prepare-www.mjs
+older-phone CSS fallbacks added: 30
+capacitor core bundle: /Users/runner/work/kidarmor/kidarmor/native/node_modules/@capacitor/core/dist/capacitor.js [
+  'capacitor.js',
+  'capacitor.js.map',
+  'index.cjs.js',
+  'index.cjs.js.map',
+  'index.js',
+  'index.js.map'
+]
+CSP script hashes: 3
+www ready: [ 'index.html', 'vendor', 'webview-update.html' ] [
+  'capacitor.js',
+  'fonts',
+  'ocr',
+  'pdf-lib.min.js',
+  'pdf.min.mjs',
+  'pdf.worker.min.mjs',
+  'qrcode.min.js'
+]
++ '[' -n '' ']'
++ '[' -d ios ']'
++ npx cap add ios
+✔ Adding native Xcode project in ios in 32.49ms
+✔ add in 33.08ms
+✔ Copying web assets from www to ios/App/App/public in 25.06ms
+✔ Creating capacitor.config.json in ios/App/App in 722.29μs
+✔ copy ios in 48.18ms
+✔ Updating iOS plugins in 829.63μs
+[warn] @capacitor-community/speech-recognition does not have a Package.swift
+[warn] Some installed Capacitor plugins are not compatible with SPM
+[info] Writing Package.swift
+[info] Found 10 Capacitor plugins for ios:
+       @capacitor-community/in-app-review@8.0.0
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update ios in 30.44ms
+[success] ios platform added!
+Follow the Developer Workflow guide to get building:
+https://capacitorjs.com/docs/basics/workflow
++ node scripts/patch-native.mjs ios
+iOS Info.plist patched
++ gem install --user-install xcodeproj --no-document
+++ ruby -e 'print Gem.user_dir'
++ export PATH=/Users/runner/.local/share/gem/ruby/3.4.0/bin:/Users/runner/hostedtoolcache/node/22.23.5/arm64/bin:/opt/homebrew/opt/rustup/bin:/opt/homebrew/lib/ruby/gems/3.4.0/bin:/opt/homebrew/opt/ruby@3.4/bin:/Users/runner/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/runner/.cargo/bin:/usr/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:/Users/runner/bin:/Users/runner/.yarn/bin:/Users/runner/Library/Android/sdk/tools:/Users/runner/Library/Android/sdk/platform-tools:/Library/Frameworks/Python.framework/Versions/Current/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/bin:/bin:/usr/sbin:/sbin:/Users/runner/.dotnet/tools
++ PATH=/Users/runner/.local/share/gem/ruby/3.4.0/bin:/Users/runner/hostedtoolcache/node/22.23.5/arm64/bin:/opt/homebrew/opt/rustup/bin:/opt/homebrew/lib/ruby/gems/3.4.0/bin:/opt/homebrew/opt/ruby@3.4/bin:/Users/runner/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/runner/.cargo/bin:/usr/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:/Users/runner/bin:/Users/runner/.yarn/bin:/Users/runner/Library/Android/sdk/tools:/Users/runner/Library/Android/sdk/platform-tools:/Library/Frameworks/Python.framework/Versions/Current/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/bin:/bin:/usr/sbin:/sbin:/Users/runner/.dotnet/tools
++ ruby -e '
+  require "xcodeproj"
+  p = Xcodeproj::Project.open("ios/App/App.xcodeproj")
+  t = p.targets.find { |x| x.name == "App" }
+  g = p.main_group["App"]
+  unless g.files.any? { |f| f.path == "PrivacyInfo.xcprivacy" }
+    ref = g.new_reference("PrivacyInfo.xcprivacy")
+    t.resources_build_phase.add_file_reference(ref)
+    p.save
+    puts "Privacy manifest added to the app"
+  else
+    puts "Privacy manifest already in the app"
+  end'
+Privacy manifest added to the app
++ npx capacitor-assets generate --ios --iconBackgroundColor '#e19a12' --splashBackgroundColor '#1f5d70' --splashBackgroundColorDark '#13232b'
+Generating assets for ios
+CREATE ios icon /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png (1.89 MB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@1x~universal~anyany.png (1.45 MB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@2x~universal~anyany.png (1.45 MB)
+CREATE ios splash /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@3x~universal~anyany.png (1.45 MB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@1x~universal~anyany-dark.png (1.44 MB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@2x~universal~anyany-dark.png (1.44 MB)
+CREATE ios splash-dark /Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets/Splash.imageset/Default@3x~universal~anyany-dark.png (1.44 MB)
+
+
+Totals:
+ios: 7 generated, 10.56 MB total
++ npx cap sync ios
+✔ Copying web assets from www to ios/App/App/public in 26.08ms
+✔ Creating capacitor.config.json in ios/App/App in 1.96ms
+✔ copy ios in 62.40ms
+✔ Updating iOS plugins in 2.62ms
+[warn] @capacitor-community/speech-recognition does not have a Package.swift
+[warn] Some installed Capacitor plugins are not compatible with SPM
+[info] Writing Package.swift
+[info] Found 10 Capacitor plugins for ios:
+       @capacitor-community/in-app-review@8.0.0
+       @capacitor-community/speech-recognition@7.0.1
+       @capacitor/app@8.1.2
+       @capacitor/filesystem@8.1.5
+       @capacitor/local-notifications@8.3.1
+       @capacitor/share@8.0.3
+       @capacitor/splash-screen@8.0.2
+       @capacitor/status-bar@8.0.4
+       @capgo/capacitor-native-biometric@8.9.1
+       @ebarooni/capacitor-calendar@8.10.0
+✔ update ios in 36.06ms
+[info] Sync finished in 0.124s
++ cd ios/App
++ '[' -d App.xcworkspace ']'
++ T=(-project App.xcodeproj)
++ echo -project App.xcodeproj
++ grep -n 'TARGETED_DEVICE_FAMILY\|IPHONEOS_DEPLOYMENT_TARGET' App.xcodeproj/project.pbxproj
++ sort -u
++ head -6
+241:				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+292:				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+309:				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+320:				TARGETED_DEVICE_FAMILY = 1;
+331:				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+341:				TARGETED_DEVICE_FAMILY = 1;
++ xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO -quiet build
+2026-11-28 04:58:59.529 xcodebuild[5327:19464] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/DerivedSources/GeneratedAssetSymbols.swift
+
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/App.build/Debug-iphonesimulator/App.build/assetcatalog_output/thinned/Assets.car
+
++ echo 'IOS SIMULATOR BUILD OK'
+IOS SIMULATOR BUILD OK
+key check: start line present=False, end line present=False, line breaks in secret=3, key size=150 bytes (a normal Apple key is about 138)
+2026-11-28 05:00:18.295 xcodebuild[8589:29835] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/DerivedSources/GeneratedAssetSymbols.swift
+
+/* com.apple.actool.document.warnings */
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/Users/runner/work/kidarmor/kidarmor/native/ios/App/App/Assets.xcassets:./Splash.imageset/(null)[2d][splash-2732x2732-1.png]: warning: The image set "Splash" has 3 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/Library/Developer/Xcode/DerivedData/App-bujmubitdrzlqhgyzzkdddsoikpy/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/assetcatalog_output/thinned/Assets.car
+
+2026-11-28 05:01:05.632 xcodebuild[10642:35833] [MT] IDEDistribution: -[IDEDistributionLogging _createLoggingBundleAtPath:]: Created bundle at path "/var/folders/q2/p1t6rgxj5fj32g1dc7dmd49r0000gn/T/App_2026-11-28_05-01-05.620.xcdistributionlogs".
+2026-11-28 05:01:20.985 xcodebuild[10642:35833] Starting upload
+2026-11-28 05:01:22.042 xcodebuild[10642:36164] Progress 0%: Making copy of ‘App.ipa’…
+2026-11-28 05:01:22.043 xcodebuild[10642:36164] Progress 0%: Making copy of ‘App.ipa’…
+2026-11-28 05:01:22.046 xcodebuild[10642:36164] Progress 0%: Preparing to upload ‘App.ipa’…
+2026-11-28 05:01:43.345 xcodebuild[10642:36164] Progress 0%: Analyzing package…
+2026-11-28 05:01:44.365 xcodebuild[10642:36164] Progress 0%: Sending analysis to App Store Connect…
+2026-11-28 05:01:45.267 xcodebuild[10642:36164] Progress 0%: Waiting for App Store Connect analysis response…
+2026-11-28 05:01:46.864 xcodebuild[10642:36164] Progress 0%: Waiting for App Store Connect analysis response…
+2026-11-28 05:02:08.823 xcodebuild[10642:36166] Progress 0%: Sending SPI analysis to App Store Connect…
+2026-11-28 05:02:09.454 xcodebuild[10642:36166] Progress 0%: Waiting for App Store Connect SPI analysis response…
+2026-11-28 05:02:11.113 xcodebuild[10642:36166] Progress 0%: Waiting for App Store Connect SPI analysis response…
+2026-11-28 05:02:26.760 xcodebuild[10642:36166] Progress 0%: Requesting upload instructions from App Store Connect…
+2026-11-28 05:02:27.828 xcodebuild[10642:36166] Progress 0%: Preparing file for upload to App Store Connect…
+2026-11-28 05:02:27.841 xcodebuild[10642:36166] Progress 0%: Preparing file for upload to App Store Connect…
+2026-11-28 05:02:27.842 xcodebuild[10642:36166] Progress 0%: Uploading to App Store Connect…
+2026-11-28 05:02:27.913 xcodebuild[10642:36166] Progress 35%: Uploading to App Store Connect…
+2026-11-28 05:02:27.914 xcodebuild[10642:36166] Progress 35%: Uploading to App Store Connect…
+2026-11-28 05:02:28.389 xcodebuild[10642:36166] Progress 35%: Completing upload…
+2026-11-28 05:02:29.919 xcodebuild[10642:36166] Progress 35%: Waiting for package to begin processing…
+2026-11-28 05:02:30.103 xcodebuild[10642:36166] Progress 35%: Uploaded package is processing.
+2026-11-28 05:02:30.111 xcodebuild[10642:36166] Progress 35%: Upload succeeded.
+warning: exportArchive App Store Connect Warning. SDK version issue. This app was built with the iOS 26.5 SDK. Starting April 2027, iOS and iPadOS apps must be built with the iOS 27 SDK or later, included in Xcode 27 or later, in order to be uploaded to App Store Connect or submitted for distribution.
+
+Uploaded App
+** EXPORT SUCCEEDED **
+
+UPLOADED KidArmor 1.0.0 (197) to App Store Connect. It appears in TestFlight after Apple finishes processing (usually 10-30 minutes).
