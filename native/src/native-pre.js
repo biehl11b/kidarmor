@@ -5,6 +5,9 @@
   if(!window.KA_NATIVE)return;
   window.KA_PDFLIB="vendor/pdf-lib.min.js";
   window.KA_PDFJS="vendor/";
+  /* everything else bundled with the app (schedule reader, QR codes): a full address, because on iPhone the
+     page lives at capacitor://localhost and the web fallback (the KidArmor website) is blocked there */
+  window.KA_VENDOR=new URL("vendor/",location.href).href;
   window.KA_HOME_URL="https://kidarmor.coastlinecode.com/";
   /* Live transcript: use the phone's own speech recognizer when the web one isn't there */
   if(!window.SpeechRecognition&&!window.webkitSpeechRecognition&&(C.registerPlugin||C.Plugins)){

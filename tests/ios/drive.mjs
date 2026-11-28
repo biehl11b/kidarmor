@@ -260,6 +260,8 @@ async function main() {
     if (!/won't let a test/.test(String(put))) ok("classes show up in the forms", /Math/.test(await js(`return schedPicks("classname")`) || ""));
   }
 
+  if (step("schedule")) { const q = await js(`try{const s=await qrSvg("https://kidarmor.coastlinecode.com/");return /<svg/.test(s)?"ok":"no svg"}catch(e){return "failed: "+(e&&e.message)}`); ok("QR code library loads", q === "ok", q) }
+
   if (step("pdf")) { // ---- make the PDF case binder and share it
     await js(`show("home");return 1`); await sleep(800); await click("#homeBinder");
     const opened = await waitFor(`document.querySelector(".viewer canvas, .viewer .vbody img, .viewer .vbody embed, .viewer .pdfpage")`, 45000); snap("binder");
