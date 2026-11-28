@@ -1,0 +1,56 @@
+{
+ "api": 29,
+ "results": [
+  {
+   "name": "app opens and connects",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "web view version",
+   "pass": true,
+   "detail": "Chrome/74.0.3729.185"
+  },
+  {
+   "name": "phone features load (native mode)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "child added",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "schedule reader works on this phone",
+   "pass": true,
+   "detail": "{\"secs\":21,\"rows\":[\"Homeroom/Mrs. Ladner\",\"Reading/Mrs. Ladner\",\"Math/Mr. Cuevas\",\"Wing/Mrs. Ladner\",\"Science/Ms. Taylor\",\"Social Studies/Ms. Taylor\",\"Art Music mrs. Fields/\",\"PE/Coach Peterson\"]}"
+  },
+  {
+   "name": "schedule photo is read on the phone",
+   "pass": true,
+   "detail": "18 s: Homeroom/Mrs. Ladner; Reading/Mrs. Ladner; Math/Mr. Cuevas; Wing/Mrs. Ladner; Science/Ms. Taylor; Social Studies/Ms. Taylor; Art Music mrs. Fields/; PE/Coach Peterson  | Your schedule picture. Tap to open it.\n\nFound 8 classes. Check the list, fix anything that's off, then tap \"Save schedule\".\n"
+  },
+  {
+   "name": "reading the schedule takes under 2 minutes",
+   "pass": true,
+   "detail": "18 s"
+  },
+  {
+   "name": "classes show up in the forms",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no app crashes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no script errors in the app",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "jsErrors": []
+}

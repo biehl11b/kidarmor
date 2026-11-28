@@ -1,0 +1,14 @@
+Android API 29: 10 passed, 0 failed
+ok   app opens and connects
+ok   web view version  → Chrome/74.0.3729.185
+ok   phone features load (native mode)
+ok   child added
+ok   schedule reader works on this phone  → {"secs":21,"rows":["Homeroom/Mrs. Ladner","Reading/Mrs. Ladner","Math/Mr. Cuevas","Wing/Mrs. Ladner","Science/Ms. Taylor","Social Studies/Ms. Taylor","Art Music mrs. Fields/","PE/Coach Peterson"]}
+ok   schedule photo is read on the phone  → 18 s: Homeroom/Mrs. Ladner; Reading/Mrs. Ladner; Math/Mr. Cuevas; Wing/Mrs. Ladner; Science/Ms. Taylor; Social Studies/Ms. Taylor; Art Music mrs. Fields/; PE/Coach Peterson  | Your schedule picture. Tap to open it.
+
+Found 8 classes. Check the list, fix anything that's off, then tap "Save schedule".
+
+ok   reading the schedule takes under 2 minutes  → 18 s
+ok   classes show up in the forms
+ok   no app crashes
+ok   no script errors in the app

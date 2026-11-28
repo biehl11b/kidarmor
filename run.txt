@@ -1,0 +1,62 @@
+Android API 29
+/tmp/report-card.png: 1 file pushed, 0 skipped. 90.1 MB/s (7965 bytes in 0.000s)
+/tmp/report-card.png: 1 file pushed, 0 skipped. 91.6 MB/s (7965 bytes in 0.000s)
+Error while accessing provider:media
+java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.net.Uri.getPath()' on a null object reference
+	at android.os.Parcel.createException(Parcel.java:2077)
+	at android.os.Parcel.readException(Parcel.java:2039)
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:188)
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:140)
+	at android.content.ContentProviderProxy.call(ContentProviderNative.java:658)
+	at com.android.commands.content.Content$CallCommand.onExecute(Content.java:560)
+	at com.android.commands.content.Content$Command.execute(Content.java:469)
+	at com.android.commands.content.Content.main(Content.java:690)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:338)
+  ok   app opens and connects
+  ok   web view version  → Chrome/74.0.3729.185
+  ok   phone features load (native mode)
+  ok   child added
+  ok   schedule reader works on this phone  → {"secs":21,"rows":["Homeroom/Mrs. Ladner","Reading/Mrs. Ladner","Math/Mr. Cuevas","Wing/Mrs. Ladner","Science/Ms. Taylor","Social Studies/Ms. Taylor","Art Music mrs. Fields/","PE/Coach Peterson"]}
+  ok   schedule photo is read on the phone  → 18 s: Homeroom/Mrs. Ladner; Reading/Mrs. Ladner; Math/Mr. Cuevas; Wing/Mrs. Ladner; Science/Ms. Taylor; Social Studies/Ms. Taylor; Art Music mrs. Fields/; PE/Coach Peterson  | Your schedule picture. Tap to open it.
+
+Found 8 classes. Check the list, fix anything that's off, then tap "Save schedule".
+
+Take a new picture of the schedule
+
+  ok   reading the schedule takes under 2 minutes  → 18 s
+  ok   classes show up in the forms
+---- reminder lines from the phone log ----
+11-28 03:16:54.281  4613  4613 D Capacitor: Registering plugin instance: LocalNotifications
+11-28 03:16:56.779  4613  4613 I Capacitor/Console: File: https://localhost/ - Line 5382 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-28 03:17:00.865  4613  4894 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 52470624, pluginId: LocalNotifications, methodName: getPending
+11-28 03:17:00.865  4613  4894 V Capacitor: callback: 52470624, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-28 03:17:01.987  4613  4613 D Capacitor: Sending plugin error: {"save":false,"callbackId":"52470625","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-28 03:17:02.009  4613  4613 D Capacitor: Sending plugin error: {"save":false,"callbackId":"52470626","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-tx\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-28 03:17:05.035  2280  3907 W MDM     : Caused by: java.lang.SecurityException: Neither user 10117 nor current process has android.permission.MANAGE_DEVICE_ADMINS.
+11-28 03:17:06.892  4613  4613 I Capacitor/Console: File: https://localhost/ - Line 5382 - Msg: KA_NATIVE_OK {"registerPlugin":true,"plugins":["App","CapacitorCalendar","CapacitorCookies","CapacitorHttp","Filesystem","InAppReview","KaTranscribe","LocalNotifications","NativeBiometric","Share","SpeechRecognition","SplashScreen","StatusBar","SystemBars","WebView"]}
+11-28 03:17:09.907  4613  4894 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 94020066, pluginId: LocalNotifications, methodName: getPending
+11-28 03:17:09.908  4613  4894 V Capacitor: callback: 94020066, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-28 03:17:11.910  4613  4613 D Capacitor: Sending plugin error: {"save":false,"callbackId":"94020069","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-out\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-28 03:17:11.932  4613  4613 D Capacitor: Sending plugin error: {"save":false,"callbackId":"94020070","pluginId":"Filesystem","methodName":"rmdir","success":false,"error":{"message":"'rmdir' failed because file at '\/data\/user\/0\/com.coastlinecode.kidarmor\/cache\/kidarmor-tx\/' does not exist.","code":"OS-PLUG-FILE-0008"}}
+11-28 03:17:13.941  4613  4894 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 94020072, pluginId: LocalNotifications, methodName: getPending
+11-28 03:17:13.941  4613  4894 V Capacitor: callback: 94020072, pluginId: LocalNotifications, methodName: getPending, methodData: {}
+11-28 03:17:17.848  2280  5001 W MDM     : Caused by: java.lang.SecurityException: Neither user 10117 nor current process has android.permission.MANAGE_DEVICE_ADMINS.
+11-28 03:17:32.442  2280  6213 W MDM     : Caused by: java.lang.SecurityException: Neither user 10117 nor current process has android.permission.MANAGE_DEVICE_ADMINS.
+  ok   no app crashes
+  ok   no script errors in the app
+Android API 29: 10 passed, 0 failed
+ok   app opens and connects
+ok   web view version  → Chrome/74.0.3729.185
+ok   phone features load (native mode)
+ok   child added
+ok   schedule reader works on this phone  → {"secs":21,"rows":["Homeroom/Mrs. Ladner","Reading/Mrs. Ladner","Math/Mr. Cuevas","Wing/Mrs. Ladner","Science/Ms. Taylor","Social Studies/Ms. Taylor","Art Music mrs. Fields/","PE/Coach Peterson"]}
+ok   schedule photo is read on the phone  → 18 s: Homeroom/Mrs. Ladner; Reading/Mrs. Ladner; Math/Mr. Cuevas; Wing/Mrs. Ladner; Science/Ms. Taylor; Social Studies/Ms. Taylor; Art Music mrs. Fields/; PE/Coach Peterson  | Your schedule picture. Tap to open it.
+
+Found 8 classes. Check the list, fix anything that's off, then tap "Save schedule".
+
+ok   reading the schedule takes under 2 minutes  → 18 s
+ok   classes show up in the forms
+ok   no app crashes
+ok   no script errors in the app
+
