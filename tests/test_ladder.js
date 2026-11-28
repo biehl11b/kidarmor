@@ -37,6 +37,10 @@ const page_ = `<!doctype html><html><head><meta charset=utf8><meta name=viewport
   await page.evaluate(() => openEntry && 0).catch(() => {});
   const lab = await page.evaluate(() => KINDS.missed.fields.find(f => f.k === "reported").l + " | " + KINDS.comm.label + " | " + KINDS.comm.hint);
   ok("forms ask about the classroom teacher first", /Start with the classroom teacher/.test(lab) && /teacher or school/.test(lab) && /then the counselor, then the principal/.test(lab), lab);
+  await page.evaluate(() => show("me")); await page.waitForTimeout(150);
+  await page.click("#brandHome"); await page.waitForTimeout(200);
+  ok("tapping the KidArmor logo goes back to the main screen", await page.evaluate(() => !document.querySelector("#v-home").hidden && document.querySelector("#v-me").hidden));
+  ok("text boxes are big enough that iPhone won't zoom in", await page.evaluate(() => [...document.querySelectorAll("input,select,textarea")].every(e => parseFloat(getComputedStyle(e).fontSize) >= 16)));
   ok("no page errors", !errors.length, errors.join(" | "));
   await browser.close();
 })();

@@ -30,7 +30,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
 header .in{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-family:var(--display);font-weight:800;font-size:calc(21px*var(--ts,1));letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.brand{background:none;border:0;padding:0;margin:0;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;font-family:var(--display);font-weight:800;font-size:calc(21px*var(--ts,1));letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
 .lock{display:inline-flex;align-items:center;gap:6px;font-size:calc(12px*var(--ts,1));font-weight:700;color:var(--low);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer;font-family:var(--body)}
 .lock svg{width:14px;height:14px}
 h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
@@ -45,7 +45,7 @@ h3{font-size:calc(18px*var(--ts,1));font-weight:600}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
 label,.flabel{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:calc(15px*var(--ts,1))}
 label small,.flabel small{font-weight:400;color:var(--muted);font-size:calc(14px*var(--ts,1))}
-input,select,textarea{font:inherit;font-size:calc(17px*var(--ts,1));color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;width:100%;min-width:0}
+input,select,textarea{font:inherit;font-size:max(16px,calc(17px*var(--ts,1)));color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;width:100%;min-width:0}
 select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
 select.big{font-weight:700;font-size:calc(18px*var(--ts,1));border:2px solid var(--kc,var(--accent));background-color:var(--surface)}
 textarea{min-height:110px;resize:vertical}
@@ -254,7 +254,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 .viewer .vbar .vdl{background:var(--accent);color:var(--accent-ink);margin-right:6px}
 @media (max-width:440px){.pair{grid-template-columns:1fr}}
 .schedrow{display:grid;grid-template-columns:1.5fr 1.2fr .6fr auto;gap:6px;align-items:center;margin:0 0 6px}
-.schedrow input{min-width:0;padding:9px 10px;font-size:15px}
+.schedrow input{min-width:0;padding:9px 10px;font-size:16px}
 .schedhead{display:grid;grid-template-columns:1.5fr 1.2fr .6fr auto;gap:6px;font-size:12px;font-weight:600;color:var(--muted);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em}
 .schedrow .x{border:0;background:none;color:var(--muted);font-size:22px;line-height:1;padding:4px 8px;cursor:pointer}
 .schedmsg{font-size:15px;margin:8px 0;padding:10px 12px;border-radius:10px;background:var(--accent-soft)}
@@ -266,7 +266,7 @@ body.recording .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 </style>
 
 <header><div class="in">
-  <div class="brand"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="4" y="2" width="16" height="21" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="4.5" fill="var(--accent)"/></svg>KidArmor</div>
+  <button class="brand" id="brandHome" type="button" aria-label="KidArmor home"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="4" y="2" width="16" height="21" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="4.5" fill="var(--accent)"/></svg>KidArmor</button>
   <button class="lock" id="lockPill" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Only on this phone</button>
 </div></header>
 
@@ -900,6 +900,7 @@ function show(v){current=v;document.querySelectorAll(".view").forEach(s=>s.hidde
   document.querySelectorAll("nav.tabs button").forEach(b=>b.dataset.v===v?b.setAttribute("aria-current","page"):b.removeAttribute("aria-current"));
   ({home:renderHome,plan:renderPlan,letters:renderLetter,me:renderMe,add:()=>{},res:()=>{renderStateResources();renderLawyers();refreshResources()},reports:()=>renderReports()})[v]();window.scrollTo(0,0)}
 document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{if(b.dataset.v==="add"){if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}if(editing)resetForm()}show(b.dataset.v)});
+$("#brandHome").onclick=()=>{if(document.querySelector(".viewer"))closeViewer();show("home");try{window.scrollTo(0,0)}catch(e){}};
 $("#homeAdd").onclick=()=>{if(state.readOnly)return;if(editing)resetForm();show("add")};
 $("#lockPill").onclick=()=>{show("me");openMore();setTimeout(()=>$("#privacyPanel").scrollIntoView({behavior:"smooth",block:"start"}),50)};
 function renderWho(){const c=state.child;$("#homeTitle").textContent=c.name?`${c.name.split(" ")[0]}'s case file`:"Case file";
