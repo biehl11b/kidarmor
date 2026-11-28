@@ -1,0 +1,20 @@
+info phone  → Android API 36, x86_64, screen 1080x2400, WebView 133.0.6943.137
+info first frame on screen (Android's launch time)  → 5805 ms
+info app in front  → topResumedActivity=ActivityRecord{51442805 u0 com.coastlinecode.kidarmor/.MainActivity t8}
+ok   Welcome screen shows (agree box on screen)  → after 14.8 s from tapping the icon (test phones are slower than real ones)
+ok   loads in a reasonable time  → 14.8 s
+info screen start-ups during first open  → web viewer ready before the first screen / onCreate restored=false / page check: url=https://localhost/ progress=100 size=1080x2209 shown=true attached=true parent=true content= / page check result: "ok"
+/home/runner/work/kidarmor/kidarmor/tests/android/store-check.py:147: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  go = next((nd for nd in nodes(root) if nd.get("resource-id") == "agGo"), None) or find(root, r"^Continue")
+ok   checking the box turns on Continue  → enabled
+ok   Continue opens the app  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1 | Add your child and school, and set a 
+ok   'Show me how it works' starts the tour  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   the tour's Next button works  → KidArmor | KidArmor home | Only on this phone | This is a made-up example family. | Look around as much as you like. Nothing here is real. | Leave the example |
+ok   skipping the tour goes to setup  → KidArmor | KidArmor home | Only on this phone | Welcome to KidArmor | A private, organized record of what happens at school. Everything stays on this phone. | 1
+ok   app still running  → pid 3009
+ok   first open after a fresh install, 3 more times  → 6.7s, 8.3s, 4.5s
+ok   opens every time (5 more cold starts)  → 6.5s, 5.1s, 4.6s, 3.7s, 3.4s
+info cold start, slowest / typical  → 6.5 s / 4.6 s
+ok   no crashes
+ok   no script errors
+Store version on Android API 36 (1080x2400): 12 passed, 0 failed
