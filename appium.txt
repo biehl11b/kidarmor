@@ -1,0 +1,3 @@
+2026-11-28 04:07:31:898 [389526e4][XCUITest] RemoteXPC devices listing unavailable: Tunnel registry port not found. Please run the tunnel creation script first See https://appium.github.io/appium-xcuitest-driver/latest/guides/remotexpc-tunnels-real-devices/ Falling back to appium-ios-device.
+2026-11-28 04:07:34:129 [389526e4][XCUITestDriver@b89e] Reset: failed to terminate Simulator application with id "com.coastlinecode.kidarmor"
+2026-11-28 04:08:11:125 [389526e4][XCUITestDriver@b89e] UI client 'com.apple.iphonesimulator' did not become discoverable within 30000ms
