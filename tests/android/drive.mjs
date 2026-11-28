@@ -3,6 +3,7 @@
 // file picker, share sheet) through adb + uiautomator. Writes results to emu/.
 import { execSync, execFileSync } from "child_process";
 import fs from "fs";
+const SCHED_B64 = fs.readFileSync(new URL("../fixtures/schedules/paper-photo.jpg", import.meta.url)).toString("base64");
 const PKG = "com.coastlinecode.kidarmor", OUT = process.env.OUT || "emu";
 fs.mkdirSync(OUT, { recursive: true });
 const LONG = !!process.env.LONG;
@@ -159,6 +160,20 @@ async function main() {
     const d = await js(`const d=state.docs[state.docs.length-1];if(!d)return null;const f=await getFile(d.files[0].id);let rd=-1,err="";try{rd=(await f.blob.arrayBuffer()).byteLength}catch(e){err=e.message}return{name:d.name,type:f&&f.type,size:f&&f.blob.size,pickedSize:d.files[0].size,readBytes:rd,err}`);
     ok("photo saved with the case", saved && d && d.readBytes > 100, JSON.stringify(d)); snap("photo-saved");
   }
+  if (step("schedule")) { // ---- a phone photo of a paper schedule is read on the phone and fills in classes
+    await js(`show("me");return 1`); await sleep(1000);
+    const t0 = Date.now();
+    const put = await js(`const b=Uint8Array.from(atob("${SCHED_B64}"),c=>c.charCodeAt(0));const f=new File([b],"schedule.jpg",{type:"image/jpeg"});const i=document.querySelector("#schedPhoto");if(!i)return "no button";const dt=new DataTransfer();dt.items.add(f);i.files=dt.files;i.dispatchEvent(new Event("change",{bubbles:true}));return "ok"`);
+    const done = await waitFor(`/Found \\d+|Couldn't read/.test((document.querySelector("#schedBody")||{}).innerText||"")`, 240000);
+    const secs = Math.round((Date.now() - t0) / 1000); snap("schedule-read");
+    const R = await js(`return schedRead()`);
+    const list = Array.isArray(R) ? R.map(r => r.cls + "/" + r.teacher).join("; ") : JSON.stringify(R);
+    ok("schedule photo is read on the phone", put === "ok" && done && Array.isArray(R) && R.length >= 6 && R.some(r => /Math/.test(r.cls) && r.teacher === "Mr. Cuevas"), `${secs} s: ${list}`.slice(0, 280) + (put !== "ok" ? " put:" + put : "") + " " + (await js(`return (document.querySelector("#schedBody")||{}).innerText.slice(0,160)`)));
+    ok("reading the schedule takes under 2 minutes", done && secs < 120, secs + " s");
+    await js(`document.querySelector("#schedSave")&&document.querySelector("#schedSave").click();return 1`); await sleep(500);
+    ok("classes show up in the forms", /Math/.test(await js(`return schedPicks("classname")`) || ""));
+  }
+
   if (step("pdf")) { // ---- make the PDF case binder and share it
     await js(`show("home");return 1`); await sleep(800); await click("#homeBinder");
     const opened = await waitFor(`document.querySelector(".viewer canvas, .viewer .vbody img, .viewer .vbody embed, .viewer .pdfpage")`, 45000); snap("binder");

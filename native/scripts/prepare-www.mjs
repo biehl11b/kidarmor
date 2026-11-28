@@ -21,6 +21,8 @@ console.log("CSP script hashes:", hashes.length);
 for (const file of ["pdf-lib.min.js", "pdf.min.mjs", "pdf.worker.min.mjs", "qrcode.min.js"]) {
   fs.copyFileSync(path.join(root, "../vendor", file), path.join(root, "www/vendor", file));
 }
+// The schedule-photo reader runs on the phone (tesseract), bundled with the app
+fs.cpSync(path.join(root, "../vendor/ocr"), path.join(root, "www/vendor/ocr"), { recursive: true });
 // Fonts are bundled with the app (no requests to Google Fonts)
 fs.cpSync(path.join(root, "../vendor/fonts"), path.join(root, "www/vendor/fonts"), { recursive: true });
 // Shown instead of the app when the phone's Android System WebView is too old to run KidArmor

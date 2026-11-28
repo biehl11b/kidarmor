@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths: ["native/**", "!native/**/*.md", ".github/workflows/native.yml"]
   workflow_dispatch:
+    inputs:
+      upload: { description: "Send the iPhone build to App Store Connect / TestFlight (yes or no)", required: false, default: "yes" }
 permissions:
   contents: write
 concurrency:
@@ -83,6 +85,7 @@ jobs:
         working-directory: native
         run: bash scripts/ci-ios.sh 2>&1 | tee build-ios.log
       - name: Upload to App Store Connect (only when the Apple key is set up)
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.upload != 'no'
         working-directory: native
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}

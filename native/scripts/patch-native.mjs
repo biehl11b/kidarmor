@@ -21,6 +21,9 @@ function patchIOS() {
   add("NSPhotoLibraryAddUsageDescription", str("Save files you choose to share from KidArmor."));
   add("ITSAppUsesNonExemptEncryption", "<false/>");
   add("CFBundleURLTypes", `<array><dict><key>CFBundleURLName</key><string>com.coastlinecode.kidarmor</string><key>CFBundleURLSchemes</key><array><string>kidarmor</string></array></dict></array>`);
+  // Portrait only on iPhone. KidArmor is iPhone-only, so an iPad runs it in an iPhone-size window; with the
+  // iPad held sideways that window flipped between portrait and landscape whenever the keyboard came up.
+  s = s.replace(/(<key>UISupportedInterfaceOrientations<\/key>\s*)<array>[\s\S]*?<\/array>/, "$1<array>\n\t\t<string>UIInterfaceOrientationPortrait</string>\n\t</array>");
   fs.writeFileSync(f, s); console.log("iOS Info.plist patched");
   // iPhone only (it still runs on iPad in iPhone mode). Avoids needing iPad screenshots and iPad review.
   const pbx = path.join(root, "ios/App/App.xcodeproj/project.pbxproj"); let p = fs.readFileSync(pbx, "utf8");
