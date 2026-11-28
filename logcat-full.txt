@@ -1,0 +1,307 @@
+--------- beginning of main
+11-28 05:09:35.080  6778  8800 W ChimeraConfigService: Retry attempt was throttled. [CONTEXT service_id=264 ]
+11-28 05:09:35.080  6778  8800 I GmsDebugLogger: [83] 1 [vision.ocr]
+11-28 05:09:35.082  6778  8801 W Vision  : Request for optional module download of ocr failed. Request again.
+11-28 05:09:35.085  6778  8801 W Vision  : Would have logged:
+11-28 05:09:35.085  6778  8801 W Vision  : # dsae@37884fe7
+11-28 05:09:35.085  6778  8801 I Vision  : Schedule retrying download ocr at 168932 with backoff 20 seconds
+--------- beginning of system
+11-28 05:09:35.093   488   510 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.coastlinecode.kidarmor/.MainActivity} from uid 2000
+11-28 05:09:35.093   488   510 D CompatibilityChangeReporter: Compat change id reported: 265464455; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 265452344; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 266124927; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 265451093; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 265456536; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 255940284; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 236283604; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 263959004; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 264304459; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 264301586; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 254631730; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 273509367; UID 10177; state: DISABLED
+11-28 05:09:35.094   488   510 D CompatibilityChangeReporter: Compat change id reported: 263259275; UID 10177; state: DISABLED
+11-28 05:09:35.095   488   510 D CompatibilityChangeReporter: Compat change id reported: 194480991; UID 10177; state: ENABLED
+11-28 05:09:35.095   488   510 D CompatibilityChangeReporter: Compat change id reported: 174042980; UID 10177; state: DISABLED
+11-28 05:09:35.097   488   510 D CompatibilityChangeReporter: Compat change id reported: 184838306; UID 10177; state: DISABLED
+11-28 05:09:35.097   488   510 D CompatibilityChangeReporter: Compat change id reported: 185004937; UID 10177; state: DISABLED
+11-28 05:09:35.097   488   510 D CompatibilityChangeReporter: Compat change id reported: 181136395; UID 10177; state: DISABLED
+11-28 05:09:35.097   488   510 D CompatibilityChangeReporter: Compat change id reported: 174042936; UID 10177; state: DISABLED
+11-28 05:09:35.097   488   510 D CompatibilityChangeReporter: Compat change id reported: 197654537; UID 10177; state: ENABLED
+11-28 05:09:35.098   488   510 D CompatibilityChangeReporter: Compat change id reported: 205907456; UID 10177; state: ENABLED
+11-28 05:09:35.102   763   807 D SplashScreenView: Build android.window.SplashScreenView{1e332b3 V.E...... ......ID 0,0-0,0}
+11-28 05:09:35.102   763   807 D SplashScreenView: Icon: view: android.widget.ImageView{a15070 V.ED..... ......I. 0,0-0,0 #10204dd android:id/splashscreen_icon_view} drawable: com.android.wm.shell.startingsurface.SplashscreenIconDrawableFactory$ImmobileIconDrawable@1d18fe9 size: 420
+11-28 05:09:35.102   763   807 D SplashScreenView: Branding: view: android.view.View{749746e G.ED..... ......I. 0,0-0,0 #10204dc android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+11-28 05:09:35.104   763   809 W Parcel  : Expecting binder but got null!
+11-28 05:09:35.111   488   510 D CompatibilityChangeReporter: Compat change id reported: 194833441; UID 10177; state: ENABLED
+11-28 05:09:35.117   994   994 D MainContentCaptureSession: Flushing 1 event(s) for act:com.google.android.apps.nexuslauncher/.NexusLauncherActivity [state=2 (ACTIVE), disabled=false], reason=FULL
+11-28 05:09:35.120   488   516 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10177; state: DISABLED
+11-28 05:09:35.123   488   525 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10177; state: ENABLED
+11-28 05:09:35.123   488  1085 D CoreBackPreview: Window{3e50b46 u0 Splash Screen com.coastlinecode.kidarmor}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@7e43d1e, mPriority=0}
+11-28 05:09:35.132   488  2943 W Binder  : Caught a RuntimeException from the binder stub implementation.
+11-28 05:09:35.132   488  2943 W Binder  : java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
+11-28 05:09:35.132   488  2943 W Binder  : 	at android.util.ArraySet.valueAt(ArraySet.java:422)
+11-28 05:09:35.132   488  2943 W Binder  : 	at com.android.server.contentcapture.ContentCapturePerUserService$ContentCaptureServiceRemoteCallback.updateContentCaptureOptions(ContentCapturePerUserService.java:733)
+11-28 05:09:35.132   488  2943 W Binder  : 	at com.android.server.contentcapture.ContentCapturePerUserService$ContentCaptureServiceRemoteCallback.setContentCaptureWhitelist(ContentCapturePerUserService.java:646)
+11-28 05:09:35.132   488  2943 W Binder  : 	at android.service.contentcapture.IContentCaptureServiceCallback$Stub.onTransact(IContentCaptureServiceCallback.java:115)
+11-28 05:09:35.132   488  2943 W Binder  : 	at android.os.Binder.execTransactInternal(Binder.java:1285)
+11-28 05:09:35.132   488  2943 W Binder  : 	at android.os.Binder.execTransact(Binder.java:1244)
+11-28 05:09:35.143   288   288 D Zygote  : Forked child process 8869
+11-28 05:09:35.160  8869  8869 I necode.kidarmor: Using CollectorTypeCC GC.
+11-28 05:09:35.160  8869  8869 W necode.kidarmor: Unexpected CPU variant for x86: x86_64.
+11-28 05:09:35.160  8869  8869 W necode.kidarmor: Known variants: atom, sandybridge, silvermont, kabylake, default
+11-28 05:09:35.165   380   402 I adbd    : jdwp connection from 8869
+11-28 05:09:35.180   488   525 W ActivityManager: Slow operation: 61ms so far, now at startProcess: returned from zygote!
+11-28 05:09:35.181   488   525 W ActivityManager: Slow operation: 61ms so far, now at startProcess: done updating battery stats
+11-28 05:09:35.181   488   525 W ActivityManager: Slow operation: 61ms so far, now at startProcess: building log message
+11-28 05:09:35.181   488   525 I ActivityManager: Start proc 8869:com.coastlinecode.kidarmor/u0a177 for next-top-activity {com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}
+11-28 05:09:35.189   488   525 W ActivityManager: Slow operation: 69ms so far, now at startProcess: starting to update pids map
+11-28 05:09:35.189   488   525 W ActivityManager: Slow operation: 69ms so far, now at startProcess: done updating pids map
+11-28 05:09:35.194   994  1787 D EGL_emulation: app_time_stats: avg=1012.29ms min=83.49ms max=1941.09ms count=2
+11-28 05:09:35.278  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10177; state: ENABLED
+11-28 05:09:35.292  8869  8869 D nativeloader: Configuring classloader-namespace for other apk /system_ext/framework/androidx.window.extensions.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/base.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.xxhdpi.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.coastlinecode.kidarmor
+11-28 05:09:35.295  8869  8869 D nativeloader: Configuring classloader-namespace for other apk /system_ext/framework/androidx.window.sidecar.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/base.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.xxhdpi.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.coastlinecode.kidarmor
+11-28 05:09:35.295  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.dm': No such file or directory
+11-28 05:09:35.295  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.dm': No such file or directory
+11-28 05:09:35.296  8869  8869 W necode.kidarmor: Entry not found
+11-28 05:09:35.296  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.dm': No such file or directory
+11-28 05:09:35.296  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.dm': No such file or directory
+11-28 05:09:35.296  8869  8869 W necode.kidarmor: Entry not found
+11-28 05:09:35.296  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.xxhdpi.dm': No such file or directory
+11-28 05:09:35.296  8869  8869 W ziparchive: Unable to open '/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.xxhdpi.dm': No such file or directory
+11-28 05:09:35.296  8869  8869 W necode.kidarmor: Entry not found
+11-28 05:09:35.297  8869  8869 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/base.apk:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.apk:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.apk:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/base.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.en.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzGDg==/com.coastlinecode.kidarmor-HCITPUY2S1wA5H3trTVeGA==/split_config.x86_64.apk!/lib/x86_64:/data/app/~~aiHbwByL2wZ3kivxHwzG
+11-28 05:09:35.298  8869  8869 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-28 05:09:35.298  8869  8869 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-28 05:09:35.298  8869  8869 W necode.kidarmor: JIT profile information will not be recorded: profile file does not exist.
+11-28 05:09:35.336   994   994 D MainContentCaptureSession: Flushing 2 event(s) for act:com.google.android.apps.nexuslauncher/.NexusLauncherActivity [state=2 (ACTIVE), disabled=false], reason=VIEW_TREE_APPEARING
+11-28 05:09:35.336   994   994 D MainContentCaptureSession: Flushing 2 event(s) for act:com.google.android.apps.nexuslauncher/.NexusLauncherActivity [state=2 (ACTIVE), disabled=false], reason=VIEW_TREE_APPEARED
+11-28 05:09:35.339  8869  8869 V GraphicsEnvironment: ANGLE Developer option for 'com.coastlinecode.kidarmor' set to: 'default'
+11-28 05:09:35.340  8869  8869 V GraphicsEnvironment: ANGLE GameManagerService for com.coastlinecode.kidarmor: false
+11-28 05:09:35.340  8869  8869 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+11-28 05:09:35.340  8869  8869 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+11-28 05:09:35.341  8869  8869 D NetworkSecurityConfig: Using Network Security Config from resource network_security_config debugBuild: false
+11-28 05:09:35.346  8869  8869 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-28 05:09:35.347  8869  8869 W ziparchive: Unable to open '/data/app/~~wv4ENt_vnqGJbsj3H9I8rg==/com.google.android.trichromelibrary_541412337-egZjNKIqH76j-NNz2cksbA==/TrichromeLibrary.dm': No such file or directory
+11-28 05:09:35.348  8869  8869 W ziparchive: Unable to open '/data/app/~~wv4ENt_vnqGJbsj3H9I8rg==/com.google.android.trichromelibrary_541412337-egZjNKIqH76j-NNz2cksbA==/TrichromeLibrary.dm': No such file or directory
+11-28 05:09:35.348  8869  8869 W necode.kidarmor: Entry not found
+11-28 05:09:35.348  8869  8869 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~wv4ENt_vnqGJbsj3H9I8rg==/com.google.android.trichromelibrary_541412337-egZjNKIqH76j-NNz2cksbA==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~lxH9iNp7KMdrqF8CEGv7ZQ==/com.google.android.webview-lPhwrw0BkQb5xMXxzA4MUg==/lib/x86_64:/data/app/~~lxH9iNp7KMdrqF8CEGv7ZQ==/com.google.android.webview-lPhwrw0BkQb5xMXxzA4MUg==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~wv4ENt_vnqGJbsj3H9I8rg==/com.google.android.trichromelibrary_541412337-egZjNKIqH76j-NNz2cksbA==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-28 05:09:35.350  8869  8869 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~lxH9iNp7KMdrqF8CEGv7ZQ==/com.google.android.webview-lPhwrw0BkQb5xMXxzA4MUg==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~lxH9iNp7KMdrqF8CEGv7ZQ==/com.google.android.webview-lPhwrw0BkQb5xMXxzA4MUg==/lib/x86_64:/data/app/~~lxH9iNp7KMdrqF8CEGv7ZQ==/com.google.android.webview-lPhwrw0BkQb5xMXxzA4MUg==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~wv4ENt_vnqGJbsj3H9I8rg==/com.google.android.trichromelibrary_541412337-egZjNKIqH76j-NNz2cksbA==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-28 05:09:35.428  8869  8869 I cr_WVCFactoryProvider: Loaded version=109.0.5414.123 minSdkVersion=29 isBundle=false multiprocess=true packageId=2
+11-28 05:09:35.484   329   378 W TransactionTracing: Could not find layer handle 0x79569880e810
+11-28 05:09:35.484   329   378 W TransactionTracing: Could not find layer handle 0x79569880e810
+11-28 05:09:35.491  8869  8892 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed_new"
+11-28 05:09:35.491  8869  8892 I cr_VariationsUtils: Failed reading seed file "/data/user/0/com.coastlinecode.kidarmor/app_webview/variations_seed"
+11-28 05:09:35.491  8869  8892 I cr_VariationsUtils: Requesting new seed from IVariationsSeedServer
+11-28 05:09:35.495  8869  8869 I cr_LibraryLoader: Successfully loaded native library
+11-28 05:09:35.496  8869  8869 I cr_CachingUmaRecorder: Flushed 9 samples from 9 histograms.
+11-28 05:09:35.519   763   809 D EGL_emulation: app_time_stats: avg=4033.56ms min=4033.56ms max=4033.56ms count=1
+11-28 05:09:35.523  8870  8870 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-28 05:09:35.524   488  2943 D CompatibilityChangeReporter: Compat change id reported: 161145287; UID 10177; state: DISABLED
+11-28 05:09:35.528  8870  8870 I AndroidRuntime: Using default boot image
+11-28 05:09:35.528  8870  8870 I AndroidRuntime: Leaving lock profiling enabled
+11-28 05:09:35.530   488  2943 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 99008; state: DISABLED
+11-28 05:09:35.531   488   525 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10177; state: ENABLED
+11-28 05:09:35.534  8870  8870 I app_process: Core platform API reporting enabled, enforcing=false
+11-28 05:09:35.536  8870  8870 I app_process: Using CollectorTypeCC GC.
+11-28 05:09:35.551   926   926 D Zygote  : Forked child process 8896
+11-28 05:09:35.553  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 183155436; UID 10177; state: ENABLED
+11-28 05:09:35.563   488   525 I ActivityManager: Start proc 8896:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i8 for  {com.coastlinecode.kidarmor/org.chromium.content.app.SandboxedProcessService0:0}
+11-28 05:09:35.567  8896  8896 I ocessService0:0: Using CollectorTypeCC GC.
+11-28 05:09:35.567  8896  8896 W ocessService0:0: Unexpected CPU variant for x86: x86_64.
+11-28 05:09:35.567  8896  8896 W ocessService0:0: Known variants: atom, sandybridge, silvermont, kabylake, default
+11-28 05:09:35.570   380   402 I adbd    : jdwp connection from 8896
+11-28 05:09:35.581  6778  6778 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.safetynet.service.START pkg=com.google.android.gms }
+11-28 05:09:35.581  6778  6778 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.safetynet.service.START pkg=com.google.android.gms }
+11-28 05:09:35.612  8869  8898 W chromium: [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+11-28 05:09:35.643  8896  8896 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 99008; state: ENABLED
+11-28 05:09:35.667  8896  8896 I LoadedApk: No resource references to update in package com.google.android.trichromelibrary
+11-28 05:09:35.670  8896  8896 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-28 05:09:35.671  8896  8896 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-28 05:09:35.671  8896  8896 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-28 05:09:35.673  8896  8896 I cr_ChildProcessService: Creating new ChildProcessService pid=8896
+11-28 05:09:35.687  8870  8870 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+11-28 05:09:35.687  8870  8870 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt70l.dat
+11-28 05:09:35.689  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 214741472; UID 10177; state: ENABLED
+11-28 05:09:35.690  8869  8869 I KA_LIFE : web viewer ready before the first screen
+11-28 05:09:35.694  8870  8870 W app_process: Unexpected CPU variant for x86: x86_64.
+11-28 05:09:35.694  8870  8870 W app_process: Known variants: atom, sandybridge, silvermont, kabylake, default
+11-28 05:09:35.695  8869  8869 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-28 05:09:35.696  8870  8870 W app_process: ClassLoaderContext classpath size mismatch. expected=0, found=1 (PCL[] | PCL[/system/framework/android.test.runner.jar*2649186567])
+11-28 05:09:35.697  8869  8917 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Default/HTTP Cache/Code Cache/js: No such file or directory (2)
+11-28 05:09:35.697  8869  8917 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-28 05:09:35.697  8869  8918 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/com.coastlinecode.kidarmor/cache/WebView/Default/HTTP Cache/Code Cache/wasm: No such file or directory (2)
+11-28 05:09:35.697  8869  8918 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-28 05:09:35.698  8869  8869 I KA_LIFE : onCreate restored=false
+11-28 05:09:35.712  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 171228096; UID 10177; state: ENABLED
+11-28 05:09:35.739  8869  8937 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+11-28 05:09:35.740  8869  8937 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+11-28 05:09:35.750  8869  8937 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+11-28 05:09:35.777  8870  8870 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-28 05:09:35.783   488   488 D BatterySaverPolicy: accessibility changed to true, updating policy.
+11-28 05:09:35.783  1564  1648 I AiAiEcho: Settings cha with uri: content://settings/secure/accessibility_enabled
+11-28 05:09:35.784  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:35.784  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:35.784  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:35.784  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:35.785  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:35.785  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:35.785  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:35.785  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:35.786  8870  8947 V UiAutomation: Init UiAutomation@7cebf3e[id=25, flags=0]
+11-28 05:09:35.787  1663  2022 I A       : NGA disabled due to not being eligible.
+11-28 05:09:35.787  1564  1648 I AiAiEcho: Settings cha with uri: content://settings/secure/accessibility_enabled
+11-28 05:09:35.787  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:35.787  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:35.787  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:35.787  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:35.788  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:35.788  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:35.788  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:35.788  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:35.791  4962  4962 V SafetyCenterAccessibilityListener: accessibility event occurred, safety center feature not enabled.
+11-28 05:09:35.794  8869  8869 D Capacitor: Starting BridgeActivity
+11-28 05:09:35.825  8896  8924 I cr_LibraryLoader: Successfully loaded native library
+11-28 05:09:35.825  8896  8924 I cr_CachingUmaRecorder: Flushed 3 samples from 3 histograms.
+11-28 05:09:35.826  8869  8914 W cr_media: BLUETOOTH_CONNECT permission is missing.
+11-28 05:09:35.837  8896  8924 W SystemServiceRegistry: No service published for: uimode
+11-28 05:09:35.837  8869  8914 W cr_media: registerBluetoothIntentsIfNeeded: Requires BLUETOOTH permission
+11-28 05:09:35.843  8869  8869 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-28 05:09:35.843  8869  8869 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-28 05:09:35.844   488   510 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=15
+11-28 05:09:35.844   488   510 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 Status: 7
+11-28 05:09:35.844   488   510 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 7
+11-28 05:09:35.844   488   510 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 15, result: 11
+11-28 05:09:35.844   488   510 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=255
+11-28 05:09:35.844   488   510 D BiometricService/PreAuthInfo: Package: com.coastlinecode.kidarmor Sensor ID: 0 Modality: 2 Status: 7
+11-28 05:09:35.844   488   510 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 7
+11-28 05:09:35.844   488   510 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 255, result: 11
+11-28 05:09:35.846  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10177; state: DISABLED
+11-28 05:09:35.848  8869  8930 W Parcel  : Expecting binder but got null!
+11-28 05:09:35.851   488   510 D CoreBackPreview: Window{64dbd1c u0 com.coastlinecode.kidarmor/com.coastlinecode.kidarmor.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@9078f08, mPriority=0}
+11-28 05:09:35.853  8869  8869 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:35.859  8869  8869 D CompatibilityChangeReporter: Compat change id reported: 193247900; UID 10177; state: ENABLED
+11-28 05:09:35.863   329   602 W ServiceManager: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10177 pid=0
+11-28 05:09:35.863   329   602 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10177 => denied (117 us)
+11-28 05:09:35.863   329   593 W ServiceManager: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10177 pid=8869
+11-28 05:09:35.863   329   593 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10177 => denied (42 us)
+11-28 05:09:35.863   329   593 W ServiceManager: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10177 pid=8869
+11-28 05:09:35.863   329   593 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10177 => denied (25 us)
+11-28 05:09:35.864   329   602 W ServiceManager: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10177 pid=0
+11-28 05:09:35.864   329   602 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10177 => denied (147 us)
+11-28 05:09:35.868  6671  7110 I FontLog : Received query name=Google Sans&weight=700&besteffort=false, URI content://com.google.android.gms.fonts [CONTEXT service_id=132 ]
+11-28 05:09:35.869  6671  7110 I FontLog : Query [name=Google Sans&weight=700&besteffort=false] resolved to {Google Sans, wdth 100.0, wght 700, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.869  6671  7110 I FontLog : Fetch {Google Sans, wdth 100.0, wght 700, ital 0.0, bestEffort false} end status Status{statusCode=SUCCESS, resolution=null} [CONTEXT service_id=132 ]
+11-28 05:09:35.874   763   809 D EGL_emulation: app_time_stats: avg=4467.06ms min=4467.06ms max=4467.06ms count=1
+11-28 05:09:35.881  2646  2745 I cr_VariationsUtils: Throttling seed download job
+11-28 05:09:35.882  2646  2745 I cr_VariationsUtils: Writing new seed to app's data directory
+11-28 05:09:35.887  8869  8952 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_vulkan_queue_submit_with_commands ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_multi_configs ANDROID_EMU_hwc_color_transform ANDROID_EMU_hwc_display_power_mode GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+11-28 05:09:35.896  6671  7110 I FontLog : Pulling font file for id = 36, cache size = 36 [CONTEXT service_id=132 ]
+11-28 05:09:35.900  8869  8930 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_vulkan_queue_submit_with_commands ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_multi_configs ANDROID_EMU_hwc_color_transform ANDROID_EMU_hwc_display_power_mode GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+11-28 05:09:35.905  6671  7110 I FontLog : Received query name=Noto Color Emoji Compat&weight=400&besteffort=false, URI content://com.google.android.gms.fonts [CONTEXT service_id=132 ]
+11-28 05:09:35.905  8869  8930 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-28 05:09:35.905  6671  7110 I FontLog : Query [name=Noto Color Emoji Compat&weight=400&besteffort=false] resolved to {Noto Color Emoji Compat, wdth 100.0, wght 400, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.906  8869  8930 D EGL_emulation: eglCreateContext: 0x755568749390: maj 3 min 0 rcv 3
+11-28 05:09:35.906  6671  7110 I FontLog : Fetch {Noto Color Emoji Compat, wdth 100.0, wght 400, ital 0.0, bestEffort false} end status Status{statusCode=SUCCESS, resolution=null} [CONTEXT service_id=132 ]
+11-28 05:09:35.909  8869  8930 D EGL_emulation: eglMakeCurrent: 0x755568749390: ver 3 0 (tinfo 0x755782ab9100) (first time)
+11-28 05:09:35.911  6671  7110 I FontLog : Pulling font file for id = 37, cache size = 37 [CONTEXT service_id=132 ]
+11-28 05:09:35.913  6671  7110 I FontLog : Received query name=Google Sans&weight=400&besteffort=false, URI content://com.google.android.gms.fonts [CONTEXT service_id=132 ]
+11-28 05:09:35.913  6671  7110 I FontLog : Query [name=Google Sans&weight=400&besteffort=false] resolved to {Google Sans, wdth 100.0, wght 400, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.913  6671  7110 I FontLog : Font PFD returned from cache for {Google Sans, wdth 100.0, wght 400, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.913  6671  7110 I FontLog : Fetch {Google Sans, wdth 100.0, wght 400, ital 0.0, bestEffort false} end status Status{statusCode=SUCCESS, resolution=null} [CONTEXT service_id=132 ]
+11-28 05:09:35.916  6671  7110 I FontLog : Pulling font file for id = 38, cache size = 38 [CONTEXT service_id=132 ]
+11-28 05:09:35.917   127   127 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+11-28 05:09:35.917  8869  8930 I Gralloc4: mapper 4.x is not supported
+11-28 05:09:35.917  6671  7110 I FontLog : Received query name=Google Sans&weight=500&besteffort=false, URI content://com.google.android.gms.fonts [CONTEXT service_id=132 ]
+11-28 05:09:35.917  6671  7110 I FontLog : Query [name=Google Sans&weight=500&besteffort=false] resolved to {Google Sans, wdth 100.0, wght 500, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.918  6671  7110 I FontLog : Font PFD returned from cache for {Google Sans, wdth 100.0, wght 500, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:35.918  6671  7110 I FontLog : Fetch {Google Sans, wdth 100.0, wght 500, ital 0.0, bestEffort false} end status Status{statusCode=SUCCESS, resolution=null} [CONTEXT service_id=132 ]
+11-28 05:09:35.924   127   127 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.allocator@4.0::IAllocator/default in either framework or device VINTF manifest.
+11-28 05:09:35.925   126   126 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
+11-28 05:09:35.925  8869  8930 W Gralloc4: allocator 4.x is not supported
+11-28 05:09:35.928  8869  8930 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_vulkan_queue_submit_with_commands ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_multi_configs ANDROID_EMU_hwc_color_transform ANDROID_EMU_hwc_display_power_mode GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+11-28 05:09:35.930  8869  8952 D EGL_emulation: eglCreateContext: 0x755568745cd0: maj 3 min 0 rcv 3
+11-28 05:09:35.930  8869  8952 D EGL_emulation: eglMakeCurrent: 0x755568745cd0: ver 3 0 (tinfo 0x755782ab9080) (first time)
+11-28 05:09:35.934  6671  7110 I FontLog : Pulling font file for id = 39, cache size = 39 [CONTEXT service_id=132 ]
+11-28 05:09:35.968  8869  8952 D EGL_emulation: eglCreateContext: 0x755568745cd0: maj 3 min 0 rcv 3
+11-28 05:09:35.975  8869  8952 D EGL_emulation: eglCreateContext: 0x755568746450: maj 3 min 0 rcv 3
+11-28 05:09:36.047  8896  8962 E chromium: [ERROR:tile_manager.cc(826)] WARNING: tile memory limits exceeded, some content may not draw
+11-28 05:09:36.047  8896  8962 E chromium: [ERROR:tile_manager.cc(826)] WARNING: tile memory limits exceeded, some content may not draw
+11-28 05:09:36.220   284  8970 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10177 0}
+11-28 05:09:36.223   284  8971 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+11-28 05:09:36.223   284  8971 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x78c1e7ebb090
+11-28 05:09:36.223   284  8971 I resolv  : doQuery: rcode=0, ancount=8, return value=273
+11-28 05:09:36.224   488   513 I ActivityTaskManager: Displayed com.coastlinecode.kidarmor/.MainActivity: +1s128ms
+11-28 05:09:36.225   284  8972 I resolv  : res_nmkquery: (QUERY, IN, A)
+11-28 05:09:36.226   284  8972 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x78c1d7eafab0
+11-28 05:09:36.226   284  8972 I resolv  : doQuery: rcode=0, ancount=8, return value=177
+11-28 05:09:36.230   994  2082 D OneSearchSuggestProvider: Shut down the binder channel
+11-28 05:09:36.255   994  1102 I s.nexuslauncher: oneway function results for code 2 on binder at 0x7554f87b0370 will be dropped but finished with status UNKNOWN_TRANSACTION
+11-28 05:09:36.273  1663  2498 I PBSessionCacheImpl: Deleted sessionId[7315747190401929] from persistence.
+11-28 05:09:36.278  1663  2160 W SearchServiceCore: Abort, client detached.
+11-28 05:09:36.279  1663  2160 W SearchServiceCore: Abort, client detached.
+11-28 05:09:36.279  1663  2160 W SearchServiceCore: Abort, client detached.
+11-28 05:09:36.279  1663  2160 W SearchServiceCore: Abort, client detached.
+11-28 05:09:36.279  1663  2160 W SearchServiceCore: Abort, client detached.
+11-28 05:09:36.295   488  1365 D CompatibilityChangeReporter: Compat change id reported: 214016041; UID 10177; state: ENABLED
+11-28 05:09:36.311   329   378 W TransactionTracing: Could not find layer handle 0x79569880f4d0
+11-28 05:09:36.322  1505  1505 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3227 
+11-28 05:09:36.323  1505  1505 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2087 repeatCheckTimes = 0, unlocked = true
+11-28 05:09:36.323  1505  1505 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.coastlinecode.kidarmor fieldId=2131296765 fieldName=null extras=null}, false)
+11-28 05:09:36.323  1505  1505 I GoogleInputMethodService: GoogleInputMethodService.shouldHideHeaderOnInitialState():4008 ShouldHideHeaderOnInitialState = false
+11-28 05:09:36.323  1505  1505 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2087 repeatCheckTimes = 2, unlocked = true
+11-28 05:09:37.401  8869  8869 D SplashScreenView: Building from parcel drawable: android.graphics.drawable.BitmapDrawable@ef82025
+11-28 05:09:37.402  8869  8869 D SplashScreenView: Build android.window.SplashScreenView{c6187ab V.E...... ......ID 0,0-0,0}
+11-28 05:09:37.402  8869  8869 D SplashScreenView: Icon: view: androidx.appcompat.widget.AppCompatImageView{61f0e08 V.ED..... ......I. 0,0-0,0 #10204dd android:id/splashscreen_icon_view} drawable: android.graphics.drawable.BitmapDrawable@ef82025 size: 420
+11-28 05:09:37.402  8869  8869 D SplashScreenView: Branding: view: android.view.View{3af99a1 G.ED..... ......I. 0,0-0,0 #10204dc android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+11-28 05:09:37.404  8869  8886 I OpenGLRenderer: Davey! duration=1314ms; Flags=0, FrameTimelineVsyncId=16394, IntendedVsync=169912789821, Vsync=170062789815, InputEventId=0, HandleInputStart=170069680707, AnimationStart=170069681178, PerformTraversalsStart=170070294783, DrawStart=170070322224, FrameDeadline=170079456481, FrameInterval=170069677512, FrameStartTime=16666666, SyncQueued=170070816441, SyncStart=170072066105, IssueDrawCommandsStart=170072088819, SwapBuffers=171216855271, FrameCompleted=171228048977, DequeueBufferDuration=4087, QueueBufferDuration=2412589, GpuCompleted=171227974486, SwapBuffersCompleted=171228048977, DisplayPresentTime=92303142158336, CommandSubmissionCompleted=171216855271, 
+11-28 05:09:37.404  8869  8869 I Choreographer: Skipped 65 frames!  The application may be doing too much work on its main thread.
+11-28 05:09:37.406   488  1707 D CompatibilityChangeReporter: Compat change id reported: 161145287; UID 10177; state: DISABLED
+11-28 05:09:37.586   284  8976 I resolv  : GetAddrInfoHandler::run: {100 100 100 983140 10177 0}
+11-28 05:09:37.589  6671  6730 I FontLog : Received query Noto Color Emoji Compat, URI content://com.google.android.gms.fonts [CONTEXT service_id=132 ]
+11-28 05:09:37.590  6671  6730 I FontLog : Query [emojicompat-emoji-font] resolved to {Noto Color Emoji Compat, wdth 100.0, wght 400, ital 0.0, bestEffort false} [CONTEXT service_id=132 ]
+11-28 05:09:37.590  6671  6730 I FontLog : Fetch {Noto Color Emoji Compat, wdth 100.0, wght 400, ital 0.0, bestEffort false} end status Status{statusCode=SUCCESS, resolution=null} [CONTEXT service_id=132 ]
+11-28 05:09:37.593  6671  6730 I FontLog : Pulling font file for id = 40, cache size = 40 [CONTEXT service_id=132 ]
+11-28 05:09:37.593   284  8978 I resolv  : res_nmkquery: (QUERY, IN, A)
+11-28 05:09:37.594   284  8978 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x78c1c7eb2330
+11-28 05:09:37.594   284  8978 I resolv  : doQuery: rcode=0, ancount=5, return value=140
+11-28 05:09:37.595  6671  6730 I FontLog : Pulling font file for id = 40, cache size = 40 [CONTEXT service_id=132 ]
+11-28 05:09:37.596   284  8977 I resolv  : res_nmkquery: (QUERY, IN, AAAA)
+11-28 05:09:37.598   284  8977 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0x78c1d7ead170
+11-28 05:09:37.598   284  8977 I resolv  : doQuery: rcode=0, ancount=5, return value=188
+11-28 05:09:37.600   488  1050 D CoreBackPreview: Window{3e50b46 u0 Splash Screen com.coastlinecode.kidarmor}: Setting back callback null
+11-28 05:09:37.601   488  1365 W InputManager-JNI: Input channel object '3e50b46 Splash Screen com.coastlinecode.kidarmor (client)' was disposed without first being removed with the input manager!
+11-28 05:09:37.603  8869  8869 D SplashScreenView: remove starting view
+11-28 05:09:37.663   329   378 W TransactionTracing: Could not find layer handle 0x79569880e210
+11-28 05:09:37.663   329   378 W TransactionTracing: Could not find layer handle 0x79569880f590
+11-28 05:09:37.663   329   378 W TransactionTracing: Could not find layer handle 0x79569880f590
+11-28 05:09:37.663   329   378 W TransactionTracing: Could not find layer handle 0x79569880f590
+11-28 05:09:37.663   329   378 W TransactionTracing: Could not find layer handle 0x79569880e210
+11-28 05:09:37.686  8869  8885 I OpenGLRenderer: Davey! duration=1320ms; Flags=0, FrameTimelineVsyncId=16454, IntendedVsync=170162789811, Vsync=171246123101, InputEventId=0, HandleInputStart=171251968264, AnimationStart=171251968905, PerformTraversalsStart=171253276205, DrawStart=171253536723, FrameDeadline=171329456431, FrameInterval=171251830669, FrameStartTime=16666666, SyncQueued=171253811643, SyncStart=171287368725, IssueDrawCommandsStart=171287414944, SwapBuffers=171456346098, FrameCompleted=171517059417, DequeueBufferDuration=3936, QueueBufferDuration=325776, GpuCompleted=171517059417, SwapBuffersCompleted=171508800299, DisplayPresentTime=0, CommandSubmissionCompleted=171456346098, 
+11-28 05:09:37.719   763   809 D EGL_emulation: app_time_stats: avg=922.85ms min=877.78ms max=967.91ms count=2
+11-28 05:09:38.001  8870  8870 I AccessibilityNodeInfoDumper: Null child 1/2, parent: android.view.accessibility.AccessibilityNodeInfo@80006df3; boundsInParent: Rect(0, 0 - 1080, 2400); boundsInScreen: Rect(0, 0 - 1080, 2400); packageName: com.coastlinecode.kidarmor; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: null; uniqueId: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: true; visible: true; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]; isTextSelectable: false
+11-28 05:09:38.003  8870  8870 W AccessibilityNodeInfoDumper: Fetch time: 428ms
+11-28 05:09:38.004  1564  1648 I AiAiEcho: Settings cha with uri: content://settings/secure/accessibility_enabled
+11-28 05:09:38.004  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:38.005  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:38.005  1564  1931 I AiAiEcho: Predicting[0]: 
+11-28 05:09:38.005  1564  1931 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata: 
+11-28 05:09:38.005  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:38.005  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:38.005  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+11-28 05:09:38.005  1564  1931 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+11-28 05:09:38.009  8870  8870 D AndroidRuntime: Shutting down VM
+11-28 05:09:38.013  1663  2022 I A       : NGA disabled due to not being eligible.
+11-28 05:09:38.014   488   488 D BatterySaverPolicy: accessibility changed to false, updating policy.
+11-28 05:09:38.049   329   378 W TransactionTracing: Could not find layer handle 0x79569880f8f0
+11-28 05:09:38.804  1433  3728 I DialerOmtpVvmCarrierConfigHelper: com.android.voicemail.impl.OmtpVvmCarrierConfigHelper.handleEvent:527 OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT PhoneAccountHandle: [ComponentName: com.android.phone/com.android.services.telephony.TelephonyConnectionService subId: 1] [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.808  1433  1433 I DialerRetryPolicy: com.android.voicemail.impl.scheduling.RetryPolicy.onCompleted:118 discarding deferred status [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.809  1433  1433 I DialerTaskExecutor: com.android.voicemail.impl.scheduling.TaskExecutor.prepareStop:371 no more tasks, stopping service if no task are added in 5000 millis [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.809   488   524 D OomAdjuster: Not killing cached processes
+11-28 05:09:38.811  1433  1433 I DialerLogcatLoggingBindings: com.android.dialer.logging.logcat.LogcatLoggingBindings.logImpression:41 Impression: VVM_AUTO_RETRY_ACTIVATION
+11-28 05:09:38.812  1433  1433 I DialerTaskReceiver: com.android.voicemail.impl.scheduling.TaskReceiver.onReceive:68 task received [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.813  1433  1433 I DialerTaskReceiver: com.android.voicemail.impl.scheduling.TaskReceiver.onReceive:73 TaskExecutor already running [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.813  1433  1433 I DialerTasks: com.android.voicemail.impl.scheduling.Tasks.createTask:59 Task.createTask create task:com.android.voicemail.impl.ActivationTask [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.813  1433  1433 I DialerRetryPolicy: com.android.voicemail.impl.scheduling.RetryPolicy.onCreate:81 retry #2 for com.android.voicemail.impl.ActivationTask@7472029 queued, executing in 5000 [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.818  1433  1433 I DialerTaskExecutor: com.android.voicemail.impl.scheduling.TaskExecutor.addTask:299 com.android.voicemail.impl.ActivationTask@7472029 added [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.818  1433  1433 I DialerTaskExecutor: com.android.voicemail.impl.scheduling.TaskExecutor.runNextTask:345 minimal wait time:4994 [CONTEXT enable_persistent_logger=true ]
+11-28 05:09:38.819  1433  1433 I DialerTaskExecutor: com.android.voicemail.impl.scheduling.TaskExecutor.sleep:355 sleep for 4994 millis [CONTEXT enable_persistent_logger=true ]
