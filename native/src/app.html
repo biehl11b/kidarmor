@@ -1401,7 +1401,7 @@ $("#copyLetter").onclick=()=>{const t=$("#letter").textContent,k=$("#l-kind").va
 const S={child:"name",grade:"grade",school:"school",district:"district",to:"to",totitle:"totitle",toemail:"toemail",parent:"parent",contact:"contact",myemail:"myemail",adv:"adv",advemail:"advemail"};
 async function renderMe(){if(window.__kaOpenMore)openMore();else if(!renderMe.keepMore)closeMore();renderMe.keepMore=false;renderBackupNudge();renderCo();for(const k in S)$("#s-"+k).value=state.child[S[k]]||"";
   const ss=$("#s-state");if(ss.options.length<3)ss.innerHTML=`<option value="">Choose your state</option>`+STATES.map(([c,n])=>`<option value="${c}">${n}</option>`).join("");ss.value=myState();
-  const ak=$("#addKid");if(ak){const n=realKids().length;ak.disabled=n>=MAXKIDS;ak.textContent=n>=MAXKIDS?`You have ${MAXKIDS} children (the most KidArmor holds)`:"+ Add another child"}renderKids();renderLock();renderPerms();schedDraft=null;schedNote="";renderSched();$("#shDone").hidden=true;$("#sharePanel").querySelector("#shMake").disabled=!!(state.example||state.readOnly);renderShares();try{renderLegal()}catch(e){}
+  const ak=$("#addKid");if(ak){const n=realKids().length;ak.disabled=n>=MAXKIDS;ak.textContent=n>=MAXKIDS?`You have ${MAXKIDS} children (the most KidArmor holds)`:"+ Add another child"}renderKids();renderLock();renderPerms();renderSched();$("#shDone").hidden=true;$("#sharePanel").querySelector("#shMake").disabled=!!(state.example||state.readOnly);renderShares();try{renderLegal()}catch(e){}
   try{const est=await navigator.storage.estimate();const mb=(est.usage||0)/1048576;$("#storageLabel").textContent=`Space used on this phone: ${mb<1?mb.toFixed(2):mb.toFixed(1)} MB`;$("#storageBar").style.width=Math.max(2,Math.min(100,mb/200*100))+"%"}
   catch(e){$("#storageLabel").textContent="Space used on this phone"}}
 $("#setupForm").onsubmit=e=>{e.preventDefault();if(state.readOnly){toast("This case was shared with you, so it's read-only.");return}if(state.example)startFresh();const firstTime=!state.child.name;for(const k in S)state.child[S[k]]=$("#s-"+k).value.trim();
@@ -1418,7 +1418,7 @@ function schedTeacher(t){t=t.replace(/\s+/g," ").trim();
   if(m){const ti=m[1].charAt(0).toUpperCase()+m[1].slice(1).toLowerCase();return(/^(coach|prof)$/i.test(ti)?ti:ti+".")+" "+m[2]}
   m=t.match(/^([A-Z][A-Za-z'’-]+),\s*([A-Z][A-Za-z'’-]*)$/);if(m)return m[2]+" "+m[1];return t}
 const SCHED_WORDS="Reading Writing Math Mathematics Science Social Studies Art Arts Music English Language History Spanish French German Latin Band Choir Chorus Orchestra Health Computer Computers Physical Education Biology Chemistry Physics Algebra Geometry Calculus Geography Government Economics Speech Library Drama Theater Theatre Advisory Homeroom Resource Literacy Phonics Spelling Grammar Honors Advanced Studies Technology Engineering Coding Keyboarding Robotics Yearbook Journalism Psychology Civics Mississippi American World Earth Life Environmental Anatomy Statistics Finance Business Culinary Agriculture Welding Automotive Leadership Intervention Enrichment Inclusion Therapy Counseling Study Skills Elective Lunch Recess".split(" ");
-function schedFix(w){if(w.length<3||/[^A-Za-z]/.test(w))return w;const lw=w.toLowerCase();if(SCHED_WORDS.some(x=>x.toLowerCase()===lw))return w;
+function schedFix(w){if(w.length<3||/[^A-Za-z]/.test(w))return w;const lw=w.toLowerCase(),ex=SCHED_WORDS.find(x=>x.toLowerCase()===lw);if(ex)return w===lw?ex:w;
   let best=null,bd=9;for(const x of SCHED_WORDS){const a=lw,b=x.toLowerCase();if(Math.abs(a.length-b.length)>2)continue;
     const d=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let prev=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=t}}
     if(d[b.length]<bd){bd=d[b.length];best=x}}
@@ -1430,6 +1430,7 @@ function parseSchedule(text){const rows=[],seen=new Set();let homeroom="";
   const roomRe=/(?:\b(?:rm|room)\.?\s*#?\s*[A-Z0-9-]+|\b[A-Z]{0,2}-?\d{2,4}[A-Z]?\b|\blab\s*\d*|\bgym(?:nasium)?\b|\bcafeteria\b|\blibrary\b|\bband\s*rm\b|\bauditorium\b|\bportable\s*\d*)\s*$/i;
   for(let raw of String(text||"").split(/\n/)){
     let line=raw.replace(/[|\[\]{}©®“”‘’"_~=<>«»]+/g," ").replace(/\s+/g," ").trim();if(!line)continue;
+    line=line.replace(new RegExp("\\b("+SCHED_TITLE+")\\b\\.?\\s*[,;:]+\\s*","gi"),"$1. ").replace(new RegExp("\\b("+SCHED_TITLE+")\\b(?=\\.?\\s*[A-Z])","gi"),t=>t.charAt(0).toUpperCase()+t.slice(1).toLowerCase());
     const hm=line.match(new RegExp("home\\s*room(?: teacher)?\\s*:?\\s*((?:"+SCHED_TITLE+")\\.?\\s*[A-Z][A-Za-z'’-]+)","i"));if(hm)homeroom=schedTeacher(hm[1]);
     const low=line.toLowerCase(),hasTime=/\d{1,2}[:.]\d{2}/.test(line),lead=line.match(/^(?:per(?:iod)?\.?\s*|p)?(\d{1,2}|[A-H])(?:st|nd|rd|th)?\b\s*[.):-]?\s+/i);
     if((low.match(/\b(per|period|course|class|subject|teacher|instructor|room|rm|days|time|section|location)\b/g)||[]).length>=2&&!hasTime&&!tRe.test(line)&&!cRe.test(line))continue;
@@ -1488,9 +1489,9 @@ async function readSchedule(blob,onStep){
       const b=await Promise.race([w.recognize(schedClean(img).canvas),failed]),R=parseSchedule(b.data.text);if(schedScore(R)>schedScore(best)){best=R;text=b.data.text}}
     return{rows:best,text}}
   finally{URL.revokeObjectURL(url);if(w)w.terminate().catch(()=>{})}}
-let schedDraft=null,schedNote="",schedBusy=false;
+let schedDraft=null,schedNote="",schedBusy=false,schedFor=null;
 function schedRows(){return schedDraft||(state.child.schedule||[])}
-function renderSched(){const box=$("#schedBody");if(!box)return;const R=schedRows(),ph=state.child.schedPhoto,ro=state.readOnly;
+function renderSched(){const box=$("#schedBody");if(!box)return;if(schedFor!==state){schedFor=state;if(!schedBusy){schedDraft=null;schedNote=""}}const R=schedRows(),ph=state.child.schedPhoto,ro=state.readOnly;
   box.innerHTML=`${ph?`<div class="schedphoto"><button type="button" class="file" id="schedView" aria-label="Open the schedule picture"><span class="pv">${ph.thumb&&SAFE_IMG.test(ph.thumb)?`<img src="${ph.thumb}" alt="">`:DOC_ICON}</span></button><span class="note">Your schedule picture. Tap to open it.</span></div>`:""}
   ${schedNote?`<p class="schedmsg" role="status">${schedNote}</p>`:""}
   ${ro?"":`<label class="upload" for="schedPhoto"><b>${schedBusy?"Reading the schedule…":ph?"Take a new picture of the schedule":"Take a picture of the schedule"}</b>${schedBusy?"This can take up to a minute on some phones.":"A photo of the paper, or a screenshot from the school's website"}<input type="file" id="schedPhoto" accept="image/*"${schedBusy?" disabled":""}></label>`}

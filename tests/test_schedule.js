@@ -44,6 +44,8 @@ const FIX = path.join(__dirname, "fixtures/schedules");
   ok("portal: student's own name isn't taken as a teacher", !R.some(r => /Jordan|Miles/.test(r.teacher)));
   await page.screenshot({ path: path.join(__dirname, "schedule-portal.png"), fullPage: true });
 
+  await page.evaluate(() => show("me")); await page.waitForTimeout(200);
+  ok("an unsaved list survives the screen redrawing", (await page.evaluate(() => schedRead())).length === 7);
   // fix a row, remove a row, save
   await page.fill('#schedRows [data-sc="room"][data-i="0"]', "B-204");
   await page.click('[data-scdel="6"]');
