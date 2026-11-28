@@ -162,13 +162,15 @@ async function main() {
   }
   if (step("schedule")) { // ---- a phone photo of a paper schedule is read on the phone and fills in classes
     await js(`show("me");return 1`); await sleep(1000);
+    const eng = await js(`const t0=Date.now();try{const b=Uint8Array.from(atob("${SCHED_B64}"),c=>c.charCodeAt(0));const r=await readSchedule(new Blob([b],{type:"image/jpeg"}));return{secs:Math.round((Date.now()-t0)/1000),rows:r.rows.map(x=>x.cls+"/"+x.teacher)}}catch(e){return{secs:Math.round((Date.now()-t0)/1000),err:String(e&&e.message||e).slice(0,300)}}`, 240000);
+    ok("schedule reader works on this phone", eng && eng.rows && eng.rows.length >= 6 && eng.rows.some(r => r === "Math/Mr. Cuevas"), JSON.stringify(eng).slice(0, 300));
     const t0 = Date.now();
-    const put = await js(`const b=Uint8Array.from(atob("${SCHED_B64}"),c=>c.charCodeAt(0));const f=new File([b],"schedule.jpg",{type:"image/jpeg"});const i=document.querySelector("#schedPhoto");if(!i)return "no button";const dt=new DataTransfer();dt.items.add(f);i.files=dt.files;i.dispatchEvent(new Event("change",{bubbles:true}));return "ok"`);
+    const put = await js(`const b=Uint8Array.from(atob("${SCHED_B64}"),c=>c.charCodeAt(0));const f=new File([b],"schedule.jpg",{type:"image/jpeg"});const i=document.querySelector("#schedPhoto");if(!i)return "no button";const dt=new DataTransfer();dt.items.add(f);i.files=dt.files;if(!i.files||!i.files.length)return "this phone won't let a test hand a file to the picker";i.dispatchEvent(new Event("change",{bubbles:true}));return "ok"`);
     const done = await waitFor(`/Found \\d+|Couldn't read/.test((document.querySelector("#schedBody")||{}).innerText||"")`, 240000);
     const secs = Math.round((Date.now() - t0) / 1000); snap("schedule-read");
     const R = await js(`return schedRead()`);
     const list = Array.isArray(R) ? R.map(r => r.cls + "/" + r.teacher).join("; ") : JSON.stringify(R);
-    ok("schedule photo is read on the phone", put === "ok" && done && Array.isArray(R) && R.length >= 6 && R.some(r => /Math/.test(r.cls) && r.teacher === "Mr. Cuevas"), `${secs} s: ${list}`.slice(0, 280) + (put !== "ok" ? " put:" + put : "") + " " + (await js(`return (document.querySelector("#schedBody")||{}).innerText.slice(0,160)`)));
+    ok("schedule photo is read on the phone", put === "ok" && done && Array.isArray(R) && R.length >= 6 && R.some(r => /Math/.test(r.cls) && r.teacher === "Mr. Cuevas"), `${secs} s: ${list}`.slice(0, 280) + (put !== "ok" ? " put:" + put : "") + " " + (await js(`return (window.__kaSchedErr||"")+" | "+(document.querySelector("#schedBody")||{}).innerText.slice(0,160)`)));
     ok("reading the schedule takes under 2 minutes", done && secs < 120, secs + " s");
     await js(`document.querySelector("#schedSave")&&document.querySelector("#schedSave").click();return 1`); await sleep(500);
     ok("classes show up in the forms", /Math/.test(await js(`return schedPicks("classname")`) || ""));
